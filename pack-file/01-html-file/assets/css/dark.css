@@ -1,0 +1,171 @@
+body,
+body.boxed-wrapper .page-wrapper,
+.section-title__tagline::after,
+.services-one__content,
+.services-one__icon,
+.event-one__buttons,
+.event-one__tabs-content-outer {
+    background-color: var(--hotelux-black);
+}
+
+.main-menu__wrapper-inner,
+.services-one__bg-color,
+.pricing-one__single,
+.testimonial-one__single {
+    background-color: #161521;
+}
+
+.main-menu .main-menu__list>li>a,
+.stricky-header .main-menu__list>li>a,
+.main-menu .main-menu__list>li.dropdown>a:after,
+.main-menu__call-number a,
+.main-menu__search,
+.main-menu__cart,
+.section-title__title,
+.about-one__points-list li p,
+.services-one__title a,
+.our-rooms__title a,
+.team-one__title a,
+.event-one__buttons-title,
+.event-one__title,
+.event-one__sub-title,
+.offer-one__title a,
+.testimonial-one__name a,
+.blog-one__title a,
+.blog-one__read-more a,
+.blog-one__read-more a>span {
+    color: var(--hotelux-white);
+}
+
+
+
+.main-menu__call-sub-title,
+.about-one__text,
+.services-one__text,
+.team-one__sub-title,
+.event-one__buttons-time,
+.event-one__text,
+.event-one__text-2,
+.event-one__points li p,
+.testimonial-one__sub-title,
+.testimonial-one__text,
+.blog-one__list li p {
+    color: #bdbdbd;
+}
+
+
+
+
+
+
+
+
+.main-menu .main-menu__list>li.current>a,
+.main-menu .main-menu__list>li:hover>a,
+.stricky-header .main-menu__list>li.current>a,
+.stricky-header .main-menu__list>li:hover>a {
+    color: var(--hotelux-base);
+}
+
+.main-menu .main-menu__list>li.current>a::after,
+.main-menu .main-menu__list>li:hover>a::after,
+.stricky-header .main-menu__list>li.current>a::after,
+.stricky-header .main-menu__list>li:hover>a::after {
+    color: var(--hotelux-base);
+}
+
+.thm-btn:hover {
+    color: var(--hotelux-black);
+}
+
+.thm-btn::before,
+.thm-btn::after {
+    background-color: var(--hotelux-white);
+}
+
+.main-menu__call-icon:hover {
+    background-color: var(--hotelux-white);
+    color: var(--hotelux-black);
+}
+
+.our-rooms__content {
+    border: 2px solid rgba(var(--hotelux-white-rgb), .10);
+}
+
+.our-rooms__details-list li .icon>span {
+    color: var(--hotelux-base);
+}
+
+.our-rooms__details-list li p {
+    color: var(--hotelux-white);
+}
+
+.our-rooms__nav .swiper-button-prev1:hover,
+.our-rooms__nav .swiper-button-next1:hover {
+    color: var(--hotelux-black);
+    background-color: var(--hotelux-white);
+}
+
+
+.event-one__bg-color {
+    background: transparent;
+    background-color: #161521;
+}
+
+.event-one__btn-box .thm-btn {
+    color: var(--hotelux-white);
+    border: 1px solid rgba(var(--hotelux-white-rgb), .10);
+}
+
+.event-one__btn-box .thm-btn:hover {
+    color: var(--hotelux-black);
+}
+
+.counter-one__bg {
+    opacity: 0.10;
+}
+
+.pricing-one__single-bg-shape {
+    opacity: 0.02;
+}
+
+.testimonial-one__single-bg-shape {
+    mix-blend-mode: multiply;
+}
+
+.testimonial-one__quote span {
+    color: rgba(var(--hotelux-base-rgb), 1);
+}
+
+.testimonial-one__nav .swiper-button-prev1:hover,
+.testimonial-one__nav .swiper-button-next1:hover {
+    color: var(--hotelux-black);
+    background-color: var(--hotelux-white);
+}
+
+.blog-one__content {
+    border: 1px solid rgba(var(--hotelux-white-rgb), .10);
+    border-top: 0;
+}
+
+.blog-one__read-more a:hover>span {
+    color: var(--hotelux-base);
+}
+
+.main-menu .mobile-nav__toggler:hover {
+    color: var(--hotelux-white);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* End */

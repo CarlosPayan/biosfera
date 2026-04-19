@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Biosfera Bahía Turquesa</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/custom-animate.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome-all.css" />
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/aos.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+
+<body class="custom-cursor">
+
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+    <div id="preloader">
+        <div class="preloader"><span></span><span></span></div>
+    </div>
+
+    <div class="page-wrapper">
+        <!-- ── HEADER ──────────────────────────────────────────── -->
+        <header class="main-header">
+            <div class="main-menu__top">
+                <div class="main-menu__top-inner">
+                    <ul class="list-unstyled main-menu__contact-list">
+                        <li>
+                            <div class="icon"><i class="icon-call"></i></div>
+                            <div class="text"><p><a href="tel:15502505260">+1 (550) 250 5260</a></p></div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="icon-mail"></i></div>
+                            <div class="text"><p><a href="mailto:hola@biosfera.mx">hola@biosfera.mx</a></p></div>
+                        </li>
+                    </ul>
+                    <p class="main-menu__top-welcome-text">Biosfera Bahía Turquesa — Glamping & Experiencias</p>
+                    <div class="main-menu__top-right">
+                        <div class="main-menu__top-time">
+                            <div class="main-menu__top-time-icon"><span class="fas fa-clock"></span></div>
+                            <p class="main-menu__top-text">Lun - Dom: 09:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="main-menu">
+                <div class="main-menu__wrapper">
+                    <div class="main-menu__wrapper-inner">
+                        <div class="main-menu__left">
+                            <div class="main-menu__logo">
+                                <a href="index.html"><img src="assets/images/resources/logo-1.png" alt="Biosfera"></a>
+                            </div>
+                        </div>
+                        <div class="main-menu__main-menu-box">
+                            <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                            <ul class="main-menu__list">
+                                <li><a href="index.html">Inicio</a></li>
+                                <li class="dropdown">
+                                    <a href="#">Experiencias</a>
+                                    <ul class="shadow-box">
+                                        <li><a href="rooms.html">Glamping</a></li>
+                                        <li><a href="#">Tours</a></li>
+                                        <li><a href="#">Snorkel</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Servicios</a></li>
+                                <li><a href="#">Eventos</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="#">Nosotros</a></li>
+                                <li><a href="#">Expansión</a></li>
+                            </ul>
+                        </div>
+                        <div class="main-menu__right">
+                            <div class="main-menu__btn-box" id="nav-auth-box">
+                                <a href="login.html" class="thm-btn" id="nav-login-btn">Iniciar sesión</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div>
+        </div>
+
+        <!-- ── PAGE HEADER ─────────────────────────────────────── -->
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg);"></div>
+            <div class="container">
+                <div class="page-header__inner">
+                    <h3>Checkout</h3>
+                    <div class="thm-breadcrumb__inner">
+                        <ul class="thm-breadcrumb list-unstyled">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><span class="fas fa-angle-right"></span></li>
+                            <li><a href="rooms.html">Glamping</a></li>
+                            <li><span class="fas fa-angle-right"></span></li>
+                            <li>Checkout</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── CHECKOUT CONTENT ────────────────────────────────── -->
+        <section style="padding: 80px 0; background: #f9f7f4; min-height: 60vh;">
+            <div class="container">
+
+                <!-- Sin datos en localStorage -->
+                <div id="co-no-data" style="display:none; text-align:center; padding: 60px 0;">
+                    <i class="fa fa-calendar-times" style="font-size:48px; color:#ccc; display:block; margin-bottom:16px;"></i>
+                    <h4 style="color:#666;">No hay una reserva seleccionada</h4>
+                    <p style="color:#999; margin-bottom:24px;">Regresa al catálogo y elige tus fechas antes de continuar.</p>
+                    <a href="rooms.html" class="thm-btn">Ver Glamping</a>
+                </div>
+
+                <!-- Confirmación post-reserva -->
+                <div id="co-confirmed" style="display:none; text-align:center; padding: 60px 20px;">
+                    <div style="background:#fff; border-radius:12px; max-width:520px; margin:0 auto; padding:40px 36px; box-shadow:0 4px 24px rgba(0,0,0,.08);">
+                        <i class="fa fa-check-circle" style="font-size:56px; color:#4caf50; display:block; margin-bottom:18px;"></i>
+                        <h3 style="color:#1a1a2e; margin-bottom:10px;">¡Reserva recibida!</h3>
+                        <p style="color:#666; margin-bottom:20px;">Tu solicitud ha sido registrada con el estatus <strong>PENDIENTE</strong>. Te confirmaremos una vez procesado el pago.</p>
+                        <div style="background:#f9f7f4; border-radius:8px; padding:16px 20px; text-align:left; margin-bottom:24px;">
+                            <p style="margin:0 0 6px; font-size:12px; color:#999; text-transform:uppercase;">Número de reserva</p>
+                            <p id="co-reservation-id" style="font-size:18px; font-weight:700; color:#b8976a; margin:0; word-break:break-all;"></p>
+                        </div>
+                        <a href="index.html" class="thm-btn">Volver al Inicio</a>
+                    </div>
+                </div>
+
+                <!-- Formulario principal -->
+                <div id="co-main" style="display:none;">
+                    <div class="row gx-5">
+
+                        <!-- Columna izquierda: formulario de huésped -->
+                        <div class="col-xl-7 col-lg-7">
+                            <div style="background:#fff; border-radius:12px; padding:36px 32px; box-shadow:0 4px 24px rgba(0,0,0,.07);">
+
+                                <!-- Banner: no hay sesión -->
+                                <div id="co-guest-banner" style="display:none; background:#e8f4fd; border:1px solid #b3d7f5;
+                                     border-radius:8px; padding:14px 16px; margin-bottom:24px; font-size:14px; color:#1565c0;">
+                                    <i class="fa fa-user-circle" style="margin-right:6px;"></i>
+                                    ¿Ya tienes cuenta?
+                                    <a href="login.html" style="color:#1565c0; font-weight:700; text-decoration:underline;">Inicia sesión</a>
+                                    para autocompletar tus datos. Puedes continuar sin cuenta si lo prefieres.
+                                </div>
+
+                                <!-- Banner: sesión activa -->
+                                <div id="co-logged-banner" style="display:none; background:#e8f5e9; border:1px solid #a5d6a7;
+                                     border-radius:8px; padding:14px 16px; margin-bottom:24px; font-size:14px; color:#2e7d32;">
+                                    <i class="fa fa-check-circle" style="margin-right:6px;"></i>
+                                    Reservando como <strong id="co-logged-name"></strong> —
+                                    <a href="#" id="co-logout-link" style="color:#2e7d32; font-weight:700; text-decoration:underline;">Cerrar sesión</a>
+                                </div>
+
+                                <h4 style="color:#1a1a2e; font-weight:700; margin-bottom:6px;">Datos del huésped</h4>
+                                <p id="co-form-subtitle" style="color:#999; font-size:14px; margin-bottom:28px;">Completa la información para confirmar tu reserva.</p>
+
+                                <form id="co-form" novalidate>
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label class="co-label">
+                                                Nombre completo <span style="color:#e53935;">*</span>
+                                                <span id="co-name-tag" style="display:none; font-size:11px; color:#4caf50; font-weight:400; margin-left:6px;">
+                                                    <i class="fa fa-lock"></i> de tu cuenta
+                                                </span>
+                                            </label>
+                                            <input type="text" id="co-name" class="co-input" placeholder="Ej. Juan Pérez" required>
+                                            <div class="co-err" id="err-name"></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="co-label">
+                                                Correo electrónico <span style="color:#e53935;">*</span>
+                                                <span id="co-email-tag" style="display:none; font-size:11px; color:#4caf50; font-weight:400; margin-left:6px;">
+                                                    <i class="fa fa-lock"></i> de tu cuenta
+                                                </span>
+                                            </label>
+                                            <input type="email" id="co-email" class="co-input" placeholder="correo@ejemplo.com" required>
+                                            <div class="co-err" id="err-email"></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="co-label">Teléfono <span style="color:#e53935;">*</span></label>
+                                            <input type="tel" id="co-phone" class="co-input" placeholder="+52 55 0000 0000" required>
+                                            <div class="co-err" id="err-phone"></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="co-label">Número de huéspedes <span style="color:#e53935;">*</span></label>
+                                            <input type="number" id="co-guests" class="co-input" min="1" value="1" required>
+                                            <div class="co-err" id="err-guests"></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="co-label">Notas adicionales</label>
+                                            <textarea id="co-notes" class="co-input" rows="3" placeholder="Alergias, peticiones especiales, hora de llegada estimada..."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Error general -->
+                                    <div id="co-error-box" style="display:none; background:#ffebee; border:1px solid #ffcdd2; border-radius:6px; padding:12px 16px; margin-top:20px; color:#c62828; font-size:14px;"></div>
+
+                                    <button type="submit" class="thm-btn" id="co-submit-btn" style="margin-top:28px; width:100%; justify-content:center; display:flex; align-items:center; gap:8px;">
+                                        <span id="co-submit-text">Confirmar Reserva</span>
+                                        <span id="co-spinner" style="display:none;"><i class="fa fa-spinner fa-spin"></i></span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Columna derecha: resumen -->
+                        <div class="col-xl-5 col-lg-5 mt-4 mt-lg-0">
+                            <div style="background:#fff; border-radius:12px; padding:32px 28px; box-shadow:0 4px 24px rgba(0,0,0,.07); position:sticky; top:100px;">
+                                <h5 style="color:#1a1a2e; font-weight:700; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid #eee;">
+                                    <i class="fa fa-receipt" style="color:#b8976a; margin-right:8px;"></i>Resumen de tu reserva
+                                </h5>
+
+                                <!-- Nombre experiencia -->
+                                <p id="co-exp-name" style="font-size:18px; font-weight:700; color:#1a1a2e; margin-bottom:18px;"></p>
+
+                                <!-- Fechas -->
+                                <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:18px;">
+                                    <div>
+                                        <p style="font-size:11px; color:#999; text-transform:uppercase; margin-bottom:3px;">Llegada</p>
+                                        <p id="co-checkin-lbl" style="font-weight:700; color:#1a1a2e; margin:0;"></p>
+                                    </div>
+                                    <div>
+                                        <p style="font-size:11px; color:#999; text-transform:uppercase; margin-bottom:3px;">Salida</p>
+                                        <p id="co-checkout-lbl" style="font-weight:700; color:#1a1a2e; margin:0;"></p>
+                                    </div>
+                                </div>
+
+                                <!-- Desglose precio -->
+                                <div style="background:#f9f7f4; border-radius:8px; padding:16px 18px; margin-bottom:18px;">
+                                    <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:14px; color:#555;">
+                                        <span id="co-price-row"></span>
+                                        <span id="co-subtotal-lbl"></span>
+                                    </div>
+                                    <!-- Fila de unidades (solo visible si > 1) -->
+                                    <div id="co-units-row" style="display:none; justify-content:space-between; margin-bottom:8px; font-size:13px; color:#b8976a; font-weight:600;">
+                                        <span><i class="fa fa-tents" style="margin-right:4px;"></i>Grupo</span>
+                                        <span id="co-units-lbl"></span>
+                                    </div>
+                                    <div style="border-top:1px solid #ddd; padding-top:10px; display:flex; justify-content:space-between; align-items:center;">
+                                        <span style="font-weight:700; color:#1a1a2e;">Total</span>
+                                        <span id="co-total-lbl" style="font-size:22px; font-weight:800; color:#b8976a;"></span>
+                                    </div>
+                                </div>
+
+                                <p style="font-size:12px; color:#aaa; text-align:center; margin:0;">
+                                    <i class="fa fa-lock" style="margin-right:4px;"></i>
+                                    Tu reserva quedará en estado <strong>PENDIENTE</strong> hasta confirmar el pago.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ── FOOTER ───────────────────────────────────────────── -->
+        <footer class="site-footer">
+            <div class="site-footer__shape-bg" style="background-image: url(assets/images/shapes/site-footer-bg-shape.png);"></div>
+            <div class="container">
+                <div class="site-footer__top">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="footer-widget__column footer-widget__newsletter">
+                                <h3 class="footer-widget__newsletter-title">Suscríbete para recibir<br>ofertas exclusivas</h3>
+                                <form class="footer-widget__newsletter-form">
+                                    <div class="footer-widget__newsletter-form-input-box">
+                                        <input type="email" placeholder="Tu correo electrónico" name="email">
+                                    </div>
+                                    <button type="submit" class="footer-widget__newsletter-btn thm-btn">Suscribirse</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="site-footer__bottom">
+                <div class="container">
+                    <div class="site-footer__bottom-inner">
+                        <p class="site-footer__bottom-text">© 2025 Biosfera Bahía Turquesa. Todos los derechos reservados.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div><!-- /.page-wrapper -->
+
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+            <div class="logo-box">
+                <a href="index.html"><img src="assets/images/resources/logo-3.png" width="140" alt=""></a>
+            </div>
+            <div class="mobile-nav__container"></div>
+        </div>
+    </div>
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+        <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
+        <span class="scroll-to-top__text">Go Back Top</span>
+    </a>
+
+    <script src="assets/js/jquery-latest.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Ocultar preloader inmediatamente — esta página no usa los plugins del template -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var pre = document.getElementById('preloader');
+            if (pre) pre.style.display = 'none';
+        });
+    </script>
+
+    <!-- ── AUTH NAVBAR ──────────────────────────────────────── -->
+    <script>
+    (function () {
+        const token   = localStorage.getItem('biosfera_token');
+        const userRaw = localStorage.getItem('biosfera_user');
+        const authBox = document.getElementById('nav-auth-box');
+        if (!authBox) return;
+
+        if (token && userRaw) {
+            const user = JSON.parse(userRaw);
+            authBox.innerHTML = `
+                <div class="biosfera-user-menu">
+                    <a href="#" class="thm-btn biosfera-user-toggle">
+                        <i class="fa fa-user-circle" style="margin-right:6px;"></i>${user.name}
+                    </a>
+                    <ul class="biosfera-user-dropdown">
+                        <li><a href="mis-reservas.html"><span class="fa fa-calendar-check" style="margin-right:6px;color:#b8976a;"></span>Mis reservas</a></li>
+                        <li><a href="#" id="nav-logout-btn"><span class="fa fa-sign-out" style="margin-right:6px;"></span>Cerrar sesión</a></li>
+                    </ul>
+                </div>`;
+
+            document.getElementById('nav-logout-btn').addEventListener('click', function (e) {
+                e.preventDefault();
+                localStorage.removeItem('biosfera_token');
+                localStorage.removeItem('biosfera_user');
+                window.location.reload();
+            });
+            authBox.querySelector('.biosfera-user-toggle').addEventListener('click', function (e) {
+                e.preventDefault();
+                authBox.querySelector('.biosfera-user-dropdown').classList.toggle('open');
+            });
+            document.addEventListener('click', function (e) {
+                if (!authBox.contains(e.target)) {
+                    const dd = authBox.querySelector('.biosfera-user-dropdown');
+                    if (dd) dd.classList.remove('open');
+                }
+            });
+        } else {
+            authBox.innerHTML = `<a href="login.html" class="thm-btn">Iniciar sesión</a>`;
+        }
+    })();
+    </script>
+
+    <!-- ── CHECKOUT LOGIC ────────────────────────────────────── -->
+    <script>
+    (function () {
+        const API = 'http://localhost:8080';
+        const MONTHS = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+                        'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+        const noData    = document.getElementById('co-no-data');
+        const main      = document.getElementById('co-main');
+        const confirmed = document.getElementById('co-confirmed');
+
+        // ── Leer datos del localStorage ──────────────────────
+        const raw = localStorage.getItem('biosfera_reserva');
+        if (!raw) {
+            noData.style.display = 'block';
+            return;
+        }
+
+        let reserva;
+        try { reserva = JSON.parse(raw); } catch (e) {
+            noData.style.display = 'block';
+            return;
+        }
+
+        const { experienceId, experienceName, checkIn, checkOut, nights,
+                guests, units, pricePerNight, totalPrice, capacity } = reserva;
+        if (!experienceId || !checkIn || !checkOut) {
+            noData.style.display = 'block';
+            return;
+        }
+
+        const unitsCount = units || 1;
+
+        // ── Poblar resumen ───────────────────────────────────
+        function fmtDate(s) {
+            const [y, m, d] = s.split('-');
+            return `${parseInt(d)} ${MONTHS[parseInt(m) - 1]} ${y}`;
+        }
+        function fmt(n) { return Number(n).toLocaleString('es-MX', { minimumFractionDigits: 2 }); }
+
+        document.getElementById('co-exp-name').textContent    = experienceName || 'Glamping';
+        document.getElementById('co-checkin-lbl').textContent  = fmtDate(checkIn);
+        document.getElementById('co-checkout-lbl').textContent = fmtDate(checkOut);
+
+        // Desglose de precio con unidades
+        if (unitsCount > 1) {
+            document.getElementById('co-price-row').textContent =
+                `$${fmt(pricePerNight)} × ${nights} noche${nights !== 1 ? 's' : ''} × ${unitsCount} unidades`;
+        } else {
+            document.getElementById('co-price-row').textContent =
+                `$${fmt(pricePerNight)} × ${nights} noche${nights !== 1 ? 's' : ''}`;
+        }
+        document.getElementById('co-subtotal-lbl').textContent = `$${fmt(totalPrice)}`;
+        document.getElementById('co-total-lbl').textContent    = `$${fmt(totalPrice)}`;
+
+        // Mostrar fila de unidades si aplica
+        const unitsRowEl = document.getElementById('co-units-row');
+        if (unitsCount > 1 && unitsRowEl) {
+            unitsRowEl.style.display = 'flex';
+            document.getElementById('co-units-lbl').textContent =
+                `${unitsCount} unidades · ${guests || guestsCount} personas (${capacity} cap/unidad)`;
+        }
+
+        // Pre-llenar número de huéspedes y ajustar límite
+        const guestsInput = document.getElementById('co-guests');
+        if (guests)   guestsInput.value = guests;
+        if (capacity) guestsInput.max   = capacity * unitsCount;
+
+        // ── Sesión del usuario ───────────────────────────────
+        const token   = localStorage.getItem('biosfera_token');
+        const userRaw = localStorage.getItem('biosfera_user');
+        const loggedUser = (token && userRaw) ? JSON.parse(userRaw) : null;
+
+        if (loggedUser) {
+            // Hay sesión: pre-llenar nombre y email, marcarlos de solo lectura
+            document.getElementById('co-name').value    = loggedUser.name  || '';
+            document.getElementById('co-email').value   = loggedUser.email || '';
+            document.getElementById('co-name').readOnly  = true;
+            document.getElementById('co-email').readOnly = true;
+            document.getElementById('co-name').style.background  = '#f0faf0';
+            document.getElementById('co-email').style.background = '#f0faf0';
+            document.getElementById('co-name-tag').style.display  = 'inline';
+            document.getElementById('co-email-tag').style.display = 'inline';
+
+            // Banner verde
+            document.getElementById('co-logged-name').textContent = loggedUser.name || loggedUser.email;
+            document.getElementById('co-logged-banner').style.display = 'block';
+            document.getElementById('co-form-subtitle').textContent =
+                'Confirma el teléfono y el número de personas para completar tu reserva.';
+
+            // Cerrar sesión desde checkout
+            document.getElementById('co-logout-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('biosfera_token');
+                localStorage.removeItem('biosfera_user');
+                window.location.reload();
+            });
+        } else {
+            // Sin sesión: banner azul invitando a iniciar sesión
+            document.getElementById('co-guest-banner').style.display = 'block';
+        }
+
+        // ── Mostrar formulario ───────────────────────────────
+        main.style.display = 'block';
+
+        // ── Validación ───────────────────────────────────────
+        function setErr(id, msg) {
+            const el = document.getElementById(id);
+            el.textContent = msg;
+            el.style.display = msg ? 'block' : 'none';
+        }
+
+        function validate() {
+            let ok = true;
+            const nameEl  = document.getElementById('co-name');
+            const emailEl = document.getElementById('co-email');
+            const name    = nameEl.value.trim();
+            const email   = emailEl.value.trim();
+            const phone   = document.getElementById('co-phone').value.trim();
+            const guests  = parseInt(document.getElementById('co-guests').value);
+
+            // Si vienen de la sesión (readOnly) no los validamos — ya son confiables
+            if (!nameEl.readOnly) {
+                if (!name) { setErr('err-name', 'El nombre es obligatorio.'); ok = false; }
+                else setErr('err-name', '');
+            } else setErr('err-name', '');
+
+            if (!emailEl.readOnly) {
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    setErr('err-email', 'Ingresa un correo válido.'); ok = false;
+                } else setErr('err-email', '');
+            } else setErr('err-email', '');
+
+            if (!phone) { setErr('err-phone', 'El teléfono es obligatorio.'); ok = false; }
+            else setErr('err-phone', '');
+
+            if (!guests || guests < 1) {
+                setErr('err-guests', 'Mínimo 1 huésped.'); ok = false;
+            } else if (capacity && guests > capacity) {
+                setErr('err-guests', `Máximo ${capacity} huéspedes para esta experiencia.`); ok = false;
+            } else setErr('err-guests', '');
+
+            return ok;
+        }
+
+        // ── Submit → crear reserva → crear preferencia MP → redirigir ────────
+        document.getElementById('co-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            if (!validate()) return;
+
+            const submitBtn  = document.getElementById('co-submit-btn');
+            const submitText = document.getElementById('co-submit-text');
+            const spinner    = document.getElementById('co-spinner');
+            const errorBox   = document.getElementById('co-error-box');
+
+            submitBtn.disabled     = true;
+            submitText.textContent = 'Creando reserva...';
+            spinner.style.display  = 'inline';
+            errorBox.style.display = 'none';
+
+            // Obtener userId si hay sesión
+            const userRaw2  = localStorage.getItem('biosfera_user');
+            const loggedUser2 = userRaw2 ? JSON.parse(userRaw2) : null;
+
+            const payload = {
+                experienceId: experienceId,
+                userId:       loggedUser2?.userId || null,
+                guestName:    document.getElementById('co-name').value.trim(),
+                guestEmail:   document.getElementById('co-email').value.trim(),
+                guestPhone:   document.getElementById('co-phone').value.trim(),
+                checkIn,
+                checkOut,
+                guests:       parseInt(document.getElementById('co-guests').value),
+                units:        unitsCount,
+                notes:        document.getElementById('co-notes').value.trim() || null
+            };
+
+            try {
+                // 1. Crear reserva (PENDING, sin decrementar slots aún)
+                const resReservation = await fetch(`${API}/reservations`, {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body:    JSON.stringify(payload)
+                });
+                if (!resReservation.ok) {
+                    const errText = await resReservation.text();
+                    throw new Error(errText || `Error ${resReservation.status}`);
+                }
+                const reservation = await resReservation.json();
+
+                // Guardar reservationId en localStorage (para la página de resultado)
+                localStorage.setItem('biosfera_last_reservation_id', reservation.id);
+                localStorage.removeItem('biosfera_reserva');
+
+                submitText.textContent = 'Redirigiendo a Mercado Pago...';
+
+                // 2. Crear preferencia de pago en MP
+                const resPayment = await fetch(`${API}/reservations/${reservation.id}/payment`, {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                if (!resPayment.ok) {
+                    const errText = await resPayment.text();
+                    throw new Error(errText || `Error al iniciar el pago`);
+                }
+                const { initPoint } = await resPayment.json();
+
+                // 3. Redirigir a Mercado Pago
+                window.location.href = initPoint;
+
+            } catch (err) {
+                errorBox.textContent   = err.message || 'Ocurrió un error. Inténtalo de nuevo.';
+                errorBox.style.display = 'block';
+                submitBtn.disabled     = false;
+                submitText.textContent = 'Confirmar Reserva';
+                spinner.style.display  = 'none';
+            }
+        });
+
+    })();
+    </script>
+
+    <!-- ── ESTILOS ───────────────────────────────────────────── -->
+    <style>
+        .co-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #444;
+            margin-bottom: 6px;
+        }
+        .co-input {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 14px;
+            color: #333;
+            background: #f9f9f9;
+            transition: border-color .2s;
+            outline: none;
+            resize: vertical;
+        }
+        .co-input:focus { border-color: #b8976a; background: #fff; }
+        .co-err {
+            display: none;
+            font-size: 12px;
+            color: #e53935;
+            margin-top: 4px;
+        }
+
+        /* Auth dropdown */
+        .biosfera-user-menu { position: relative; display: inline-block; }
+        .biosfera-user-dropdown {
+            display: none; position: absolute; right: 0; top: calc(100% + 8px);
+            background: #fff; border: 1px solid #eee; border-radius: 8px;
+            min-width: 180px; list-style: none; padding: 8px 0; margin: 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,.12); z-index: 9999;
+        }
+        .biosfera-user-dropdown.open { display: block; }
+        .biosfera-user-dropdown li a {
+            display: block; padding: 10px 16px; color: #333;
+            font-size: 14px; text-decoration: none; transition: background .15s;
+        }
+        .biosfera-user-dropdown li a:hover { background: #f5f5f5; color: #b8976a; }
+    </style>
+
+</body>
+</html>

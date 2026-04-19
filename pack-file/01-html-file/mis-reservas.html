@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis Reservas | Biosfera Bahía Turquesa</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/custom-animate.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome-all.css" />
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/aos.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+
+<body class="custom-cursor">
+
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+    <div id="preloader">
+        <div class="preloader"><span></span><span></span></div>
+    </div>
+
+    <div class="page-wrapper">
+
+        <!-- ── HEADER ─────────────────────────────────────────── -->
+        <header class="main-header">
+            <div class="main-menu__top">
+                <div class="main-menu__top-inner">
+                    <ul class="list-unstyled main-menu__contact-list">
+                        <li>
+                            <div class="icon"><i class="icon-call"></i></div>
+                            <div class="text"><p><a href="tel:15502505260">+1 (550) 250 5260</a></p></div>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="icon-mail"></i></div>
+                            <div class="text"><p><a href="mailto:hola@biosfera.mx">hola@biosfera.mx</a></p></div>
+                        </li>
+                    </ul>
+                    <p class="main-menu__top-welcome-text">Biosfera Bahía Turquesa — Glamping & Experiencias</p>
+                    <div class="main-menu__top-right">
+                        <div class="main-menu__top-time">
+                            <div class="main-menu__top-time-icon"><span class="fas fa-clock"></span></div>
+                            <p class="main-menu__top-text">Lun - Dom: 09:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="main-menu">
+                <div class="main-menu__wrapper">
+                    <div class="main-menu__wrapper-inner">
+                        <div class="main-menu__left">
+                            <div class="main-menu__logo">
+                                <a href="index.html"><img src="assets/images/resources/logo-1.png" alt="Biosfera"></a>
+                            </div>
+                        </div>
+                        <div class="main-menu__main-menu-box">
+                            <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                            <ul class="main-menu__list">
+                                <li><a href="index.html">Inicio</a></li>
+                                <li class="dropdown">
+                                    <a href="#">Experiencias</a>
+                                    <ul class="shadow-box">
+                                        <li><a href="rooms.html">Glamping</a></li>
+                                        <li><a href="#">Tours</a></li>
+                                        <li><a href="#">Snorkel</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Servicios</a></li>
+                                <li><a href="#">Eventos</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="#">Nosotros</a></li>
+                                <li><a href="#">Expansión</a></li>
+                            </ul>
+                        </div>
+                        <div class="main-menu__right">
+                            <div class="main-menu__btn-box" id="nav-auth-box">
+                                <a href="login.html" class="thm-btn">Iniciar sesión</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div>
+        </div>
+
+        <!-- ── PAGE HEADER ────────────────────────────────────── -->
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg);"></div>
+            <div class="container">
+                <div class="page-header__inner">
+                    <h3>Mis Reservas</h3>
+                    <div class="thm-breadcrumb__inner">
+                        <ul class="thm-breadcrumb list-unstyled">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><span class="fas fa-angle-right"></span></li>
+                            <li>Mis Reservas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── CONTENIDO ──────────────────────────────────────── -->
+        <section style="padding: 80px 0; background: #f9f7f4; min-height: 60vh;">
+            <div class="container">
+
+                <!-- Sin sesión -->
+                <div id="mr-no-auth" style="display:none; text-align:center; padding:60px 20px;">
+                    <i class="fa fa-lock" style="font-size:48px; color:#ccc; display:block; margin-bottom:16px;"></i>
+                    <h4 style="color:#555;">Inicia sesión para ver tus reservas</h4>
+                    <p style="color:#999; margin-bottom:24px;">Necesitas una cuenta para acceder a tu historial de reservaciones.</p>
+                    <a href="login.html" class="thm-btn">Iniciar sesión</a>
+                </div>
+
+                <!-- Cargando -->
+                <div id="mr-loading" style="display:none; text-align:center; padding:60px 20px;">
+                    <div style="display:inline-block; width:48px; height:48px; border:4px solid #eee;
+                                border-top-color:#b8976a; border-radius:50%; animation:spin .8s linear infinite; margin-bottom:16px;"></div>
+                    <p style="color:#999;">Cargando tus reservas…</p>
+                </div>
+
+                <!-- Sin reservas -->
+                <div id="mr-empty" style="display:none; text-align:center; padding:60px 20px;">
+                    <i class="fa fa-calendar-times" style="font-size:48px; color:#ccc; display:block; margin-bottom:16px;"></i>
+                    <h4 style="color:#555;">Aún no tienes reservas</h4>
+                    <p style="color:#999; margin-bottom:24px;">Explora nuestros glampings y reserva tu primera experiencia.</p>
+                    <a href="rooms.html" class="thm-btn">Ver Glamping</a>
+                </div>
+
+                <!-- Lista de reservas -->
+                <div id="mr-list" style="display:none;">
+                    <div class="row mb-4 align-items-center">
+                        <div class="col">
+                            <h4 style="color:#1a1a2e; font-weight:700; margin:0;">
+                                <span id="mr-greeting"></span>
+                            </h4>
+                            <p style="color:#999; font-size:14px; margin:4px 0 0;">
+                                <span id="mr-count"></span>
+                            </p>
+                        </div>
+                        <div class="col-auto">
+                            <a href="rooms.html" class="thm-btn" style="font-size:13px; padding:10px 20px;">
+                                <i class="fa fa-plus" style="margin-right:6px;"></i>Nueva reserva
+                            </a>
+                        </div>
+                    </div>
+                    <div id="mr-cards"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ── FOOTER ──────────────────────────────────────────── -->
+        <footer class="main-footer">
+            <div class="main-footer__top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="footer-widget__column footer-widget__about">
+                                <div class="footer-widget__logo">
+                                    <a href="index.html"><img src="assets/images/resources/footer-logo.png" alt="Biosfera"></a>
+                                </div>
+                                <p class="footer-widget__about-text">Glamping & Experiencias únicas en la Bahía Turquesa.</p>
+                                <div class="footer-widget__social">
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="footer-widget__column footer-widget__links">
+                                <h3 class="footer-widget__title">Navegación</h3>
+                                <ul class="footer-widget__links-list list-unstyled clearfix">
+                                    <li><a href="index.html">Inicio</a></li>
+                                    <li><a href="rooms.html">Glamping</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6">
+                            <div class="footer-widget__column footer-widget__contact">
+                                <h3 class="footer-widget__title">Contacto</h3>
+                                <ul class="footer-widget__contact-list list-unstyled">
+                                    <li>
+                                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                                        <div class="text"><p>Bahía Turquesa, México</p></div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><i class="fas fa-phone"></i></div>
+                                        <div class="text"><p><a href="tel:15502505260">+1 (550) 250 5260</a></p></div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                                        <div class="text"><p><a href="mailto:hola@biosfera.mx">hola@biosfera.mx</a></p></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-footer__bottom">
+                <div class="container">
+                    <div class="main-footer__bottom-inner">
+                        <p class="main-footer__copyright">
+                            &copy; <script>document.write(new Date().getFullYear());</script> Biosfera Bahía Turquesa. Todos los derechos reservados.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div><!-- /.page-wrapper -->
+
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Quitar preloader -->
+    <script>document.getElementById('preloader').style.display = 'none';</script>
+
+    <!-- ── AUTH NAVBAR ─────────────────────────────────────────── -->
+    <script>
+    (function () {
+        const token   = localStorage.getItem('biosfera_token');
+        const userRaw = localStorage.getItem('biosfera_user');
+        const authBox = document.getElementById('nav-auth-box');
+        if (!authBox) return;
+
+        if (token && userRaw) {
+            try {
+                const u    = JSON.parse(userRaw);
+                const name = (u.name || u.email || 'Mi cuenta').split(' ')[0];
+                authBox.innerHTML = `
+                    <div class="biosfera-user-menu">
+                        <button class="thm-btn" id="user-menu-btn" style="cursor:pointer;">
+                            <i class="fa fa-user" style="margin-right:6px;"></i>${name}
+                            <i class="fa fa-caret-down" style="margin-left:6px;font-size:11px;"></i>
+                        </button>
+                        <ul class="biosfera-user-dropdown" id="user-dropdown">
+                            <li><a href="mis-reservas.html"><i class="fa fa-calendar-check" style="margin-right:8px;color:#b8976a;"></i>Mis reservas</a></li>
+                            <li><a href="#" id="nav-logout"><i class="fa fa-sign-out-alt" style="margin-right:8px;color:#b8976a;"></i>Cerrar sesión</a></li>
+                        </ul>
+                    </div>`;
+
+                document.getElementById('user-menu-btn').addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    document.getElementById('user-dropdown').classList.toggle('open');
+                });
+                document.addEventListener('click', function () {
+                    const dd = document.getElementById('user-dropdown');
+                    if (dd) dd.classList.remove('open');
+                });
+                document.getElementById('nav-logout').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    localStorage.removeItem('biosfera_token');
+                    localStorage.removeItem('biosfera_user');
+                    window.location.href = 'index.html';
+                });
+            } catch (_) {}
+        } else {
+            authBox.innerHTML = `<a href="login.html" class="thm-btn">Iniciar sesión</a>`;
+        }
+    })();
+    </script>
+
+    <!-- ── MIS RESERVAS LOGIC ──────────────────────────────────── -->
+    <script>
+    (function () {
+        const API    = 'http://localhost:8080';
+        const MONTHS = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+                        'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+        function fmtDate(s) {
+            if (!s) return '';
+            const [y, m, d] = s.split('-');
+            return `${parseInt(d)} ${MONTHS[parseInt(m) - 1]} ${y}`;
+        }
+        function fmt(n) {
+            return Number(n).toLocaleString('es-MX', { minimumFractionDigits: 2 });
+        }
+
+        const token   = localStorage.getItem('biosfera_token');
+        const userRaw = localStorage.getItem('biosfera_user');
+
+        if (!token || !userRaw) {
+            document.getElementById('mr-no-auth').style.display = 'block';
+            return;
+        }
+
+        let user;
+        try { user = JSON.parse(userRaw); } catch (_) {
+            document.getElementById('mr-no-auth').style.display = 'block';
+            return;
+        }
+
+        if (!user.userId) {
+            document.getElementById('mr-no-auth').style.display = 'block';
+            return;
+        }
+
+        // ── Cargar reservas ──────────────────────────────────────
+        document.getElementById('mr-loading').style.display = 'block';
+
+        fetch(`${API}/reservations?userId=${encodeURIComponent(user.userId)}`)
+            .then(r => r.json())
+            .then(reservas => {
+                document.getElementById('mr-loading').style.display = 'none';
+
+                if (!reservas || reservas.length === 0) {
+                    document.getElementById('mr-empty').style.display = 'block';
+                    return;
+                }
+
+                // Ordenar: más recientes primero
+                reservas.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+                const firstName = (user.name || user.email || '').split(' ')[0];
+                document.getElementById('mr-greeting').textContent =
+                    firstName ? `Hola, ${firstName}` : 'Tus reservas';
+                document.getElementById('mr-count').textContent =
+                    `${reservas.length} reserva${reservas.length !== 1 ? 's' : ''} encontrada${reservas.length !== 1 ? 's' : ''}`;
+
+                const container = document.getElementById('mr-cards');
+                reservas.forEach(r => {
+                    container.appendChild(buildCard(r));
+                });
+
+                document.getElementById('mr-list').style.display = 'block';
+            })
+            .catch(() => {
+                document.getElementById('mr-loading').style.display = 'none';
+                document.getElementById('mr-empty').style.display = 'block';
+            });
+
+        // ── Construir tarjeta de reserva ─────────────────────────
+        function buildCard(r) {
+            const statusInfo = getStatusInfo(r.status);
+            const expName    = r.experience ? r.experience.name : 'Experiencia';
+            const checkIn    = fmtDate(r.checkIn);
+            const checkOut   = fmtDate(r.checkOut);
+            const nights     = r.nights || '—';
+            const guests     = r.guests || '—';
+            const units      = r.units  || 1;
+            const total      = fmt(r.totalPrice);
+            const shortId    = r.id ? r.id.split('-')[0].toUpperCase() : '—';
+
+            const card = document.createElement('div');
+            card.className = 'mr-card';
+            card.innerHTML = `
+                <div class="mr-card__header">
+                    <div class="mr-card__header-left">
+                        <span class="mr-badge mr-badge--${statusInfo.cls}">${statusInfo.label}</span>
+                        <span class="mr-card__id">#${shortId}</span>
+                    </div>
+                    <div class="mr-card__price">$${total} <span style="font-size:12px;color:#999;font-weight:400;">MXN</span></div>
+                </div>
+
+                <div class="mr-card__body">
+                    <div class="mr-card__exp">
+                        <i class="fa fa-campground" style="color:#b8976a; margin-right:8px;"></i>
+                        <strong>${expName}</strong>
+                    </div>
+
+                    <div class="mr-card__details">
+                        <div class="mr-detail">
+                            <i class="fa fa-calendar-alt"></i>
+                            <div>
+                                <span class="mr-detail__label">Check-in</span>
+                                <span class="mr-detail__val">${checkIn}</span>
+                            </div>
+                        </div>
+                        <div class="mr-detail">
+                            <i class="fa fa-calendar-check"></i>
+                            <div>
+                                <span class="mr-detail__label">Check-out</span>
+                                <span class="mr-detail__val">${checkOut}</span>
+                            </div>
+                        </div>
+                        <div class="mr-detail">
+                            <i class="fa fa-moon"></i>
+                            <div>
+                                <span class="mr-detail__label">Noches</span>
+                                <span class="mr-detail__val">${nights}</span>
+                            </div>
+                        </div>
+                        <div class="mr-detail">
+                            <i class="fa fa-users"></i>
+                            <div>
+                                <span class="mr-detail__label">Personas</span>
+                                <span class="mr-detail__val">${guests}${units > 1 ? ` <span style="color:#b8976a;font-size:11px;">(${units} unidades)</span>` : ''}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    ${r.mercadopagoPaymentId ? `
+                    <div class="mr-card__payment-id">
+                        <i class="fa fa-check-circle" style="color:#4caf50; margin-right:6px;"></i>
+                        Pago MP: <span style="font-family:monospace;">${r.mercadopagoPaymentId}</span>
+                    </div>` : ''}
+
+                    ${r.status === 'PENDING' ? `
+                    <div class="mr-card__pending-note">
+                        <i class="fa fa-info-circle" style="color:#f9a825; margin-right:6px;"></i>
+                        Tu reserva está pendiente de confirmación de pago.
+                        <a href="rooms.html" style="color:#b8976a; font-weight:600; margin-left:4px;">Volver a reservar</a>
+                    </div>` : ''}
+                </div>`;
+
+            return card;
+        }
+
+        function getStatusInfo(status) {
+            switch (status) {
+                case 'CONFIRMED': return { label: 'Confirmada',  cls: 'confirmed' };
+                case 'PENDING':   return { label: 'Pendiente',   cls: 'pending'   };
+                case 'CANCELLED': return { label: 'Cancelada',   cls: 'cancelled' };
+                default:          return { label: status || '—', cls: 'pending'   };
+            }
+        }
+
+    })();
+    </script>
+
+    <!-- ── ESTILOS ─────────────────────────────────────────────── -->
+    <style>
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Tarjeta de reserva */
+        .mr-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,.07);
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: box-shadow .2s;
+        }
+        .mr-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+
+        .mr-card__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            border-bottom: 1px solid #f0ede8;
+            background: #fdfcfa;
+        }
+        .mr-card__header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .mr-card__id {
+            font-size: 12px;
+            color: #aaa;
+            font-family: monospace;
+        }
+        .mr-card__price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #b8976a;
+        }
+
+        /* Badge de estado */
+        .mr-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+        }
+        .mr-badge--confirmed { background: #e8f5e9; color: #2e7d32; }
+        .mr-badge--pending   { background: #fff8e1; color: #f57f17; }
+        .mr-badge--cancelled { background: #fce4ec; color: #c62828; }
+
+        /* Cuerpo */
+        .mr-card__body { padding: 20px 24px; }
+
+        .mr-card__exp {
+            font-size: 16px;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+        }
+
+        /* Grid de detalles */
+        .mr-card__details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        .mr-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13px;
+        }
+        .mr-detail i {
+            color: #b8976a;
+            font-size: 15px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        .mr-detail__label {
+            display: block;
+            font-size: 11px;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: .3px;
+            margin-bottom: 2px;
+        }
+        .mr-detail__val {
+            display: block;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Nota de pago */
+        .mr-card__payment-id {
+            font-size: 12px;
+            color: #666;
+            background: #f0faf0;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-top: 4px;
+        }
+        .mr-card__pending-note {
+            font-size: 13px;
+            color: #666;
+            background: #fffde7;
+            border-radius: 6px;
+            padding: 10px 14px;
+            margin-top: 8px;
+        }
+
+        /* Auth dropdown */
+        .biosfera-user-menu { position: relative; display: inline-block; }
+        .biosfera-user-dropdown {
+            display: none; position: absolute; right: 0; top: calc(100% + 8px);
+            background: #fff; border: 1px solid #eee; border-radius: 8px;
+            min-width: 180px; list-style: none; padding: 8px 0; margin: 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,.12); z-index: 9999;
+        }
+        .biosfera-user-dropdown.open { display: block; }
+        .biosfera-user-dropdown li a {
+            display: block; padding: 10px 16px; color: #333;
+            font-size: 14px; text-decoration: none; transition: background .15s;
+        }
+        .biosfera-user-dropdown li a:hover { background: #f5f5f5; color: #b8976a; }
+
+        @media (max-width: 576px) {
+            .mr-card__header { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .mr-card__details { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+
+</body>
+</html>

@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sierra Laguna | Biosfera Bahía Turquesa</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+    <meta name="description" content="Sierra Laguna — Trekking guiado de día completo en la Reserva de la Biósfera Sierra de La Laguna, Baja California Sur. Flora y fauna endémica, arroyos y cascadas. Biosfera Bahía Turquesa." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/custom-animate.css" />
+    <link rel="stylesheet" href="assets/css/swiper.min.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome-all.css" />
+    <link rel="stylesheet" href="assets/css/jarallax.css" />
+    <link rel="stylesheet" href="assets/css/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/css/nice-select.css" />
+    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+    <link rel="stylesheet" href="assets/css/aos.css" />
+    <link rel="stylesheet" href="assets/css/odometer.min.css" />
+    <link rel="stylesheet" href="assets/css/vegas.min.css" />
+
+    <!-- Template + Biosfera styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/biosfera-colors.css" />
+
+    <!-- Sierra Laguna — estilos tierra / montaña -->
+    <style>
+        /* ══ Paleta sierra: tierra · musgo · piedra · cielo serrano ═══ */
+        :root {
+            --sl-musgo:      #5a7a4a;   /* verde musgo bosque        */
+            --sl-tierra:     #8b6343;   /* marrón tierra / sendero   */
+            --sl-piedra:     #7a7060;   /* gris piedra volcánica     */
+            --sl-arena:      #e8d9b8;   /* arena seca de sierra      */
+            --sl-cielo:      #6b9ab8;   /* azul cielo serrano        */
+            --sl-hoja:       #3d5c30;   /* verde hoja oscuro         */
+            --sl-bg-light:   #f4ede0;   /* fondo arena cálida        */
+            --sl-bg-dark:    #1e2a18;   /* fondo selva profunda      */
+        }
+
+        /* ══ Badge sierra ═══════════════════════════════════════ */
+        .sl-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--sl-hoja) 0%, var(--sl-musgo) 100%);
+            color: #e8f5e1;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 7px 20px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(255,255,255,.15);
+            box-shadow: 0 4px 16px rgba(61,92,48,.35);
+        }
+
+        /* ══ Feature grid — tierra / naturaleza ══════════════════ */
+        .sl-features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 28px 0;
+        }
+        @media (max-width: 480px) { .sl-features-grid { grid-template-columns: 1fr; } }
+
+        .sl-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: linear-gradient(135deg, #f0ebe0, #e8e0d0);
+            border: 1px solid #c8b89a;
+            border-radius: 8px;
+            padding: 14px 16px;
+        }
+        .sl-feature-icon {
+            width: 36px; height: 36px; flex-shrink: 0;
+            background: linear-gradient(135deg, var(--sl-hoja), var(--sl-musgo));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #e8f5e1; font-size: 15px;
+        }
+        .sl-feature-text { flex: 1; }
+        .sl-feature-text strong { display: block; font-size: 13px; color: #2a1f0e; margin-bottom: 2px; }
+        .sl-feature-text span  { font-size: 12px; color: #6b5a44; }
+
+        /* ══ Dificultad / trail info bar ════════════════════════ */
+        .sl-trail-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            background: linear-gradient(135deg, var(--sl-bg-dark) 0%, #2d3f20 100%);
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-top: 24px;
+            border: 1px solid rgba(90,122,74,.3);
+        }
+        .sl-trail-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 80px;
+            padding: 8px 4px;
+            border-right: 1px solid rgba(255,255,255,.1);
+        }
+        .sl-trail-stat:last-child { border-right: none; }
+        .sl-trail-stat-value {
+            font-size: 22px; font-weight: 800; color: #b5d99c; line-height: 1;
+        }
+        .sl-trail-stat-unit {
+            font-size: 11px; color: #8aab72; margin-top: 2px;
+        }
+        .sl-trail-stat-label {
+            font-size: 10px; color: #6a8a58; margin-top: 5px;
+            text-transform: uppercase; letter-spacing: 1px; text-align: center;
+        }
+
+        /* Dificultad dots */
+        .sl-difficulty {
+            display: flex; gap: 4px; align-items: center; margin-top: 4px;
+        }
+        .sl-diff-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+        }
+        .sl-diff-dot--filled   { background: #b5d99c; }
+        .sl-diff-dot--empty    { background: rgba(255,255,255,.18); }
+
+        /* Horario salida — sierra */
+        .sl-departure {
+            background: linear-gradient(135deg, #2d3f20 0%, var(--sl-musgo) 100%);
+            border-radius: 10px;
+            padding: 22px 26px;
+            color: #fff;
+            margin-top: 24px;
+            border: 1px solid rgba(90,122,74,.35);
+        }
+        .sl-departure h4 {
+            font-size: 14px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; margin-bottom: 14px; color: #c8e6b4; opacity: .9;
+        }
+        .sl-departure-slot {
+            display: inline-flex; flex-direction: column; align-items: flex-start;
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 10px;
+            padding: 14px 24px;
+        }
+        .sl-departure-time {
+            font-size: 28px; font-weight: 800; letter-spacing: 2px;
+            color: #fff; line-height: 1;
+        }
+        .sl-departure-time span {
+            font-size: 13px; font-weight: 400;
+            color: #b5d99c; margin-left: 4px; letter-spacing: 0;
+        }
+        .sl-departure-note {
+            font-size: 11px; color: #8aab72; margin-top: 5px;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .sl-meeting-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(255,255,255,.08); border-radius: 20px;
+            padding: 5px 14px; margin-top: 12px;
+            font-size: 12px; color: #b5d99c;
+        }
+
+        /* ══ Avail box — tierra ════════════════════════════════ */
+        .sl-avail-box {
+            background: #fff;
+            border: 1px solid #c8b89a;
+            border-radius: 12px;
+            padding: 28px 30px;
+            box-shadow: 0 8px 32px rgba(90,100,70,.12);
+        }
+        .sl-avail-box h3 {
+            font-size: 20px; font-weight: 700; color: #2a1f0e; margin-bottom: 6px;
+        }
+        .sl-avail-subtitle {
+            font-size: 13px; color: var(--sl-musgo); margin-bottom: 22px;
+            display: flex; align-items: center; gap: 6px;
+        }
+
+        /* Experience card sierra */
+        .sl-exp-card {
+            background: linear-gradient(135deg, #f0ebe0, #e2d8c8);
+            border: 1px solid #c8b89a;
+            border-radius: 8px;
+            padding: 16px 18px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .sl-exp-card.loaded { display: block; }
+        .sl-exp-card-name  { font-size: 16px; font-weight: 700; color: var(--sl-hoja); margin-bottom: 4px; }
+        .sl-exp-card-price { font-size: 22px; font-weight: 800; color: var(--sl-musgo); }
+        .sl-exp-card-price small { font-size: 13px; font-weight: 400; color: #7a6a54; }
+        .sl-exp-card-meta  { font-size: 12px; color: #7a6a54; margin-top: 6px; display: flex; gap: 14px; flex-wrap: wrap; }
+        .sl-exp-card-meta span { display: flex; align-items: center; gap: 4px; }
+
+        /* ══ Calendar — paleta sierra ══════════════════════════ */
+        .cal-overlay {
+            display: none; position: fixed; inset: 0;
+            background: rgba(30,42,24,.75); z-index: 99999;
+            align-items: center; justify-content: center;
+        }
+        .cal-overlay.open { display: flex; }
+
+        .cal-panel {
+            background: #fff;
+            border-radius: 12px; width: min(600px, 96vw);
+            max-height: 92vh; overflow-y: auto;
+            padding: 28px 30px 24px; position: relative;
+            box-shadow: 0 20px 60px rgba(30,42,24,.4);
+            border-top: 4px solid var(--sl-musgo);
+        }
+
+        .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .cal-title  { font-size: 20px; font-weight: 700; color: var(--sl-hoja); margin: 0; }
+        .cal-close  { background: none; border: none; font-size: 26px; cursor: pointer; color: #888; line-height: 1; }
+        .cal-close:hover { color: #333; }
+
+        .cal-guests-row {
+            display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #f0ebe0, #e8e0d0);
+            border: 1px solid #c8b89a;
+            border-radius: 8px; padding: 12px 16px;
+        }
+        .cal-label { font-weight: 600; font-size: 14px; color: #4a3828; }
+        .cal-select {
+            padding: 7px 12px; border: 1px solid #c8b89a;
+            border-radius: 5px; font-size: 14px; color: #4a3828; background: #fdf8f2;
+        }
+
+        .cal-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 14px; }
+        .cal-nav-btn {
+            background: none; border: 1px solid #c8b89a; border-radius: 50%;
+            width: 32px; height: 32px; cursor: pointer; font-size: 20px; line-height: 1;
+            color: #7a6a54; transition: all .2s;
+        }
+        .cal-nav-btn:hover { background: var(--sl-musgo); border-color: var(--sl-musgo); color: #fff; }
+        .cal-month-label { font-size: 16px; font-weight: 600; color: var(--sl-hoja); min-width: 180px; text-align: center; }
+
+        .cal-hint { font-size: 12px; color: #999; text-align: center; padding: 8px 0; margin: 0; }
+
+        .cal-grid-wrap { position: relative; }
+        .cal-grid {
+            display: grid; grid-template-columns: repeat(7, 1fr);
+            gap: 4px; margin-bottom: 14px;
+        }
+        .cal-day-header {
+            text-align: center; font-size: 11px; font-weight: 700;
+            color: #b0a090; padding: 4px 0; text-transform: uppercase;
+        }
+        .cal-day {
+            aspect-ratio: 1; border-radius: 6px; display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            font-size: 13px; transition: transform .1s;
+        }
+        .cal-day:not(.cal-day--empty):not(.cal-day--past):not(.cal-day--full):not(.cal-day--closed):hover {
+            transform: scale(1.08); z-index: 2;
+        }
+        .cal-day-num   { font-weight: 600; line-height: 1; }
+        .cal-day-slots { font-size: 9px; color: inherit; opacity: .8; margin-top: 2px; }
+
+        .cal-day--empty    { background: transparent; }
+        .cal-day--past     { background: #f0f0ee; color: #ccc; }
+        .cal-day--closed   { background: #f5f3ef; color: #ccc; }
+        .cal-day--available{
+            background: linear-gradient(135deg, #e8f5e1, #d8ecca);
+            color: var(--sl-hoja);
+            border: 1px solid #a8c894;
+            box-shadow: 0 0 6px rgba(90,122,74,.15);
+        }
+        .cal-day--limited  { background: #fff3e0; color: #e65100; border: 1px solid #ffcc80; }
+        .cal-day--full     { background: #fce4ec; color: #c62828; border: 1px solid #f48fb1; }
+        .cal-day--selected {
+            background: linear-gradient(135deg, var(--sl-hoja), var(--sl-musgo)) !important;
+            color: #fff !important;
+            border-color: var(--sl-hoja) !important;
+            box-shadow: 0 2px 10px rgba(61,92,48,.35) !important;
+        }
+
+        .cal-loading { display: none; text-align: center; padding: 20px; color: #999; font-size: 14px; }
+
+        .cal-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 14px; }
+        .cal-legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #7a6a54; }
+        .cal-dot { width: 12px; height: 12px; border-radius: 3px; display: inline-block; flex-shrink: 0; }
+        .cal-dot--available { background: #e8f5e1; border: 1px solid #a8c894; }
+        .cal-dot--limited   { background: #fff3e0; border: 1px solid #ffcc80; }
+        .cal-dot--full      { background: #fce4ec; border: 1px solid #f48fb1; }
+        .cal-dot--closed    { background: #f5f3ef; border: 1px solid #ddd; }
+
+        /* Summary sierra */
+        .cal-summary {
+            background: linear-gradient(135deg, #f0ebe0, #e8e0d0);
+            border: 1px solid #c8b89a;
+            border-radius: 8px; padding: 18px 20px; margin-top: 10px;
+            display: none;
+        }
+        .cal-summary.visible { display: block; }
+        .cal-summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px;
+            margin-bottom: 14px;
+        }
+        .cal-summary-item label { font-size: 11px; color: #a09080; text-transform: uppercase; display: block; margin-bottom: 2px; }
+        .cal-summary-item span  { font-size: 15px; font-weight: 700; color: #2a1f0e; }
+        .cal-summary-total { font-size: 22px; font-weight: 800; color: var(--sl-musgo); }
+        .cal-summary-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
+        .cal-btn-clear { background: none; border: 1px solid #c8b89a; border-radius: 5px; padding: 8px 16px; cursor: pointer; font-size: 13px; color: #7a6a54; }
+        .cal-btn-clear:hover { border-color: #8b6343; color: #4a3828; }
+        .cal-btn-cart {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: linear-gradient(135deg, #3d5c30, #5a7a4a);
+            color: #fff; font-size: 14px; font-weight: 700;
+            padding: 12px 22px; border: none; border-radius: 10px;
+            cursor: pointer; transition: opacity .2s, transform .2s;
+        }
+        .cal-btn-cart:hover { opacity: .88; transform: translateY(-1px); }
+        .cal-btn-more {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: none; border: 1.5px solid #3d5c30;
+            color: #3d5c30; font-size: 13px; font-weight: 700;
+            padding: 11px 18px; border-radius: 10px;
+            cursor: pointer; transition: background .2s, color .2s;
+        }
+        .cal-btn-more:hover { background: #3d5c30; color: #fff; }
+        #cart-toast {
+            position: fixed; bottom: 28px; right: 28px; z-index: 99999;
+            background: #1c2e25; color: #fff;
+            border-radius: 14px; padding: 16px 22px;
+            display: flex; align-items: center; gap: 14px;
+            box-shadow: 0 8px 32px rgba(0,0,0,.25);
+            transform: translateY(20px); opacity: 0;
+            transition: opacity .3s, transform .3s;
+            pointer-events: none; max-width: 340px;
+        }
+        #cart-toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        #cart-toast .toast-icon { font-size: 28px; flex-shrink: 0; }
+        #cart-toast .toast-body p { margin: 0; font-size: 13px; }
+        #cart-toast .toast-body strong { font-size: 14px; }
+        #cart-toast .toast-actions { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+        #cart-toast .toast-btn-cart { font-size: 12px; font-weight: 700; padding: 6px 14px; background: #5a8f7b; color: #fff; border-radius: 20px; border: none; cursor: pointer; text-decoration: none; }
+        #cart-toast .toast-btn-more { font-size: 12px; font-weight: 700; padding: 6px 14px; background: rgba(255,255,255,.1); color: #fff; border-radius: 20px; border: 1px solid rgba(255,255,255,.25); cursor: pointer; text-decoration: none; }
+
+        /* Error/info states */
+        .sl-api-error {
+            background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px;
+            padding: 14px 18px; font-size: 14px; color: #856404; margin-bottom: 16px;
+            display: none;
+        }
+        .sl-api-error.visible { display: block; }
+        .sl-api-loading {
+            text-align: center; padding: 20px; color: var(--sl-musgo); font-size: 14px;
+            display: none;
+        }
+        .sl-api-loading.visible { display: block; }
+
+        /* Auth dropdown */
+        .biosfera-user-menu { position: relative; display: inline-block; }
+        .biosfera-user-dropdown {
+            display: none; position: absolute; right: 0; top: calc(100% + 8px);
+            background: #fff; border: 1px solid #eee; border-radius: 8px;
+            min-width: 200px; list-style: none; padding: 8px 0; margin: 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,.12); z-index: 9999;
+        }
+        .biosfera-user-dropdown.open { display: block; }
+        .biosfera-user-dropdown li a {
+            display: block; padding: 10px 16px; color: #333;
+            font-size: 14px; text-decoration: none; transition: background .15s;
+        }
+        .biosfera-user-dropdown li a:hover { background: #f5f5f5; color: var(--sl-musgo); }
+    </style>
+</head>
+
+<body class="custom-cursor">
+
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader"><span></span><span></span></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var pre = document.getElementById('preloader');
+            if (pre) pre.style.display = 'none';
+        });
+    </script>
+
+    <!-- Chat popup -->
+    <div class="chat-icon"><button type="button" class="chat-toggler"><i class="fa fa-comment"></i></button></div>
+    <div id="chat-popup" class="chat-popup">
+        <div class="popup-inner">
+            <div class="close-chat"><i class="fa fa-times"></i></div>
+            <div class="chat-form">
+                <p>Completa el formulario y te contactamos a la brevedad.</p>
+                <form action="assets/inc/sendemail.php" method="POST" class="contact-form-validated">
+                    <div class="form-group"><input type="text" name="name" placeholder="Tu nombre" required></div>
+                    <div class="form-group"><input type="email" name="email" placeholder="Tu correo" required></div>
+                    <div class="form-group"><textarea name="message" placeholder="Tu mensaje..." required></textarea></div>
+                    <div class="form-group message-btn"><button type="submit" class="thm-btn">Enviar</button></div>
+                    <div class="result"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar widget -->
+    <div class="xs-sidebar-group info-group info-sidebar">
+        <div class="xs-overlay xs-bg-black"></div>
+        <div class="xs-sidebar-widget">
+            <div class="sidebar-widget-container">
+                <div class="widget-heading">
+                    <a href="#" class="close-side-widget">X</a>
+                </div>
+                <div class="sidebar-textwidget">
+                    <div class="sidebar-info-contents">
+                        <div class="content-inner">
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/images/resources/logo-3.png" alt="Biosfera" /></a>
+                            </div>
+                            <div class="content-box">
+                                <h4>Sobre Nosotros</h4>
+                                <div class="inner-text">
+                                    <p>Biosfera Bahía Turquesa es un espacio eco-consciente frente al mar, donde la naturaleza y la comodidad coexisten en armonía.</p>
+                                </div>
+                            </div>
+                            <div class="sidebar-contact-info">
+                                <h4>Contacto</h4>
+                                <ul class="list-unstyled">
+                                    <li><span class="icon-pin"></span> Bahía Turquesa, México</li>
+                                    <li><span class="icon-call"></span><a href="tel:+526121020266">+52 612 102 0266</a></li>
+                                    <li><span class="icon-mail"></span><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></li>
+                                </ul>
+                            </div>
+                            <div class="thm-social-link1">
+                                <ul class="social-box list-unstyled">
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+
+        <!-- ══════════════ HEADER / NAV ══════════════ -->
+        <header class="main-header-three">
+            <div class="main-menu-three__top">
+                <div class="container">
+                    <div class="main-menu-three__top-inner">
+                        <ul class="list-unstyled main-menu-three__contact-list">
+                            <li>
+                                <div class="icon"><i class="icon-call"></i></div>
+                                <div class="text"><p><a href="tel:+526121020266">+52 612 102 0266</a></p></div>
+                            </li>
+                            <li>
+                                <div class="icon"><i class="icon-mail"></i></div>
+                                <div class="text"><p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p></div>
+                            </li>
+                        </ul>
+                        <div class="main-menu-three__top-right">
+                            <div class="main-menu-three__social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="main-menu main-menu-three">
+                <div class="main-menu-three__wrapper">
+                    <div class="container">
+                        <div class="main-menu-three__wrapper-inner">
+                            <div class="main-menu-three__left">
+                                <div class="main-menu-three__logo">
+                                    <a href="index.html"><img src="assets/images/resources/logo-1.png" alt="Biosfera"></a>
+                                </div>
+                            </div>
+                            <div class="main-menu-three__main-menu-box">
+                                <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                                <ul class="main-menu__list">
+                                    <li><a href="index.html">Inicio</a></li>
+                                    <li class="dropdown current">
+                                        <a href="#">Experiencias</a>
+                                        <ul class="shadow-box">
+                                            <li><a href="rooms.html">Glamping</a></li>
+                                            <li><a href="ocean-safari-nocturno.html">Ocean Safari Nocturno</a></li>
+                                            <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                            <li><a href="snorkel-bt.html">Snorkel BT</a></li>
+                                            <li><a href="sierra-laguna.html">Sierra Laguna</a></li>
+                                            <li><a href="places.html">Tours</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="services.html">Servicios</a></li>
+                                    <li><a href="events.html">Eventos</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li><a href="about.html">Nosotros</a></li>
+                                    <li><a href="eco.html">Eco</a></li>
+                                    <li><a href="coming-soon.html">Expansión</a></li>
+                                    <li><a href="contact.html">Contacto</a></li>
+                                    <li>
+                                        <a href="cart.html" class="biosfera-cart-nav" title="Mi carrito">
+                                            <i class="fa fa-shopping-cart" style="font-size:17px;color:#d6e8e2;"></i>
+                                            <span class="biosfera-cart-badge">0</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="main-menu-three__right">
+                                <div class="main-menu-three__right-content">
+                                    <div class="main-menu-three__search-cart-box">
+                                        <div class="main-menu-three__search-box">
+                                            <a href="#" class="main-menu-three__search searcher-toggler-box icon-search-interface-symbol"></a>
+                                        </div>
+                                    </div>
+                                    <div class="main-menu-three__btn-box" id="nav-auth-box">
+                                        <a href="login.html" class="thm-btn">Iniciar sesión</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="stricky-header stricked-menu main-menu main-menu-three">
+            <div class="sticky-header__content"></div>
+        </div>
+
+        <!-- ══════════════ PAGE HEADER ══════════════ -->
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg);"></div>
+            <div class="container">
+                <div class="page-header__inner">
+                    <h3>Sierra Laguna</h3>
+                    <div class="thm-breadcrumb__inner">
+                        <ul class="thm-breadcrumb list-unstyled">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><span class="fas fa-angle-right"></span></li>
+                            <li><a href="#">Experiencias</a></li>
+                            <li><span class="fas fa-angle-right"></span></li>
+                            <li>Sierra Laguna</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════ EXPERIENCE INTRO + AVAILABILITY FORM ══════════════ -->
+        <section class="about-three" style="padding: 80px 0; background: var(--sl-bg-light, #f4ede0);">
+            <div class="container">
+                <div class="row align-items-start gx-5">
+
+                    <!-- Left — description -->
+                    <div class="col-xl-7 col-lg-7">
+                        <div class="about-three__left">
+
+                            <div class="sl-hero-badge">
+                                <i class="fa fa-mountain"></i>
+                                Trekking en Reserva de la Biósfera
+                            </div>
+
+                            <div class="section-title text-left">
+                                <span class="section-title__tagline">Biosfera Bahía Turquesa</span>
+                                <h2 class="section-title__title" style="color:#2a1f0e;">Sierra Laguna</h2>
+                            </div>
+
+                            <p class="about-three__text" style="color:#5a4a38; margin-bottom:20px;">
+                                Escapa del mar y adéntrate en las alturas de la Sierra de La Laguna, la Reserva de la Biósfera más austral de la Península de Baja California. A menos de dos horas de la bahía, este macizo montañoso alberga uno de los ecosistemas más únicos y aislados de México: bosques de pino y encino que conviven con cactáceas gigantes y arroyos de agua cristalina.
+                            </p>
+                            <p class="about-three__text" style="color:#5a4a38; margin-bottom:24px;">
+                                Nuestro guía naturalista certificado te llevará por senderos poco transitados donde podrás observar flora y fauna endémica que no existe en ningún otro lugar del planeta. Cruzarás arroyos, descubrirás palmas nativas centenarias y, si la temporada lo permite, llegarás hasta las cascadas escondidas en el corazón de la sierra. Una experiencia que conecta lo terrestre con lo salvaje.
+                            </p>
+
+                            <!-- Feature grid — tierra -->
+                            <div class="sl-features-grid">
+                                <div class="sl-feature-item">
+                                    <div class="sl-feature-icon"><i class="fa fa-mountain"></i></div>
+                                    <div class="sl-feature-text">
+                                        <strong>7 Horas de Trekking</strong>
+                                        <span>Recorrido completo por la reserva de la biósfera</span>
+                                    </div>
+                                </div>
+                                <div class="sl-feature-item">
+                                    <div class="sl-feature-icon"><i class="fa fa-leaf"></i></div>
+                                    <div class="sl-feature-text">
+                                        <strong>Flora y Fauna Endémica</strong>
+                                        <span>Especies que solo existen en la Sierra de La Laguna</span>
+                                    </div>
+                                </div>
+                                <div class="sl-feature-item">
+                                    <div class="sl-feature-icon"><i class="fa fa-tint"></i></div>
+                                    <div class="sl-feature-text">
+                                        <strong>Arroyos y Cascadas</strong>
+                                        <span>Agua cristalina en el corazón de la sierra</span>
+                                    </div>
+                                </div>
+                                <div class="sl-feature-item">
+                                    <div class="sl-feature-icon"><i class="fa fa-bus"></i></div>
+                                    <div class="sl-feature-text">
+                                        <strong>Transporte Incluido</strong>
+                                        <span>Traslado de ida y vuelta desde Biosfera</span>
+                                    </div>
+                                </div>
+                                <div class="sl-feature-item">
+                                    <div class="sl-feature-icon"><i class="fa fa-users"></i></div>
+                                    <div class="sl-feature-text">
+                                        <strong>Máx. 8 Personas</strong>
+                                        <span>Grupo pequeño para respetar el ecosistema</span>
+                                    </div>
+                                </div>
+                                <div class="sl-feature-item">
+                                    <div class="sl-feature-icon"><i class="fa fa-utensils"></i></div>
+                                    <div class="sl-feature-text">
+                                        <strong>Refrigerio Incluido</strong>
+                                        <span>Lunch y snacks de temporada en la ruta</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Trail stats bar -->
+                            <div class="sl-trail-bar">
+                                <div class="sl-trail-stat">
+                                    <div class="sl-trail-stat-value">~12</div>
+                                    <div class="sl-trail-stat-unit">km</div>
+                                    <div class="sl-trail-stat-label">Distancia</div>
+                                </div>
+                                <div class="sl-trail-stat">
+                                    <div class="sl-trail-stat-value">+650</div>
+                                    <div class="sl-trail-stat-unit">m</div>
+                                    <div class="sl-trail-stat-label">Desnivel</div>
+                                </div>
+                                <div class="sl-trail-stat">
+                                    <div class="sl-trail-stat-value">7</div>
+                                    <div class="sl-trail-stat-unit">hrs</div>
+                                    <div class="sl-trail-stat-label">Duración</div>
+                                </div>
+                                <div class="sl-trail-stat">
+                                    <div class="sl-trail-stat-value" style="font-size:14px;">MOD</div>
+                                    <div class="sl-difficulty">
+                                        <span class="sl-diff-dot sl-diff-dot--filled"></span>
+                                        <span class="sl-diff-dot sl-diff-dot--filled"></span>
+                                        <span class="sl-diff-dot sl-diff-dot--filled"></span>
+                                        <span class="sl-diff-dot sl-diff-dot--empty"></span>
+                                        <span class="sl-diff-dot sl-diff-dot--empty"></span>
+                                    </div>
+                                    <div class="sl-trail-stat-label">Dificultad</div>
+                                </div>
+                                <div class="sl-trail-stat">
+                                    <div class="sl-trail-stat-value">8</div>
+                                    <div class="sl-trail-stat-unit">pers.</div>
+                                    <div class="sl-trail-stat-label">Cupo máx.</div>
+                                </div>
+                            </div>
+
+                            <!-- Horario salida -->
+                            <div class="sl-departure">
+                                <h4><i class="fa fa-hiking" style="margin-right:8px;"></i>Horario de Salida</h4>
+                                <div class="sl-departure-slot">
+                                    <div class="sl-departure-time">6:00 <span>AM</span></div>
+                                    <div class="sl-departure-note">Salida matutina · única por día</div>
+                                </div>
+                                <div class="sl-meeting-badge">
+                                    <i class="fa fa-map-marker-alt"></i>
+                                    Punto de encuentro: Lobby Biosfera, 5:45 AM
+                                </div>
+                            </div>
+
+                            <div class="about-three__bottom" style="margin-top:28px;">
+                                <div class="about-three__bottom-text">
+                                    <div class="icon"><span class="icon-leaf"></span></div>
+                                    <p style="color:#6b5a44;"><em>Recomendamos ropa cómoda, zapatos de trekking, protector solar y suficiente agua. Se requiere buena condición física básica. La Sierra de La Laguna es Patrimonio de la Humanidad candidato ante la UNESCO — operamos bajo estrictas normas de Leave No Trace.</em></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Right — Availability form -->
+                    <div class="col-xl-5 col-lg-5">
+                        <div class="banner-two__right wow fadeInRight" data-wow-delay="200ms">
+                            <div class="sl-avail-box">
+                                <h3>Reservar Sierra Laguna</h3>
+                                <p class="sl-avail-subtitle">
+                                    <i class="fa fa-calendar-check"></i>
+                                    Elige tu día — cupo limitado a 8 personas
+                                </p>
+
+                                <!-- Static experience info card -->
+                                <div class="sl-exp-card" id="sl-exp-card">
+                                    <div class="sl-exp-card-name" id="sl-exp-name">Sierra Laguna</div>
+                                    <div class="sl-exp-card-price">
+                                        <span id="sl-exp-price">$2,200.00</span>
+                                        <small> MXN / sesión</small>
+                                    </div>
+                                    <div class="sl-exp-card-meta">
+                                        <span><i class="fa fa-users"></i> <span id="sl-exp-cap">Máx. 8 personas</span></span>
+                                        <span><i class="fa fa-clock"></i> 7 horas</span>
+                                        <span><i class="fa fa-mountain"></i> ~12 km</span>
+                                    </div>
+                                </div>
+
+                                <div class="sl-api-loading" id="sl-api-loading">
+                                    <i class="fa fa-spinner fa-spin" style="margin-right:6px;"></i>Cargando información...
+                                </div>
+                                <div class="sl-api-error" id="sl-api-error">
+                                    <i class="fa fa-exclamation-triangle" style="margin-right:6px;"></i>
+                                    No se pudo cargar la experiencia. Intenta de nuevo más tarde.
+                                </div>
+
+                                <!-- Availability form -->
+                                <form class="banner-two__form" id="sl-avail-form">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 col-md-6">
+                                            <div class="input-box">
+                                                <p class="booking-one__input-title">Adultos</p>
+                                                <div class="select-box">
+                                                    <select class="selectmenu wide" id="form-adults">
+                                                        <option selected>01</option>
+                                                        <option>02</option><option>03</option>
+                                                        <option>04</option><option>05</option>
+                                                        <option>06</option><option>07</option>
+                                                        <option>08</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6">
+                                            <div class="input-box">
+                                                <p class="booking-one__input-title">Menores (12+ años)</p>
+                                                <div class="select-box">
+                                                    <select class="selectmenu wide" id="form-children">
+                                                        <option selected>00</option>
+                                                        <option>01</option><option>02</option>
+                                                        <option>03</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class="banner-two__form-btn" style="margin-top:4px;">
+                                                <button type="button" class="thm-btn" id="btn-abrir-calendario"
+                                                    style="width:100%; background:linear-gradient(135deg,#3d5c30,#5a7a4a);">
+                                                    <i class="fa fa-calendar-alt" style="margin-right:8px;"></i>Ver fechas disponibles
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <!-- Trust badges -->
+                                <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:20px; padding-top:16px; border-top:1px solid #d4c4a8;">
+                                    <div style="font-size:12px; color:#7a6a54; display:flex; align-items:center; gap:5px;">
+                                        <i class="fa fa-lock" style="color:#5a7a4a;"></i> Pago seguro
+                                    </div>
+                                    <div style="font-size:12px; color:#7a6a54; display:flex; align-items:center; gap:5px;">
+                                        <i class="fa fa-undo" style="color:#5a7a4a;"></i> Cancelación flexible
+                                    </div>
+                                    <div style="font-size:12px; color:#7a6a54; display:flex; align-items:center; gap:5px;">
+                                        <i class="fa fa-leaf" style="color:#5a7a4a;"></i> Eco-responsable
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════ GALLERY STRIP ══════════════ -->
+        <section class="gallery-one">
+            <div class="gallery-one__carousel swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="gallery-one__single"><div class="gallery-one__img">
+                            <img src="assets/images/gallery/gallery-1-1.jpg" alt="Sierra Laguna Trekking">
+                            <a href="gallery.html"><span class="fab fa-instagram"></span></a>
+                        </div></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-one__single"><div class="gallery-one__img">
+                            <img src="assets/images/gallery/gallery-1-2.jpg" alt="Bosque Sierra de La Laguna">
+                            <a href="gallery.html"><span class="fab fa-instagram"></span></a>
+                        </div></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-one__single"><div class="gallery-one__img">
+                            <img src="assets/images/gallery/gallery-1-3.jpg" alt="Arroyo Sierra Laguna BCS">
+                            <a href="gallery.html"><span class="fab fa-instagram"></span></a>
+                        </div></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-one__single"><div class="gallery-one__img">
+                            <img src="assets/images/gallery/gallery-1-4.jpg" alt="Flora endémica Sierra de La Laguna">
+                            <a href="gallery.html"><span class="fab fa-instagram"></span></a>
+                        </div></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-one__single"><div class="gallery-one__img">
+                            <img src="assets/images/gallery/gallery-1-5.jpg" alt="Cascada Sierra Laguna Biosfera">
+                            <a href="gallery.html"><span class="fab fa-instagram"></span></a>
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════ FOOTER ══════════════ -->
+        <footer class="site-footer">
+            <div class="site-footer__shape-bg" style="background-image: url(assets/images/shapes/site-footer-bg-shape.png);"></div>
+            <div class="container">
+                <div class="site-footer__top">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="footer-widget__column footer-widget__newsletter">
+                                <h3 class="footer-widget__newsletter-title">Suscríbete para recibir<br>noticias y ofertas exclusivas</h3>
+                                <form class="footer-widget__newsletter-form contact-form-validated" action="assets/inc/sendemail.php" method="POST">
+                                    <div class="footer-widget__newsletter-form-input-box">
+                                        <input type="email" placeholder="Tu correo electrónico" name="email">
+                                    </div>
+                                    <button type="submit" class="footer-widget__newsletter-btn thm-btn">Suscribirme</button>
+                                    <div class="result"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-footer__middle">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                            <div class="footer-widget__column footer-widget__about">
+                                <div class="footer-widget__logo">
+                                    <a href="index.html"><img src="assets/images/resources/footer-logo.png" alt="Biosfera"></a>
+                                </div>
+                                <p class="footer-widget__about-text">Eco glamping y experiencias en la naturaleza en Bahía Turquesa. Mar, sierra y selva — todo en un solo destino.</p>
+                                <div class="site-footer__social">
+                                    <a href="#"><i class="icon-facebook-app-symbol"></i></a>
+                                    <a href="#"><i class="icon-twitter"></i></a>
+                                    <a href="#"><i class="icon-instagram"></i></a>
+                                    <a href="#"><i class="icon-pinterest"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                            <div class="footer-widget__column footer-widget__usefull-link">
+                                <div class="footer-widget__title-box">
+                                    <h3 class="footer-widget__title">Explorar</h3>
+                                </div>
+                                <div class="footer-widget__link-box">
+                                    <ul class="footer-widget__link list-unstyled">
+                                        <li><a href="about.html">Nosotros</a></li>
+                                        <li><a href="rooms.html">Glamping</a></li>
+                                        <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                        <li><a href="snorkel-bt.html">Snorkel BT</a></li>
+                                        <li><a href="sierra-laguna.html">Sierra Laguna</a></li>
+                                        <li><a href="contact.html">Contacto</a></li>
+                                    <li>
+                                        <a href="cart.html" class="biosfera-cart-nav" title="Mi carrito">
+                                            <i class="fa fa-shopping-cart" style="font-size:17px;color:#d6e8e2;"></i>
+                                            <span class="biosfera-cart-badge">0</span>
+                                        </a>
+                                    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                            <div class="footer-widget__column footer-widget__services">
+                                <div class="footer-widget__title-box">
+                                    <h3 class="footer-widget__title">Experiencias</h3>
+                                </div>
+                                <ul class="footer-widget__link list-unstyled">
+                                    <li><a href="rooms.html">Eco Glamping</a></li>
+                                    <li><a href="ocean-safari-nocturno.html">🌙 Safari Nocturno</a></li>
+                                    <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                    <li><a href="snorkel-bt.html">Snorkel BT</a></li>
+                                    <li><a href="sierra-laguna.html">🏔 Sierra Laguna</a></li>
+                                    <li><a href="places.html">Tours Locales</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                            <div class="footer-widget__contact-box">
+                                <div class="footer-widget__title-box">
+                                    <h3 class="footer-widget__title">Contáctanos</h3>
+                                </div>
+                                <ul class="footer-widget__contact list-unstyled">
+                                    <li>
+                                        <div class="icon"><span class="icon-call"></span></div>
+                                        <div class="content"><p><a href="tel:+526121020266">+52 612 102 0266</a></p></div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><span class="icon-mail"></span></div>
+                                        <div class="content"><p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p></div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><span class="icon-pin"></span></div>
+                                        <div class="content"><p>Bahía Turquesa, México</p></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="site-footer__bottom">
+                <div class="container">
+                    <div class="site-footer__bottom-inner">
+                        <p class="site-footer__bottom-text">© 2026 <a href="index.html">Biosfera Bahía Turquesa</a>. Todos los derechos reservados.</p>
+                        <ul class="list-unstyled site-footer__bottom-menu">
+                            <li><a href="contact.html">Soporte</a></li>
+                            <li><a href="about.html">Términos y Condiciones</a></li>
+                            <li><a href="about.html">Privacidad</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div><!-- /.page-wrapper -->
+
+    <!-- Mobile nav -->
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image"><img src="assets/images/resources/logo-3.png" width="140" alt="Biosfera" /></a>
+            </div>
+            <div class="mobile-nav__container"></div>
+            <ul class="mobile-nav__contact list-unstyled">
+                <li><i class="fa fa-envelope"></i><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></li>
+                <li><i class="fas fa-phone"></i><a href="tel:+526121020266">+52 612 102 0266</a></li>
+            </ul>
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__social">
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-facebook-square"></a>
+                    <a href="#" class="fab fa-pinterest-p"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Popup -->
+    <div class="search-popup">
+        <div class="color-layer"></div>
+        <button class="close-search"><span class="far fa-times fa-fw"></span></button>
+        <form method="post" action="blog.html">
+            <div class="form-group">
+                <input type="search" name="search-field" value="" placeholder="Buscar..." required="">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+        <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
+        <span class="scroll-to-top__text">Ir arriba</span>
+    </a>
+
+    <!-- ══════════════ CALENDAR MODAL ══════════════ -->
+    <div id="cal-overlay" class="cal-overlay" role="dialog" aria-modal="true" aria-label="Disponibilidad Sierra Laguna">
+        <div class="cal-panel">
+            <div class="cal-header">
+                <h3 class="cal-title">
+                    <i class="fa fa-mountain" style="color:#5a7a4a; margin-right:8px; font-size:16px;"></i>Sierra Laguna — Selecciona tu día
+                </h3>
+                <button class="cal-close" id="cal-close-btn" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div class="cal-guests-row">
+                <span class="cal-label"><i class="fa fa-users" style="margin-right:5px;color:#5a7a4a;"></i>Personas:</span>
+                <input type="number" id="cal-guests-input" class="cal-select" min="1" max="8" value="1" style="width:70px; text-align:center;" />
+                <span style="font-size:13px; color:#7a6a54; margin-left:6px;" id="cal-guests-note">Máx. 8 por grupo</span>
+            </div>
+
+            <div class="cal-nav">
+                <button class="cal-nav-btn" id="cal-prev">&#8249;</button>
+                <span class="cal-month-label" id="cal-month-label"></span>
+                <button class="cal-nav-btn" id="cal-next">&#8250;</button>
+            </div>
+
+            <p class="cal-hint" id="cal-hint">Haz clic en un día disponible para seleccionarlo</p>
+
+            <div class="cal-grid-wrap">
+                <div class="cal-grid" id="cal-grid">
+                    <div class="cal-day-header">Dom</div>
+                    <div class="cal-day-header">Lun</div>
+                    <div class="cal-day-header">Mar</div>
+                    <div class="cal-day-header">Mié</div>
+                    <div class="cal-day-header">Jue</div>
+                    <div class="cal-day-header">Vie</div>
+                    <div class="cal-day-header">Sáb</div>
+                </div>
+                <div class="cal-loading" id="cal-loading">
+                    <i class="fa fa-spinner fa-spin" style="margin-right:6px;"></i>Cargando disponibilidad...
+                </div>
+            </div>
+
+            <div class="cal-legend">
+                <span class="cal-legend-item"><span class="cal-dot cal-dot--available"></span>Disponible</span>
+                <span class="cal-legend-item"><span class="cal-dot cal-dot--limited"></span>Últimos lugares</span>
+                <span class="cal-legend-item"><span class="cal-dot cal-dot--full"></span>Agotado</span>
+                <span class="cal-legend-item"><span class="cal-dot cal-dot--closed"></span>Sin disponibilidad</span>
+            </div>
+
+            <div class="cal-summary" id="cal-summary">
+                <div class="cal-summary-grid">
+                    <div class="cal-summary-item">
+                        <label>Fecha de la experiencia</label>
+                        <span id="sum-date">—</span>
+                    </div>
+                    <div class="cal-summary-item">
+                        <label>Precio por sesión</label>
+                        <span id="sum-price">—</span>
+                    </div>
+                    <div class="cal-summary-item">
+                        <label>Personas</label>
+                        <span id="sum-guests">—</span>
+                    </div>
+                    <div class="cal-summary-item">
+                        <label>Total</label>
+                        <span class="cal-summary-total" id="sum-total">—</span>
+                    </div>
+                </div>
+                <div class="cal-summary-actions">
+                    <button class="cal-btn-cart" id="cal-add-cart-btn" type="button">
+                        <i class="fa fa-shopping-cart"></i> Añadir al carrito
+                    </button>
+                    <button class="cal-btn-more" id="cal-more-exp-btn" type="button">
+                        <i class="fa fa-plus"></i> Añadir otra experiencia
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════ VENDOR JS ══════════════ -->
+    <script src="assets/js/jquery-latest.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jarallax.min.js"></script>
+    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/wNumb.min.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/marquee.min.js"></script>
+    <script src="assets/js/countdown.min.js"></script>
+    <script src="assets/js/jquery-sidebar-content.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/vegas.min.js"></script>
+    <script src="assets/js/gsap/gsap.js"></script>
+    <script src="assets/js/gsap/ScrollTrigger.js"></script>
+    <script src="assets/js/gsap/SplitText.js"></script>
+    <script src="assets/js/script.js"></script>
+
+    <!-- ══════════════════════════════════════════════════════════
+         SIERRA LAGUNA — MAIN JS  (type=SIERRA_LAGUNA)
+    ══════════════════════════════════════════════════════════════ -->
+    <script>
+    (function () {
+        'use strict';
+
+        const API    = 'http://localhost:8080';
+        const MONTHS = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+                        'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+        let experience   = null;
+        let currentYear  = new Date().getFullYear();
+        let currentMonth = new Date().getMonth() + 1;
+        let availMap     = {};
+        let selectedDate = null;
+        let guestsCount  = 1;
+
+        const overlay     = document.getElementById('cal-overlay');
+        const grid        = document.getElementById('cal-grid');
+        const loading     = document.getElementById('cal-loading');
+        const monthLbl    = document.getElementById('cal-month-label');
+        const hint        = document.getElementById('cal-hint');
+        const summary     = document.getElementById('cal-summary');
+        const guestsInput = document.getElementById('cal-guests-input');
+        const guestsNote  = document.getElementById('cal-guests-note');
+
+        const expCard    = document.getElementById('sl-exp-card');
+        const expNameEl  = document.getElementById('sl-exp-name');
+        const expPriceEl = document.getElementById('sl-exp-price');
+        const expCapEl   = document.getElementById('sl-exp-cap');
+        const apiLoading = document.getElementById('sl-api-loading');
+        const apiError   = document.getElementById('sl-api-error');
+
+        loadExperience();
+
+        async function loadExperience() {
+            apiLoading.classList.add('visible');
+            try {
+                const res  = await fetch(`${API}/experiences?type=SIERRA_LAGUNA`);
+                if (!res.ok) throw new Error('API error');
+                const list = await res.json();
+                if (!list || list.length === 0) throw new Error('No experiences');
+                experience = list[0];
+                renderExpCard();
+            } catch {
+                apiError.classList.add('visible');
+                experience = { id: null, name: 'Sierra Laguna', price: 2200, capacity: 8 };
+                renderExpCard();
+            } finally {
+                apiLoading.classList.remove('visible');
+            }
+        }
+
+        function renderExpCard() {
+            if (!experience) return;
+            expNameEl.textContent  = experience.name;
+            expPriceEl.textContent = '$' + fmt(experience.price);
+            expCapEl.textContent   = `Máx. ${experience.capacity} personas`;
+            expCard.classList.add('loaded');
+        }
+
+        document.getElementById('btn-abrir-calendario').addEventListener('click', openModal);
+        document.getElementById('cal-close-btn').addEventListener('click', closeModal);
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+        function openModal() {
+            const adults   = parseInt(document.getElementById('form-adults').value)   || 1;
+            const children = parseInt(document.getElementById('form-children').value) || 0;
+            guestsCount       = Math.min(adults + children, experience ? experience.capacity : 8);
+            guestsInput.value = guestsCount;
+            updateGuestsNote();
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            if (experience && experience.id) {
+                fetchAndRender();
+            } else {
+                loadExperience().then(() => { if (experience && experience.id) fetchAndRender(); });
+            }
+        }
+
+        function closeModal() {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        guestsInput.addEventListener('input', function () {
+            const cap   = experience ? experience.capacity : 8;
+            guestsCount = Math.max(1, Math.min(parseInt(this.value) || 1, cap));
+            this.value  = guestsCount;
+            updateGuestsNote();
+            if (selectedDate) showSummary();
+        });
+
+        function updateGuestsNote() {
+            guestsNote.textContent = `Máx. ${experience ? experience.capacity : 8} por grupo`;
+        }
+
+        document.getElementById('cal-prev').addEventListener('click', () => {
+            if (--currentMonth < 1) { currentMonth = 12; currentYear--; }
+            fetchAndRender();
+        });
+        document.getElementById('cal-next').addEventListener('click', () => {
+            if (++currentMonth > 12) { currentMonth = 1; currentYear++; }
+            fetchAndRender();
+        });
+
+        async function fetchAndRender() {
+            if (!experience || !experience.id) return;
+            loading.style.display = 'block';
+            monthLbl.textContent = `${MONTHS[currentMonth - 1]} ${currentYear}`;
+            try {
+                const res  = await fetch(`${API}/experiences/${experience.id}/availability?year=${currentYear}&month=${currentMonth}`);
+                if (!res.ok) throw new Error();
+                const days = await res.json();
+                availMap = {};
+                days.forEach(d => { availMap[d.date] = d; });
+            } catch { availMap = {}; }
+            buildGrid();
+            loading.style.display = 'none';
+        }
+
+        function buildGrid() {
+            const headers = Array.from(grid.querySelectorAll('.cal-day-header'));
+            grid.innerHTML = '';
+            headers.forEach(h => grid.appendChild(h));
+
+            const firstDay    = new Date(currentYear, currentMonth - 1, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
+            const today       = new Date(); today.setHours(0, 0, 0, 0);
+
+            for (let i = 0; i < firstDay; i++) {
+                const e = document.createElement('div');
+                e.className = 'cal-day cal-day--empty';
+                grid.appendChild(e);
+            }
+            for (let d = 1; d <= daysInMonth; d++) {
+                const dateStr = `${currentYear}-${pad(currentMonth)}-${pad(d)}`;
+                const dayDate = new Date(currentYear, currentMonth - 1, d);
+                grid.appendChild(makeCell(d, availMap[dateStr] || null, dayDate < today, dateStr));
+            }
+        }
+
+        function makeCell(day, info, isPast, dateStr) {
+            const cell = document.createElement('div');
+            cell.className = 'cal-day';
+            cell.dataset.date = dateStr;
+
+            let base = 'cal-day--closed';
+            if (isPast) { base = 'cal-day--past'; }
+            else if (info) {
+                if      (info.status === 'AVAILABLE') base = 'cal-day--available';
+                else if (info.status === 'LIMITED')   base = 'cal-day--limited';
+                else if (info.status === 'FULL')      base = 'cal-day--full';
+            }
+            cell.classList.add(base);
+            if (dateStr === selectedDate) cell.classList.add('cal-day--selected');
+
+            cell.innerHTML = `<span class="cal-day-num">${day}</span>`;
+            if (!isPast && info && info.status !== 'FULL' && info.remainingSlots !== undefined) {
+                cell.innerHTML += `<span class="cal-day-slots">${info.remainingSlots} lug.</span>`;
+            }
+
+            if (!isPast && info && info.status !== 'FULL') {
+                cell.style.cursor = 'pointer';
+                cell.addEventListener('click', () => handleDayClick(dateStr));
+            }
+            return cell;
+        }
+
+        function handleDayClick(dateStr) {
+            selectedDate = dateStr;
+            hint.textContent = 'Día seleccionado. Haz clic en otro para cambiar.';
+            hint.style.color = '#5a7a4a';
+            grid.querySelectorAll('.cal-day[data-date]').forEach(c => {
+                c.classList.toggle('cal-day--selected', c.dataset.date === dateStr);
+            });
+            showSummary();
+        }
+
+        function showSummary() {
+            if (!selectedDate || !experience) return;
+            const price = parseFloat(experience.price) || 0;
+            const total = price * guestsCount;
+
+            document.getElementById('sum-date').textContent   = fmtDate(selectedDate);
+            document.getElementById('sum-price').textContent  = '$' + fmt(price) + ' MXN';
+            document.getElementById('sum-guests').textContent = `${guestsCount} persona${guestsCount !== 1 ? 's' : ''}`;
+            document.getElementById('sum-total').textContent  = '$' + fmt(total) + ' MXN';
+
+            const checkInDate  = new Date(selectedDate + 'T12:00:00');
+            const checkOutDate = new Date(checkInDate);
+            checkOutDate.setDate(checkOutDate.getDate() + 1);
+
+            localStorage.setItem('biosfera_reserva', JSON.stringify({
+                experienceId:   experience.id,
+                experienceName: experience.name,
+                checkIn:        selectedDate,
+                checkOut:       checkOutDate.toISOString().slice(0, 10),
+                nights:         1,
+                guests:         guestsCount,
+                units:          1,
+                pricePerNight:  price,
+                totalPrice:     total,
+                capacity:       experience.capacity
+            }));
+            summary.classList.add('visible');
+        }
+
+        // ── Añadir al carrito ──────────────────────────────────
+        document.getElementById('cal-add-cart-btn').addEventListener('click', () => {
+            if (!selectedDate) {
+                hint.textContent = 'Selecciona una fecha antes de continuar.';
+                hint.style.color = '#e53935';
+                return;
+            }
+            showSummary();
+            const price = experience ? parseFloat(experience.price) : 0;
+            const total = price * guestsCount;
+            BiosferaCart.add({
+                type:            'SIERRA_LAGUNA',
+                icon:            '🏔️',
+                name:            'Sierra Laguna',
+                subtitle:        'Montaña · Día completo · Guía incluido',
+                experienceId:    experience ? experience.id : null,
+                date:            selectedDate,
+                dateFormatted:   fmtDate(selectedDate),
+                guests:          guestsCount,
+                pricePerSession: price,
+                total:           total,
+                capacity:        experience ? experience.capacity : 10
+            });
+            document.getElementById('toast-desc').textContent =
+                `${fmtDate(selectedDate)} · ${guestsCount} persona${guestsCount !== 1 ? 's' : ''} · $${fmt(total)} MXN`;
+            showToast();
+        });
+
+        // ── Añadir otra experiencia ────────────────────────────
+        document.getElementById('cal-more-exp-btn').addEventListener('click', () => {
+            window.location.href = 'index.html#experiencias';
+        });
+
+        // ── Toast ─────────────────────────────────────────────
+        let toastTimer = null;
+        function showToast() {
+            const toast = document.getElementById('cart-toast');
+            toast.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 5000);
+        }
+
+        function pad(n)    { return String(n).padStart(2, '0'); }
+        function fmt(n)    { return Number(n).toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+        function fmtDate(s) {
+            const [y, m, d] = s.split('-');
+            return `${parseInt(d, 10)} de ${MONTHS[parseInt(m, 10) - 1]} de ${y}`;
+        }
+    })();
+    </script>
+
+    <!-- Toast confirmación carrito -->
+    <div id="cart-toast">
+        <span class="toast-icon">🛒</span>
+        <div class="toast-body">
+            <strong>¡Añadido al carrito!</strong>
+            <p id="toast-desc"></p>
+            <div class="toast-actions">
+                <a href="cart.html" class="toast-btn-cart"><i class="fa fa-arrow-right"></i> Ver carrito</a>
+                <a href="index.html#experiencias" class="toast-btn-more">+ Añadir otra</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUTH NAVBAR -->
+    <script>
+    (function () {
+        const token   = localStorage.getItem('biosfera_token');
+        const userRaw = localStorage.getItem('biosfera_user');
+        const authBox = document.getElementById('nav-auth-box');
+        if (!authBox) return;
+
+        if (token && userRaw) {
+            let user = {};
+            try { user = JSON.parse(userRaw); } catch (e) {}
+            const displayName = user.name || user.email || 'Mi cuenta';
+            authBox.innerHTML = `
+                <div class="biosfera-user-menu">
+                    <a href="#" class="thm-btn biosfera-user-toggle">
+                        <i class="fa fa-user-circle" style="margin-right:6px;"></i>${displayName}
+                    </a>
+                    <ul class="biosfera-user-dropdown">
+                        <li><a href="mis-reservas.html"><i class="fa fa-calendar-check" style="margin-right:6px;"></i>Mis reservas</a></li>
+                        <li><a href="login.html"><i class="fa fa-user-circle" style="margin-right:6px;"></i>Mi cuenta</a></li>
+                        <li><a href="#" id="nav-logout-btn"><i class="fa fa-sign-out-alt" style="margin-right:6px;"></i>Cerrar sesión</a></li>
+                    </ul>
+                </div>`;
+            document.getElementById('nav-logout-btn').addEventListener('click', e => {
+                e.preventDefault();
+                localStorage.removeItem('biosfera_token');
+                localStorage.removeItem('biosfera_user');
+                window.location.reload();
+            });
+            authBox.querySelector('.biosfera-user-toggle').addEventListener('click', e => {
+                e.preventDefault();
+                authBox.querySelector('.biosfera-user-dropdown').classList.toggle('open');
+            });
+            document.addEventListener('click', e => {
+                if (!authBox.contains(e.target)) {
+                    const dd = authBox.querySelector('.biosfera-user-dropdown');
+                    if (dd) dd.classList.remove('open');
+                }
+            });
+        } else {
+            authBox.innerHTML = `<a href="login.html" class="thm-btn">Iniciar sesión</a>`;
+        }
+    })();
+    </script>
+
+    <script src="assets/js/biosfera-cart.js"></script>
+</body>
+</html>

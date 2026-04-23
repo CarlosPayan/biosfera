@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="assets/css/aos.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/biosfera-colors.css" />
 </head>
 
 <body class="custom-cursor">
@@ -46,7 +47,7 @@
                         </li>
                         <li>
                             <div class="icon"><i class="icon-mail"></i></div>
-                            <div class="text"><p><a href="mailto:hola@biosfera.mx">hola@biosfera.mx</a></p></div>
+                            <div class="text"><p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p></div>
                         </li>
                     </ul>
                     <p class="main-menu__top-welcome-text">Biosfera Bahía Turquesa — Glamping & Experiencias</p>
@@ -74,9 +75,11 @@
                                     <a href="#">Experiencias</a>
                                     <ul class="shadow-box">
                                         <li><a href="rooms.html">Glamping</a></li>
+                                        <li><a href="ocean-safari-nocturno.html">Ocean Safari Nocturno</a></li>
                                         <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                        <li><a href="sierra-laguna.html">Sierra Laguna</a></li>
                                         <li><a href="#">Tours</a></li>
-                                        <li><a href="#">Snorkel</a></li>
+                                        <li><a href="snorkel-bt.html">Snorkel BT</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#">Servicios</a></li>
@@ -122,6 +125,55 @@
         <section style="padding: 80px 0; background: #f9f7f4; min-height: 60vh;">
             <div class="container">
 
+                <!-- ── Flujo de ORDEN (carrito multi-experiencia) ── -->
+                <div id="co-order-main" style="display:none;">
+                    <div style="max-width:580px; margin:0 auto; text-align:center;">
+
+                        <!-- Icono y título -->
+                        <div style="margin-bottom:32px;">
+                            <div style="width:72px;height:72px;background:#f0f7f3;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:30px;">🛒</div>
+                            <h3 style="font-family:'Playfair Display',serif;color:#1c2e25;font-weight:700;margin-bottom:6px;">Resumen de tu orden</h3>
+                            <p style="color:#9aaa90;font-size:14px;">Revisa tu selección y confirma el pago.</p>
+                        </div>
+
+                        <!-- Tarjeta de resumen de orden -->
+                        <div style="background:#fff;border-radius:18px;padding:28px 26px;box-shadow:0 4px 24px rgba(0,0,0,.07);margin-bottom:24px;text-align:left;">
+                            <p id="co-order-customer" style="font-size:15px;font-weight:700;color:#1c2e25;margin-bottom:4px;"></p>
+                            <p id="co-order-email" style="font-size:13px;color:#9aaa90;margin-bottom:20px;"></p>
+
+                            <div id="co-order-items" style="border-top:1px solid #edf5e5;padding-top:16px;"></div>
+
+                            <div style="border-top:2px solid #ddebd0;padding-top:14px;margin-top:8px;display:flex;justify-content:space-between;align-items:center;">
+                                <span style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#5a8f7b;">Total</span>
+                                <span id="co-order-total" style="font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#1c2e25;"></span>
+                            </div>
+                        </div>
+
+                        <!-- Error box -->
+                        <div id="co-order-error" style="display:none;background:#ffebee;border:1px solid #ffcdd2;border-radius:8px;padding:12px 16px;margin-bottom:16px;color:#c62828;font-size:14px;"></div>
+
+                        <!-- Botón de pago -->
+                        <button id="co-order-pay-btn" style="
+                            width:100%;padding:16px;border:none;border-radius:14px;cursor:pointer;
+                            background:linear-gradient(135deg,#5a8f7b,#6b7c4a);
+                            color:#fff;font-size:16px;font-weight:700;
+                            display:flex;align-items:center;justify-content:center;gap:10px;
+                            transition:opacity .2s;margin-bottom:14px;">
+                            <i class="fa fa-lock"></i>
+                            <span id="co-order-pay-text">Pagar con Mercado Pago</span>
+                            <span id="co-order-spinner" style="display:none;width:18px;height:18px;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;"></span>
+                        </button>
+
+                        <a href="cart.html" style="display:block;text-align:center;font-size:13px;color:#9aaa90;text-decoration:none;">
+                            ← Volver al carrito
+                        </a>
+
+                        <p style="font-size:11px;color:#c0c8b8;margin-top:16px;">
+                            <i class="fa fa-lock"></i> Pago seguro procesado por Mercado Pago
+                        </p>
+                    </div>
+                </div>
+
                 <!-- Sin datos en localStorage -->
                 <div id="co-no-data" style="display:none; text-align:center; padding: 60px 0;">
                     <i class="fa fa-calendar-times" style="font-size:48px; color:#ccc; display:block; margin-bottom:16px;"></i>
@@ -134,11 +186,11 @@
                 <div id="co-confirmed" style="display:none; text-align:center; padding: 60px 20px;">
                     <div style="background:#fff; border-radius:12px; max-width:520px; margin:0 auto; padding:40px 36px; box-shadow:0 4px 24px rgba(0,0,0,.08);">
                         <i class="fa fa-check-circle" style="font-size:56px; color:#4caf50; display:block; margin-bottom:18px;"></i>
-                        <h3 style="color:#1a1a2e; margin-bottom:10px;">¡Reserva recibida!</h3>
+                        <h3 style="color:#1c2e25; margin-bottom:10px;">¡Reserva recibida!</h3>
                         <p style="color:#666; margin-bottom:20px;">Tu solicitud ha sido registrada con el estatus <strong>PENDIENTE</strong>. Te confirmaremos una vez procesado el pago.</p>
                         <div style="background:#f9f7f4; border-radius:8px; padding:16px 20px; text-align:left; margin-bottom:24px;">
                             <p style="margin:0 0 6px; font-size:12px; color:#999; text-transform:uppercase;">Número de reserva</p>
-                            <p id="co-reservation-id" style="font-size:18px; font-weight:700; color:#b8976a; margin:0; word-break:break-all;"></p>
+                            <p id="co-reservation-id" style="font-size:18px; font-weight:700; color:#5a8f7b; margin:0; word-break:break-all;"></p>
                         </div>
                         <a href="index.html" class="thm-btn">Volver al Inicio</a>
                     </div>
@@ -169,7 +221,7 @@
                                     <a href="#" id="co-logout-link" style="color:#2e7d32; font-weight:700; text-decoration:underline;">Cerrar sesión</a>
                                 </div>
 
-                                <h4 style="color:#1a1a2e; font-weight:700; margin-bottom:6px;">Datos del huésped</h4>
+                                <h4 style="color:#1c2e25; font-weight:700; margin-bottom:6px;">Datos del huésped</h4>
                                 <p id="co-form-subtitle" style="color:#999; font-size:14px; margin-bottom:28px;">Completa la información para confirmar tu reserva.</p>
 
                                 <form id="co-form" novalidate>
@@ -224,22 +276,22 @@
                         <!-- Columna derecha: resumen -->
                         <div class="col-xl-5 col-lg-5 mt-4 mt-lg-0">
                             <div style="background:#fff; border-radius:12px; padding:32px 28px; box-shadow:0 4px 24px rgba(0,0,0,.07); position:sticky; top:100px;">
-                                <h5 style="color:#1a1a2e; font-weight:700; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid #eee;">
-                                    <i class="fa fa-receipt" style="color:#b8976a; margin-right:8px;"></i>Resumen de tu reserva
+                                <h5 style="color:#1c2e25; font-weight:700; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid #eee;">
+                                    <i class="fa fa-receipt" style="color:#5a8f7b; margin-right:8px;"></i>Resumen de tu reserva
                                 </h5>
 
                                 <!-- Nombre experiencia -->
-                                <p id="co-exp-name" style="font-size:18px; font-weight:700; color:#1a1a2e; margin-bottom:18px;"></p>
+                                <p id="co-exp-name" style="font-size:18px; font-weight:700; color:#1c2e25; margin-bottom:18px;"></p>
 
                                 <!-- Fechas -->
                                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:18px;">
                                     <div>
                                         <p style="font-size:11px; color:#999; text-transform:uppercase; margin-bottom:3px;">Llegada</p>
-                                        <p id="co-checkin-lbl" style="font-weight:700; color:#1a1a2e; margin:0;"></p>
+                                        <p id="co-checkin-lbl" style="font-weight:700; color:#1c2e25; margin:0;"></p>
                                     </div>
                                     <div>
                                         <p style="font-size:11px; color:#999; text-transform:uppercase; margin-bottom:3px;">Salida</p>
-                                        <p id="co-checkout-lbl" style="font-weight:700; color:#1a1a2e; margin:0;"></p>
+                                        <p id="co-checkout-lbl" style="font-weight:700; color:#1c2e25; margin:0;"></p>
                                     </div>
                                 </div>
 
@@ -250,13 +302,13 @@
                                         <span id="co-subtotal-lbl"></span>
                                     </div>
                                     <!-- Fila de unidades (solo visible si > 1) -->
-                                    <div id="co-units-row" style="display:none; justify-content:space-between; margin-bottom:8px; font-size:13px; color:#b8976a; font-weight:600;">
+                                    <div id="co-units-row" style="display:none; justify-content:space-between; margin-bottom:8px; font-size:13px; color:#5a8f7b; font-weight:600;">
                                         <span><i class="fa fa-tents" style="margin-right:4px;"></i>Grupo</span>
                                         <span id="co-units-lbl"></span>
                                     </div>
                                     <div style="border-top:1px solid #ddd; padding-top:10px; display:flex; justify-content:space-between; align-items:center;">
-                                        <span style="font-weight:700; color:#1a1a2e;">Total</span>
-                                        <span id="co-total-lbl" style="font-size:22px; font-weight:800; color:#b8976a;"></span>
+                                        <span style="font-weight:700; color:#1c2e25;">Total</span>
+                                        <span id="co-total-lbl" style="font-size:22px; font-weight:800; color:#5a8f7b;"></span>
                                     </div>
                                 </div>
 
@@ -347,7 +399,7 @@
                         <i class="fa fa-user-circle" style="margin-right:6px;"></i>${user.name}
                     </a>
                     <ul class="biosfera-user-dropdown">
-                        <li><a href="mis-reservas.html"><span class="fa fa-calendar-check" style="margin-right:6px;color:#b8976a;"></span>Mis reservas</a></li>
+                        <li><a href="mis-reservas.html"><span class="fa fa-calendar-check" style="margin-right:6px;color:#5a8f7b;"></span>Mis reservas</a></li>
                         <li><a href="#" id="nav-logout-btn"><span class="fa fa-sign-out" style="margin-right:6px;"></span>Cerrar sesión</a></li>
                     </ul>
                 </div>`;
@@ -375,6 +427,9 @@
     </script>
 
     <!-- ── CHECKOUT LOGIC ────────────────────────────────────── -->
+    <style>
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
     <script>
     (function () {
         const API = 'http://localhost:8080';
@@ -384,7 +439,87 @@
         const noData    = document.getElementById('co-no-data');
         const main      = document.getElementById('co-main');
         const confirmed = document.getElementById('co-confirmed');
+        const orderMain = document.getElementById('co-order-main');
 
+        function fmt(n) { return Number(n).toLocaleString('es-MX', { minimumFractionDigits: 2 }); }
+        function fmtDate(s) {
+            if (!s) return '';
+            const [y, m, d] = s.split('-');
+            return `${parseInt(d)} ${MONTHS[parseInt(m) - 1]} ${y}`;
+        }
+
+        // ── FLUJO 1: Orden de carrito (?orderId=xxx) ──────────
+        const params  = new URLSearchParams(window.location.search);
+        const orderId = params.get('orderId');
+
+        if (orderId) {
+            orderMain.style.display = 'block';
+
+            // Cargar datos de la orden desde la API
+            fetch(`${API}/orders/${orderId}`)
+                .then(r => {
+                    if (!r.ok) throw new Error('No se encontró la orden');
+                    return r.json();
+                })
+                .then(order => {
+                    document.getElementById('co-order-customer').textContent =
+                        '👤 ' + order.customerName;
+                    document.getElementById('co-order-email').textContent =
+                        '✉️ ' + order.customerEmail;
+                    document.getElementById('co-order-total').textContent =
+                        '$' + fmt(order.totalPrice) + ' MXN';
+
+                    // Construir filas de ítems — la orden no tiene items detallados,
+                    // así que mostramos el total directamente
+                    const itemsEl = document.getElementById('co-order-items');
+                    itemsEl.innerHTML = `
+                        <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:14px;color:#6a7a68;">
+                            <span><i class="fa fa-calendar" style="color:#5a8f7b;margin-right:6px;"></i>Orden <code style="font-size:11px;color:#aaa;">#${orderId.split('-')[0].toUpperCase()}</code></span>
+                            <strong style="color:#1c2e25;">$${fmt(order.totalPrice)} MXN</strong>
+                        </div>`;
+                })
+                .catch(err => {
+                    document.getElementById('co-order-error').textContent =
+                        'No se pudo cargar la orden: ' + err.message;
+                    document.getElementById('co-order-error').style.display = 'block';
+                });
+
+            // Botón pagar
+            document.getElementById('co-order-pay-btn').addEventListener('click', async function () {
+                const btn     = this;
+                const btnText = document.getElementById('co-order-pay-text');
+                const spinner = document.getElementById('co-order-spinner');
+                const errBox  = document.getElementById('co-order-error');
+
+                btn.disabled    = true;
+                btnText.textContent = 'Procesando...';
+                spinner.style.display = 'inline-block';
+                errBox.style.display  = 'none';
+
+                try {
+                    const res = await fetch(`${API}/orders/${orderId}/payment`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+                    if (!res.ok) {
+                        const e = await res.json().catch(() => ({}));
+                        throw new Error(e.error || 'Error al iniciar el pago');
+                    }
+                    const { initPoint } = await res.json();
+                    window.location.href = initPoint;
+                } catch (err) {
+                    errBox.textContent    = '❌ ' + err.message;
+                    errBox.style.display  = 'block';
+                    btn.disabled          = false;
+                    btnText.textContent   = 'Pagar con Mercado Pago';
+                    spinner.style.display = 'none';
+                }
+            });
+
+            return; // No continuar con el flujo de reserva individual
+        }
+
+        // ── FLUJO 2: Reserva individual (localStorage biosfera_reserva) ───────
         // ── Leer datos del localStorage ──────────────────────
         const raw = localStorage.getItem('biosfera_reserva');
         if (!raw) {
@@ -408,12 +543,6 @@
         const unitsCount = units || 1;
 
         // ── Poblar resumen ───────────────────────────────────
-        function fmtDate(s) {
-            const [y, m, d] = s.split('-');
-            return `${parseInt(d)} ${MONTHS[parseInt(m) - 1]} ${y}`;
-        }
-        function fmt(n) { return Number(n).toLocaleString('es-MX', { minimumFractionDigits: 2 }); }
-
         document.getElementById('co-exp-name').textContent    = experienceName || 'Glamping';
         document.getElementById('co-checkin-lbl').textContent  = fmtDate(checkIn);
         document.getElementById('co-checkout-lbl').textContent = fmtDate(checkOut);
@@ -617,7 +746,7 @@
             outline: none;
             resize: vertical;
         }
-        .co-input:focus { border-color: #b8976a; background: #fff; }
+        .co-input:focus { border-color: #5a8f7b; background: #fff; }
         .co-err {
             display: none;
             font-size: 12px;
@@ -638,7 +767,7 @@
             display: block; padding: 10px 16px; color: #333;
             font-size: 14px; text-decoration: none; transition: background .15s;
         }
-        .biosfera-user-dropdown li a:hover { background: #f5f5f5; color: #b8976a; }
+        .biosfera-user-dropdown li a:hover { background: #f5f5f5; color: #5a8f7b; }
     </style>
 
 </body>

@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
     <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
-    <meta name="description" content="Hotelux HTML 5 Template " />
+    <meta name="description" content="Biosfera Bahía Turquesa — Glamping y Experiencias en la Bahía" />
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +41,221 @@
     <!-- template styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/biosfera-colors.css" />
+
+    <style>
+        /* ═══════════════════════════════════════════════
+           HOME PAGE — secciones personalizadas Biosfera
+        ═══════════════════════════════════════════════ */
+
+        /* ── 1. INTRO ───────────────────────────────── */
+        .biosfera-intro {
+            background: #fff;
+            padding: 90px 0 80px;
+        }
+        .biosfera-intro__label {
+            font-size: 11px; font-weight: 700; letter-spacing: 3px;
+            text-transform: uppercase; color: #5a7a4a;
+            display: flex; align-items: center; gap: 10px;
+            margin-bottom: 20px;
+        }
+        .biosfera-intro__label::after {
+            content: ''; display: inline-block;
+            width: 40px; height: 1.5px;
+            background: #5a7a4a; opacity: .45;
+        }
+        .biosfera-intro__title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 4.5vw, 56px);
+            font-weight: 700; color: #1c2e25;
+            line-height: 1.18; margin-bottom: 24px;
+        }
+        .biosfera-intro__title span { color: #5a7a4a; font-style: italic; }
+        .biosfera-intro__lead {
+            font-size: 16.5px; color: #3d5040;
+            line-height: 1.9; margin-bottom: 16px;
+        }
+        .biosfera-intro__text {
+            font-size: 15px; color: #5a6a58;
+            line-height: 1.85; margin-bottom: 32px;
+        }
+        .biosfera-intro__tags {
+            display: flex; flex-wrap: wrap; gap: 10px;
+            margin-bottom: 36px;
+        }
+        .biosfera-intro__tag {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: #f0f7eb; border: 1.5px solid #b8d8a0;
+            border-radius: 30px; padding: 8px 18px;
+            font-size: 13px; font-weight: 600; color: #3d6e30;
+            transition: background .2s, border-color .2s;
+        }
+        .biosfera-intro__tag:hover {
+            background: #5a7a4a; color: #fff; border-color: #5a7a4a;
+        }
+
+        /* Visual lado derecho */
+        .biosfera-intro__img-wrap {
+            position: relative;
+            border-radius: 20px; overflow: visible;
+        }
+        .biosfera-intro__img {
+            width: 100%; height: 500px;
+            object-fit: cover; border-radius: 20px;
+            box-shadow: 0 16px 56px rgba(30,60,40,.15);
+        }
+        .biosfera-intro__stats-card {
+            position: absolute; bottom: -24px; left: -24px;
+            background: #fff; border-radius: 16px;
+            padding: 20px 28px;
+            box-shadow: 0 8px 32px rgba(30,60,40,.12);
+            display: flex; gap: 28px;
+        }
+        .biosfera-intro__stat { text-align: center; }
+        .biosfera-intro__stat strong {
+            display: block; font-family: 'Playfair Display', serif;
+            font-size: 28px; font-weight: 800; color: #1c2e25;
+            line-height: 1;
+        }
+        .biosfera-intro__stat span {
+            font-size: 11px; color: #5a7a4a;
+            font-weight: 600; letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .biosfera-intro__eco-badge {
+            position: absolute; top: 20px; right: -16px;
+            background: #5a7a4a; color: #fff;
+            border-radius: 12px; padding: 12px 18px;
+            display: flex; align-items: center; gap: 8px;
+            font-size: 12px; font-weight: 700;
+            box-shadow: 0 6px 20px rgba(90,122,74,.35);
+            letter-spacing: .5px;
+        }
+
+        /* ── 2. EXPERIENCES ─────────────────────────── */
+        .home-experiences {
+            background: #f4f8f1;
+            padding: 90px 0 100px;
+        }
+        .home-experiences__sub {
+            text-align: center; font-size: 16px;
+            color: #5a6a58; max-width: 520px;
+            margin: -12px auto 48px; line-height: 1.8;
+        }
+
+        /* Expanding panels */
+        .home-exp__panels {
+            display: flex; gap: 8px;
+            height: clamp(420px, 52vh, 540px);
+            border-radius: 20px; overflow: hidden;
+        }
+        .home-exp__panel {
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: flex .5s cubic-bezier(.4,0,.2,1);
+        }
+        .home-exp__panel:hover { flex: 3; }
+
+        /* Gradient overlay */
+        .home-exp__panel-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(10,20,12,.88) 0%,
+                rgba(10,20,12,.35) 50%,
+                rgba(10,20,12,.15) 100%
+            );
+            display: flex; flex-direction: column;
+            justify-content: flex-end;
+            padding: 28px 22px;
+        }
+
+        /* Collapsed state: show only icon + short name */
+        .home-exp__panel-tag {
+            font-size: 10px; font-weight: 700;
+            letter-spacing: 2.5px; text-transform: uppercase;
+            color: rgba(255,255,255,.6);
+            margin-bottom: 6px;
+            opacity: 0; transition: opacity .3s;
+            white-space: nowrap;
+        }
+        .home-exp__panel:hover .home-exp__panel-tag { opacity: 1; }
+
+        .home-exp__panel-icon {
+            font-size: 28px; margin-bottom: 10px;
+            display: block;
+        }
+        .home-exp__panel-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(15px, 1.6vw, 22px);
+            font-weight: 700; color: #fff;
+            margin-bottom: 0; line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        /* Expanded state: show description + button */
+        .home-exp__panel-desc {
+            font-size: 13.5px; color: rgba(255,255,255,.8);
+            line-height: 1.7; margin: 10px 0 18px;
+            max-height: 0; overflow: hidden;
+            opacity: 0;
+            transition: max-height .4s ease, opacity .35s ease;
+        }
+        .home-exp__panel:hover .home-exp__panel-desc {
+            max-height: 120px; opacity: 1;
+        }
+        .home-exp__panel-btn {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: rgba(255,255,255,.12);
+            border: 1.5px solid rgba(255,255,255,.35);
+            color: #fff; font-size: 12px; font-weight: 700;
+            padding: 9px 20px; border-radius: 30px;
+            text-decoration: none;
+            opacity: 0; transform: translateY(8px);
+            transition: opacity .3s .1s, transform .3s .1s, background .2s;
+            width: fit-content;
+        }
+        .home-exp__panel:hover .home-exp__panel-btn {
+            opacity: 1; transform: translateY(0);
+        }
+        .home-exp__panel-btn:hover {
+            background: rgba(255,255,255,.25); color: #fff;
+            text-decoration: none;
+        }
+
+        /* Fallback backgrounds per panel */
+        .home-exp__panel--glamping    { background-color: #2d4a35; }
+        .home-exp__panel--ocean       { background-color: #0a2a3e; }
+        .home-exp__panel--nocturno    { background-color: #080f1a; }
+        .home-exp__panel--snorkel     { background-color: #0e3050; }
+        .home-exp__panel--sierra      { background-color: #2a3820; }
+
+        /* Mobile: stack vertically */
+        @media (max-width: 768px) {
+            .home-exp__panels {
+                flex-direction: column;
+                height: auto; gap: 12px;
+            }
+            .home-exp__panel {
+                min-height: 200px;
+                flex: none !important;
+            }
+            .home-exp__panel-desc { max-height: 80px; opacity: 1; }
+            .home-exp__panel-btn  { opacity: 1; transform: none; }
+            .home-exp__panel-tag  { opacity: 1; }
+            .biosfera-intro__stats-card { position: static; margin-top: 20px; justify-content: space-around; }
+            .biosfera-intro__eco-badge  { display: none; }
+            .biosfera-intro__img        { height: 320px; }
+        }
+        @media (max-width: 991px) {
+            .biosfera-intro__img-wrap { margin-top: 40px; }
+        }
+    </style>
 </head>
 
 <body class="custom-cursor">
@@ -66,19 +281,19 @@
         <div class="popup-inner">
             <div class="close-chat"><i class="fa fa-times"></i></div>
             <div class="chat-form">
-                <p>Please fill out the form below and we will get back to you as soon as possible.</p>
+                <p>¿Tienes alguna pregunta? Escríbenos y te respondemos pronto.</p>
                 <form action="assets/inc/sendemail.php" method="POST" class="contact-form-validated">
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="text" name="name" placeholder="Tu nombre" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="email" name="email" placeholder="Tu correo" required>
                     </div>
                     <div class="form-group">
-                        <textarea name="message" placeholder="Your Text" required></textarea>
+                        <textarea name="message" placeholder="Tu mensaje" required></textarea>
                     </div>
                     <div class="form-group message-btn">
-                        <button type="submit" class="thm-btn"> Submit Now</button>
+                        <button type="submit" class="thm-btn">Enviar</button>
                     </div>
                     <div class="result"></div>
                 </form>
@@ -104,12 +319,9 @@
                                 <a href="index.html"><img src="assets/images/resources/logo-3.png" alt="" /></a>
                             </div>
                             <div class="content-box">
-                                <h4>About Us</h4>
+                                <h4>Sobre Nosotros</h4>
                                 <div class="inner-text">
-                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                        roots in a piece of classical Latin literature from 45 BC, making it over
-                                        2000 years old.
-                                    </p>
+                                    <p>Biosfera Bahía Turquesa es un eco glamping consciente en Baja California Sur donde la naturaleza, la comunidad y la expansión de la conciencia se encuentran.</p>
                                 </div>
                             </div>
 
@@ -191,7 +403,7 @@
                                     <i class="icon-call"></i>
                                 </div>
                                 <div class="text">
-                                    <p><a href="tel:15502505260">+1 (550) 250 5260</a></p>
+                                    <p><a href="tel:+526121020266">+52 612 102 0266</a></p>
                                 </div>
                             </li>
                             <li>
@@ -199,30 +411,12 @@
                                     <i class="icon-mail"></i>
                                 </div>
                                 <div class="text">
-                                    <p><a href="mailto:info@Hotelux24.com">info@Hotelux24.com</a>
+                                    <p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a>
                                     </p>
                                 </div>
                             </li>
                         </ul>
                         <div class="main-menu-three__top-right">
-                            <div class="main-menu-three__language-switcher">
-                                <div class="icon">
-                                    <span class="fa fa-globe"></span>
-                                </div>
-
-                                <div class="language-switcher clearfix">
-                                    <form action="#" class="clearfix">
-                                        <div class="select-box clearfix">
-                                            <select class="selectmenu wide">
-                                                <option selected="selected">ENG</option>
-                                                <option>FRA</option>
-                                                <option>GER</option>
-                                                <option>BAN</option>
-                                            </select>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
                             <div class="main-menu-three__social">
                                 <a href="#"><i class="fab fa-twitter"></i></a>
                                 <a href="#"><i class="fab fa-facebook"></i></a>
@@ -252,23 +446,26 @@
                                         <a href="#">Experiencias</a>
                                         <ul class="shadow-box">
                                             <li><a href="rooms.html">Glamping</a></li>
+                                            <li><a href="ocean-safari-nocturno.html">Ocean Safari Nocturno</a></li>
                                         <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                            <li><a href="snorkel-bt.html">Snorkel BT</a></li>
+                                            <li><a href="sierra-laguna.html">Sierra Laguna</a></li>
                                             <li><a href="places.html">Tours</a></li>
-                                            <li><a href="services.html">Snorkel</a></li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown">
-                                        <a href="#">Servicios</a>
-                                        <ul class="shadow-box">
-                                            <li><a href="services.html">Todos los Servicios</a></li>
-                                            <li><a href="restaurant.html">Restaurante</a></li>
-                                            <li><a href="spa.html">Spa</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="services.html">Servicios</a></li>
                                     <li><a href="events.html">Eventos</a></li>
                                     <li><a href="faq.html">FAQ</a></li>
                                     <li><a href="about.html">Nosotros</a></li>
+                                    <li><a href="eco.html">Eco</a></li>
                                     <li><a href="coming-soon.html">Expansión</a></li>
+                                    <li><a href="contact.html">Contacto</a></li>
+                                    <li>
+                                        <a href="cart.html" class="biosfera-cart-nav" title="Mi carrito">
+                                            <i class="fa fa-shopping-cart" style="font-size:17px;color:#d6e8e2;"></i>
+                                            <span class="biosfera-cart-badge">0</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="main-menu-three__right">
@@ -278,12 +475,6 @@
                                             <div class="main-menu-three__search-box">
                                                 <a href="#"
                                                     class="main-menu-three__search searcher-toggler-box icon-search-interface-symbol"></a>
-                                            </div>
-                                            <div class="main-menu-three__cart-box">
-                                                <a href="cart.html" class="main-menu-three__cart">
-                                                    <span class="far fa-shopping-cart"></span>
-                                                    <span class="main-menu-three__cart-count">02</span>
-                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -326,1563 +517,871 @@
 
 
 
-        <!--About Three Start -->
-        <section class="about-three">
-            <div class="about-three__bg-color"></div>
+        <!-- Biosfera Intro Start -->
+        <section class="biosfera-intro">
             <div class="container">
-                <div class="row">
-                    <div class="col-xl-6">
-                        <div class="about-three__left">
-                            <div class="section-title text-left sec-title-animation animation-style2">
-                                <div class="section-title__tagline-box">
-                                    <span class="section-title__tagline">ABOUT US</span>
-                                </div>
-                                <h2 class="section-title__title title-animation">Welcome To Our Best luxury Stay In
-                                    <span>The City.</span>
-                                </h2>
-                            </div>
-                            <p class="about-three__text">At our hotel, luxury is more than just a word — it's a
-                                tradition. From exquisite<br> design to personalized service, every detail is
-                                thoughtfully
-                                curated to create unforgettable experiences. Whether you're here for relaxation or
-                                celebration</p>
-                            <ul class="about-three__points-box list-unstyled">
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-24-7"></span>
-                                    </div>
-                                    <div class="content">
-                                        <h3>24/7 Front Desk & Concierge</h3>
-                                        <p>Blending modern luxury with timeless hospitality — welcome to<br> a space
-                                            where
-                                            your comfort is our priority.</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-relax"></span>
-                                    </div>
-                                    <div class="content">
-                                        <h3>Spa & Wellness Center</h3>
-                                        <p>Step inside and experience why guests around the world choose<br> us again
-                                            and
-                                            again.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="about-three__btn-and-video">
-                                <div class="about-three__btn-box">
-                                    <a href="about.html" class="thm-btn">Learn More</a>
-                                </div>
-                                <div class="about-three__video-box">
-                                    <div class="about-three__video-link">
-                                        <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
-                                            <div class="about-three__video-icon">
-                                                <span class="fa fa-play"></span>
-                                                <i class="ripple"></i>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <p class="about-three__video-text">Watch Our Support</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="about-three__right wow slideInRight" data-wow-delay="100ms"
-                            data-wow-duration="2500ms">
-                            <div class="about-three__img-box">
-                                <div class="about-three__img">
-                                    <img src="assets/images/resources/about-three-img-1.jpg" alt="">
-                                </div>
-                                <div class="about-three__img-2">
-                                    <img src="assets/images/resources/about-three-img-2.jpg" alt="">
-                                </div>
-                                <div class="about-three__experience">
-                                    <div class="about-three__experience-count-box">
-                                        <h3 class="odometer" data-count="25">00</h3>
-                                        <span>+</span>
-                                    </div>
-                                    <p class="about-three__experience-count-text">Years of<br> Experience</p>
-                                </div>
-                                <div class="about-two__shape-1 float-bob-y">
-                                    <img src="assets/images/shapes/about-two-shape-1.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--About Three End -->
+                <div class="row align-items-center g-5">
 
-
-        <!--Our Rooms Start -->
-        <section class="our-rooms our-rooms-three">
-            <div class="container">
-                <div class="section-title text-center sec-title-animation animation-style1">
-                    <div class="section-title__tagline-box">
-                        <span class="section-title__tagline">Our favorite rooms</span>
-                    </div>
-                    <h2 class="section-title__title title-animation">Our Rooms & <span>Suites</span>
-                    </h2>
-                </div>
-                <div class="our-rooms__carousel swiper-container">
-                    <div class="swiper-wrapper">
-                        <!--Our Rooms Single Start-->
-                        <div class="swiper-slide">
-                            <div class="our-rooms__single">
-                                <div class="our-rooms__img-box">
-                                    <div class="our-rooms__img">
-                                        <img src="assets/images/resources/our-rooms-1-1.jpg" alt="">
-                                    </div>
-                                    <div class="our-rooms__price">
-                                        <p><span>$198.0</span> / night</p>
-                                    </div>
-                                    <ul class="our-rooms__service list-unstyled">
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-wifi"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>Free Wifi</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-television"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>1 tv</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-coffee-cup"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>Breakfast</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="our-rooms__content">
-                                    <h3 class="our-rooms__title"><a href="room-details.html">Luxury Room</a></h3>
-                                    <ul class="our-rooms__details-list list-unstyled">
-                                        <li>
-                                            <div class="icon">
-                                                <span class="icon-full-size"></span>
-                                            </div>
-                                            <p>size: <span>34 sqm</span></p>
-                                        </li>
-                                        <li>
-                                            <div class="icon">
-                                                <span class="icon-user"></span>
-                                            </div>
-                                            <p>Adult: <span>2</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Our Rooms Single End-->
-                        <!--Our Rooms Single Start-->
-                        <div class="swiper-slide">
-                            <div class="our-rooms__single">
-                                <div class="our-rooms__img-box">
-                                    <div class="our-rooms__img">
-                                        <img src="assets/images/resources/our-rooms-1-2.jpg" alt="">
-                                    </div>
-                                    <div class="our-rooms__price">
-                                        <p><span>$180.0</span> / night</p>
-                                    </div>
-                                    <ul class="our-rooms__service list-unstyled">
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-wifi"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>Free Wifi</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-television"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>1 tv</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-coffee-cup"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>Breakfast</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="our-rooms__content">
-                                    <h3 class="our-rooms__title"><a href="room-details.html">Double Room</a></h3>
-                                    <ul class="our-rooms__details-list list-unstyled">
-                                        <li>
-                                            <div class="icon">
-                                                <span class="icon-full-size"></span>
-                                            </div>
-                                            <p>size: <span>36 sqm</span></p>
-                                        </li>
-                                        <li>
-                                            <div class="icon">
-                                                <span class="icon-user"></span>
-                                            </div>
-                                            <p>Adult: <span>4</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Our Rooms Single End-->
-                        <!--Our Rooms Single Start-->
-                        <div class="swiper-slide">
-                            <div class="our-rooms__single">
-                                <div class="our-rooms__img-box">
-                                    <div class="our-rooms__img">
-                                        <img src="assets/images/resources/our-rooms-1-3.jpg" alt="">
-                                    </div>
-                                    <div class="our-rooms__price">
-                                        <p><span>$305.0</span> / night</p>
-                                    </div>
-                                    <ul class="our-rooms__service list-unstyled">
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-wifi"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>Free Wifi</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-television"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>1 tv</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-coffee-cup"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>Breakfast</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="our-rooms__content">
-                                    <h3 class="our-rooms__title"><a href="room-details.html">Family Room</a></h3>
-                                    <ul class="our-rooms__details-list list-unstyled">
-                                        <li>
-                                            <div class="icon">
-                                                <span class="icon-full-size"></span>
-                                            </div>
-                                            <p>size: <span>35 sqm</span></p>
-                                        </li>
-                                        <li>
-                                            <div class="icon">
-                                                <span class="icon-user"></span>
-                                            </div>
-                                            <p>Adult: <span>5</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Our Rooms Single End-->
-                        <!--Our Rooms Single Start-->
-                        <div class="swiper-slide">
-                            <div class="our-rooms__single">
-                                <div class="our-rooms__img-box">
-                                    <div class="our-rooms__img">
-                                        <img src="assets/images/resources/our-rooms-1-4.jpg" alt="">
-                                    </div>
-                                    <div class="our-rooms__price">
-                                        <p><span>$220.0</span> / night</p>
-                                    </div>
-                                    <ul class="our-rooms__service list-unstyled">
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-wifi"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>Free Wifi</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-television"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>1 tv</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-coffee-cup"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>Breakfast</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="our-rooms__content">
-                                    <h3 class="our-rooms__title"><a href="room-details.html">Deluxe Room</a></h3>
-                                    <ul class="our-rooms__details-list list-unstyled">
-                                        <li>
-                                            <div class="icon">
-                                                <span class="icon-full-size"></span>
-                                            </div>
-                                            <p>size: <span>35 sqm</span></p>
-                                        </li>
-                                        <li>
-                                            <div class="icon">
-                                                <span class="icon-user"></span>
-                                            </div>
-                                            <p>Adult: <span>3</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Our Rooms Single End-->
-                        <!--Our Rooms Single Start-->
-                        <div class="swiper-slide">
-                            <div class="our-rooms__single">
-                                <div class="our-rooms__img-box">
-                                    <div class="our-rooms__img">
-                                        <img src="assets/images/resources/our-rooms-1-5.jpg" alt="">
-                                    </div>
-                                    <div class="our-rooms__price">
-                                        <p><span>$90.0</span> / night</p>
-                                    </div>
-                                    <ul class="our-rooms__service list-unstyled">
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-wifi"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>Free Wifi</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-television"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>1 tv</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-coffee-cup"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>Breakfast</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="our-rooms__content">
-                                    <h3 class="our-rooms__title"><a href="room-details.html">Single Room</a></h3>
-                                    <ul class="our-rooms__details-list list-unstyled">
-                                        <li>
-                                            <div class="icon">
-                                                <span class="icon-full-size"></span>
-                                            </div>
-                                            <p>size: <span>33 sqm</span></p>
-                                        </li>
-                                        <li>
-                                            <div class="icon">
-                                                <span class="icon-user"></span>
-                                            </div>
-                                            <p>Adult: <span>3</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Our Rooms Single End-->
-                        <!--Our Rooms Single Start-->
-                        <div class="swiper-slide">
-                            <div class="our-rooms__single">
-                                <div class="our-rooms__img-box">
-                                    <div class="our-rooms__img">
-                                        <img src="assets/images/resources/our-rooms-1-6.jpg" alt="">
-                                    </div>
-                                    <div class="our-rooms__price">
-                                        <p><span>$250.0</span> / night</p>
-                                    </div>
-                                    <ul class="our-rooms__service list-unstyled">
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-wifi"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>Free Wifi</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-television"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>1 tv</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="our-rooms__service-icon">
-                                                <i class="icon-coffee-cup"></i>
-                                            </div>
-                                            <div class="our-rooms__extra-service">
-                                                <span>Breakfast</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="our-rooms__content">
-                                    <h3 class="our-rooms__title"><a href="room-details.html">King Room</a></h3>
-                                    <ul class="our-rooms__details-list list-unstyled">
-                                        <li>
-                                            <div class="icon">
-                                                <span class="icon-full-size"></span>
-                                            </div>
-                                            <p>size: <span>35 sqm</span></p>
-                                        </li>
-                                        <li>
-                                            <div class="icon">
-                                                <span class="icon-user"></span>
-                                            </div>
-                                            <p>Adult: <span>5</span></p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Our Rooms Single End-->
-                    </div>
-                </div>
-                <div class="our-rooms__nav">
-                    <div class="swiper-button-next1">
-                        <i class="icon-back"></i>
-                    </div>
-                    <div class="swiper-button-prev1">
-                        <i class="icon-next"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Our Rooms End -->
-
-        <!--Video One Start -->
-        <section class="video-two">
-            <div class="container">
-                <div class="video-two__inner">
-                    <div class="video-two__shape-1">
-                        <img src="assets/images/shapes/video-two-shape-1.png" alt="">
-                    </div>
-                    <div class="video-one__bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-                        style="background-image: url(assets/images/backgrounds/video-two-bg.jpg);">
-                    </div>
-                    <div class="video-two__video-link">
-                        <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
-                            <div class="video-two__video-icon">
-                                <span class="fas fa-play"></span>
-                                <i class="ripple"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="video-two__sub-title">Booking hotel room</div>
-                    <h2 class="video-two__title">Enjoy and watch Hotelux Experience</h2>
-                    <div class="video-two__btn-box">
-                        <a href="contact.html" class="thm-btn">Book Now</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Video One End -->
-
-        <!--Services Three Start -->
-        <section class="services-three">
-            <div class="services-three__bg-color"></div>
-            <div class="container">
-                <div class="section-title text-center sec-title-animation animation-style1">
-                    <div class="section-title__tagline-box">
-                        <span class="section-title__tagline">Our Services</span>
-                    </div>
-                    <h2 class="section-title__title title-animation">Explore The Full Range Of <span>Services
-                            We</span><br> <span>Offer To Meet Your Needs</span>
-                    </h2>
-                </div>
-                <div class="services-three__inner">
-                    <ul class="services-three__services-list list-unstyled">
-                        <li class="hover-item">
-                            <div class="services-three__icon-and-title-box">
-                                <div class="services-three__icon">
-                                    <span class="icon-relax"></span>
-                                </div>
-                                <div class="services-three__title-box">
-                                    <div class="services-three__count"></div>
-                                    <h3 class="services-three__title"><a href="fitness-center.html">Spa - Beauty &
-                                            Health</a></h3>
-                                </div>
-                            </div>
-                            <div class="services-three__text-and-btn-box">
-                                <p class="services-three__text">Expert cleaning services to keep your home fresh,<br>
-                                    tidy, and sparkling clean.</p>
-                                <div class="services-three__btn-box">
-                                    <a href="fitness-center.html">View Details<span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                            <div class="hover-item__box">
-                                <img src="assets/images/services/services-3-1.jpg" alt="Image"
-                                    class="hover-item__box-img">
-                            </div>
-                        </li>
-                        <li class="hover-item">
-                            <div class="services-three__icon-and-title-box">
-                                <div class="services-three__icon">
-                                    <span class="icon-event"></span>
-                                </div>
-                                <div class="services-three__title-box">
-                                    <div class="services-three__count"></div>
-                                    <h3 class="services-three__title"><a href="conference-room.html">Conference Room</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="services-three__text-and-btn-box">
-                                <p class="services-three__text">Professional cleaning tailored for offices to
-                                    maintain<br>
-                                    a clean and productive workspace.</p>
-                                <div class="services-three__btn-box">
-                                    <a href="conference-room.html">View Details<span
-                                            class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                            <div class="hover-item__box">
-                                <img src="assets/images/services/services-3-2.jpg" alt="Image"
-                                    class="hover-item__box-img">
-                            </div>
-                        </li>
-                        <li class="hover-item">
-                            <div class="services-three__icon-and-title-box">
-                                <div class="services-three__icon">
-                                    <span class="icon-house"></span>
-                                </div>
-                                <div class="services-three__title-box">
-                                    <div class="services-three__count"></div>
-                                    <h3 class="services-three__title"><a href="cleaning-everyday.html">Cleaning
-                                            Everyday</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="services-three__text-and-btn-box">
-                                <p class="services-three__text">Professional cleaning tailored for offices to
-                                    maintain<br>
-                                    a clean and productive workspace.</p>
-                                <div class="services-three__btn-box">
-                                    <a href="cleaning-everyday.html">View Details<span
-                                            class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                            <div class="hover-item__box">
-                                <img src="assets/images/services/services-3-3.jpg" alt="Image"
-                                    class="hover-item__box-img">
-                            </div>
-                        </li>
-                        <li class="hover-item">
-                            <div class="services-three__icon-and-title-box">
-                                <div class="services-three__icon">
-                                    <span class="icon-restaurant"></span>
-                                </div>
-                                <div class="services-three__title-box">
-                                    <div class="services-three__count"></div>
-                                    <h3 class="services-three__title"><a href="restaurant.html">Restaurant</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="services-three__text-and-btn-box">
-                                <p class="services-three__text">Professional cleaning tailored for offices to
-                                    maintain<br>
-                                    a clean and productive workspace.</p>
-                                <div class="services-three__btn-box">
-                                    <a href="restaurant.html">View Details<span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                            <div class="hover-item__box">
-                                <img src="assets/images/services/services-3-4.jpg" alt="Image"
-                                    class="hover-item__box-img">
-                            </div>
-                        </li>
-                        <li class="hover-item">
-                            <div class="services-three__icon-and-title-box">
-                                <div class="services-three__icon">
-                                    <span class="icon-icon-15154409"></span>
-                                </div>
-                                <div class="services-three__title-box">
-                                    <div class="services-three__count"></div>
-                                    <h3 class="services-three__title"><a href="swimming-pool.html">Swimming Pool</a>
-                                    </h3>
-                                </div>
-                            </div>
-                            <div class="services-three__text-and-btn-box">
-                                <p class="services-three__text">Professional cleaning tailored for offices to
-                                    maintain<br>
-                                    a clean and productive workspace.</p>
-                                <div class="services-three__btn-box">
-                                    <a href="swimming-pool.html">View Details<span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                            <div class="hover-item__box">
-                                <img src="assets/images/services/services-3-5.jpg" alt="Image"
-                                    class="hover-item__box-img">
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <!--Services Three End -->
-
-        <!--Download App One Start-->
-        <section class="download-app-one">
-            <div class="container">
-                <div class="download-app-one__inner">
-                    <div class="download-app-one__bg"
-                        style="background-image: url(assets/images/backgrounds/download-app-one-bg.jpg);"></div>
-                    <div class="section-title text-left sec-title-animation animation-style2">
-                        <div class="section-title__tagline-box">
-                            <span class="section-title__tagline">Travel Easier — Anytime</span>
-                        </div>
-                        <h2 class="section-title__title title-animation">Exclusive Offers & Faster Check-ins<br> Only
-                            Through <span>Our App.</span>
+                    <!-- Texto -->
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <p class="biosfera-intro__label">Bienvenido a Biosfera</p>
+                        <h2 class="biosfera-intro__title">
+                            Experiencias para conectar,<br>
+                            expandirse y <span>sanar.</span>
                         </h2>
+                        <p class="biosfera-intro__lead">
+                            Biosfera Bahía Turquesa es un espacio vivo en Baja California Sur donde la naturaleza, la comunidad y la conciencia se encuentran. No es solo un lugar para descansar — es una plataforma de experiencias diseñadas para que te permitas sentir, cuestionarte, compartir y transformar.
+                        </p>
+                        <p class="biosfera-intro__text">
+                            Partimos de una verdad simple: no estamos separados de la naturaleza, somos naturaleza. Y desde ese entendimiento, cada experiencia en Biosfera es una invitación a recordarlo — a bajar la velocidad, a respirar profundo y a conectar con lo que realmente importa.
+                        </p>
+                        <div class="biosfera-intro__tags">
+                            <span class="biosfera-intro__tag"><i class="fa fa-link"></i> Conectar</span>
+                            <span class="biosfera-intro__tag"><i class="fa fa-expand-alt"></i> Expandirse</span>
+                            <span class="biosfera-intro__tag"><i class="fa fa-users"></i> Compartir</span>
+                            <span class="biosfera-intro__tag"><i class="fa fa-heart"></i> Sanar</span>
+                            <span class="biosfera-intro__tag"><i class="fa fa-star"></i> Transformar</span>
+                        </div>
+                        <a href="about.html" class="thm-btn">Conoce el proyecto</a>
                     </div>
-                    <p class="download-app-one__text">Download our mobile app and manage your hotel bookings on the
-                        go.<br>
-                        Enjoy exclusive app-only deals, instant confirmations, and seamless<br> travel experiences with
-                        just
-                        a few taps.</p>
-                    <div class="download-app-one__google-and-app-store">
-                        <a href="contact.html"><img src="assets/images/icon/download-app-img1.png" alt=""></a>
-                        <a href="contact.html"><img src="assets/images/icon/download-app-img2.png" alt=""></a>
+
+                    <!-- Visual -->
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+                        <div class="biosfera-intro__img-wrap">
+                            <img src="assets/images/backgrounds/banner-two-bg.jpg"
+                                 alt="Biosfera Bahía Turquesa — naturaleza y conciencia"
+                                 class="biosfera-intro__img" />
+                            <div class="biosfera-intro__eco-badge">
+                                <i class="fa fa-leaf"></i>
+                                <span>Eco Glamping · Bahía Turquesa, BCS</span>
+                            </div>
+                            <div class="biosfera-intro__stats-card">
+                                <div class="biosfera-intro__stat">
+                                    <strong>5</strong>
+                                    <span>Experiencias</span>
+                                </div>
+                                <div class="biosfera-intro__stat">
+                                    <strong>7</strong>
+                                    <span>Glampings</span>
+                                </div>
+                                <div class="biosfera-intro__stat">
+                                    <strong>100%</strong>
+                                    <span>Solar</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="download-app-one__img-1 reveal">
-                        <img src="assets/images/resources/download-app-one-img-1.png" alt="">
-                    </div>
+
                 </div>
             </div>
         </section>
-        <!--Download App One End-->
+        <!-- Biosfera Intro End -->
 
-        <!--Why Choose Two Start -->
-        <section class="why-choose-two">
-            <div class="why-choose-two__bg-shape"
-                style="background-image: url(assets/images/shapes/why-choose-two-bg-shape.png);"></div>
-            <div class="why-choose-two__bg-box">
-                <div class="why-choose-two__bg"
-                    style="background-image: url(assets/images/backgrounds/why-choose-two-bg.jpg);"></div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-5">
-                        <div class="why-choose-two__left">
-                            <div class="section-title text-left sec-title-animation animation-style2">
-                                <div class="section-title__tagline-box">
-                                    <span class="section-title__tagline">What Makes Us Special</span>
-                                </div>
-                                <h2 class="section-title__title title-animation">We combine luxury, comfort, and
-                                    personalized service for an <span>unforgettable</span><span>experience</span>
-                                </h2>
-                            </div>
-                            <div class="why-choose-two__client-box-inner">
-                                <div class="why-choose-two__client-box">
-                                    <ul class="why-choose-two__client-list list-unstyled">
-                                        <li>
-                                            <div class="why-choose-two__client-img">
-                                                <img src="assets/images/resources/why-choose-two-client-img-1.jpg"
-                                                    alt="">
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="why-choose-two__client-img">
-                                                <img src="assets/images/resources/why-choose-two-client-img-2.jpg"
-                                                    alt="">
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="why-choose-two__client-img">
-                                                <img src="assets/images/resources/why-choose-two-client-img-3.jpg"
-                                                    alt="">
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="why-choose-two__counter-box">
-                                        <div class="why-choose-two__count-box">
-                                            <p class="odometer" data-count="200">00</p>
-                                            <span>k</span>
-                                            <span>+</span>
-                                        </div>
-                                        <p class="why-choose-two__count-text">Satisficed Guests</p>
-                                    </div>
-                                </div>
-                                <div class="why-choose-two__client-ratting">
-                                    <h3 class="why-choose-two__client-title">Hote<span>l</span>r</h3>
-                                    <div class="why-choose-two__ratting-box">
-                                        <div class="why-choose-two__ratting">
-                                            <span class="fas fa-star"></span>
-                                            <span class="fas fa-star"></span>
-                                            <span class="fas fa-star"></span>
-                                        </div>
-                                        <p class="why-choose-two__ratting-text">4.5 Rating</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="why-choose-two__text">The Framework blends modern luxury with timeless design,
-                                offering sophisticated spaces, elegant details, and a serene atmosphere crafted for
-                                unforgettable beachfront living and elevated guest experiences.</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-3">
-                        <div class="why-choose-two__img-1">
-                            <img src="assets/images/resources/why-choose-two-img-1.jpg" alt="">
-                            <ul class="why-choose-two__sliding-text-list list-unstyled marquee_mode-2">
-                                <li>
-                                    <p data-hover="Laundry & Ironing" class="why-choose-two__sliding-text-title">Laundry
-                                        & Ironing
 
-                                        <span class="fas fa-star"></span></p>
-                                </li>
-                                <li>
-                                    <p data-hover="Breakfast Included" class="why-choose-two__sliding-text-title">
-                                        Breakfast Included
-                                        <span class="fas fa-star"></span></p>
-                                </li>
-                                <li>
-                                    <p data-hover="Room Service" class="why-choose-two__sliding-text-title">Room Service
-                                        <span class="fas fa-star"></span></p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-4">
-                        <ul class="why-choose-two__right list-unstyled">
-                            <li>
-                                <div class="why-choose-two__single">
-                                    <div class="why-choose-two__icon">
-                                        <span class="icon-receptionist"></span>
-                                        <div class="why-choose-two__count"></div>
-                                    </div>
-                                    <h3 class="why-choose-two__title"><a href="staff-v1.html">Professional Staff.</a>
-                                    </h3>
-                                    <p class="why-choose-two__single-text">Our experienced and trained Hotelux<br>
-                                        experts
-                                        ensure
-                                        high-quality results every<br> time.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="why-choose-two__single">
-                                    <div class="why-choose-two__icon">
-                                        <span class="icon-residential"></span>
-                                        <div class="why-choose-two__count"></div>
-                                    </div>
-                                    <h3 class="why-choose-two__title"><a href="rooms.html">unforgettable Hotel</a></h3>
-                                    <p class="why-choose-two__single-text">Our experienced and trained Hotelux<br>
-                                        experts
-                                        ensure
-                                        high-quality results every<br> time.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Why Choose Two End -->
-
-        <!--Offer Two Start -->
-        <section class="offer-two">
-            <div class="offer-two__bg-color"></div>
+        <!-- Experiencias Start -->
+        <section class="home-experiences" id="experiencias">
             <div class="container">
                 <div class="section-title text-center sec-title-animation animation-style1">
                     <div class="section-title__tagline-box">
-                        <span class="section-title__tagline">Exclusive Offers</span>
+                        <span class="section-title__tagline">Lo que puedes vivir aquí</span>
                     </div>
-                    <h2 class="section-title__title title-animation">Special Deals Just for <span>You</span>
-                    </h2>
+                    <h2 class="section-title__title title-animation">Nuestras <span>Experiencias</span></h2>
                 </div>
-                <div class="row">
-                    <!--Offer Two Single Start-->
-                    <div class="col-xl-6 wow fadeInLeft" data-wow-delay="300ms">
-                        <div class="offer-two__single">
-                            <div class="offer-two__single-bg"
-                                style="background-image: url(assets/images/backgrounds/offer-two-single-bg-1.jpg);">
-                            </div>
-                            <p class="offer-two__sub-title">Special Offer</p>
-                            <h3 class="offer-two__title"><a href="offers.html">All-Inclusive Familly<br> Package</a>
-                            </h3>
-                            <div class="offer-two__btn-box">
-                                <a href="contact.html" class="thm-btn">Book Now</a>
-                            </div>
-                            <div class="offer-two__price-box">
-                                <p>5 nights for <span>$1,375</span></p>
-                            </div>
+                <p class="home-experiences__sub">
+                    Cada experiencia es una puerta diferente hacia lo mismo: la reconexión. Pasa el mouse sobre cada una y elige la tuya.
+                </p>
+
+                <div class="home-exp__panels">
+
+                    <!-- 1. Glamping -->
+                    <div class="home-exp__panel home-exp__panel--glamping"
+                         style="background-image: url(assets/images/resources/our-rooms-1-1.jpg);">
+                        <div class="home-exp__panel-overlay">
+                            <span class="home-exp__panel-icon">⛺</span>
+                            <p class="home-exp__panel-tag">Hospedaje</p>
+                            <h3 class="home-exp__panel-title">Eco Glamping</h3>
+                            <p class="home-exp__panel-desc">Duerme bajo las estrellas en uno de nuestros 7 glampings con energía solar, ropa de cama incluida y acceso a todas las instalaciones del campamento.</p>
+                            <a href="rooms.html" class="home-exp__panel-btn"><i class="fa fa-arrow-right"></i> Ver más</a>
                         </div>
                     </div>
-                    <!--Offer Two Single End-->
-                    <!--Offer Two Single Start-->
-                    <div class="col-xl-6 wow fadeInRight" data-wow-delay="300ms">
-                        <div class="offer-two__single">
-                            <div class="offer-two__single-bg"
-                                style="background-image: url(assets/images/backgrounds/offer-two-single-bg-2.jpg);">
-                            </div>
-                            <p class="offer-two__sub-title">Hot Offer</p>
-                            <h3 class="offer-two__title"><a href="offers.html">All-Inclusive Honey-<br>moon Package</a>
-                            </h3>
-                            <div class="offer-two__btn-box">
-                                <a href="contact.html" class="thm-btn">Book Now</a>
-                            </div>
-                            <div class="offer-two__price-box">
-                                <p>8 nights for <span>$1,675</span></p>
-                            </div>
+
+                    <!-- 2. Ocean Safari -->
+                    <div class="home-exp__panel home-exp__panel--ocean"
+                         style="background-image: url(assets/images/experiences/ocean-safari.jpg);">
+                        <div class="home-exp__panel-overlay">
+                            <span class="home-exp__panel-icon">🐬</span>
+                            <p class="home-exp__panel-tag">Mar · 3 horas</p>
+                            <h3 class="home-exp__panel-title">Ocean Safari</h3>
+                            <p class="home-exp__panel-desc">Expedición marina diurna en Bahía Turquesa. Avistamiento de delfines, rayas manta y fauna marina con guía certificado. Máx. 10 personas.</p>
+                            <a href="ocean-safari.html" class="home-exp__panel-btn"><i class="fa fa-arrow-right"></i> Ver más</a>
                         </div>
                     </div>
-                    <!--Offer Two Single End-->
-                </div>
+
+                    <!-- 3. Ocean Safari Nocturno -->
+                    <div class="home-exp__panel home-exp__panel--nocturno"
+                         style="background-image: url(assets/images/experiences/ocean-safari-nocturno.jpg);">
+                        <div class="home-exp__panel-overlay">
+                            <span class="home-exp__panel-icon">🌙</span>
+                            <p class="home-exp__panel-tag">Nocturno · 2.5 horas</p>
+                            <h3 class="home-exp__panel-title">Ocean Safari Nocturno</h3>
+                            <p class="home-exp__panel-desc">Navega bajo las estrellas y descubre la bioluminiscencia. Vida marina nocturna y cielo sin contaminación lumínica. Experiencia única y exclusiva.</p>
+                            <a href="ocean-safari-nocturno.html" class="home-exp__panel-btn"><i class="fa fa-arrow-right"></i> Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Snorkel BT -->
+                    <div class="home-exp__panel home-exp__panel--snorkel"
+                         style="background-image: url(assets/images/experiences/snorkel-bt.jpg);">
+                        <div class="home-exp__panel-overlay">
+                            <span class="home-exp__panel-icon">🤿</span>
+                            <p class="home-exp__panel-tag">Arrecife · 2 horas</p>
+                            <h3 class="home-exp__panel-title">Snorkel BT</h3>
+                            <p class="home-exp__panel-desc">Sumérgete en los arrecifes de Bahía Turquesa. Peces tropicales, corales vivos y tortugas marinas. Equipo completo y traslado en lancha incluidos.</p>
+                            <a href="snorkel-bt.html" class="home-exp__panel-btn"><i class="fa fa-arrow-right"></i> Ver más</a>
+                        </div>
+                    </div>
+
+                    <!-- 5. Sierra Laguna -->
+                    <div class="home-exp__panel home-exp__panel--sierra"
+                         style="background-image: url(assets/images/experiences/sierra-laguna.jpg);">
+                        <div class="home-exp__panel-overlay">
+                            <span class="home-exp__panel-icon">🏔️</span>
+                            <p class="home-exp__panel-tag">Sierra · 7 horas</p>
+                            <h3 class="home-exp__panel-title">Sierra Laguna</h3>
+                            <p class="home-exp__panel-desc">Trekking de día completo en la Reserva de la Biósfera. Bosques de pino-encino, arroyos y cascadas con guía naturalista certificado. Máx. 8 personas.</p>
+                            <a href="sierra-laguna.html" class="home-exp__panel-btn"><i class="fa fa-arrow-right"></i> Ver más</a>
+                        </div>
+                    </div>
+
+                </div><!-- /.home-exp__panels -->
             </div>
         </section>
-        <!--Offer Two End -->
+        <!-- Experiencias End -->
 
-        <!--Team Three Start -->
-        <section class="team-three">
-            <div class="team-three__bg-color"></div>
-            <div class="team-three__shape-1">
-                <img src="assets/images/shapes/team-three-shape-1.png" alt="">
+        <!-- ═══════════════════════════════════════════════════════
+             CÓMO RESERVAR — sección explicativa
+        ═══════════════════════════════════════════════════════ -->
+        <section class="how-to-book">
+
+            <style>
+                .how-to-book {
+                    background: #ffffff;
+                    padding: 90px 0 100px;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .how-to-book::before {
+                    content: '';
+                    position: absolute;
+                    top: -100px; right: -100px;
+                    width: 400px; height: 400px;
+                    border-radius: 50%;
+                    background: radial-gradient(circle, rgba(90,143,123,.06) 0%, transparent 70%);
+                    pointer-events: none;
+                }
+                .how-to-book::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -80px; left: -80px;
+                    width: 320px; height: 320px;
+                    border-radius: 50%;
+                    background: radial-gradient(circle, rgba(107,124,74,.05) 0%, transparent 70%);
+                    pointer-events: none;
+                }
+
+                /* ── Intro ──────────────────────────────────── */
+                .htb-intro {
+                    text-align: center;
+                    margin-bottom: 72px;
+                    position: relative;
+                }
+                .htb-intro__label {
+                    font-size: 11px;
+                    font-weight: 700;
+                    letter-spacing: 3px;
+                    text-transform: uppercase;
+                    color: #5a8f7b;
+                    margin-bottom: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                }
+                .htb-intro__label::before,
+                .htb-intro__label::after {
+                    content: '';
+                    display: inline-block;
+                    width: 28px; height: 1.5px;
+                    background: #5a8f7b;
+                    opacity: .4;
+                }
+                .htb-intro__title {
+                    font-family: 'Playfair Display', serif;
+                    font-size: clamp(28px, 4vw, 48px);
+                    font-weight: 700;
+                    color: #1c2e25;
+                    line-height: 1.2;
+                    margin-bottom: 16px;
+                }
+                .htb-intro__title span { color: #5a8f7b; font-style: italic; }
+                .htb-intro__sub {
+                    font-size: 16px;
+                    color: #6a7a68;
+                    max-width: 540px;
+                    margin: 0 auto;
+                    line-height: 1.85;
+                }
+
+                /* ── Steps — 4 columnas ─────────────────────── */
+                .htb-steps {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 0;
+                    position: relative;
+                    margin-bottom: 60px;
+                }
+
+                /* línea horizontal entre pasos */
+                .htb-steps::before {
+                    content: '';
+                    position: absolute;
+                    top: 28px;
+                    left: calc(12.5% + 4px);
+                    right: calc(12.5% + 4px);
+                    height: 1.5px;
+                    background: linear-gradient(to right, #c8ddb8, #b0c8a0, #c8ddb8);
+                    z-index: 0;
+                }
+
+                .htb-step {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    padding: 0 20px;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .htb-step__circle {
+                    width: 56px; height: 56px;
+                    border-radius: 50%;
+                    background: #fff;
+                    border: 2px solid #c8ddb8;
+                    display: flex; align-items: center; justify-content: center;
+                    font-size: 20px;
+                    margin-bottom: 20px;
+                    position: relative;
+                    flex-shrink: 0;
+                    transition: border-color .25s, box-shadow .25s;
+                    box-shadow: 0 2px 12px rgba(90,143,123,.08);
+                }
+                .htb-step:hover .htb-step__circle {
+                    border-color: #5a8f7b;
+                    box-shadow: 0 4px 20px rgba(90,143,123,.18);
+                }
+
+                .htb-step__num {
+                    position: absolute;
+                    top: -6px; right: -6px;
+                    width: 20px; height: 20px;
+                    border-radius: 50%;
+                    background: #1c2e25;
+                    color: #fff;
+                    font-size: 10px;
+                    font-weight: 800;
+                    display: flex; align-items: center; justify-content: center;
+                    border: 2px solid #fff;
+                }
+
+                .htb-step__title {
+                    font-size: 15px;
+                    font-weight: 700;
+                    color: #1c2e25;
+                    margin-bottom: 8px;
+                    line-height: 1.35;
+                }
+                .htb-step__desc {
+                    font-size: 13px;
+                    color: #7a8a78;
+                    line-height: 1.8;
+                    margin: 0;
+                }
+                .htb-step__desc strong { color: #3d5a40; }
+
+                /* ── Nota + CTA ─────────────────────────────── */
+                .htb-bottom {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 28px;
+                    text-align: center;
+                }
+                .htb-note {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 9px;
+                    background: #f0f7f4;
+                    border: 1.5px solid #c0d8c8;
+                    border-radius: 40px;
+                    padding: 10px 22px;
+                    font-size: 13px;
+                    color: #3d6e50;
+                    font-weight: 500;
+                }
+                .htb-note i { color: #5a8f7b; }
+                .htb-note strong { color: #1c2e25; }
+
+                .htb-cta-btn {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                    background: #1c2e25;
+                    color: #fff;
+                    font-size: 15px;
+                    font-weight: 700;
+                    padding: 16px 40px;
+                    border-radius: 50px;
+                    text-decoration: none;
+                    letter-spacing: .3px;
+                    transition: background .25s, transform .25s;
+                }
+                .htb-cta-btn:hover {
+                    background: #5a8f7b;
+                    transform: translateY(-2px);
+                    color: #fff;
+                    text-decoration: none;
+                }
+                .htb-cta-btn i { font-size: 13px; transition: transform .25s; }
+                .htb-cta-btn:hover i { transform: translateY(-2px); }
+
+                @media (max-width: 860px) {
+                    .htb-steps { grid-template-columns: repeat(2, 1fr); gap: 36px 0; }
+                    .htb-steps::before { display: none; }
+                }
+                @media (max-width: 480px) {
+                    .htb-steps { grid-template-columns: 1fr; gap: 28px; }
+                }
+            </style>
+
+            <div class="container" style="position:relative;">
+
+                <!-- Intro -->
+                <div class="htb-intro" data-aos="fade-up">
+                    <p class="htb-intro__label">Así de fácil</p>
+                    <h2 class="htb-intro__title">Reserva en<br><span>cuatro pasos.</span></h2>
+                    <p class="htb-intro__sub">Elige la experiencia que quieras, selecciona tu fecha y págala — sola o combinada con otras. Sin cuentas, sin complicaciones.</p>
+                </div>
+
+                <!-- 4 pasos -->
+                <div class="htb-steps" data-aos="fade-up" data-aos-delay="60">
+
+                    <div class="htb-step">
+                        <div class="htb-step__circle">
+                            🔍
+                            <span class="htb-step__num">1</span>
+                        </div>
+                        <h4 class="htb-step__title">Explora las experiencias</h4>
+                        <p class="htb-step__desc">Cada una tiene su propia página con info completa, precios y disponibilidad. <strong>Elige una o varias.</strong></p>
+                    </div>
+
+                    <div class="htb-step">
+                        <div class="htb-step__circle">
+                            📅
+                            <span class="htb-step__num">2</span>
+                        </div>
+                        <h4 class="htb-step__title">Elige fecha y personas</h4>
+                        <p class="htb-step__desc">El calendario muestra <strong>los días con lugares disponibles</strong> en tiempo real. Solo elige lo que quieres.</p>
+                    </div>
+
+                    <div class="htb-step">
+                        <div class="htb-step__circle">
+                            🛒
+                            <span class="htb-step__num">3</span>
+                        </div>
+                        <h4 class="htb-step__title">Agrégala al carrito</h4>
+                        <p class="htb-step__desc">Puedes combinar <strong>tantas experiencias como quieras</strong> en un solo carrito y pagarlas juntas.</p>
+                    </div>
+
+                    <div class="htb-step">
+                        <div class="htb-step__circle">
+                            ✅
+                            <span class="htb-step__num">4</span>
+                        </div>
+                        <h4 class="htb-step__title">Paga y recibe confirmación</h4>
+                        <p class="htb-step__desc">Un solo pago y <strong>recibirás tu correo de confirmación</strong> con todos los detalles de tu reserva.</p>
+                    </div>
+
+                </div>
+
+                <!-- Nota + botón -->
+                <div class="htb-bottom" data-aos="fade-up" data-aos-delay="80">
+                    <div class="htb-note">
+                        <i class="fa fa-check-circle"></i>
+                        <span><strong>No necesitas hospedarte</strong> — todas las experiencias están abiertas para cualquier persona.</span>
+                    </div>
+                    <a href="#experiencias" class="htb-cta-btn">
+                        <i class="fa fa-arrow-up"></i> Ver todas las experiencias
+                    </a>
+                </div>
+
             </div>
+        </section>
+        <!-- Cómo reservar End -->
+
+        <!-- ═══════════════════════════════════════════════════════
+             TESTIMONIOS — carrusel infinito
+        ═══════════════════════════════════════════════════════ -->
+        <section class="testimonios-section">
+            <style>
+                .testimonios-section {
+                    background: #f2ead8;
+                    padding: 80px 0 90px;
+                    overflow: hidden;
+                }
+
+                /* ── Encabezado ─────────────────────────────── */
+                .tst-header {
+                    text-align: center;
+                    margin-bottom: 52px;
+                }
+                .tst-header__label {
+                    font-size: 11px;
+                    font-weight: 700;
+                    letter-spacing: 3px;
+                    text-transform: uppercase;
+                    color: #5a8f7b;
+                    margin-bottom: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                }
+                .tst-header__label::before,
+                .tst-header__label::after {
+                    content: '';
+                    display: inline-block;
+                    width: 28px; height: 1.5px;
+                    background: #5a8f7b; opacity: .4;
+                }
+                .tst-header__title {
+                    font-family: 'Playfair Display', serif;
+                    font-size: clamp(26px, 3.5vw, 42px);
+                    font-weight: 700;
+                    color: #1c2e25;
+                    line-height: 1.2;
+                    margin-bottom: 20px;
+                }
+                .tst-header__title span { color: #5a8f7b; font-style: italic; }
+
+                /* Rating badge */
+                .tst-rating {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 14px;
+                    background: #fff;
+                    border: 1.5px solid #ddebd0;
+                    border-radius: 50px;
+                    padding: 10px 24px;
+                }
+                .tst-rating__score {
+                    font-family: 'Playfair Display', serif;
+                    font-size: 28px;
+                    font-weight: 700;
+                    color: #1c2e25;
+                    line-height: 1;
+                }
+                .tst-rating__stars { color: #f5a623; font-size: 17px; letter-spacing: 2px; }
+                .tst-rating__info { text-align: left; }
+                .tst-rating__count { font-size: 12px; color: #7a8a78; margin: 0; }
+                .tst-rating__source {
+                    font-size: 11px; font-weight: 700;
+                    color: #4a8a6a; letter-spacing: .5px;
+                    display: flex; align-items: center; gap: 5px; margin: 0;
+                }
+                .tst-rating__source svg { width: 14px; height: 14px; }
+
+                /* ── Carrusel ───────────────────────────────── */
+                .tst-track-wrap {
+                    position: relative;
+                    width: 100%;
+                    /* fade en los bordes */
+                    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+                    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+                }
+                .tst-track {
+                    display: flex;
+                    gap: 20px;
+                    width: max-content;
+                    animation: tst-scroll 55s linear infinite;
+                }
+                .tst-track:hover { animation-play-state: paused; }
+
+                @keyframes tst-scroll {
+                    from { transform: translateX(0); }
+                    to   { transform: translateX(-50%); }
+                }
+
+                /* ── Card ───────────────────────────────────── */
+                .tst-card {
+                    background: #fff;
+                    border: 1.5px solid #e4edd8;
+                    border-radius: 18px;
+                    padding: 24px 26px;
+                    width: 320px;
+                    flex-shrink: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 14px;
+                    transition: box-shadow .25s, transform .25s;
+                }
+                .tst-card:hover {
+                    box-shadow: 0 8px 32px rgba(28,46,37,.10);
+                    transform: translateY(-3px);
+                }
+
+                .tst-card__top {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                }
+                .tst-card__avatar {
+                    width: 42px; height: 42px;
+                    border-radius: 50%;
+                    display: flex; align-items: center; justify-content: center;
+                    font-size: 17px;
+                    font-weight: 700;
+                    color: #fff;
+                    flex-shrink: 0;
+                    font-family: 'Playfair Display', serif;
+                }
+                .tst-card__meta { flex: 1; min-width: 0; }
+                .tst-card__name {
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #1c2e25;
+                    margin: 0 0 2px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                .tst-card__when {
+                    font-size: 11px;
+                    color: #9aaa90;
+                    margin: 0;
+                }
+
+                .tst-card__stars { color: #f5a623; font-size: 13px; letter-spacing: 1.5px; }
+
+                .tst-card__text {
+                    font-size: 13.5px;
+                    color: #5a6a58;
+                    line-height: 1.8;
+                    margin: 0;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 5;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+
+                .tst-card__google {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    font-size: 11px;
+                    color: #b0c0a8;
+                    margin-top: auto;
+                }
+            </style>
+
             <div class="container">
-                <div class="section-title text-center sec-title-animation animation-style1">
-                    <div class="section-title__tagline-box">
-                        <span class="section-title__tagline">Our Staff</span>
-                    </div>
-                    <h2 class="section-title__title title-animation">Our awesome staff make<br> the
-                        <span>difference</span>
-                    </h2>
-                </div>
-                <div class="team-three__carousel swiper-container">
-                    <div class="swiper-wrapper">
-                        <!--Team Three Single Start-->
-                        <div class="swiper-slide">
-                            <div class="team-three__single">
-                                <div class="team-three__img-1">
-                                    <img src="assets/images/team/team-3-1.png" alt="">
-                                </div>
-                                <div class="team-three__content">
-                                    <p class="team-three__sub-title">Hotel Manager</p>
-                                    <h3 class="team-three__name"><a
-                                            href="staff-details.html">Alisha<br><span>Martin</span></a></h3>
-                                </div>
-                                <div class="team-three__social-box">
-                                    <div class="team-three__plus">
-                                        <span class="fas fa-share-alt"></span>
-                                        <div class="team-three__social-list">
-                                            <a href="staff-details.html"><span
-                                                    class="icon-facebook-app-symbol"></span></a>
-                                            <a href="staff-details.html"><span class="icon-twitter-1"></span></a>
-                                            <a href="staff-details.html"><span class="icon-pinterest"></span></a>
-                                            <a href="staff-details.html"><span class="icon-linkedin"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="tst-header" data-aos="fade-up">
+                    <p class="tst-header__label">Lo que dicen nuestros huéspedes</p>
+                    <h2 class="tst-header__title">Palabras que nos<br><span>llegan al corazón.</span></h2>
+                    <div class="tst-rating">
+                        <span class="tst-rating__score">5.0</span>
+                        <div>
+                            <p class="tst-rating__stars">★★★★★</p>
+                            <p class="tst-rating__count">23 reseñas verificadas</p>
+                            <p class="tst-rating__source">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                                Google Reviews
+                            </p>
                         </div>
-                        <!--Team Three Single End-->
-                        <!--Team Three Single Start-->
-                        <div class="swiper-slide">
-                            <div class="team-three__single">
-                                <div class="team-three__img-1">
-                                    <img src="assets/images/team/team-3-2.png" alt="">
-                                </div>
-                                <div class="team-three__content">
-                                    <p class="team-three__sub-title">Room Service</p>
-                                    <h3 class="team-three__name"><a
-                                            href="staff-details.html">Robert<br><span>Hood</span></a></h3>
-                                </div>
-                                <div class="team-three__social-box">
-                                    <div class="team-three__plus">
-                                        <span class="fas fa-share-alt"></span>
-                                        <div class="team-three__social-list">
-                                            <a href="staff-details.html"><span
-                                                    class="icon-facebook-app-symbol"></span></a>
-                                            <a href="staff-details.html"><span class="icon-twitter-1"></span></a>
-                                            <a href="staff-details.html"><span class="icon-pinterest"></span></a>
-                                            <a href="staff-details.html"><span class="icon-linkedin"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Team Three Single End-->
-                        <!--Team Three Single Start-->
-                        <div class="swiper-slide">
-                            <div class="team-three__single">
-                                <div class="team-three__img-1">
-                                    <img src="assets/images/team/team-3-3.png" alt="">
-                                </div>
-                                <div class="team-three__content">
-                                    <p class="team-three__sub-title">Housekeeper</p>
-                                    <h3 class="team-three__name"><a
-                                            href="staff-details.html">Jecika<br><span>Brown</span></a></h3>
-                                </div>
-                                <div class="team-three__social-box">
-                                    <div class="team-three__plus">
-                                        <span class="fas fa-share-alt"></span>
-                                        <div class="team-three__social-list">
-                                            <a href="staff-details.html"><span
-                                                    class="icon-facebook-app-symbol"></span></a>
-                                            <a href="staff-details.html"><span class="icon-twitter-1"></span></a>
-                                            <a href="staff-details.html"><span class="icon-pinterest"></span></a>
-                                            <a href="staff-details.html"><span class="icon-linkedin"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Team Three Single End-->
-                        <!--Team Three Single Start-->
-                        <div class="swiper-slide">
-                            <div class="team-three__single">
-                                <div class="team-three__img-1">
-                                    <img src="assets/images/team/team-3-4.png" alt="">
-                                </div>
-                                <div class="team-three__content">
-                                    <p class="team-three__sub-title">Hotel Manager</p>
-                                    <h3 class="team-three__name"><a
-                                            href="staff-details.html">Herbert<br><span>Spin</span></a></h3>
-                                </div>
-                                <div class="team-three__social-box">
-                                    <div class="team-three__plus">
-                                        <span class="fas fa-share-alt"></span>
-                                        <div class="team-three__social-list">
-                                            <a href="staff-details.html"><span
-                                                    class="icon-facebook-app-symbol"></span></a>
-                                            <a href="staff-details.html"><span class="icon-twitter-1"></span></a>
-                                            <a href="staff-details.html"><span class="icon-pinterest"></span></a>
-                                            <a href="staff-details.html"><span class="icon-linkedin"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Team Three Single End-->
-                        <!--Team Three Single Start-->
-                        <div class="swiper-slide">
-                            <div class="team-three__single">
-                                <div class="team-three__img-1">
-                                    <img src="assets/images/team/team-3-5.png" alt="">
-                                </div>
-                                <div class="team-three__content">
-                                    <p class="team-three__sub-title">Marketing Advisor</p>
-                                    <h3 class="team-three__name"><a
-                                            href="staff-details.html">Malaika<br><span>Jesin</span></a></h3>
-                                </div>
-                                <div class="team-three__social-box">
-                                    <div class="team-three__plus">
-                                        <span class="fas fa-share-alt"></span>
-                                        <div class="team-three__social-list">
-                                            <a href="staff-details.html"><span
-                                                    class="icon-facebook-app-symbol"></span></a>
-                                            <a href="staff-details.html"><span class="icon-twitter-1"></span></a>
-                                            <a href="staff-details.html"><span class="icon-pinterest"></span></a>
-                                            <a href="staff-details.html"><span class="icon-linkedin"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Team Three Single End-->
-                        <!--Team Three Single Start-->
-                        <div class="swiper-slide">
-                            <div class="team-three__single">
-                                <div class="team-three__img-1">
-                                    <img src="assets/images/team/team-3-6.png" alt="">
-                                </div>
-                                <div class="team-three__content">
-                                    <p class="team-three__sub-title">Receptionist</p>
-                                    <h3 class="team-three__name"><a
-                                            href="staff-details.html">Alaina<br><span>Jekob</span></a></h3>
-                                </div>
-                                <div class="team-three__social-box">
-                                    <div class="team-three__plus">
-                                        <span class="fas fa-share-alt"></span>
-                                        <div class="team-three__social-list">
-                                            <a href="staff-details.html"><span
-                                                    class="icon-facebook-app-symbol"></span></a>
-                                            <a href="staff-details.html"><span class="icon-twitter-1"></span></a>
-                                            <a href="staff-details.html"><span class="icon-pinterest"></span></a>
-                                            <a href="staff-details.html"><span class="icon-linkedin"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Team Three Single End-->
                     </div>
                 </div>
             </div>
+
+            <!-- Carrusel (fuera del container para ir de borde a borde) -->
+            <div class="tst-track-wrap">
+                <div class="tst-track" id="tst-track">
+
+                    <!-- CARD 1 -->
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#2a7da8;">D</div>
+                            <div class="tst-card__meta">
+                                <p class="tst-card__name">Dylan Moinet</p>
+                                <p class="tst-card__when">Hace 4 meses</p>
+                            </div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Este lugar es un pequeño paraíso, un refugio atemporal donde todo se siente más simple y apacible. Un rincón tranquilo, casi secreto, que te desconecta del mundo y te reconecta con lo que realmente importa.</p>
+                        <span class="tst-card__google">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            Google
+                        </span>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#c0392b;">R</div>
+                            <div class="tst-card__meta">
+                                <p class="tst-card__name">Rodrigo Valadez</p>
+                                <p class="tst-card__when">Hace 4 meses · Local Guide</p>
+                            </div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Chicxs, que buena estadía y que lindos ratos nos hicieron pasar el finde pesado! Gracias Bir y Aldo por tan bonitas charlas y atención en todo momento. Haciéndonos sentir como con amigxs de ya hace tiempo. 10 de 10✨</p>
+                        <span class="tst-card__google">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            Google
+                        </span>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#8e44ad;">R</div>
+                            <div class="tst-card__meta">
+                                <p class="tst-card__name">Rousselet Sophie</p>
+                                <p class="tst-card__when">Hace 3 meses · Local Guide</p>
+                            </div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Un lugar verdaderamente único, aislado en medio del desierto, rodeado de montañas y con la playa al final del camino. Las tiendas son muy agradables y espaciosas, ¡y la cama es comodísima! Birgit y Aldo son encantadores :)</p>
+                        <span class="tst-card__google">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            Google
+                        </span>
+                    </div>
+
+                    <!-- CARD 4 -->
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#e67e22;">C</div>
+                            <div class="tst-card__meta">
+                                <p class="tst-card__name">Claudia Reyes</p>
+                                <p class="tst-card__when">Hace 2 meses · Pareja</p>
+                            </div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Es un lugar excelente para relajarte, súper tranquilo, bonito y seguro, puedes ver el mar y en la noche una vista increíble de estrellas. Los anfitriones muy atentos, te hacen sentir en casa. ¡Súper recomendado!</p>
+                        <span class="tst-card__google">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            Google
+                        </span>
+                    </div>
+
+                    <!-- CARD 5 -->
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#27ae60;">J</div>
+                            <div class="tst-card__meta">
+                                <p class="tst-card__name">Josue Vazquez</p>
+                                <p class="tst-card__when">Hace 3 meses</p>
+                            </div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">¡Increíbles vistas e increíbles anfitriones! Los anfitriones (Birgit y Aldo), cálidas y amigables personas que contagian su pasión por Mexico, BCS y la naturaleza. Habitaciones, Servicio y Ubicación: 5/5.</p>
+                        <span class="tst-card__google">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            Google
+                        </span>
+                    </div>
+
+                    <!-- CARD 6 -->
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#16a085;">E</div>
+                            <div class="tst-card__meta">
+                                <p class="tst-card__name">Eyner Ariel Duarte</p>
+                                <p class="tst-card__when">Hace 4 meses</p>
+                            </div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Un eco-glamping espectacular, cómodo, tranquilo, muy completo y con una vista hermosa al mar. Perfecto para desconectar entre el desierto y el mar, y muy cerca de una playa muy bonita.</p>
+                        <span class="tst-card__google">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            Google
+                        </span>
+                    </div>
+
+                    <!-- CARD 7 -->
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#2980b9;">J</div>
+                            <div class="tst-card__meta">
+                                <p class="tst-card__name">J S</p>
+                                <p class="tst-card__when">Hace 5 meses · Local Guide</p>
+                            </div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Aldo y Birgit son anfitriones excepcionales. Desde el primer momento te hacen sentir incluso mejor que en casa. Vista impresionante al Mar de Cortés, con esos tonos turquesa que hacen honor al nombre de la bahía.</p>
+                        <span class="tst-card__google">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            Google
+                        </span>
+                    </div>
+
+                    <!-- CARD 8 -->
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#d35400;">L</div>
+                            <div class="tst-card__meta">
+                                <p class="tst-card__name">Lorena Castañon Santana</p>
+                                <p class="tst-card__when">Hace 3 meses</p>
+                            </div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">100% RECOMENDADO! Se disfruta mucho el ambiente y la armonía del lugar. La vista de la Isla Cerralvo y el mar es increíble. Los glampings súper acogedores y colchones comodísimos. Muchas gracias Aldo, Bir y los 3 perritos.</p>
+                        <span class="tst-card__google">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            Google
+                        </span>
+                    </div>
+
+                    <!-- CARD 9 -->
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#1c2e25;">S</div>
+                            <div class="tst-card__meta">
+                                <p class="tst-card__name">Sven Sauer</p>
+                                <p class="tst-card__when">Hace 2 semanas</p>
+                            </div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Solo habíamos planeado quedarnos una noche, pero después de cuatro, tuvimos que marcharnos con mucha pena. Aldo y Birgit son increíblemente cálidos y acogedores. ¡Lo recomendamos encarecidamente, ya estamos deseando volver! 🌞🐟</p>
+                        <span class="tst-card__google">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            Google
+                        </span>
+                    </div>
+
+                    <!-- CARD 10 -->
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#8e44ad;">M</div>
+                            <div class="tst-card__meta">
+                                <p class="tst-card__name">Mirelle Castillo</p>
+                                <p class="tst-card__when">Hace 4 meses</p>
+                            </div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Fui de paseo con amigos y fue una increíble experiencia. Es un lugar lleno de paz, con vista al mar y a las montañas. De noche se ven muy bien las estrellas y hay un espacio para hacer fogata. Realmente te hace vivir una experiencia mágica.✨</p>
+                        <span class="tst-card__google">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            Google
+                        </span>
+                    </div>
+
+                    <!-- CARD 11 -->
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#2a7da8;">J</div>
+                            <div class="tst-card__meta">
+                                <p class="tst-card__name">Jacobo E Fdez Oj</p>
+                                <p class="tst-card__when">Hace 5 meses</p>
+                            </div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Fuí un fin de semana con mi pareja a este precioso rincón de la baja. Puedes ver la Vía Láctea de manera perfecta y disfrutar de un cielo de 1era. La playa queda a solo 500 metros. Definitivamente voy a volver.</p>
+                        <span class="tst-card__google">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                            Google
+                        </span>
+                    </div>
+
+                    <!-- Duplicado para loop infinito -->
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#2a7da8;">D</div>
+                            <div class="tst-card__meta"><p class="tst-card__name">Dylan Moinet</p><p class="tst-card__when">Hace 4 meses</p></div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Este lugar es un pequeño paraíso, un refugio atemporal donde todo se siente más simple y apacible. Un rincón tranquilo, casi secreto, que te desconecta del mundo y te reconecta con lo que realmente importa.</p>
+                        <span class="tst-card__google"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</span>
+                    </div>
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#c0392b;">R</div>
+                            <div class="tst-card__meta"><p class="tst-card__name">Rodrigo Valadez</p><p class="tst-card__when">Hace 4 meses · Local Guide</p></div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Chicxs, que buena estadía y que lindos ratos nos hicieron pasar el finde pesado! Gracias Bir y Aldo por tan bonitas charlas y atención en todo momento. Haciéndonos sentir como con amigxs de ya hace tiempo. 10 de 10✨</p>
+                        <span class="tst-card__google"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</span>
+                    </div>
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#8e44ad;">R</div>
+                            <div class="tst-card__meta"><p class="tst-card__name">Rousselet Sophie</p><p class="tst-card__when">Hace 3 meses · Local Guide</p></div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Un lugar verdaderamente único, aislado en medio del desierto, rodeado de montañas y con la playa al final del camino. Las tiendas son muy agradables y espaciosas, ¡y la cama es comodísima! Birgit y Aldo son encantadores :)</p>
+                        <span class="tst-card__google"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</span>
+                    </div>
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#e67e22;">C</div>
+                            <div class="tst-card__meta"><p class="tst-card__name">Claudia Reyes</p><p class="tst-card__when">Hace 2 meses · Pareja</p></div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Es un lugar excelente para relajarte, súper tranquilo, bonito y seguro, puedes ver el mar y en la noche una vista increíble de estrellas. Los anfitriones muy atentos, te hacen sentir en casa. ¡Súper recomendado!</p>
+                        <span class="tst-card__google"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</span>
+                    </div>
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#27ae60;">J</div>
+                            <div class="tst-card__meta"><p class="tst-card__name">Josue Vazquez</p><p class="tst-card__when">Hace 3 meses</p></div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">¡Increíbles vistas e increíbles anfitriones! Los anfitriones (Birgit y Aldo), cálidas y amigables personas que contagian su pasión por Mexico, BCS y la naturaleza. Habitaciones, Servicio y Ubicación: 5/5.</p>
+                        <span class="tst-card__google"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</span>
+                    </div>
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#1c2e25;">S</div>
+                            <div class="tst-card__meta"><p class="tst-card__name">Sven Sauer</p><p class="tst-card__when">Hace 2 semanas</p></div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">Solo habíamos planeado quedarnos una noche, pero después de cuatro, tuvimos que marcharnos con mucha pena. Aldo y Birgit son increíblemente cálidos y acogedores. ¡Ya estamos deseando volver! 🌞🐟</p>
+                        <span class="tst-card__google"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</span>
+                    </div>
+                    <div class="tst-card">
+                        <div class="tst-card__top">
+                            <div class="tst-card__avatar" style="background:#d35400;">L</div>
+                            <div class="tst-card__meta"><p class="tst-card__name">Lorena Castañon Santana</p><p class="tst-card__when">Hace 3 meses</p></div>
+                        </div>
+                        <div class="tst-card__stars">★★★★★</div>
+                        <p class="tst-card__text">100% RECOMENDADO! Se disfruta mucho el ambiente y la armonía del lugar. La vista de la Isla Cerralvo y el mar es increíble. Los glampings súper acogedores y colchones comodísimos.</p>
+                        <span class="tst-card__google"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Link a Google -->
+            <div style="text-align:center; margin-top: 36px;">
+                <a href="https://maps.app.goo.gl/uDPtr5nUw3SGXXRb9" target="_blank"
+                   style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#5a8f7b;text-decoration:none;border-bottom:1.5px solid rgba(90,143,123,.35);padding-bottom:2px;transition:color .2s;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                    Ver todas las reseñas en Google
+                </a>
+            </div>
+
         </section>
-        <!--Team Three End -->
-
-        <!--Sliding Text Start-->
-        <section class="sliding-text">
-            <div class="sliding-text__inner">
-                <div class="sliding-text__bg"
-                    style="background-image: url(assets/images/backgrounds/sliding-text-bg.jpg);"></div>
-                <ul class="sliding-text__list marquee_mode-1 list-unstyled">
-                    <li>
-                        <div class="icon">
-                            <span class="icon-star"></span>
-                        </div>
-                        <p>King Room</p>
-                    </li>
-                    <li>
-                        <div class="icon">
-                            <span class="icon-star"></span>
-                        </div>
-                        <p>Double Room</p>
-                    </li>
-                    <li>
-                        <div class="icon">
-                            <span class="icon-star"></span>
-                        </div>
-                        <p>Deluxe Room</p>
-                    </li>
-                    <li>
-                        <div class="icon">
-                            <span class="icon-star"></span>
-                        </div>
-                        <p>Family Room</p>
-                    </li>
-                    <li>
-                        <div class="icon">
-                            <span class="icon-star"></span>
-                        </div>
-                        <p>Single Room</p>
-                    </li>
-                    <li>
-                        <div class="icon">
-                            <span class="icon-star"></span>
-                        </div>
-                        <p>Luxury Room</p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <!--Sliding Text End-->
-
-        <!-- Event Three Start -->
-        <section class="event-three">
-            <div class="event-three__bg-color"></div>
-            <div class="event-three__wrap">
-                <div class="section-title text-center sec-title-animation animation-style1">
-                    <div class="section-title__tagline-box">
-                        <span class="section-title__tagline">upcoming Event</span>
-                    </div>
-                    <h2 class="section-title__title title-animation">Check Our Upcoming <span>Events</span>
-                    </h2>
-                </div>
-
-                <div class="swiper-container">
-                    <div class="swiper">
-                        <div class="swiper-wrapper">
-
-                            <div class="swiper-slide swiper-slide--one">
-                                <div class="event-three__single">
-                                    <div class="event-three__img">
-                                        <img src="assets/images/resources/event-3-1.jpg" alt="">
-                                        <div class="event-three__content">
-                                            <div class="event-three__title-box">
-                                                <ul class="list-unstyled event-three__meta">
-                                                    <li><a href="event-details.html">06 Nov 2025</a></li>
-                                                </ul>
-                                                <h3 class="event-three__title"><a href="event-details.html">Music
-                                                        Festival</a></h3>
-                                            </div>
-                                            <div class="event-three__btn-box">
-                                                <a href="event-details.html" class="thm-btn">View Details
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide swiper-slide--two">
-                                <div class="event-three__single">
-                                    <div class="event-three__img">
-                                        <img src="assets/images/resources/event-3-2.jpg" alt="">
-                                        <div class="event-three__content">
-                                            <div class="event-three__title-box">
-                                                <ul class="list-unstyled event-three__meta">
-                                                    <li><a href="event-details.html">11 Mar 2025</a></li>
-                                                </ul>
-                                                <h3 class="event-three__title"><a href="event-details.html">Beer
-                                                        Party</a>
-                                                </h3>
-                                            </div>
-                                            <div class="event-three__btn-box">
-                                                <a href="event-details.html" class="thm-btn">View Details
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide swiper-slide--three">
-                                <div class="event-three__single">
-                                    <div class="event-three__img">
-                                        <img src="assets/images/resources/event-3-3.jpg" alt="">
-                                        <div class="event-three__content">
-                                            <div class="event-three__title-box">
-                                                <ul class="list-unstyled event-three__meta">
-                                                    <li><a href="event-details.html">25 Feb 2025</a></li>
-                                                </ul>
-                                                <h3 class="event-three__title"><a href="event-details.html">Pool
-                                                        Party</a>
-                                                </h3>
-                                            </div>
-                                            <div class="event-three__btn-box">
-                                                <a href="event-details.html" class="thm-btn">View Details
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide swiper-slide--four">
-                                <div class="event-three__single">
-                                    <div class="event-three__img">
-                                        <img src="assets/images/resources/event-3-4.jpg" alt="">
-                                        <div class="event-three__content">
-                                            <div class="event-three__title-box">
-                                                <ul class="list-unstyled event-three__meta">
-                                                    <li><a href="event-details.html">14 july 2025</a></li>
-                                                </ul>
-                                                <h3 class="event-three__title"><a href="event-details.html">Wedding
-                                                        Party</a>
-                                                </h3>
-                                            </div>
-                                            <div class="event-three__btn-box">
-                                                <a href="event-details.html" class="thm-btn">View Details
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="swiper-slide swiper-slide--five">
-                                <div class="event-three__single">
-                                    <div class="event-three__img">
-                                        <img src="assets/images/resources/event-3-5.jpg" alt="">
-                                        <div class="event-three__content">
-                                            <div class="event-three__title-box">
-                                                <ul class="list-unstyled event-three__meta">
-                                                    <li><a href="event-details.html">13 Jun 2025</a></li>
-                                                </ul>
-                                                <h3 class="event-three__title"><a href="event-details.html">Family
-                                                        Party</a>
-                                                </h3>
-                                            </div>
-                                            <div class="event-three__btn-box">
-                                                <a href="event-details.html" class="thm-btn">View Details
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
-                        </svg>
-                    </div>
-                    <div class="swiper-button-next">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
-                        </svg>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <!-- Event Three End -->
-
-        <!--Testimonial Three Start-->
-        <section class="testimonial-three">
-            <div class="testimonial-three__bg"
-                style="background-image: url(assets/images/backgrounds/testimonial-three-bg.jpg);"></div>
-            <div class="testimonial-three__shape-1"></div>
-            <div class="container">
-                <div class="testimonial-three__inner">
-                    <div class="testimonial-three__carousel swiper-container">
-                        <div class="swiper-wrapper">
-                            <!--Testimonial Three Single Start-->
-                            <div class="swiper-slide">
-                                <div class="testimonial-three__single">
-                                    <div class="testimonial-three__client-info">
-                                        <div class="testimonial-three__client-img">
-                                            <img src="assets/images/testimonial/testimonial-3-1.jpg" alt="">
-                                        </div>
-                                        <div class="testimonial-three__client-content">
-                                            <h3><a href="testimonials-v1.html">Alisha Martin</a></h3>
-                                            <p>Athens / Greece</p>
-                                        </div>
-                                    </div>
-                                    <p class="testimonial-three__text">"Staying at Luxury Stay Hotel was truly an
-                                        unforgettable experience. From the moment we checked in, the staff made us feel
-                                        like
-                                        VIP guests. The rooms were spacious, clean, and beautifully decorated. We
-                                        especially
-                                        loved the rooftop restaurant with its breathtaking city views. I would
-                                        definitely
-                                        recommend this hotel to anyone looking for a blend of comfort, style, and
-                                        excellent
-                                        service."</p>
-                                    <div class="testimonial-three__ratting">
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Testimonial Three Single End-->
-                            <!--Testimonial Three Single Start-->
-                            <div class="swiper-slide">
-                                <div class="testimonial-three__single">
-                                    <div class="testimonial-three__client-info">
-                                        <div class="testimonial-three__client-img">
-                                            <img src="assets/images/testimonial/testimonial-3-2.jpg" alt="">
-                                        </div>
-                                        <div class="testimonial-three__client-content">
-                                            <h3><a href="testimonials-v1.html">Devid Koper</a></h3>
-                                            <p>Lisbon / Portugal</p>
-                                        </div>
-                                    </div>
-                                    <p class="testimonial-three__text">"Staying at Luxury Stay Hotel was truly an
-                                        unforgettable experience. From the moment we checked in, the staff made us feel
-                                        like
-                                        VIP guests. The rooms were spacious, clean, and beautifully decorated. We
-                                        especially
-                                        loved the rooftop restaurant with its breathtaking city views. I would
-                                        definitely
-                                        recommend this hotel to anyone looking for a blend of comfort, style, and
-                                        excellent
-                                        service."</p>
-                                    <div class="testimonial-three__ratting">
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Testimonial Three Single End-->
-                            <!--Testimonial Three Single Start-->
-                            <div class="swiper-slide">
-                                <div class="testimonial-three__single">
-                                    <div class="testimonial-three__client-info">
-                                        <div class="testimonial-three__client-img">
-                                            <img src="assets/images/testimonial/testimonial-3-3.jpg" alt="">
-                                        </div>
-                                        <div class="testimonial-three__client-content">
-                                            <h3><a href="testimonials-v1.html">Jailina Koper</a></h3>
-                                            <p>Madrid / Spain</p>
-                                        </div>
-                                    </div>
-                                    <p class="testimonial-three__text">"Staying at Luxury Stay Hotel was truly an
-                                        unforgettable experience. From the moment we checked in, the staff made us feel
-                                        like
-                                        VIP guests. The rooms were spacious, clean, and beautifully decorated. We
-                                        especially
-                                        loved the rooftop restaurant with its breathtaking city views. I would
-                                        definitely
-                                        recommend this hotel to anyone looking for a blend of comfort, style, and
-                                        excellent
-                                        service."</p>
-                                    <div class="testimonial-three__ratting">
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                        <span class="fas fa-star"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Testimonial Three Single End-->
-                        </div>
-                    </div>
-                    <div class="testimonial-three__nav">
-                        <div class="swiper-button-next1">
-                            <i class="icon-back"></i>
-                        </div>
-                        <div class="swiper-button-prev1">
-                            <i class="icon-next"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Testimonial Three End-->
-
-        <!--Blog Three Start-->
-        <section class="blog-three">
-            <div class="container">
-                <div class="section-title text-center sec-title-animation animation-style1">
-                    <div class="section-title__tagline-box">
-                        <span class="section-title__tagline">Our Blogs</span>
-                    </div>
-                    <h2 class="section-title__title title-animation">Explore Our Latest <span>News</span></h2>
-                </div>
-                <div class="row">
-                    <!--Blog Three Single Start-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInLeft" data-wow-delay="100ms">
-                        <div class="blog-three__single">
-                            <div class="blog-three__img-box">
-                                <div class="blog-three__img">
-                                    <img src="assets/images/blog/blog-3-1.jpg" alt="">
-                                </div>
-                                <div class="blog-three__date">
-                                    <p>15 <span>Jun</span></p>
-                                </div>
-                            </div>
-                            <div class="blog-three__content">
-                                <ul class="blog-three__list list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-user"></span>
-                                        </div>
-                                        <p>adam Smith</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="far fa-comments"></span>
-                                        </div>
-                                        <p>01 comment</p>
-                                    </li>
-                                </ul>
-                                <h3 class="blog-three__title"><a href="blog-details.html">relaxing & travel in our
-                                        hotel</a></h3>
-                                <div class="blog-three__read-more">
-                                    <a href="blog-details.html">read more<span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Blog Three Single End-->
-                    <!--Blog Three Single Start-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                        <div class="blog-three__single">
-                            <div class="blog-three__img-box">
-                                <div class="blog-three__img">
-                                    <img src="assets/images/blog/blog-3-2.jpg" alt="">
-                                </div>
-                                <div class="blog-three__date">
-                                    <p>22 <span>Feb</span></p>
-                                </div>
-                            </div>
-                            <div class="blog-three__content">
-                                <ul class="blog-three__list list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-user"></span>
-                                        </div>
-                                        <p>adam Smith</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="far fa-comments"></span>
-                                        </div>
-                                        <p>01 comment</p>
-                                    </li>
-                                </ul>
-                                <h3 class="blog-three__title"><a href="blog-details.html">Enjoy your holidays</a></h3>
-                                <div class="blog-three__read-more">
-                                    <a href="blog-details.html">read more<span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Blog Three Single End-->
-                    <!--Blog Three Single Start-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInRight" data-wow-delay="300ms">
-                        <div class="blog-three__single">
-                            <div class="blog-three__img-box">
-                                <div class="blog-three__img">
-                                    <img src="assets/images/blog/blog-3-3.jpg" alt="">
-                                </div>
-                                <div class="blog-three__date">
-                                    <p>05 <span>Mar</span></p>
-                                </div>
-                            </div>
-                            <div class="blog-three__content">
-                                <ul class="blog-three__list list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-user"></span>
-                                        </div>
-                                        <p>adam Smith</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="far fa-comments"></span>
-                                        </div>
-                                        <p>01 comment</p>
-                                    </li>
-                                </ul>
-                                <h3 class="blog-three__title"><a href="blog-details.html">Beautiful appointed suites</a>
-                                </h3>
-                                <div class="blog-three__read-more">
-                                    <a href="blog-details.html">read more<span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Blog Three Single End-->
-                </div>
-            </div>
-        </section>
-        <!--Blog Three End-->
-
-        <!--Gallery One Start -->
-        <section class="gallery-one gallery-three">
-            <div class="container">
-                <div class="gallery-three__top-title-box">
-                    <p class="gallery-three__top-title">Follow Instagram</p>
-                </div>
-            </div>
-            <div class="gallery-one__carousel swiper-container">
-                <div class="swiper-wrapper">
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-1.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-2.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-3.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-4.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-5.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-6.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-7.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-8.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-9.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                </div>
-            </div>
-        </section>
-        <!--Gallery One End -->
+        <!-- Testimonios End -->
 
         <!--Site Footer Start-->
         <footer class="site-footer-three">
@@ -1892,138 +1391,101 @@
             <div class="container">
                 <div class="site-footer-three__top">
                     <div class="row">
-                        <div class="col-xl-3 wow fadeInUp" data-wow-delay="100ms">
+
+                        <!-- Columna 1: Logo + descripción -->
+                        <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
                             <div class="footer-widget-three__column footer-widget-three__about">
-                                <div class="footer-widget-three__logo">
-                                    <a href="index.html"><img src="assets/images/resources/footer-logo.png" alt=""></a>
+                                <div class="footer-widget-three__logo" style="margin-bottom: 20px;">
+                                    <a href="index.html">
+                                        <img src="assets/images/resources/footer-logo.png" alt="Biosfera Bahía Turquesa"
+                                             style="height: 90px; width: auto;">
+                                    </a>
                                 </div>
-                                <p class="footer-widget-three__about-text">Secure other greater pleasures, or else he
-                                    endures
-                                    pains to avoid worse pains selection </p>
-                                <div class="footer-widget-three__working-box">
-                                    <h3 class="footer-widget-three__working-title">opening time:</h3>
-                                    <ul class="footer-widget-three__working-hour list-unstyled">
-                                        <li>
-                                            <p>Mon - Fri<span>9:00 AM - 5:00 PM</span></p>
-                                        </li>
-                                        <li>
-                                            <p>Saturday<span>8:00 AM - 6:00 PM</span></p>
-                                        </li>
-                                        <li>
-                                            <p>Sunday<span>8:00 AM - 6:00 PM</span></p>
-                                        </li>
-                                    </ul>
+                                <p class="footer-widget-three__about-text">
+                                    Un refugio de naturaleza y conciencia en Baja California Sur. Glamping de lujo, experiencias marinas y conexión auténtica con el entorno.
+                                </p>
+                                <div class="site-footer-three__social" style="margin-top: 24px;">
+                                    <a href="#"><i class="icon-facebook-app-symbol"></i></a>
+                                    <a href="#"><i class="icon-instagram"></i></a>
+                                    <a href="#"><i class="icon-twitter"></i></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-9">
-                            <div class="footer-widget-three__right">
-                                <div class="footer-widget-three__column footer-widget-three__newsletter">
-                                    <h3 class="footer-widget-three__newsletter-title">Subscribe To Our Newsletter To<br>
-                                        Get
-                                        Latest Update</h3>
-                                    <form class="footer-widget-three__newsletter-form mc-form" data-url="MC_FORM_URL"
-                                        novalidate="novalidate">
-                                        <div class="footer-widget-three__newsletter-form-input-box">
-                                            <input type="email" placeholder="Enter email" name="EMAIL">
-                                        </div>
-                                        <button type="submit"
-                                            class="footer-widget-three__newsletter-btn thm-btn">Subscribe</button>
-                                    </form>
-                                </div>
-                                <div class="footer-widget-three__right-bottom">
-                                    <div class="row">
-                                        <div class="col-xl-4 col-lg-4 col-md-4 wow fadeInUp" data-wow-delay="200ms">
-                                            <div class="footer-widget-three__column footer-widget-three__usefull-link">
-                                                <div class="footer-widget-three__title-box">
-                                                    <h3 class="footer-widget-three__title">Quick Links</h3>
-                                                </div>
-                                                <div class="footer-widget-three__link-box">
-                                                    <ul class="footer-widget-three__link list-unstyled">
-                                                        <li><a href="about.html">About Us</a></li>
-                                                        <li><a href="rooms.html">Rooms</a></li>
-                                                        <li><a href="faq.html">Help & FAQs</a></li>
-                                                        <li><a href="blog-1.html">Blog</a></li>
-                                                        <li><a href="contact.html">Contact</a></li>
-                                                    </ul>
-                                                </div>
+
+                        <!-- Columna 2: Navegación + Experiencias -->
+                        <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
+                            <div class="footer-widget-three__right-bottom">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="footer-widget-three__column footer-widget-three__usefull-link">
+                                            <div class="footer-widget-three__title-box">
+                                                <h3 class="footer-widget-three__title">Biosfera</h3>
                                             </div>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-4 wow fadeInUp" data-wow-delay="300ms">
-                                            <div class="footer-widget-three__column footer-widget-three__services">
-                                                <div class="footer-widget-three__title-box">
-                                                    <h3 class="footer-widget-three__title">Our Services</h3>
-                                                </div>
-                                                <ul class="footer-widget-three__link list-unstyled">
-                                                    <li><a href="conference-room.html">Conference Room</a></li>
-                                                    <li><a href="cleaning-everyday.html">Cleaning Everyday</a>
-                                                    </li>
-                                                    <li><a href="swimming-pool.html">Swimming Pool</a></li>
-                                                    <li><a href="smart-key.html">Smart Key</a></li>
-                                                    <li><a href="fitness-center.html">Fitness Center</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-4 wow fadeInUp" data-wow-delay="400ms">
-                                            <div class="footer-widget-three__contact-box">
-                                                <div class="footer-widget-three__title-box">
-                                                    <h3 class="footer-widget-three__title">Official info</h3>
-                                                </div>
-                                                <ul class="footer-widget-three__contact list-unstyled">
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-call"></span>
-                                                        </div>
-                                                        <div class="content">
-                                                            <p><a href="tel:885747546027">(88) 574 7546 027</a></p>
-                                                            <p><a href="tel:885747546027">(88) 574 7546 027</a></p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-mail"></span>
-                                                        </div>
-                                                        <div class="content">
-                                                            <p><a href="mailto:example@gmail.com">example@gmail.com</a>
-                                                            </p>
-                                                            <p><a href="mailto:example@gmail.com">example@gmail.com</a>
-                                                            </p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="icon">
-                                                            <span class="icon-pin"></span>
-                                                        </div>
-                                                        <div class="content">
-                                                            <p>4517 Washington Ave. Manchester, 95</p>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            <ul class="footer-widget-three__link list-unstyled">
+                                                <li><a href="index.html">Inicio</a></li>
+                                                <li><a href="about.html">Nosotros</a></li>
+                                                <li><a href="rooms.html">Glamping</a></li>
+                                                <li><a href="eco.html">Eco &amp; Energía</a></li>
+                                                <li><a href="faq.html">Preguntas frecuentes</a></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="site-footer-three__social">
-                                        <a href="#"><i class="icon-facebook-app-symbol"></i></a>
-                                        <a href="#"><i class="icon-twitter"></i></a>
-                                        <a href="#"><i class="icon-linkedin"></i></a>
-                                        <a href="#"><i class="icon-pinterest"></i></a>
+                                    <div class="col-6">
+                                        <div class="footer-widget-three__column footer-widget-three__services">
+                                            <div class="footer-widget-three__title-box">
+                                                <h3 class="footer-widget-three__title">Experiencias</h3>
+                                            </div>
+                                            <ul class="footer-widget-three__link list-unstyled">
+                                                <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                                <li><a href="ocean-safari-nocturno.html">Safari Nocturno</a></li>
+                                                <li><a href="snorkel-bt.html">Snorkel BT</a></li>
+                                                <li><a href="sierra-laguna.html">Sierra La Laguna</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Columna 3: Contacto -->
+                        <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
+                            <div class="footer-widget-three__contact-box">
+                                <div class="footer-widget-three__title-box">
+                                    <h3 class="footer-widget-three__title">Contacto</h3>
+                                </div>
+                                <ul class="footer-widget-three__contact list-unstyled">
+                                    <li>
+                                        <div class="icon"><span class="icon-call"></span></div>
+                                        <div class="content">
+                                            <p><a href="tel:+526121020266">+52 612 102 0266</a></p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><span class="icon-mail"></span></div>
+                                        <div class="content">
+                                            <p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><span class="icon-pin"></span></div>
+                                        <div class="content">
+                                            <p>Bahía Turquesa, Baja California Sur, México</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div class="site-footer-three__bottom">
                 <div class="container">
                     <div class="site-footer-three__bottom-inner">
-                        <p class="site-footer-three__bottom-text">© Copywright 2025 by <a
-                                href="https://themeforest.net/user/dreamlayout">Dreamlayout.</a> All Rights
-                            Reserved.</p>
+                        <p class="site-footer-three__bottom-text">© 2026 Biosfera Bahía Turquesa. Todos los derechos reservados.</p>
                         <ul class="list-unstyled site-footer-three__bottom-menu">
-                            <li><a href="contact.html">Support</a></li>
-                            <li><a href="about.html">Terms and Condition</a></li>
-                            <li><a href="about.html">Privacy and Policy</a></li>
+                            <li><a href="faq.html">Preguntas frecuentes</a></li>
+                            <li><a href="about.html">Nosotros</a></li>
                         </ul>
                     </div>
                 </div>
@@ -2054,7 +1516,7 @@
             <ul class="mobile-nav__contact list-unstyled">
                 <li>
                     <i class="fa fa-envelope"></i>
-                    <a href="mailto:needhelp@packageName__.com">needhelp@Hotelux.com</a>
+                    <a href="mailto:info@biosferamx.com">info@biosferamx.com</a>
                 </li>
                 <li>
                     <i class="fas fa-phone"></i>
@@ -2147,7 +1609,7 @@
                             <span class="fa fa-user" style="margin-right:6px;"></span>${user.name}&#160;<span class="fa fa-chevron-down" style="font-size:9px;"></span>
                         </a>
                         <ul class="biosfera-user-dropdown">
-                            <li><a href="mis-reservas.html"><span class="fa fa-calendar-check" style="margin-right:6px;color:#b8976a;"></span>Mis reservas</a></li>
+                            <li><a href="mis-reservas.html"><span class="fa fa-calendar-check" style="margin-right:6px;color:#5a8f7b;"></span>Mis reservas</a></li>
                             <li><a href="#" id="nav-logout-btn"><span class="fa fa-sign-out" style="margin-right:6px;"></span>Cerrar sesión</a></li>
                         </ul>
                     </div>`;
@@ -2193,6 +1655,29 @@
         }
         .biosfera-user-dropdown li a:hover { background: #f5f5f5; color: #000; }
     </style>
+
+    <script>
+        if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true, offset: 60 });
+
+        // Auth state
+        (function () {
+            const token = localStorage.getItem('biosfera_token');
+            const name  = localStorage.getItem('biosfera_name');
+            const box   = document.getElementById('nav-auth-box');
+            if (!box || !token || !name) return;
+            box.innerHTML = `
+                <span style="color:#fff;font-size:13px;margin-right:10px;">Hola, ${name.split(' ')[0]}</span>
+                <a href="mis-reservas.html" class="thm-btn" style="margin-right:8px;">Mis Reservas</a>
+                <a href="#" class="thm-btn" style="background:#c26a3a;" id="nav-logout-btn">Salir</a>`;
+            document.getElementById('nav-logout-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('biosfera_token');
+                localStorage.removeItem('biosfera_name');
+                location.reload();
+            });
+        })();
+    </script>
+    <script src="assets/js/biosfera-cart.js"></script>
 </body>
 
 </html>

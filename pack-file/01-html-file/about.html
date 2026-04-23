@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> About || Hotelux || Hotelux HTML 5 Template </title>
-    <!-- favicons Icons -->
+    <title>Nosotros | Biosfera Bahía Turquesa</title>
+
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
     <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
-    <meta name="description" content="Hotelux HTML 5 Template " />
+    <meta name="description" content="Conoce la historia y el equipo detrás de Biosfera Bahía Turquesa — el eco glamping nacido del amor por la naturaleza en Baja California Sur." />
 
-    <!-- fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
-
-
+    <!-- Vendor CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/animate.min.css" />
     <link rel="stylesheet" href="assets/css/custom-animate.css" />
@@ -38,134 +36,544 @@
     <link rel="stylesheet" href="assets/css/odometer.min.css" />
     <link rel="stylesheet" href="assets/css/vegas.min.css" />
 
-    <!-- template styles -->
+    <!-- Template + Biosfera styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/biosfera-colors.css" />
+
+    <style>
+        /* ═══════════════════════════════════════════════
+           NOSOTROS PAGE — Biosfera Bahía Turquesa
+        ═══════════════════════════════════════════════ */
+
+        /* ── Shared label style ─────────────────────── */
+        .abt-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #5a7a4a;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .abt-label::before, .abt-label::after {
+            content: '';
+            display: inline-block;
+            width: 28px;
+            height: 1.5px;
+            background: #5a7a4a;
+            opacity: .45;
+        }
+        .abt-label--left::before { display: none; }
+        .abt-label--left::after  { display: none; }
+
+        /* ══════════════════════════════════════════════
+           1. HISTORIA / ESENCIA
+        ══════════════════════════════════════════════ */
+        .abt-story {
+            background: #fff;
+            padding: 90px 0 80px;
+        }
+        .abt-story__title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 58px);
+            font-weight: 700;
+            color: #1c2e25;
+            line-height: 1.18;
+            margin-bottom: 24px;
+        }
+        .abt-story__title span {
+            color: #5a7a4a;
+            font-style: italic;
+        }
+        .abt-story__lead {
+            font-size: 17px;
+            color: #3d5040;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+        .abt-story__text {
+            font-size: 15px;
+            color: #5a6a58;
+            line-height: 1.85;
+            margin-bottom: 18px;
+        }
+        .abt-story__quote {
+            border-left: 4px solid #5a7a4a;
+            padding: 16px 24px;
+            margin: 32px 0;
+            background: #f4f8f1;
+            border-radius: 0 12px 12px 0;
+        }
+        .abt-story__quote p {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-style: italic;
+            color: #2d4a35;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Timeline */
+        .abt-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-top: 8px;
+        }
+        .abt-timeline__item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding-bottom: 28px;
+            position: relative;
+        }
+        .abt-timeline__item:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 40px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #5a7a4a 0%, #b0d0a0 100%);
+        }
+        .abt-timeline__dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid #5a7a4a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .abt-timeline__dot--active {
+            background: #5a7a4a;
+            color: #fff;
+            box-shadow: 0 0 0 6px rgba(90,122,74,.12);
+        }
+        .abt-timeline__body { padding-top: 6px; }
+        .abt-timeline__date {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #5a7a4a;
+            margin-bottom: 4px;
+        }
+        .abt-timeline__title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1c2e25;
+            margin-bottom: 4px;
+        }
+        .abt-timeline__desc {
+            font-size: 13.5px;
+            color: #6a7a68;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* Image side */
+        .abt-story__img-wrap {
+            position: relative;
+        }
+        .abt-story__img-main {
+            width: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+            height: 520px;
+            box-shadow: 0 16px 56px rgba(30,60,40,.14);
+        }
+        .abt-story__img-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: #5a7a4a;
+            color: #fff;
+            border-radius: 16px;
+            padding: 20px 26px;
+            box-shadow: 0 8px 32px rgba(90,122,74,.35);
+            text-align: center;
+        }
+        .abt-story__img-badge strong {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .abt-story__img-badge span {
+            font-size: 12px;
+            opacity: .85;
+            letter-spacing: 1px;
+        }
+
+        /* ══════════════════════════════════════════════
+           2. FUNDADORES
+        ══════════════════════════════════════════════ */
+        .abt-founders {
+            background: #f4f8f1;
+            padding: 80px 0;
+        }
+        .abt-founders__title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 700;
+            color: #1c2e25;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        .abt-founders__sub {
+            font-size: 15px;
+            color: #5a6a58;
+            text-align: center;
+            max-width: 560px;
+            margin: 0 auto 56px;
+            line-height: 1.8;
+        }
+        .abt-founders__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        @media (max-width: 768px) { .abt-founders__grid { grid-template-columns: 1fr; } }
+
+        .abt-founder-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 32px rgba(30,60,40,.08);
+            transition: transform .3s, box-shadow .3s;
+        }
+        .abt-founder-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(30,60,40,.14);
+        }
+        .abt-founder-card__photo {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            object-position: center top;
+            background: linear-gradient(135deg, #d4e8c8, #b0ccf0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+        .abt-founder-card__photo-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #e8f4e0 0%, #d4e8f8 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .abt-founder-card__initials {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #5a7a4a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+        .abt-founder-card__body { padding: 32px 30px 36px; }
+        .abt-founder-card__role {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #5a7a4a;
+            margin-bottom: 8px;
+        }
+        .abt-founder-card__name {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #1c2e25;
+            margin-bottom: 16px;
+        }
+        .abt-founder-card__text {
+            font-size: 14.5px;
+            color: #5a6a58;
+            line-height: 1.8;
+            margin: 0;
+        }
+        .abt-founder-card__tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 20px;
+            background: #f0f7eb;
+            border: 1px solid #c0d8b0;
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 12px;
+            color: #4a6a3a;
+            font-weight: 600;
+        }
+
+        /* ══════════════════════════════════════════════
+           3. MISIÓN Y VISIÓN
+        ══════════════════════════════════════════════ */
+        .abt-mv {
+            background: #1c2e25;
+            padding: 90px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .abt-mv::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse at 15% 50%, rgba(90,122,74,.25) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 30%, rgba(42,125,168,.12) 0%, transparent 45%);
+            pointer-events: none;
+        }
+        .abt-mv__label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #a0c890;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .abt-mv__heading {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        .abt-mv__heading span { color: #a0c890; font-style: italic; }
+
+        .abt-mv__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            position: relative;
+            z-index: 2;
+        }
+        @media (max-width: 768px) { .abt-mv__grid { grid-template-columns: 1fr; } }
+
+        .abt-mv-card {
+            background: rgba(255,255,255,.05);
+            border: 1.5px solid rgba(255,255,255,.1);
+            border-radius: 20px;
+            padding: 44px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .abt-mv-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            border-radius: 20px 20px 0 0;
+        }
+        .abt-mv-card--mision::before { background: linear-gradient(90deg, #5a7a4a, #a0c890); }
+        .abt-mv-card--vision::before  { background: linear-gradient(90deg, #2a7da8, #5bc8f5); }
+
+        .abt-mv-card__icon {
+            width: 60px; height: 60px;
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+        .abt-mv-card--mision .abt-mv-card__icon { background: rgba(90,122,74,.2); color: #a0c890; }
+        .abt-mv-card--vision .abt-mv-card__icon  { background: rgba(42,125,168,.2); color: #5bc8f5; }
+
+        .abt-mv-card__type {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .abt-mv-card--mision .abt-mv-card__type { color: #a0c890; }
+        .abt-mv-card--vision .abt-mv-card__type  { color: #5bc8f5; }
+
+        .abt-mv-card__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.25;
+        }
+        .abt-mv-card__text {
+            font-size: 15px;
+            color: rgba(255,255,255,.7);
+            line-height: 1.85;
+            margin: 0;
+        }
+        .abt-mv-card__text strong { color: #fff; }
+
+        /* ══════════════════════════════════════════════
+           4. VALORES
+        ══════════════════════════════════════════════ */
+        .abt-values {
+            background: #fff;
+            padding: 90px 0 80px;
+        }
+        .abt-values__title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4vw, 46px);
+            font-weight: 700;
+            color: #1c2e25;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .abt-values__title span { color: #5a7a4a; font-style: italic; }
+        .abt-values__sub {
+            font-size: 15px;
+            color: #5a6a58;
+            text-align: center;
+            max-width: 540px;
+            margin: 0 auto 56px;
+            line-height: 1.8;
+        }
+        .abt-values__grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+        @media (max-width: 1100px) { .abt-values__grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 640px)  { .abt-values__grid { grid-template-columns: 1fr 1fr; } }
+
+        .abt-value-card {
+            text-align: center;
+            padding: 36px 20px 32px;
+            border-radius: 20px;
+            background: #f8faf6;
+            border: 1.5px solid #ddebd4;
+            transition: transform .28s, box-shadow .28s, border-color .28s, background .28s;
+            cursor: default;
+        }
+        .abt-value-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 36px rgba(90,122,74,.13);
+            border-color: #a0c890;
+            background: #fff;
+        }
+        .abt-value-card__icon {
+            width: 72px; height: 72px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 20px;
+        }
+        /* Colors per value */
+        .abt-value-card:nth-child(1) .abt-value-card__icon { background: #fff3e0; color: #e07a20; }
+        .abt-value-card:nth-child(2) .abt-value-card__icon { background: #e8f5e1; color: #3d6e30; }
+        .abt-value-card:nth-child(3) .abt-value-card__icon { background: #e0f0fa; color: #2a7da8; }
+        .abt-value-card:nth-child(4) .abt-value-card__icon { background: #fce8f0; color: #b03060; }
+        .abt-value-card:nth-child(5) .abt-value-card__icon { background: #f0ede8; color: #7a5a3a; }
+
+        .abt-value-card__name {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #1c2e25;
+            margin-bottom: 10px;
+        }
+        .abt-value-card__desc {
+            font-size: 13px;
+            color: #6a7a68;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* ── CTA ──────────────────────────────────────── */
+        .abt-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #edf5e5 0%, #dce8f0 100%);
+            text-align: center;
+        }
+        .abt-cta__title { font-family:'Playfair Display',serif; font-size:clamp(26px,3.5vw,40px); font-weight:700; color:#1c2e25; margin-bottom:16px; }
+        .abt-cta__text { font-size:15px; color:#4d5e53; max-width:520px; margin:0 auto 32px; line-height:1.75; }
+        .abt-cta__btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+        .abt-cta__btn-primary { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#5a7a4a,#3d5c30); color:#fff; font-size:14px; font-weight:700; letter-spacing:1px; padding:14px 32px; border-radius:40px; text-decoration:none; transition:opacity .2s, transform .2s; }
+        .abt-cta__btn-primary:hover { opacity:.88; transform:translateY(-2px); color:#fff; text-decoration:none; }
+        .abt-cta__btn-outline { display:inline-flex; align-items:center; gap:8px; background:transparent; color:#1c2e25; font-size:14px; font-weight:700; padding:13px 30px; border-radius:40px; border:2px solid #a0b890; text-decoration:none; transition:background .2s, color .2s; }
+        .abt-cta__btn-outline:hover { background:#1c2e25; color:#fff; text-decoration:none; }
+
+        /* Responsive story grid */
+        @media (max-width: 991px) {
+            .abt-story__img-wrap { margin-top: 48px; }
+            .abt-story__img-badge { left: 12px; bottom: -12px; }
+        }
+    </style>
 </head>
 
 <body class="custom-cursor">
 
-
-
     <div class="custom-cursor__cursor"></div>
     <div class="custom-cursor__cursor-two"></div>
 
-
-    <!--Start Preloader-->
-    <div id="preloader">
-        <div class="preloader">
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    <!--End Preloader-->
+    <div id="preloader"><div class="preloader"><span></span><span></span></div></div>
 
     <div class="chat-icon"><button type="button" class="chat-toggler"><i class="fa fa-comment"></i></button></div>
-    <!--Chat Popup-->
     <div id="chat-popup" class="chat-popup">
         <div class="popup-inner">
             <div class="close-chat"><i class="fa fa-times"></i></div>
             <div class="chat-form">
-                <p>Please fill out the form below and we will get back to you as soon as possible.</p>
+                <p>¿Tienes alguna pregunta? Escríbenos.</p>
                 <form action="assets/inc/sendemail.php" method="POST" class="contact-form-validated">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Your Text" required></textarea>
-                    </div>
-                    <div class="form-group message-btn">
-                        <button type="submit" class="thm-btn"> Submit Now</button>
-                    </div>
+                    <div class="form-group"><input type="text" name="name" placeholder="Tu nombre" required></div>
+                    <div class="form-group"><input type="email" name="email" placeholder="Tu correo" required></div>
+                    <div class="form-group"><textarea name="message" placeholder="Tu mensaje" required></textarea></div>
+                    <div class="form-group message-btn"><button type="submit" class="thm-btn">Enviar</button></div>
                     <div class="result"></div>
                 </form>
             </div>
         </div>
     </div>
 
-
-
-
-    <!-- Start sidebar widget content -->
+    <!-- Sidebar -->
     <div class="xs-sidebar-group info-group info-sidebar">
         <div class="xs-overlay xs-bg-black"></div>
         <div class="xs-sidebar-widget">
             <div class="sidebar-widget-container">
-                <div class="widget-heading">
-                    <a href="#" class="close-side-widget">X</a>
-                </div>
+                <div class="widget-heading"><a href="#" class="close-side-widget">X</a></div>
                 <div class="sidebar-textwidget">
                     <div class="sidebar-info-contents">
                         <div class="content-inner">
-                            <div class="logo">
-                                <a href="index.html"><img src="assets/images/resources/logo-3.png" alt="" /></a>
-                            </div>
+                            <div class="logo"><a href="index.html"><img src="assets/images/resources/logo-3.png" alt="Biosfera" /></a></div>
                             <div class="content-box">
-                                <h4>About Us</h4>
-                                <div class="inner-text">
-                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                        roots in a piece of classical Latin literature from 45 BC, making it over
-                                        2000 years old.
-                                    </p>
-                                </div>
+                                <h4>Sobre Nosotros</h4>
+                                <div class="inner-text"><p>Biosfera Bahía Turquesa es un espacio eco-consciente frente al mar, donde la naturaleza y la comodidad coexisten en armonía.</p></div>
                             </div>
-
-                            <div class="form-inner">
-                                <h4>Get a free quote</h4>
-                                <form action="assets/inc/sendemail.php" method="POST" class="contact-form-validated">
-                                    <div class="form-group">
-                                        <input type="text" name="name" placeholder="Name" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" name="email" placeholder="Email" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea name="message" placeholder="Message..." required=""></textarea>
-                                    </div>
-                                    <div class="form-group message-btn">
-                                        <button class="thm-btn" data-text="Submit Now" type="submit"
-                                            data-loading-text="Please wait...">Submit Now
-                                        </button>
-                                    </div>
-                                    <div class="result"></div>
-                                </form>
-
-
-                            </div>
-
                             <div class="sidebar-contact-info">
-                                <h4>Contact Info</h4>
+                                <h4>Contacto</h4>
                                 <ul class="list-unstyled">
-                                    <li>
-                                        <span class="icon-pin"></span> 88 broklyn street, New York
-                                    </li>
-                                    <li>
-                                        <span class="icon-call"></span>
-                                        <a href="tel:123456789">+1 555-9990-153</a>
-                                    </li>
-                                    <li>
-                                        <span class="icon-mail"></span>
-                                        <a href="mailto:info@example.com">info@example.com</a>
-                                    </li>
+                                    <li><span class="icon-pin"></span> Bahía Turquesa, México</li>
+                                    <li><span class="icon-call"></span><a href="tel:+526121020266">+52 612 102 0266</a></li>
+                                    <li><span class="icon-mail"></span><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></li>
                                 </ul>
                             </div>
                             <div class="thm-social-link1">
                                 <ul class="social-box list-unstyled">
-                                    <li>
-                                        <a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                                    </li>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -174,325 +582,84 @@
             </div>
         </div>
     </div>
-    <!-- End sidebar widget content -->
-
-
-
 
     <div class="page-wrapper">
-        <header class="main-header">
-            <div class="main-menu__top">
-                <div class="main-menu__top-inner">
-                    <ul class="list-unstyled main-menu__contact-list">
-                        <li>
-                            <div class="icon">
-                                <i class="icon-call"></i>
+
+        <!-- NAV -->
+        <header class="main-header-three">
+            <div class="main-menu-three__top">
+                <div class="container">
+                    <div class="main-menu-three__top-inner">
+                        <ul class="list-unstyled main-menu-three__contact-list">
+                            <li>
+                                <div class="icon"><i class="icon-call"></i></div>
+                                <div class="text"><p><a href="tel:+526121020266">+52 612 102 0266</a></p></div>
+                            </li>
+                            <li>
+                                <div class="icon"><i class="icon-mail"></i></div>
+                                <div class="text"><p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p></div>
+                            </li>
+                        </ul>
+                        <div class="main-menu-three__top-right">
+                            <div class="main-menu-three__social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
                             </div>
-                            <div class="text">
-                                <p><a href="tel:15502505260">+1 (550) 250 5260</a></p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="icon-mail"></i>
-                            </div>
-                            <div class="text">
-                                <p><a href="mailto:info@Hotelux24.com">info@Hotelux24.com</a>
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="icon-pin"></i>
-                            </div>
-                            <div class="text">
-                                <p>4124 Cimmaron Road, CA 92806</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <p class="main-menu__top-welcome-text">Welcome to Our Hotel Booking Company</p>
-                    <div class="main-menu__top-right">
-                        <div class="main-menu__top-time">
-                            <div class="main-menu__top-time-icon">
-                                <span class="fas fa-clock"></span>
-                            </div>
-                            <p class="main-menu__top-text">Mon - Fri: 09:00 - 05:00</p>
-                        </div>
-                        <div class="main-menu__social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <nav class="main-menu">
-                <div class="main-menu__wrapper">
-                    <div class="main-menu__wrapper-inner">
-                        <div class="main-menu__left">
-                            <div class="main-menu__logo">
-                                <a href="index.html"><img src="assets/images/resources/logo-1.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="main-menu__main-menu-box">
-                            <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
-                            <ul class="main-menu__list">
-                                <li class="dropdown megamenu">
-                                    <a href="#">Home </a>
-                                    <ul>
-                                        <li>
-                                            <section class="home-showcase">
-                                                <div class="container">
-                                                    <div class="home-showcase__inner">
-                                                        <div class="row">
-                                                            <div class="col-lg-3">
-                                                                <div class="home-showcase__item">
-                                                                    <div class="home-showcase__image">
-                                                                        <img src="assets/images/home-showcase/home-showcase-1-1.jpg"
-                                                                            alt="">
-                                                                        <div class="home-showcase__buttons">
-                                                                            <a href="index.html"
-                                                                                class="thm-btn home-showcase__buttons__item">Multi
-                                                                                Page
-                                                                            </a>
-                                                                            <a href="index-one-page.html"
-                                                                                class="thm-btn home-showcase__buttons__item">One
-                                                                                Page
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.home-showcase__buttons -->
-                                                                    </div><!-- /.home-showcase__image -->
-                                                                    <h3 class="home-showcase__title">Home
-                                                                        Page
-                                                                        01</h3>
-                                                                    <!-- /.home-showcase__title -->
-                                                                </div><!-- /.home-showcase__item -->
-                                                            </div><!-- /.col-lg-3 -->
-                                                            <div class="col-lg-3">
-                                                                <div class="home-showcase__item">
-                                                                    <div class="home-showcase__image">
-                                                                        <img src="assets/images/home-showcase/home-showcase-1-2.jpg"
-                                                                            alt="">
-                                                                        <div class="home-showcase__buttons">
-                                                                            <a href="index2.html"
-                                                                                class="thm-btn home-showcase__buttons__item">
-                                                                                Multi
-                                                                                Page
-                                                                            </a>
-                                                                            <a href="index2-one-page.html"
-                                                                                class="thm-btn home-showcase__buttons__item">
-                                                                                One
-                                                                                Page
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.home-showcase__buttons -->
-                                                                    </div><!-- /.home-showcase__image -->
-                                                                    <h3 class="home-showcase__title">Home
-                                                                        Page
-                                                                        02
-                                                                    </h3><!-- /.home-showcase__title -->
-                                                                </div><!-- /.home-showcase__item -->
-                                                            </div><!-- /.col-lg-3 -->
-                                                            <div class="col-lg-3">
-                                                                <div class="home-showcase__item">
-                                                                    <div class="home-showcase__image">
-                                                                        <img src="assets/images/home-showcase/home-showcase-1-3.jpg"
-                                                                            alt="">
-                                                                        <div class="home-showcase__buttons">
-                                                                            <a href="index3.html"
-                                                                                class="thm-btn home-showcase__buttons__item">
-                                                                                Multi
-                                                                                Page
-                                                                            </a>
-                                                                            <a href="index3-one-page.html"
-                                                                                class="thm-btn home-showcase__buttons__item">
-                                                                                One
-                                                                                Page
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.home-showcase__buttons -->
-                                                                    </div><!-- /.home-showcase__image -->
-                                                                    <h3 class="home-showcase__title">Home
-                                                                        Page
-                                                                        03
-                                                                    </h3><!-- /.home-showcase__title -->
-                                                                </div><!-- /.home-showcase__item -->
-                                                            </div><!-- /.col-lg-3 -->
-                                                            <div class="col-lg-3">
-                                                                <div class="home-showcase__item">
-                                                                    <div class="home-showcase__image">
-                                                                        <img src="assets/images/home-showcase/home-showcase-1-4.jpg"
-                                                                            alt="">
-                                                                        <div class="home-showcase__buttons">
-                                                                            <a href="index-dark.html"
-                                                                                class="thm-btn home-showcase__buttons__item">
-                                                                                View
-                                                                                Page
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.home-showcase__buttons -->
-                                                                    </div><!-- /.home-showcase__image -->
-                                                                    <h3 class="home-showcase__title">Dark Page
-                                                                    </h3><!-- /.home-showcase__title -->
-                                                                </div><!-- /.home-showcase__item -->
-                                                            </div><!-- /.col-lg-3 -->
-                                                        </div><!-- /.row -->
-                                                    </div><!-- /.home-showcase__inner -->
-
-                                                </div><!-- /.container -->
-                                            </section>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#">Pages</a>
-                                    <ul class="shadow-box">
-                                        <li class="dropdown"><a href="#">About</a>
-                                            <ul>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="history.html">History</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Staff</a>
-                                            <ul>
-                                                <li><a href="staff-v1.html">Staff V1</a></li>
-                                                <li><a href="staff-v2.html">Staff V2</a></li>
-                                                <li><a href="staff-v3.html">Staff V3</a></li>
-                                                <li><a href="staff-details.html">Staff Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Testimonials</a>
-                                            <ul>
-                                                <li><a href="testimonials-v1.html">Testimonials V1</a></li>
-                                                <li><a href="testimonials-v2.html">Testimonials V2</a></li>
-                                                <li><a href="testimonials-v3.html">Testimonials V3</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Events</a>
-                                            <ul>
-                                                <li><a href="events.html">Events</a></li>
-                                                <li><a href="event-details.html">Event Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Places</a>
-                                            <ul>
-                                                <li><a href="places.html">Places</a></li>
-                                                <li><a href="place-details.html">Place Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="gallery.html">Gallery</a></li>
-                                        <li><a href="offers.html">Offers</a></li>
-                                        <li><a href="pricing.html">Pricing</a></li>
-                                        <li><a href="spa.html">Spa</a></li>
-                                        <li><a href="restaurant.html">Restaurant</a></li>
-                                        <li><a href="faq.html">FAQs</a></li>
-                                        <li><a href="404.html">404 Error</a></li>
-                                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#">Services</a>
-                                    <ul class="shadow-box">
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="conference-room.html">Conference Room</a></li>
-                                        <li><a href="cleaning-everyday.html">Cleaning Everyday</a></li>
-                                        <li><a href="swimming-pool.html">Swimming Pool</a></li>
-                                        <li><a href="smart-key.html">Smart Key</a></li>
-                                        <li><a href="fitness-center.html">Fitness Center</a></li>
-                                        <li><a href="free-wi-fi-available.html">Free Wi-Fi Available</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#">Room</a>
-                                    <ul class="shadow-box">
-                                        <li><a href="rooms.html">Rooms</a></li>
-                                        <li><a href="room-list.html">Room List</a></li>
-                                        <li><a href="room-details.html">Room Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#">Shop</a>
-                                    <ul class="shadow-box">
-                                        <li><a href="products.html">Products</a></li>
-                                        <li><a href="product-details.html">Product Details</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                        <li><a href="sign-up.html">Sign Up</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown menu-list-apper-right">
-                                    <a href="#">Blog</a>
-                                    <ul class="shadow-box">
-                                        <li class="dropdown"><a href="#">Blog</a>
-                                            <ul>
-                                                <li><a href="blog-1.html">Blog V1</a></li>
-                                                <li><a href="blog-2.html">Blog V2</a></li>
-                                                <li><a href="blog-3.html">Blog V3</a></li>
-                                                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                                <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Blog List</a>
-                                            <ul>
-                                                <li><a href="blog-list-left.html">Blog List Left</a></li>
-                                                <li><a href="blog-list-right.html">Blog List Right</a></li>
-                                                <li><a href="blog-list.html">Blog List No Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Blog Details</a>
-                                            <ul>
-                                                <li><a href="blog-details-left.html">Blog Details Left</a></li>
-                                                <li><a href="blog-details-right.html">Blog Details Right</a></li>
-                                                <li><a href="blog-details.html">Blog Details No Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">Contact</a>
-                                    <ul class="shadow-box">
-                                        <li><a href="our-location.html">Location</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="main-menu__right">
-                            <div class="main-menu__call">
-                                <div class="main-menu__call-icon">
-                                    <i class="icon-call"></i>
-                                </div>
-                                <div class="main-menu__call-content">
-                                    <p class="main-menu__call-sub-title">Call Anytime</p>
-                                    <h5 class="main-menu__call-number"><a href="tel:9288006780">+92 ( 8800 ) -
-                                            6780</a></h5>
+            <nav class="main-menu main-menu-three">
+                <div class="main-menu-three__wrapper">
+                    <div class="container">
+                        <div class="main-menu-three__wrapper-inner">
+                            <div class="main-menu-three__left">
+                                <div class="main-menu-three__logo">
+                                    <a href="index.html"><img src="assets/images/resources/logo-1.png" alt="Biosfera"></a>
                                 </div>
                             </div>
-                            <div class="main-menu__search-cart-box">
-                                <div class="main-menu__search-cart-box">
-                                    <div class="main-menu__search-box">
-                                        <a href="#"
-                                            class="main-menu__search searcher-toggler-box icon-search-interface-symbol"></a>
-                                    </div>
-                                    <div class="main-menu__cart-box">
-                                        <a href="cart.html" class="main-menu__cart">
-                                            <span class="far fa-shopping-cart"></span>
-                                            <span class="main-menu__cart-count">02</span>
+                            <div class="main-menu-three__main-menu-box">
+                                <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                                <ul class="main-menu__list">
+                                    <li><a href="index.html">Inicio</a></li>
+                                    <li class="dropdown">
+                                        <a href="#">Experiencias</a>
+                                        <ul class="shadow-box">
+                                            <li><a href="rooms.html">Glamping</a></li>
+                                            <li><a href="ocean-safari-nocturno.html">Ocean Safari Nocturno</a></li>
+                                            <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                            <li><a href="snorkel-bt.html">Snorkel BT</a></li>
+                                            <li><a href="sierra-laguna.html">Sierra Laguna</a></li>
+                                            <li><a href="places.html">Tours</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="services.html">Servicios</a></li>
+                                    <li><a href="events.html">Eventos</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li class="current"><a href="about.html">Nosotros</a></li>
+                                    <li><a href="eco.html">Eco</a></li>
+                                    <li><a href="coming-soon.html">Expansión</a></li>
+                                    <li><a href="contact.html">Contacto</a></li>
+                                    <li>
+                                        <a href="cart.html" class="biosfera-cart-nav" title="Mi carrito">
+                                            <i class="fa fa-shopping-cart" style="font-size:17px;color:#d6e8e2;"></i>
+                                            <span class="biosfera-cart-badge">0</span>
                                         </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="main-menu-three__right">
+                                <div class="main-menu-three__right-content">
+                                    <div class="main-menu-three__search-cart-box">
+                                        <div class="main-menu-three__search-box">
+                                            <a href="#" class="main-menu-three__search searcher-toggler-box icon-search-interface-symbol"></a>
+                                        </div>
+                                    </div>
+                                    <div class="main-menu-three__btn-box" id="nav-auth-box">
+                                        <a href="login.html" class="thm-btn">Iniciar sesión</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="main-menu__nav-sidebar-icon">
-                                <a class="navSidebar-button" href="#">
-                                    <span class="icon-dots-menu-one"></span>
-                                    <span class="icon-dots-menu-two"></span>
-                                    <span class="icon-dots-menu-three"></span>
-                                </a>
-                            </div>
-                            <div class="main-menu__btn-box">
-                                <a href="contact.html" class="thm-btn">Booking Online</a>
                             </div>
                         </div>
                     </div>
@@ -500,1536 +667,269 @@
             </nav>
         </header>
 
-        <div class="stricky-header stricked-menu main-menu">
-            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-        </div><!-- /.stricky-header -->
+        <div class="stricky-header stricked-menu main-menu main-menu-three">
+            <div class="sticky-header__content"></div>
+        </div>
 
-
-
-        <!--Page Header Start-->
+        <!-- PAGE HEADER -->
         <section class="page-header">
-            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg);">
-            </div>
+            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg);"></div>
             <div class="container">
                 <div class="page-header__inner">
-                    <h3>About</h3>
+                    <h3>Nosotros · Nuestra Historia</h3>
                     <div class="thm-breadcrumb__inner">
                         <ul class="thm-breadcrumb list-unstyled">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html">Inicio</a></li>
                             <li><span class="fas fa-angle-right"></span></li>
-                            <li>About</li>
+                            <li>Nosotros</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
-        <!--Page Header End-->
 
-        <!--About One Start -->
-        <section class="about-one">
+        <!-- ══════════════════════════════════════════
+             1. HISTORIA
+        ══════════════════════════════════════════ -->
+        <section class="abt-story">
             <div class="container">
-                <div class="row">
-                    <div class="col-xl-6">
-                        <div class="about-one__left">
+                <div class="row align-items-center">
 
+                    <!-- Texto -->
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <p class="abt-label abt-label--left">Nuestra Historia</p>
+                        <h2 class="abt-story__title">
+                            Un proyecto nacido<br>del amor para la<br><span>expansión de la conciencia.</span>
+                        </h2>
+                        <p class="abt-story__lead">
+                            Biosfera Bahía Turquesa no empezó como un negocio — empezó como un sueño compartido entre dos personas que encontraron en Baja California Sur el lugar donde querían construir algo diferente.
+                        </p>
+                        <p class="abt-story__text">
+                            En enero de 2024 comenzaron las primeras palas en tierra. Cada estructura, cada sendero y cada rincón de este espacio se fue levantando con las manos, con tiempo y con la intención de crear un lugar donde los seres humanos pudieran reconectar genuinamente con la naturaleza — sin renunciar a la comodidad ni a la calidez de sentirse en casa.
+                        </p>
+
+                        <div class="abt-story__quote">
+                            <p>"Biosfera es un proyecto con mucho amor para compartir con todos los seres — los que vienen de lejos, los que viven aquí y los que habitan este ecosistema antes que nosotros."</p>
                         </div>
+
+                        <p class="abt-story__text">
+                            El 4 de diciembre de 2025 abrimos las puertas por primera vez. Desde entonces, Biosfera ha sido hogar temporal de personas que buscan el silencio del desierto, el rugido del océano y la magia de un cielo sin contaminación lumínica.
+                        </p>
                     </div>
-                    <div class="col-xl-6">
-                        <div class="about-one__right">
-                            <div class="section-title text-left sec-title-animation animation-style2">
-                                <div class="section-title__tagline-box">
-                                    <span class="section-title__tagline">About Us</span>
+
+                    <!-- Imagen + Timeline -->
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+                        <div class="abt-story__img-wrap" style="padding-bottom: 28px;">
+                            <img src="assets/images/backgrounds/page-header-bg.jpg"
+                                 alt="Biosfera Bahía Turquesa — construcción y apertura"
+                                 class="abt-story__img-main" />
+                            <div class="abt-story__img-badge">
+                                <strong>2024</strong>
+                                <span>año de construcción</span>
+                            </div>
+                        </div>
+
+                        <!-- Timeline -->
+                        <div class="abt-timeline mt-5">
+                            <div class="abt-timeline__item" data-aos="fade-up" data-aos-delay="80">
+                                <div class="abt-timeline__dot">🌱</div>
+                                <div class="abt-timeline__body">
+                                    <p class="abt-timeline__date">Enero 2024</p>
+                                    <p class="abt-timeline__title">Inicio de la construcción</p>
+                                    <p class="abt-timeline__desc">Primeras excavaciones, diseño de terrazas y trazo del campamento base en Bahía Turquesa.</p>
                                 </div>
-                                <h2 class="section-title__title title-animation">Welcome To Our Best luxury stay in
-                                    <span>the city.</span></h2>
                             </div>
-                            <p class="about-one__text">Welcome to Hotelux, where luxury meets comfort in the heart of
-                                Paris. Since 1999, we have been dedicated to providing an exceptional stay for our
-                                guests, blending modern amenities with timeless elegance.</p>
-                            <div class="about-one__points-box">
-                                <ul class="about-one__points-list list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-star"></span>
-                                        </div>
-                                        <p>350 Best Rooms 5 Star</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-thin"></span>
-                                        </div>
-                                        <p>Double Whirlpool Jacuzzi Tub</p>
-                                    </li>
-                                </ul>
-                                <ul class="about-one__points-list list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-coffee-cup"></span>
-                                        </div>
-                                        <p>Breakfast each morning</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-cheers"></span>
-                                        </div>
-                                        <p>Wet Bar with Refrigerator</p>
-                                    </li>
-                                </ul>
+                            <div class="abt-timeline__item" data-aos="fade-up" data-aos-delay="140">
+                                <div class="abt-timeline__dot">☀️</div>
+                                <div class="abt-timeline__body">
+                                    <p class="abt-timeline__date">Mediados de 2024</p>
+                                    <p class="abt-timeline__title">Instalación solar y agua</p>
+                                    <p class="abt-timeline__desc">Sistema fotovoltaico, captación de lluvia, baños secos y regaderas solares listos.</p>
+                                </div>
                             </div>
-                            <div class="about-one__main-tab-box tabs-box">
-                                <ul class="tab-buttons list-unstyled">
-                                    <li data-tab="#kingroom" class="tab-btn active-btn">
-                                        <div class="about-one__main-tab-img">
-                                            <div class="about-one__main-tab-tag">
-                                                <span>King Room</span>
-                                            </div>
-                                            <img src="assets/images/resources/about-one-king-room-img-1.jpg" alt="">
-                                        </div>
-                                    </li>
-                                    <li data-tab="#suitsroom" class="tab-btn">
-                                        <div class="about-one__main-tab-img">
-                                            <div class="about-one__main-tab-tag">
-                                                <span>Suits Room</span>
-                                            </div>
-                                            <img src="assets/images/resources/about-one-king-room-img-2.jpg" alt="">
-                                        </div>
-                                    </li>
-                                    <li data-tab="#lakeview" class="tab-btn">
-                                        <div class="about-one__main-tab-img">
-                                            <div class="about-one__main-tab-tag">
-                                                <span>Lake View</span>
-                                            </div>
-                                            <img src="assets/images/resources/about-one-king-room-img-3.jpg" alt="">
-                                        </div>
-                                    </li>
-                                    <li data-tab="#cityview" class="tab-btn">
-                                        <div class="about-one__main-tab-img">
-                                            <div class="about-one__main-tab-tag">
-                                                <span>City View</span>
-                                            </div>
-                                            <img src="assets/images/resources/about-one-king-room-img-4.jpg" alt="">
-                                        </div>
-                                    </li>
-                                    <li data-tab="#familyroom" class="tab-btn">
-                                        <div class="about-one__main-tab-img">
-                                            <div class="about-one__main-tab-tag">
-                                                <span>Familly Room</span>
-                                            </div>
-                                            <img src="assets/images/resources/about-one-king-room-img-5.jpg" alt="">
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="tabs-content">
-                                    <div class="tab active-tab" id="kingroom">
-                                        <div class="about-one__img-box">
-                                            <div class="about-one__img">
-                                                <img src="assets/images/resources/about-one-king-room-img-1-1.jpg"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab" id="suitsroom">
-                                        <div class="about-one__img-box">
-                                            <div class="about-one__img">
-                                                <img src="assets/images/resources/about-one-king-room-img-1-2.jpg"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab" id="lakeview">
-                                        <div class="about-one__img-box">
-                                            <div class="about-one__img">
-                                                <img src="assets/images/resources/about-one-king-room-img-1-3.jpg"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab" id="cityview">
-                                        <div class="about-one__img-box">
-                                            <div class="about-one__img">
-                                                <img src="assets/images/resources/about-one-king-room-img-1-4.jpg"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab" id="familyroom">
-                                        <div class="about-one__img-box">
-                                            <div class="about-one__img">
-                                                <img src="assets/images/resources/about-one-king-room-img-1-5.jpg"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="abt-timeline__item" data-aos="fade-up" data-aos-delay="200">
+                                <div class="abt-timeline__dot">⛺</div>
+                                <div class="abt-timeline__body">
+                                    <p class="abt-timeline__date">Noviembre 2025</p>
+                                    <p class="abt-timeline__title">Últimos detalles</p>
+                                    <p class="abt-timeline__desc">Mobiliario, glampings, cocina comunitaria y área de fogata — todo a punto para recibir a los primeros visitantes.</p>
+                                </div>
+                            </div>
+                            <div class="abt-timeline__item" data-aos="fade-up" data-aos-delay="260">
+                                <div class="abt-timeline__dot abt-timeline__dot--active">🎉</div>
+                                <div class="abt-timeline__body">
+                                    <p class="abt-timeline__date">4 de Diciembre 2025</p>
+                                    <p class="abt-timeline__title">Apertura oficial</p>
+                                    <p class="abt-timeline__desc">Biosfera Bahía Turquesa abre sus puertas al mundo. El sueño se convierte en realidad.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
-        <!--About One End -->
 
-        <!--Services One Start -->
-        <section class="services-one">
-            <div class="services-one__bg-color wow fadeInUp" data-wow-delay="300ms"></div>
+        <!-- ══════════════════════════════════════════
+             2. FUNDADORES
+        ══════════════════════════════════════════ -->
+        <section class="abt-founders">
             <div class="container">
-                <div class="section-title text-center sec-title-animation animation-style1">
-                    <div class="section-title__tagline-box">
-                        <span class="section-title__tagline">Facilities</span>
+
+                <p class="abt-label" style="justify-content:center;">Quiénes somos</p>
+                <h2 class="abt-founders__title">Los fundadores</h2>
+                <p class="abt-founders__sub">
+                    Dos personas, dos historias, una visión compartida: que la naturaleza y el bienestar humano pueden vivir en perfecta armonía.
+                </p>
+
+                <div class="abt-founders__grid">
+
+                    <!-- Aldo -->
+                    <div class="abt-founder-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="abt-founder-card__photo-placeholder">
+                            <div class="abt-founder-card__initials">AL</div>
+                        </div>
+                        <div class="abt-founder-card__body">
+                            <p class="abt-founder-card__role">Co-Fundador · Director de Operaciones</p>
+                            <h3 class="abt-founder-card__name">Aldo López</h3>
+                            <p class="abt-founder-card__text">
+                                Aldo es el corazón operativo de Biosfera. Con profundo arraigo en Baja California Sur y una relación cercana con el ecosistema local, fue quien eligió este rincón de Bahía Turquesa como el lugar perfecto para crear algo único. Su conocimiento de la sierra, el mar y la comunidad local da vida a cada experiencia que Biosfera ofrece.
+                            </p>
+                            <span class="abt-founder-card__tag"><i class="fa fa-map-marker-alt"></i> Baja California Sur, México</span>
+                        </div>
                     </div>
-                    <h2 class="section-title__title title-animation">Our Hotelux <span>Facilities</span>
-                    </h2>
-                </div>
-                <div class="services-one__carousel swiper-container">
-                    <div class="swiper-wrapper">
-                        <!--Services One Single Start-->
-                        <div class="swiper-slide">
-                            <div class="services-one__single">
-                                <div class="services-one__img-box">
-                                    <div class="services-one__img">
-                                        <img src="assets/images/services/services-1-1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="services-one__content">
-                                    <div class="services-one__icon">
-                                        <span class="icon-relax"></span>
-                                    </div>
-                                    <h3 class="services-one__title"><a href="spa.html">Spa Center</a>
-                                    </h3>
-                                    <p class="services-one__text">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit.</p>
-                                    <div class="services-one__btn-box">
-                                        <a href="spa.html" class="thm-btn">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
+
+                    <!-- Birgit -->
+                    <div class="abt-founder-card" data-aos="fade-up" data-aos-delay="80">
+                        <div class="abt-founder-card__photo-placeholder">
+                            <div class="abt-founder-card__initials" style="background:#2a7da8;">BS</div>
                         </div>
-                        <!--Services One Single End-->
-                        <!--Services One Single Start-->
-                        <div class="swiper-slide">
-                            <div class="services-one__single">
-                                <div class="services-one__img-box">
-                                    <div class="services-one__img">
-                                        <img src="assets/images/services/services-1-2.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="services-one__content">
-                                    <div class="services-one__icon">
-                                        <span class="icon-treadmill"></span>
-                                    </div>
-                                    <h3 class="services-one__title"><a href="fitness-center.html">Fitness Center</a>
-                                    </h3>
-                                    <p class="services-one__text">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit.</p>
-                                    <div class="services-one__btn-box">
-                                        <a href="fitness-center.html" class="thm-btn">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="abt-founder-card__body">
+                            <p class="abt-founder-card__role">Co-Fundadora · Directora de Experiencia</p>
+                            <h3 class="abt-founder-card__name">Birgit Sistermans</h3>
+                            <p class="abt-founder-card__text">
+                                Birgit trae consigo una sensibilidad especial para crear espacios que se sienten como hogar aunque estén en medio del desierto. Con una visión centrada en el bienestar, la sostenibilidad y la conexión humana, es quien da a Biosfera su alma — ese cuidado en los detalles que hace que cada visita se convierta en un recuerdo que permanece.
+                            </p>
+                            <span class="abt-founder-card__tag" style="background:#e8f4fb;border-color:#a0c8e0;color:#2a5a78;"><i class="fa fa-globe"></i> Perspectiva global, raíces locales</span>
                         </div>
-                        <!--Services One Single End-->
-                        <!--Services One Single Start-->
-                        <div class="swiper-slide">
-                            <div class="services-one__single">
-                                <div class="services-one__img-box">
-                                    <div class="services-one__img">
-                                        <img src="assets/images/services/services-1-3.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="services-one__content">
-                                    <div class="services-one__icon">
-                                        <span class="icon-croissant"></span>
-                                    </div>
-                                    <h3 class="services-one__title"><a href="cleaning-everyday.html">Butffet
-                                            Breakfast</a>
-                                    </h3>
-                                    <p class="services-one__text">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit.</p>
-                                    <div class="services-one__btn-box">
-                                        <a href="cleaning-everyday.html" class="thm-btn">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Services One Single End-->
-                        <!--Services One Single Start-->
-                        <div class="swiper-slide">
-                            <div class="services-one__single">
-                                <div class="services-one__img-box">
-                                    <div class="services-one__img">
-                                        <img src="assets/images/services/services-1-4.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="services-one__content">
-                                    <div class="services-one__icon">
-                                        <span class="icon-bed"></span>
-                                    </div>
-                                    <h3 class="services-one__title"><a href="conference-room.html">Rooms and Suites</a>
-                                    </h3>
-                                    <p class="services-one__text">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit.</p>
-                                    <div class="services-one__btn-box">
-                                        <a href="conference-room.html" class="thm-btn">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Services One Single End-->
-                        <!--Services One Single Start-->
-                        <div class="swiper-slide">
-                            <div class="services-one__single">
-                                <div class="services-one__img-box">
-                                    <div class="services-one__img">
-                                        <img src="assets/images/services/services-1-5.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="services-one__content">
-                                    <div class="services-one__icon">
-                                        <span class="icon-house"></span>
-                                    </div>
-                                    <h3 class="services-one__title"><a href="cleaning-everyday.html">Cleaning
-                                            Everyday</a>
-                                    </h3>
-                                    <p class="services-one__text">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit.</p>
-                                    <div class="services-one__btn-box">
-                                        <a href="cleaning-everyday.html" class="thm-btn">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Services One Single End-->
-                        <!--Services One Single Start-->
-                        <div class="swiper-slide">
-                            <div class="services-one__single">
-                                <div class="services-one__img-box">
-                                    <div class="services-one__img">
-                                        <img src="assets/images/services/services-1-6.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="services-one__content">
-                                    <div class="services-one__icon">
-                                        <span class="icon-taxi"></span>
-                                    </div>
-                                    <h3 class="services-one__title"><a href="smart-key.html">Airport Taxi</a>
-                                    </h3>
-                                    <p class="services-one__text">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit.</p>
-                                    <div class="services-one__btn-box">
-                                        <a href="smart-key.html" class="thm-btn">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Services One Single End-->
-                        <!--Services One Single Start-->
-                        <div class="swiper-slide">
-                            <div class="services-one__single">
-                                <div class="services-one__img-box">
-                                    <div class="services-one__img">
-                                        <img src="assets/images/services/services-1-7.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="services-one__content">
-                                    <div class="services-one__icon">
-                                        <span class="icon-icon-15154409"></span>
-                                    </div>
-                                    <h3 class="services-one__title"><a href="swimming-pool.html">Swimming Pool</a>
-                                    </h3>
-                                    <p class="services-one__text">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit.</p>
-                                    <div class="services-one__btn-box">
-                                        <a href="swimming-pool.html" class="thm-btn">Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Services One Single End-->
                     </div>
+
                 </div>
             </div>
         </section>
-        <!--Services One End -->
 
-        <!--Sliding Text Start-->
-        <section class="sliding-text">
-            <div class="sliding-text__inner">
-                <div class="sliding-text__bg"
-                    style="background-image: url(assets/images/backgrounds/sliding-text-bg.jpg);"></div>
-                <ul class="sliding-text__list marquee_mode-1 list-unstyled">
-                    <li>
-                        <div class="icon">
-                            <span class="icon-star"></span>
-                        </div>
-                        <p>King Room</p>
-                    </li>
-                    <li>
-                        <div class="icon">
-                            <span class="icon-star"></span>
-                        </div>
-                        <p>Double Room</p>
-                    </li>
-                    <li>
-                        <div class="icon">
-                            <span class="icon-star"></span>
-                        </div>
-                        <p>Deluxe Room</p>
-                    </li>
-                    <li>
-                        <div class="icon">
-                            <span class="icon-star"></span>
-                        </div>
-                        <p>Family Room</p>
-                    </li>
-                    <li>
-                        <div class="icon">
-                            <span class="icon-star"></span>
-                        </div>
-                        <p>Single Room</p>
-                    </li>
-                    <li>
-                        <div class="icon">
-                            <span class="icon-star"></span>
-                        </div>
-                        <p>Luxury Room</p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <!--Sliding Text End-->
-
-        <!--Our Rooms Two End -->
-        <section class="our-rooms-two">
-            <div class="our-rooms-two__bg-color"></div>
+        <!-- ══════════════════════════════════════════
+             3. MISIÓN Y VISIÓN
+        ══════════════════════════════════════════ -->
+        <section class="abt-mv">
             <div class="container">
-                <div class="section-title text-center sec-title-animation animation-style1">
-                    <div class="section-title__tagline-box">
-                        <span class="section-title__tagline">OUR ROOMS</span>
+                <p class="abt-mv__label">Lo que nos guía</p>
+                <h2 class="abt-mv__heading">Misión &amp; <span>Visión</span></h2>
+
+                <div class="abt-mv__grid">
+
+                    <!-- Misión -->
+                    <div class="abt-mv-card abt-mv-card--mision" data-aos="fade-up" data-aos-delay="0">
+                        <div class="abt-mv-card__icon"><i class="fa fa-compass"></i></div>
+                        <p class="abt-mv-card__type">Nuestra Misión</p>
+                        <h3 class="abt-mv-card__title">Crear el espacio para que la transformación suceda</h3>
+                        <p class="abt-mv-card__text">
+                            Crear y sostener un espacio donde las personas puedan reconectar con su esencia a través de la naturaleza, la presencia y el encuentro con otros. Facilitamos experiencias que van más allá del entretenimiento: momentos que despiertan conciencia, que invitan a sentir, a cuestionar y a transformar.<br><br>
+                            Promovemos prácticas simples pero poderosas — observar, escuchar, respirar, caminar, contemplar — entendiendo que la verdadera transformación sucede cuando lo físico, lo emocional, lo mental y lo espiritual se alinean. <strong>Biosfera no busca cambiar a nadie; busca crear las condiciones para que cada quien se transforme a su propio ritmo.</strong><br><br>
+                            Trabajamos de la mano con la comunidad local, asumimos con responsabilidad el impacto de cada decisión y fomentamos una cultura de conciencia: tomar lo necesario, aportar cuando sea posible, cuidar lo que es de todos.
+                        </p>
                     </div>
-                    <h2 class="section-title__title title-animation">Our Rooms & <span>Suites</span>
-                    </h2>
-                </div>
-                <div class="our-rooms-two__carousel swiper-container">
-                    <div class="swiper-wrapper">
-                        <!--Our Rooms Two Single Start-->
-                        <div class="swiper-slide">
-                            <div class="our-rooms-two__single">
-                                <div class="our-rooms-two__img-box">
-                                    <div class="our-rooms-two__img">
-                                        <img src="assets/images/resources/our-rooms-2-1.jpg" alt="">
-                                        <div class="our-rooms-two__price">
-                                            <p><span>$198.0</span> / night</p>
-                                        </div>
-                                    </div>
-                                    <div class="our-rooms-two__content">
-                                        <h3 class="our-rooms-two__title"><a href="room-details.html">Luxury Room</a>
-                                        </h3>
-                                        <ul class="our-rooms-two__details-list list-unstyled">
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-full-size"></span>
-                                                </div>
-                                                <p>size: <span>35 sqm</span></p>
-                                            </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-user"></span>
-                                                </div>
-                                                <p>Adult: <span>2</span></p>
-                                            </li>
-                                        </ul>
-                                        <ul class="our-rooms-two__service list-unstyled">
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-wifi"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-television"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-tap-water"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-coffee-cup"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-bathtub"></span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Our Rooms Two Single End-->
-                        <!--Our Rooms Two Single Start-->
-                        <div class="swiper-slide">
-                            <div class="our-rooms-two__single">
-                                <div class="our-rooms-two__img-box">
-                                    <div class="our-rooms-two__img">
-                                        <img src="assets/images/resources/our-rooms-2-2.jpg" alt="">
-                                        <div class="our-rooms-two__price">
-                                            <p><span>$330.0</span> / night</p>
-                                        </div>
-                                    </div>
-                                    <div class="our-rooms-two__content">
-                                        <h3 class="our-rooms-two__title"><a href="room-details.html">Family Room</a>
-                                        </h3>
-                                        <ul class="our-rooms-two__details-list list-unstyled">
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-full-size"></span>
-                                                </div>
-                                                <p>size: <span>65 sqm</span></p>
-                                            </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-user"></span>
-                                                </div>
-                                                <p>Adult: <span>2</span></p>
-                                            </li>
-                                        </ul>
-                                        <ul class="our-rooms-two__service list-unstyled">
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-wifi"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-television"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-tap-water"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-coffee-cup"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-bathtub"></span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Our Rooms Two Single End-->
-                        <!--Our Rooms Two Single Start-->
-                        <div class="swiper-slide">
-                            <div class="our-rooms-two__single">
-                                <div class="our-rooms-two__img-box">
-                                    <div class="our-rooms-two__img">
-                                        <img src="assets/images/resources/our-rooms-2-3.jpg" alt="">
-                                        <div class="our-rooms-two__price">
-                                            <p><span>$350.0</span> / night</p>
-                                        </div>
-                                    </div>
-                                    <div class="our-rooms-two__content">
-                                        <h3 class="our-rooms-two__title"><a href="room-details.html">Personal Room</a>
-                                        </h3>
-                                        <ul class="our-rooms-two__details-list list-unstyled">
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-full-size"></span>
-                                                </div>
-                                                <p>size: <span>44 sqm</span></p>
-                                            </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-user"></span>
-                                                </div>
-                                                <p>Adult: <span>2</span></p>
-                                            </li>
-                                        </ul>
-                                        <ul class="our-rooms-two__service list-unstyled">
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-wifi"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-television"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-tap-water"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-coffee-cup"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-bathtub"></span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Our Rooms Two Single End-->
-                        <!--Our Rooms Two Single Start-->
-                        <div class="swiper-slide">
-                            <div class="our-rooms-two__single">
-                                <div class="our-rooms-two__img-box">
-                                    <div class="our-rooms-two__img">
-                                        <img src="assets/images/resources/our-rooms-2-4.jpg" alt="">
-                                        <div class="our-rooms-two__price">
-                                            <p><span>$320.0</span> / night</p>
-                                        </div>
-                                    </div>
-                                    <div class="our-rooms-two__content">
-                                        <h3 class="our-rooms-two__title"><a href="room-details.html">Deluxe Room</a>
-                                        </h3>
-                                        <ul class="our-rooms-two__details-list list-unstyled">
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-full-size"></span>
-                                                </div>
-                                                <p>size: <span>49 sqm</span></p>
-                                            </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-user"></span>
-                                                </div>
-                                                <p>Adult: <span>2</span></p>
-                                            </li>
-                                        </ul>
-                                        <ul class="our-rooms-two__service list-unstyled">
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-wifi"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-television"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-tap-water"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-coffee-cup"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-bathtub"></span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Our Rooms Two Single End-->
-                        <!--Our Rooms Two Single Start-->
-                        <div class="swiper-slide">
-                            <div class="our-rooms-two__single">
-                                <div class="our-rooms-two__img-box">
-                                    <div class="our-rooms-two__img">
-                                        <img src="assets/images/resources/our-rooms-2-5.jpg" alt="">
-                                        <div class="our-rooms-two__price">
-                                            <p><span>$230.0</span> / night</p>
-                                        </div>
-                                    </div>
-                                    <div class="our-rooms-two__content">
-                                        <h3 class="our-rooms-two__title"><a href="room-details.html">King Room</a></h3>
-                                        <ul class="our-rooms-two__details-list list-unstyled">
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-full-size"></span>
-                                                </div>
-                                                <p>size: <span>45 sqm</span></p>
-                                            </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-user"></span>
-                                                </div>
-                                                <p>Adult: <span>2</span></p>
-                                            </li>
-                                        </ul>
-                                        <ul class="our-rooms-two__service list-unstyled">
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-wifi"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-television"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-tap-water"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-coffee-cup"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-bathtub"></span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Our Rooms Two Single End-->
-                        <!--Our Rooms Two Single Start-->
-                        <div class="swiper-slide">
-                            <div class="our-rooms-two__single">
-                                <div class="our-rooms-two__img-box">
-                                    <div class="our-rooms-two__img">
-                                        <img src="assets/images/resources/our-rooms-2-6.jpg" alt="">
-                                        <div class="our-rooms-two__price">
-                                            <p><span>$120.0</span> / night</p>
-                                        </div>
-                                    </div>
-                                    <div class="our-rooms-two__content">
-                                        <h3 class="our-rooms-two__title"><a href="room-details.html">Single Room</a>
-                                        </h3>
-                                        <ul class="our-rooms-two__details-list list-unstyled">
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-full-size"></span>
-                                                </div>
-                                                <p>size: <span>44 sqm</span></p>
-                                            </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-user"></span>
-                                                </div>
-                                                <p>Adult: <span>2</span></p>
-                                            </li>
-                                        </ul>
-                                        <ul class="our-rooms-two__service list-unstyled">
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-wifi"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-television"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-tap-water"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-coffee-cup"></span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="our-rooms-two__service-icon">
-                                                    <span class="icon-bathtub"></span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Our Rooms Two Single End-->
+
+                    <!-- Visión -->
+                    <div class="abt-mv-card abt-mv-card--vision" data-aos="fade-up" data-aos-delay="80">
+                        <div class="abt-mv-card__icon"><i class="fa fa-star"></i></div>
+                        <p class="abt-mv-card__type">Nuestra Visión</p>
+                        <h3 class="abt-mv-card__title">Ser un recordatorio vivo de que somos naturaleza</h3>
+                        <p class="abt-mv-card__text">
+                            Ser un proyecto de impacto que nace desde la conciencia de que todo es energía, de que todo está conectado y de que cada acción — por más pequeña que parezca — genera un efecto en la red de la vida. <strong>Biosfera existe como un recordatorio: no estamos separados de la naturaleza, somos naturaleza experimentándose a sí misma.</strong><br><br>
+                            Nuestra visión es formar un punto de encuentro donde las personas reconecten con lo esencial no desde la teoría, sino desde la experiencia directa: caminar descalzos, observar el cielo, escuchar el mar, compartir alimentos, guardar silencio, respirar con intención. Volver a lo simple como un acto profundo.<br><br>
+                            Biosfera es también una plataforma de integración donde convergen la cultura, la ciencia, la espiritualidad y la aventura — sin jerarquías, dialogando y complementándose. Porque <strong>la evolución sucede cuando dejamos de separar y comenzamos a integrar.</strong>
+                        </p>
                     </div>
-                </div>
-                <div class="our-rooms-two__btn-box">
-                    <a href="rooms.html">View All Rooms <span class="icon-next"></span></a>
+
                 </div>
             </div>
         </section>
-        <!--Our Rooms Two End -->
 
-        <!--Place One Start -->
-        <section class="place-one">
+        <!-- ══════════════════════════════════════════
+             4. VALORES
+        ══════════════════════════════════════════ -->
+        <section class="abt-values">
             <div class="container">
-                <div class="row">
-                    <div class="col-xl-5">
-                        <div class="place-one__left">
-                            <div class="section-title text-left sec-title-animation animation-style2">
-                                <div class="section-title__tagline-box">
-                                    <span class="section-title__tagline">See Place</span>
-                                </div>
-                                <h2 class="section-title__title title-animation">Places Around The Hotel To Visit
-                                    <span>This
-                                        Summer</span>
-                                </h2>
-                            </div>
-                            <div class="place-one__btn-box">
-                                <a href="places.html" class="thm-btn">View More</a>
-                            </div>
-                        </div>
+
+                <p class="abt-label" style="justify-content:center;">Lo que nos define</p>
+                <h2 class="abt-values__title">Nuestros <span>valores</span></h2>
+                <p class="abt-values__sub">
+                    Cinco principios que están en cada decisión, en cada bienvenida y en cada experiencia que ofrecemos.
+                </p>
+
+                <div class="abt-values__grid">
+
+                    <div class="abt-value-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="abt-value-card__icon"><i class="fa fa-link"></i></div>
+                        <h4 class="abt-value-card__name">Conexión Consciente</h4>
+                        <p class="abt-value-card__desc">Somos parte de la naturaleza, no estamos sobre ella. Cada espacio y cada experiencia en Biosfera facilita ese regreso a lo simple, a lo real, a lo esencial — y a escucharse a uno mismo.</p>
                     </div>
-                    <div class="col-xl-7">
-                        <div class="place-one__right">
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="100ms">
-                                    <div class="place-one__single">
-                                        <div class="place-one__img-box">
-                                            <div class="place-one__img">
-                                                <img src="assets/images/resources/place-1-1.jpg" alt="">
-                                                <div class="place-one__text">
-                                                    <span>enjoy the place</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 wow fadeInRight" data-wow-delay="200ms">
-                                    <div class="place-one__single">
-                                        <div class="place-one__img-box">
-                                            <div class="place-one__img">
-                                                <img src="assets/images/resources/place-1-2.jpg" alt="">
-                                                <div class="place-one__text">
-                                                    <span>enjoy the place</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                    <div class="abt-value-card" data-aos="fade-up" data-aos-delay="60">
+                        <div class="abt-value-card__icon"><i class="fa fa-users"></i></div>
+                        <h4 class="abt-value-card__name">Comunidad y Compartir</h4>
+                        <p class="abt-value-card__desc">No estamos hechos para vivir aislados. Aquí el compartir — alimento, historias, silencio, experiencias — construye comunidad aunque sea por unos días. Biosfera no se consume, se co-crea.</p>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 wow fadeInLeft" data-wow-delay="300ms">
-                        <div class="place-one__single">
-                            <div class="place-one__img-box">
-                                <div class="place-one__img">
-                                    <img src="assets/images/resources/place-1-3.jpg" alt="">
-                                    <div class="place-one__text">
-                                        <span>enjoy the place</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                    <div class="abt-value-card" data-aos="fade-up" data-aos-delay="120">
+                        <div class="abt-value-card__icon"><i class="fa fa-leaf"></i></div>
+                        <h4 class="abt-value-card__name">Responsabilidad y Regeneración</h4>
+                        <p class="abt-value-card__desc">Todo lo que hacemos genera un impacto. Elegimos ser conscientes de ello y ir más allá de no dañar: buscamos regenerar — devolver, cuidar, mejorar — para que nuestra presencia aporte más de lo que toma.</p>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 wow fadeInRight" data-wow-delay="400ms">
-                        <div class="place-one__single">
-                            <div class="place-one__img-box">
-                                <div class="place-one__img">
-                                    <img src="assets/images/resources/place-1-4.jpg" alt="">
-                                    <div class="place-one__text">
-                                        <span>enjoy the place</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                    <div class="abt-value-card" data-aos="fade-up" data-aos-delay="180">
+                        <div class="abt-value-card__icon"><i class="fa fa-eye"></i></div>
+                        <h4 class="abt-value-card__name">Presencia y Transformación</h4>
+                        <p class="abt-value-card__desc">En un mundo que vive acelerado, proponemos detenerse. La presencia es la puerta a la transformación real — no forzada ni superficial, sino la que surge cuando una persona se da el espacio para observarse.</p>
                     </div>
+
+                    <div class="abt-value-card" data-aos="fade-up" data-aos-delay="240">
+                        <div class="abt-value-card__icon"><i class="fa fa-expand-alt"></i></div>
+                        <h4 class="abt-value-card__name">Expansión y Creación</h4>
+                        <p class="abt-value-card__desc">Somos seres capaces de crear y transformar nuestra realidad. Al expandirnos individualmente, expandimos lo colectivo. Biosfera es un espacio en constante evolución, co-creado por cada persona que lo habita.</p>
+                    </div>
+
                 </div>
             </div>
         </section>
-        <!--Place One End -->
 
-        <!--Team Three Start -->
-        <section class="team-three">
-            <div class="team-three__bg-color"></div>
-            <div class="team-three__shape-1">
-                <img src="assets/images/shapes/team-three-shape-1.png" alt="">
-            </div>
+        <!-- CTA -->
+        <section class="abt-cta">
             <div class="container">
-                <div class="section-title text-center sec-title-animation animation-style1">
-                    <div class="section-title__tagline-box">
-                        <span class="section-title__tagline">Our Staff</span>
-                    </div>
-                    <h2 class="section-title__title title-animation">Our awesome staff make<br> the
-                        <span>difference</span>
-                    </h2>
-                </div>
-                <div class="team-three__carousel swiper-container">
-                    <div class="swiper-wrapper">
-                        <!--Team Three Single Start-->
-                        <div class="swiper-slide">
-                            <div class="team-three__single">
-                                <div class="team-three__img-1">
-                                    <img src="assets/images/team/team-3-1.png" alt="">
-                                </div>
-                                <div class="team-three__content">
-                                    <p class="team-three__sub-title">Hotel Manager</p>
-                                    <h3 class="team-three__name"><a
-                                            href="staff-details.html">Alisha<br><span>Martin</span></a></h3>
-                                </div>
-                                <div class="team-three__social-box">
-                                    <div class="team-three__plus">
-                                        <span class="fas fa-share-alt"></span>
-                                        <div class="team-three__social-list">
-                                            <a href="staff-details.html"><span
-                                                    class="icon-facebook-app-symbol"></span></a>
-                                            <a href="staff-details.html"><span class="icon-twitter-1"></span></a>
-                                            <a href="staff-details.html"><span class="icon-pinterest"></span></a>
-                                            <a href="staff-details.html"><span class="icon-linkedin"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Team Three Single End-->
-                        <!--Team Three Single Start-->
-                        <div class="swiper-slide">
-                            <div class="team-three__single">
-                                <div class="team-three__img-1">
-                                    <img src="assets/images/team/team-3-2.png" alt="">
-                                </div>
-                                <div class="team-three__content">
-                                    <p class="team-three__sub-title">Room Service</p>
-                                    <h3 class="team-three__name"><a
-                                            href="staff-details.html">Robert<br><span>Hood</span></a></h3>
-                                </div>
-                                <div class="team-three__social-box">
-                                    <div class="team-three__plus">
-                                        <span class="fas fa-share-alt"></span>
-                                        <div class="team-three__social-list">
-                                            <a href="staff-details.html"><span
-                                                    class="icon-facebook-app-symbol"></span></a>
-                                            <a href="staff-details.html"><span class="icon-twitter-1"></span></a>
-                                            <a href="staff-details.html"><span class="icon-pinterest"></span></a>
-                                            <a href="staff-details.html"><span class="icon-linkedin"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Team Three Single End-->
-                        <!--Team Three Single Start-->
-                        <div class="swiper-slide">
-                            <div class="team-three__single">
-                                <div class="team-three__img-1">
-                                    <img src="assets/images/team/team-3-3.png" alt="">
-                                </div>
-                                <div class="team-three__content">
-                                    <p class="team-three__sub-title">Housekeeper</p>
-                                    <h3 class="team-three__name"><a
-                                            href="staff-details.html">Jecika<br><span>Brown</span></a></h3>
-                                </div>
-                                <div class="team-three__social-box">
-                                    <div class="team-three__plus">
-                                        <span class="fas fa-share-alt"></span>
-                                        <div class="team-three__social-list">
-                                            <a href="staff-details.html"><span
-                                                    class="icon-facebook-app-symbol"></span></a>
-                                            <a href="staff-details.html"><span class="icon-twitter-1"></span></a>
-                                            <a href="staff-details.html"><span class="icon-pinterest"></span></a>
-                                            <a href="staff-details.html"><span class="icon-linkedin"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Team Three Single End-->
-                        <!--Team Three Single Start-->
-                        <div class="swiper-slide">
-                            <div class="team-three__single">
-                                <div class="team-three__img-1">
-                                    <img src="assets/images/team/team-3-4.png" alt="">
-                                </div>
-                                <div class="team-three__content">
-                                    <p class="team-three__sub-title">Hotel Manager</p>
-                                    <h3 class="team-three__name"><a
-                                            href="staff-details.html">Herbert<br><span>Spin</span></a></h3>
-                                </div>
-                                <div class="team-three__social-box">
-                                    <div class="team-three__plus">
-                                        <span class="fas fa-share-alt"></span>
-                                        <div class="team-three__social-list">
-                                            <a href="staff-details.html"><span
-                                                    class="icon-facebook-app-symbol"></span></a>
-                                            <a href="staff-details.html"><span class="icon-twitter-1"></span></a>
-                                            <a href="staff-details.html"><span class="icon-pinterest"></span></a>
-                                            <a href="staff-details.html"><span class="icon-linkedin"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Team Three Single End-->
-                        <!--Team Three Single Start-->
-                        <div class="swiper-slide">
-                            <div class="team-three__single">
-                                <div class="team-three__img-1">
-                                    <img src="assets/images/team/team-3-5.png" alt="">
-                                </div>
-                                <div class="team-three__content">
-                                    <p class="team-three__sub-title">Marketing Advisor</p>
-                                    <h3 class="team-three__name"><a
-                                            href="staff-details.html">Malaika<br><span>Jesin</span></a></h3>
-                                </div>
-                                <div class="team-three__social-box">
-                                    <div class="team-three__plus">
-                                        <span class="fas fa-share-alt"></span>
-                                        <div class="team-three__social-list">
-                                            <a href="staff-details.html"><span
-                                                    class="icon-facebook-app-symbol"></span></a>
-                                            <a href="staff-details.html"><span class="icon-twitter-1"></span></a>
-                                            <a href="staff-details.html"><span class="icon-pinterest"></span></a>
-                                            <a href="staff-details.html"><span class="icon-linkedin"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Team Three Single End-->
-                        <!--Team Three Single Start-->
-                        <div class="swiper-slide">
-                            <div class="team-three__single">
-                                <div class="team-three__img-1">
-                                    <img src="assets/images/team/team-3-6.png" alt="">
-                                </div>
-                                <div class="team-three__content">
-                                    <p class="team-three__sub-title">Receptionist</p>
-                                    <h3 class="team-three__name"><a
-                                            href="staff-details.html">Alaina<br><span>Jekob</span></a></h3>
-                                </div>
-                                <div class="team-three__social-box">
-                                    <div class="team-three__plus">
-                                        <span class="fas fa-share-alt"></span>
-                                        <div class="team-three__social-list">
-                                            <a href="staff-details.html"><span
-                                                    class="icon-facebook-app-symbol"></span></a>
-                                            <a href="staff-details.html"><span class="icon-twitter-1"></span></a>
-                                            <a href="staff-details.html"><span class="icon-pinterest"></span></a>
-                                            <a href="staff-details.html"><span class="icon-linkedin"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Team Three Single End-->
-                    </div>
+                <h2 class="abt-cta__title">Ven y forma parte de esta historia</h2>
+                <p class="abt-cta__text">Biosfera existe para ser compartida. Reserva tu glamping, únete a una experiencia o simplemente ven a respirar el aire de Bahía Turquesa.</p>
+                <div class="abt-cta__btns">
+                    <a href="rooms.html" class="abt-cta__btn-primary"><i class="fa fa-leaf"></i> Reservar Glamping</a>
+                    <a href="eco.html" class="abt-cta__btn-outline"><i class="fa fa-seedling"></i> Conocer nuestro compromiso Eco</a>
                 </div>
             </div>
         </section>
-        <!--Team Three End -->
 
-        <!--Testimonial One Start-->
-        <section class="testimonial-one">
-            <div class="container">
-                <div class="testimonial-one__wrap">
-                    <div class="section-title text-left sec-title-animation animation-style2">
-                        <div class="section-title__tagline-box">
-                            <span class="section-title__tagline">Our Client</span>
-                        </div>
-                        <h2 class="section-title__title title-animation">What Our Guests Are Saying<br> About
-                            <span>Our Hotel</span></h2>
-                    </div>
-                    <div class="testimonial-one__carousel swiper-container">
-                        <div class="swiper-wrapper">
-                            <!--Testimonial One Single Start-->
-                            <div class="swiper-slide">
-                                <div class="testimonial-one__single">
-                                    <div class="testimonial-one__single-bg-shape"
-                                        style="background-image: url(assets/images/shapes/testimonial-one-single-bg-shape.png);">
-                                    </div>
-                                    <div class="testimonial-one__img-and-content">
-                                        <div class="testimonial-one__img">
-                                            <img src="assets/images/testimonial/testimonial-1-1.jpg" alt="">
-                                        </div>
-                                        <div class="testimonial-one__content">
-                                            <h3 class="testimonial-one__name"><a href="testimonials-v1.html">Alisha
-                                                    Martin</a>
-                                            </h3>
-                                            <span class="testimonial-one__sub-title">Rome / Italy</span>
-                                            <div class="testimonial-one__ratting">
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="testimonial-one__text">Quisque vitae posuere libero. Phasellus feugiat
-                                        erat
-                                        sit amet dui condimentum imperdiet. Ut at libero nec ligula fringilla dictum sit
-                                        amet id dui. Integer gravida dolor elit, sit amet vestibulum mi elementum eget.
-                                    </p>
-                                    <div class="testimonial-one__quote">
-                                        <span class="icon-quote"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Testimonial One Single End-->
-                            <!--Testimonial One Single Start-->
-                            <div class="swiper-slide">
-                                <div class="testimonial-one__single">
-                                    <div class="testimonial-one__single-bg-shape"
-                                        style="background-image: url(assets/images/shapes/testimonial-one-single-bg-shape.png);">
-                                    </div>
-                                    <div class="testimonial-one__img-and-content">
-                                        <div class="testimonial-one__img">
-                                            <img src="assets/images/testimonial/testimonial-1-2.jpg" alt="">
-                                        </div>
-                                        <div class="testimonial-one__content">
-                                            <h3 class="testimonial-one__name"><a href="testimonials-v1.html">Adam
-                                                    Smith</a>
-                                            </h3>
-                                            <span class="testimonial-one__sub-title">Athens / Greece</span>
-                                            <div class="testimonial-one__ratting">
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="testimonial-one__text">Quisque vitae posuere libero. Phasellus feugiat
-                                        erat
-                                        sit amet dui condimentum imperdiet. Ut at libero nec ligula fringilla dictum sit
-                                        amet id dui. Integer gravida dolor elit, sit amet vestibulum mi elementum eget.
-                                    </p>
-                                    <div class="testimonial-one__quote">
-                                        <span class="icon-quote"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Testimonial One Single End-->
-                            <!--Testimonial One Single Start-->
-                            <div class="swiper-slide">
-                                <div class="testimonial-one__single">
-                                    <div class="testimonial-one__single-bg-shape"
-                                        style="background-image: url(assets/images/shapes/testimonial-one-single-bg-shape.png);">
-                                    </div>
-                                    <div class="testimonial-one__img-and-content">
-                                        <div class="testimonial-one__img">
-                                            <img src="assets/images/testimonial/testimonial-1-3.jpg" alt="">
-                                        </div>
-                                        <div class="testimonial-one__content">
-                                            <h3 class="testimonial-one__name"><a href="testimonials-v1.html">Jaika
-                                                    Nur</a>
-                                            </h3>
-                                            <span class="testimonial-one__sub-title">Zagreb / Croatia</span>
-                                            <div class="testimonial-one__ratting">
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="testimonial-one__text">Quisque vitae posuere libero. Phasellus feugiat
-                                        erat
-                                        sit amet dui condimentum imperdiet. Ut at libero nec ligula fringilla dictum sit
-                                        amet id dui. Integer gravida dolor elit, sit amet vestibulum mi elementum eget.
-                                    </p>
-                                    <div class="testimonial-one__quote">
-                                        <span class="icon-quote"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Testimonial One Single End-->
-                            <!--Testimonial One Single Start-->
-                            <div class="swiper-slide">
-                                <div class="testimonial-one__single">
-                                    <div class="testimonial-one__single-bg-shape"
-                                        style="background-image: url(assets/images/shapes/testimonial-one-single-bg-shape.png);">
-                                    </div>
-                                    <div class="testimonial-one__img-and-content">
-                                        <div class="testimonial-one__img">
-                                            <img src="assets/images/testimonial/testimonial-1-4.jpg" alt="">
-                                        </div>
-                                        <div class="testimonial-one__content">
-                                            <h3 class="testimonial-one__name"><a href="testimonials-v1.html">Maisa
-                                                    Marin</a>
-                                            </h3>
-                                            <span class="testimonial-one__sub-title">Moscow / Russia</span>
-                                            <div class="testimonial-one__ratting">
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                                <span class="icon-star-1"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="testimonial-one__text">Quisque vitae posuere libero. Phasellus feugiat
-                                        erat
-                                        sit amet dui condimentum imperdiet. Ut at libero nec ligula fringilla dictum sit
-                                        amet id dui. Integer gravida dolor elit, sit amet vestibulum mi elementum eget.
-                                    </p>
-                                    <div class="testimonial-one__quote">
-                                        <span class="icon-quote"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Testimonial One Single End-->
-                        </div>
-                    </div>
-                    <div class="testimonial-one__nav">
-                        <div class="swiper-button-next1">
-                            <i class="icon-back"></i>
-                        </div>
-                        <div class="swiper-button-prev1">
-                            <i class="icon-next"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Testimonial One End-->
-
-        <!--Contact One Start-->
-        <section class="contact-one">
-            <div class="contact-one__bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
-                style="background-image: url(assets/images/backgrounds/contact-one-bg.jpg);">
-            </div>
-            <div class="container">
-                <div class="contact-one__inner">
-                    <div class="contact-one__img wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms">
-                        <img src="assets/images/resources/contact-one-img-1.png" alt="">
-                    </div>
-                    <div class="contact-one__call-box">
-                        <ul class="contact-one__call-list list-unstyled">
-                            <li>
-                                <div class="contact-one__call-icon">
-                                    <span class="icon-mail"></span>
-                                </div>
-                                <div class="contact-one__call-contact">
-                                    <p>Send Email</p>
-                                    <h4><a href="mailto:support@mail.com">support@mail.com</a></h4>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="contact-one__call-icon">
-                                    <span class="icon-call"></span>
-                                </div>
-                                <div class="contact-one__call-contact">
-                                    <p>Call Us Any TIme</p>
-                                    <h4><a href="tel:+12004578960">+12 (00) 457 8960</a></h4>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-7 col-lg-8">
-                            <div class="contact-one__left">
-                                <div class="section-title text-left sec-title-animation animation-style2">
-                                    <div class="section-title__tagline-box">
-                                        <span class="section-title__tagline">Contact Us</span>
-                                    </div>
-                                    <h2 class="section-title__title title-animation">Get In <span>Touch</span></h2>
-                                </div>
-                                <form class="contact-form-validated contact-one__form" action="assets/inc/sendemail.php"
-                                    method="post" novalidate="novalidate">
-                                    <div class="row">
-                                        <div class="col-xl-6 col-lg-6 col-md-6">
-                                            <div class="contact-one__input-box">
-                                                <input type="text" name="name" placeholder="Your Name" required="">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6">
-                                            <div class="contact-one__input-box">
-                                                <input type="email" name="Email" placeholder="Email Address"
-                                                    required="">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6">
-                                            <div class="contact-one__input-box">
-                                                <input type="text" name="Phone" placeholder="Phone Number" required="">
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6 col-lg-6 col-md-6">
-                                            <div class="contact-one__input-box">
-                                                <div class="select-box">
-                                                    <select class="selectmenu wide">
-                                                        <option selected="selected">Service Type
-                                                        </option>
-                                                        <option>Type Of Service 01</option>
-                                                        <option>Type Of Service 02</option>
-                                                        <option>Type Of Service 03</option>
-                                                        <option>Type Of Service 04</option>
-                                                        <option>Type Of Service 05</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-12">
-                                            <div class="contact-one__input-box text-message-box">
-                                                <textarea name="message" placeholder="Messege"></textarea>
-                                            </div>
-                                            <div class="contact-one__btn-box">
-                                                <button type="submit" class="thm-btn">send a message</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                                <div class="result"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--Contact One End-->
-
-        <!--Blog One Start-->
-        <section class="blog-one">
-            <div class="container">
-                <div class="section-title text-center sec-title-animation animation-style1">
-                    <div class="section-title__tagline-box">
-                        <span class="section-title__tagline">Our Blogs</span>
-                    </div>
-                    <h2 class="section-title__title title-animation">Explore Our Latest <span>News</span></h2>
-                </div>
-                <div class="row">
-                    <!--Blog One Single Start-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInLeft" data-wow-delay="100ms">
-                        <div class="blog-one__single">
-                            <div class="blog-one__img-box">
-                                <div class="blog-one__img">
-                                    <img src="assets/images/blog/blog-1-1.jpg" alt="">
-                                    <div class="blog-one__date">
-                                        <span>June 16, 2025</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-one__content">
-                                <ul class="blog-one__list list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-user"></span>
-                                        </div>
-                                        <p>adam Smith</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-comment"></span>
-                                        </div>
-                                        <p>01 comment</p>
-                                    </li>
-                                </ul>
-                                <h3 class="blog-one__title"><a href="blog-details.html">relaxing & travel in our
-                                        hotel</a></h3>
-                                <div class="blog-one__read-more">
-                                    <a href="blog-details.html">read more<span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Blog One Single End-->
-                    <!--Blog One Single Start-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                        <div class="blog-one__single">
-                            <div class="blog-one__img-box">
-                                <div class="blog-one__img">
-                                    <img src="assets/images/blog/blog-1-2.jpg" alt="">
-                                    <div class="blog-one__date">
-                                        <span>Feb 15, 2025</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-one__content">
-                                <ul class="blog-one__list list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-user"></span>
-                                        </div>
-                                        <p>Harbert Spin</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-comment"></span>
-                                        </div>
-                                        <p>01 comment</p>
-                                    </li>
-                                </ul>
-                                <h3 class="blog-one__title"><a href="blog-details.html">Enjoy your holidays</a></h3>
-                                <div class="blog-one__read-more">
-                                    <a href="blog-details.html">read more<span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Blog One Single End-->
-                    <!--Blog One Single Start-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInRight" data-wow-delay="300ms">
-                        <div class="blog-one__single">
-                            <div class="blog-one__img-box">
-                                <div class="blog-one__img">
-                                    <img src="assets/images/blog/blog-1-3.jpg" alt="">
-                                    <div class="blog-one__date">
-                                        <span>June 16, 2025</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog-one__content">
-                                <ul class="blog-one__list list-unstyled">
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-user"></span>
-                                        </div>
-                                        <p>Alisha Martin</p>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-comment"></span>
-                                        </div>
-                                        <p>01 comment</p>
-                                    </li>
-                                </ul>
-                                <h3 class="blog-one__title"><a href="blog-details.html">Beautiful appointed suites</a>
-                                </h3>
-                                <div class="blog-one__read-more">
-                                    <a href="blog-details.html">read more<span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Blog One Single End-->
-                </div>
-            </div>
-        </section>
-        <!--Blog One End-->
-
-        <!--Gallery One Start -->
-        <section class="gallery-one">
-            <div class="gallery-one__carousel swiper-container">
-                <div class="swiper-wrapper">
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-1.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-2.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-3.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-4.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-5.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-6.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-7.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-8.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-9.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                </div>
-            </div>
-        </section>
-        <!--Gallery One End -->
-
-        <!--Site Footer Start-->
+        <!-- FOOTER -->
         <footer class="site-footer">
-            <div class="site-footer__shape-bg"
-                style="background-image: url(assets/images/shapes/site-footer-bg-shape.png);"></div>
+            <div class="site-footer__shape-bg" style="background-image: url(assets/images/shapes/site-footer-bg-shape.png);"></div>
             <div class="container">
                 <div class="site-footer__top">
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="footer-widget__column footer-widget__newsletter">
-                                <h3 class="footer-widget__newsletter-title">Subscribe To Our Newsletter To<br>
-                                    Get
-                                    Latest Update</h3>
-                                <form class="footer-widget__newsletter-form contact-form-validated"
-                                    action="assets/inc/sendemail.php" method="POST">
+                                <h3 class="footer-widget__newsletter-title">Suscríbete para recibir<br>noticias y ofertas exclusivas</h3>
+                                <form class="footer-widget__newsletter-form contact-form-validated" action="assets/inc/sendemail.php" method="POST">
                                     <div class="footer-widget__newsletter-form-input-box">
-                                        <input type="email" placeholder="Enter email" name="email">
+                                        <input type="email" placeholder="Tu correo electrónico" name="email">
                                     </div>
-                                    <button type="submit"
-                                        class="footer-widget__newsletter-btn thm-btn">Subscribe</button>
+                                    <button type="submit" class="footer-widget__newsletter-btn thm-btn">Suscribirme</button>
                                     <div class="result"></div>
                                 </form>
                             </div>
@@ -2041,11 +941,9 @@
                         <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                             <div class="footer-widget__column footer-widget__about">
                                 <div class="footer-widget__logo">
-                                    <a href="index.html"><img src="assets/images/resources/footer-logo.png" alt=""></a>
+                                    <a href="index.html"><img src="assets/images/resources/footer-logo.png" alt="Biosfera"></a>
                                 </div>
-                                <p class="footer-widget__about-text">Secure other greater pleasures, or else he
-                                    endures
-                                    pains to avoid worse pains selection </p>
+                                <p class="footer-widget__about-text">Eco glamping y experiencias en la naturaleza en Bahía Turquesa. Mar, sierra y selva — todo en un solo destino.</p>
                                 <div class="site-footer__social">
                                     <a href="#"><i class="icon-facebook-app-symbol"></i></a>
                                     <a href="#"><i class="icon-twitter"></i></a>
@@ -2056,70 +954,53 @@
                         </div>
                         <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
                             <div class="footer-widget__column footer-widget__usefull-link">
-                                <div class="footer-widget__title-box">
-                                    <h3 class="footer-widget__title">Quick Links</h3>
-                                </div>
+                                <div class="footer-widget__title-box"><h3 class="footer-widget__title">Explorar</h3></div>
                                 <div class="footer-widget__link-box">
                                     <ul class="footer-widget__link list-unstyled">
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="gallery.html">Our Gallery</a></li>
-                                        <li><a href="faq.html">Help & FAQs</a></li>
-                                        <li><a href="blog-1.html">Blog</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="about.html">Nosotros</a></li>
+                                        <li><a href="eco.html">Eco</a></li>
+                                        <li><a href="rooms.html">Glamping</a></li>
+                                        <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                        <li><a href="sierra-laguna.html">Sierra Laguna</a></li>
+                                        <li><a href="contact.html">Contacto</a></li>
+                                    <li>
+                                        <a href="cart.html" class="biosfera-cart-nav" title="Mi carrito">
+                                            <i class="fa fa-shopping-cart" style="font-size:17px;color:#d6e8e2;"></i>
+                                            <span class="biosfera-cart-badge">0</span>
+                                        </a>
+                                    </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
                             <div class="footer-widget__column footer-widget__services">
-                                <div class="footer-widget__title-box">
-                                    <h3 class="footer-widget__title">Our Services</h3>
-                                </div>
+                                <div class="footer-widget__title-box"><h3 class="footer-widget__title">Experiencias</h3></div>
                                 <ul class="footer-widget__link list-unstyled">
-                                    <li><a href="contact.html">24/7 Front Desk</a>
-                                    </li>
-                                    <li><a href="about.html">Parking</a>
-                                    </li>
-                                    <li><a href="conference-room.html">Room Service</a></li>
-                                    <li><a href="spa.html">Spa & Wellness</a></li>
-                                    <li><a href="spa.html">Concierge Service</a>
-                                    </li>
+                                    <li><a href="rooms.html">Eco Glamping</a></li>
+                                    <li><a href="ocean-safari-nocturno.html">🌙 Safari Nocturno</a></li>
+                                    <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                    <li><a href="snorkel-bt.html">Snorkel BT</a></li>
+                                    <li><a href="sierra-laguna.html">🏔 Sierra Laguna</a></li>
+                                    <li><a href="places.html">Tours Locales</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                             <div class="footer-widget__contact-box">
-                                <div class="footer-widget__title-box">
-                                    <h3 class="footer-widget__title">Official info</h3>
-                                </div>
+                                <div class="footer-widget__title-box"><h3 class="footer-widget__title">Contáctanos</h3></div>
                                 <ul class="footer-widget__contact list-unstyled">
                                     <li>
-                                        <div class="icon">
-                                            <span class="icon-call"></span>
-                                        </div>
-                                        <div class="content">
-                                            <p><a href="tel:885747546027">(88) 574 7546 027</a></p>
-                                            <p><a href="tel:885747546027">(88) 574 7546 027</a></p>
-                                        </div>
+                                        <div class="icon"><span class="icon-call"></span></div>
+                                        <div class="content"><p><a href="tel:+526121020266">+52 612 102 0266</a></p></div>
                                     </li>
                                     <li>
-                                        <div class="icon">
-                                            <span class="icon-mail"></span>
-                                        </div>
-                                        <div class="content">
-                                            <p><a href="mailto:example@gmail.com">example@gmail.com</a>
-                                            </p>
-                                            <p><a href="mailto:example@gmail.com">example@gmail.com</a>
-                                            </p>
-                                        </div>
+                                        <div class="icon"><span class="icon-mail"></span></div>
+                                        <div class="content"><p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p></div>
                                     </li>
                                     <li>
-                                        <div class="icon">
-                                            <span class="icon-pin"></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>4517 Washington Ave. Manchester, 95</p>
-                                        </div>
+                                        <div class="icon"><span class="icon-pin"></span></div>
+                                        <div class="content"><p>Bahía Turquesa, México</p></div>
                                     </li>
                                 </ul>
                             </div>
@@ -2130,87 +1011,57 @@
             <div class="site-footer__bottom">
                 <div class="container">
                     <div class="site-footer__bottom-inner">
-                        <p class="site-footer__bottom-text">© Copywright 2025 by <a
-                                href="https://themeforest.net/user/dreamlayout"> Dreamlayout.</a> All Rights
-                            Reserved.</p>
+                        <p class="site-footer__bottom-text">© 2026 <a href="index.html">Biosfera Bahía Turquesa</a>. Todos los derechos reservados.</p>
                         <ul class="list-unstyled site-footer__bottom-menu">
-                            <li><a href="contact.html">Support</a></li>
-                            <li><a href="about.html">Terms and Condition</a></li>
-                            <li><a href="about.html">Privacy and Policy</a></li>
+                            <li><a href="contact.html">Soporte</a></li>
+                            <li><a href="about.html">Términos y Condiciones</a></li>
+                            <li><a href="about.html">Privacidad</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </footer>
-        <!--Site Footer End-->
-
-
-
-
 
     </div><!-- /.page-wrapper -->
 
-
+    <!-- Mobile nav -->
     <div class="mobile-nav__wrapper">
         <div class="mobile-nav__overlay mobile-nav__toggler"></div>
-        <!-- /.mobile-nav__overlay -->
         <div class="mobile-nav__content">
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
-            <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/resources/logo-3.png" width="140"
-                        alt="" /></a>
-            </div>
-            <!-- /.logo-box -->
+            <div class="logo-box"><a href="index.html"><img src="assets/images/resources/logo-3.png" width="140" alt="Biosfera" /></a></div>
             <div class="mobile-nav__container"></div>
-            <!-- /.mobile-nav__container -->
-
             <ul class="mobile-nav__contact list-unstyled">
-                <li>
-                    <i class="fa fa-envelope"></i>
-                    <a href="mailto:needhelp@packageName__.com">needhelp@Hotelux.com</a>
-                </li>
-                <li>
-                    <i class="fas fa-phone"></i>
-                    <a href="tel:666-888-0000">666 888 0000</a>
-                </li>
-            </ul><!-- /.mobile-nav__contact -->
+                <li><i class="fa fa-envelope"></i><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></li>
+                <li><i class="fas fa-phone"></i><a href="tel:+526121020266">+52 612 102 0266</a></li>
+            </ul>
             <div class="mobile-nav__top">
                 <div class="mobile-nav__social">
                     <a href="#" class="fab fa-twitter"></a>
                     <a href="#" class="fab fa-facebook-square"></a>
-                    <a href="#" class="fab fa-pinterest-p"></a>
                     <a href="#" class="fab fa-instagram"></a>
-                </div><!-- /.mobile-nav__social -->
-            </div><!-- /.mobile-nav__top -->
-
+                </div>
+            </div>
         </div>
-        <!-- /.mobile-nav__content -->
     </div>
-    <!-- /.mobile-nav__wrapper -->
 
-
-
-    <!-- Search Popup -->
     <div class="search-popup">
         <div class="color-layer"></div>
         <button class="close-search"><span class="far fa-times fa-fw"></span></button>
         <form method="post" action="blog.html">
             <div class="form-group">
-                <input type="search" name="search-field" value="" placeholder="Search Here" required="">
+                <input type="search" name="search-field" value="" placeholder="Buscar..." required="">
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>
         </form>
     </div>
-    <!-- End Search Popup -->
-
-
 
     <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
         <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
-        <span class="scroll-to-top__text"> Go Back Top</span>
+        <span class="scroll-to-top__text">Ir arriba</span>
     </a>
 
-
+    <!-- Scripts -->
     <script src="assets/js/jquery-latest.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/jarallax.min.js"></script>
@@ -2231,17 +1082,33 @@
     <script src="assets/js/aos.js"></script>
     <script src="assets/js/odometer.min.js"></script>
     <script src="assets/js/vegas.min.js"></script>
-
-
     <script src="assets/js/gsap/gsap.js"></script>
     <script src="assets/js/gsap/ScrollTrigger.js"></script>
     <script src="assets/js/gsap/SplitText.js"></script>
-
-
-
-
-    <!-- template js -->
     <script src="assets/js/script.js"></script>
-</body>
 
+    <script>
+        if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true, offset: 60 });
+
+        // Auth state
+        (function () {
+            const token = localStorage.getItem('biosfera_token');
+            const name  = localStorage.getItem('biosfera_name');
+            const box   = document.getElementById('nav-auth-box');
+            if (!box || !token || !name) return;
+            box.innerHTML = `
+                <span style="color:#fff;font-size:13px;margin-right:10px;">Hola, ${name.split(' ')[0]}</span>
+                <a href="mis-reservas.html" class="thm-btn" style="margin-right:8px;">Mis Reservas</a>
+                <a href="#" class="thm-btn" style="background:#c26a3a;" id="nav-logout-btn">Salir</a>`;
+            document.getElementById('nav-logout-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('biosfera_token');
+                localStorage.removeItem('biosfera_name');
+                location.reload();
+            });
+        })();
+    </script>
+
+    <script src="assets/js/biosfera-cart.js"></script>
+</body>
 </html>

@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="assets/css/aos.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/biosfera-colors.css" />
 </head>
 
 <body class="custom-cursor">
@@ -47,7 +48,7 @@
                         </li>
                         <li>
                             <div class="icon"><i class="icon-mail"></i></div>
-                            <div class="text"><p><a href="mailto:hola@biosfera.mx">hola@biosfera.mx</a></p></div>
+                            <div class="text"><p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p></div>
                         </li>
                     </ul>
                     <p class="main-menu__top-welcome-text">Biosfera Bahía Turquesa — Glamping & Experiencias</p>
@@ -75,9 +76,11 @@
                                     <a href="#">Experiencias</a>
                                     <ul class="shadow-box">
                                         <li><a href="rooms.html">Glamping</a></li>
+                                        <li><a href="ocean-safari-nocturno.html">Ocean Safari Nocturno</a></li>
                                         <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                        <li><a href="sierra-laguna.html">Sierra Laguna</a></li>
                                         <li><a href="#">Tours</a></li>
-                                        <li><a href="#">Snorkel</a></li>
+                                        <li><a href="snorkel-bt.html">Snorkel BT</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#">Servicios</a></li>
@@ -133,7 +136,7 @@
                 <!-- Cargando -->
                 <div id="mr-loading" style="display:none; text-align:center; padding:60px 20px;">
                     <div style="display:inline-block; width:48px; height:48px; border:4px solid #eee;
-                                border-top-color:#b8976a; border-radius:50%; animation:spin .8s linear infinite; margin-bottom:16px;"></div>
+                                border-top-color:#5a8f7b; border-radius:50%; animation:spin .8s linear infinite; margin-bottom:16px;"></div>
                     <p style="color:#999;">Cargando tus reservas…</p>
                 </div>
 
@@ -149,7 +152,7 @@
                 <div id="mr-list" style="display:none;">
                     <div class="row mb-4 align-items-center">
                         <div class="col">
-                            <h4 style="color:#1a1a2e; font-weight:700; margin:0;">
+                            <h4 style="color:#1c2e25; font-weight:700; margin:0;">
                                 <span id="mr-greeting"></span>
                             </h4>
                             <p style="color:#999; font-size:14px; margin:4px 0 0;">
@@ -192,6 +195,7 @@
                                 <ul class="footer-widget__links-list list-unstyled clearfix">
                                     <li><a href="index.html">Inicio</a></li>
                                     <li><a href="rooms.html">Glamping</a></li>
+                                        <li><a href="ocean-safari-nocturno.html">Ocean Safari Nocturno</a></li>
                                         <li><a href="ocean-safari.html">Ocean Safari</a></li>
                                     <li><a href="faq.html">FAQ</a></li>
                                 </ul>
@@ -211,7 +215,7 @@
                                     </li>
                                     <li>
                                         <div class="icon"><i class="fas fa-envelope"></i></div>
-                                        <div class="text"><p><a href="mailto:hola@biosfera.mx">hola@biosfera.mx</a></p></div>
+                                        <div class="text"><p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p></div>
                                     </li>
                                 </ul>
                             </div>
@@ -257,8 +261,8 @@
                             <i class="fa fa-caret-down" style="margin-left:6px;font-size:11px;"></i>
                         </button>
                         <ul class="biosfera-user-dropdown" id="user-dropdown">
-                            <li><a href="mis-reservas.html"><i class="fa fa-calendar-check" style="margin-right:8px;color:#b8976a;"></i>Mis reservas</a></li>
-                            <li><a href="#" id="nav-logout"><i class="fa fa-sign-out-alt" style="margin-right:8px;color:#b8976a;"></i>Cerrar sesión</a></li>
+                            <li><a href="mis-reservas.html"><i class="fa fa-calendar-check" style="margin-right:8px;color:#5a8f7b;"></i>Mis reservas</a></li>
+                            <li><a href="#" id="nav-logout"><i class="fa fa-sign-out-alt" style="margin-right:8px;color:#5a8f7b;"></i>Cerrar sesión</a></li>
                         </ul>
                     </div>`;
 
@@ -377,7 +381,7 @@
 
                 <div class="mr-card__body">
                     <div class="mr-card__exp">
-                        <i class="fa fa-campground" style="color:#b8976a; margin-right:8px;"></i>
+                        <i class="fa fa-campground" style="color:#5a8f7b; margin-right:8px;"></i>
                         <strong>${expName}</strong>
                     </div>
 
@@ -407,7 +411,7 @@
                             <i class="fa fa-users"></i>
                             <div>
                                 <span class="mr-detail__label">Personas</span>
-                                <span class="mr-detail__val">${guests}${units > 1 ? ` <span style="color:#b8976a;font-size:11px;">(${units} unidades)</span>` : ''}</span>
+                                <span class="mr-detail__val">${guests}${units > 1 ? ` <span style="color:#5a8f7b;font-size:11px;">(${units} unidades)</span>` : ''}</span>
                             </div>
                         </div>
                     </div>
@@ -422,7 +426,7 @@
                     <div class="mr-card__pending-note">
                         <i class="fa fa-info-circle" style="color:#f9a825; margin-right:6px;"></i>
                         Tu reserva está pendiente de confirmación de pago.
-                        <a href="rooms.html" style="color:#b8976a; font-weight:600; margin-left:4px;">Volver a reservar</a>
+                        <a href="rooms.html" style="color:#5a8f7b; font-weight:600; margin-left:4px;">Volver a reservar</a>
                     </div>` : ''}
                 </div>`;
 
@@ -479,7 +483,7 @@
         .mr-card__price {
             font-size: 20px;
             font-weight: 700;
-            color: #b8976a;
+            color: #5a8f7b;
         }
 
         /* Badge de estado */
@@ -501,7 +505,7 @@
 
         .mr-card__exp {
             font-size: 16px;
-            color: #1a1a2e;
+            color: #1c2e25;
             margin-bottom: 16px;
         }
 
@@ -519,7 +523,7 @@
             font-size: 13px;
         }
         .mr-detail i {
-            color: #b8976a;
+            color: #5a8f7b;
             font-size: 15px;
             margin-top: 2px;
             flex-shrink: 0;
@@ -569,7 +573,7 @@
             display: block; padding: 10px 16px; color: #333;
             font-size: 14px; text-decoration: none; transition: background .15s;
         }
-        .biosfera-user-dropdown li a:hover { background: #f5f5f5; color: #b8976a; }
+        .biosfera-user-dropdown li a:hover { background: #f5f5f5; color: #5a8f7b; }
 
         @media (max-width: 576px) {
             .mr-card__header { flex-direction: column; align-items: flex-start; gap: 8px; }

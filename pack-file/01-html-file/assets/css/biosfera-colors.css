@@ -1,0 +1,297 @@
+/* ═══════════════════════════════════════════════════════════════
+   Biosfera Bahía Turquesa — Paleta de colores personalizada
+   Sobrescribe las variables de Hotelux con la nueva identidad:
+   Verde Olivo · Azul Océano · Arena
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Acento principal: teal-olivo (botones, taglines, detalles) ── */
+  --hotelux-base:        #5a8f7b;   /* verde-turquesa apagado */
+  --hotelux-base-rgb:    90, 143, 123;
+
+  /* ── Fondo oscuro: verde bosque profundo (footer, secciones dark) ── */
+  --hotelux-black:       #1c2e25;
+
+  /* ── Texto secundario: gris con tinte olivo ── */
+  --hotelux-gray:        #4d5e53;
+
+  /* ── Fondo claro: arena cálida ── */
+  --hotelux-primary:     #f2ead8;
+
+  /* ── Blanco sigue igual ── */
+  --hotelux-white:       #ffffff;
+
+  /* ── Colores adicionales Biosfera ── */
+  --biosfera-ocean:      #2a7da8;   /* azul oceano para acentos secundarios */
+  --biosfera-sand:       #e8d9b5;   /* arena más intensa para separadores */
+  --biosfera-olive:      #6b7c4a;   /* verde olivo puro */
+  --biosfera-olive-dark: #3d4a2c;   /* olivo oscuro */
+  --biosfera-teal-light: #8bbdae;   /* turquesa claro para hovers */
+}
+
+/* ═══ Navbar ══════════════════════════════════════════════════ */
+.main-header .main-menu__wrapper,
+.main-header-three .main-menu__wrapper,
+.sticky-header {
+  background-color: var(--hotelux-black) !important;
+}
+
+/* ═══ Nav top bar — verde oscuro con buen contraste ═════════ */
+.main-menu-three__top,
+.main-menu__top {
+  background-color: #0f2318 !important;
+}
+
+.main-menu__list > li > a,
+.main-menu__list > li > a:hover {
+  color: #d6e8e2;
+}
+
+.main-menu__list > li:hover > a,
+.main-menu__list > li.current > a {
+  color: var(--biosfera-teal-light);
+}
+
+/* Dropdown menus */
+.main-menu__list .sub-menu {
+  background-color: #1c2e25;
+  border-top: 3px solid var(--hotelux-base);
+}
+
+.main-menu__list .sub-menu li a:hover {
+  color: var(--biosfera-teal-light);
+}
+
+/* ═══ Botones principales (thm-btn) ══════════════════════════ */
+.thm-btn {
+  background-color: var(--hotelux-base);
+  color: #ffffff;
+  border: none;
+}
+
+.thm-btn:hover {
+  background-color: var(--biosfera-olive);
+  color: #ffffff;
+}
+
+/* Botones de borde */
+.thm-btn--border {
+  background-color: transparent;
+  border: 2px solid var(--hotelux-base);
+  color: var(--hotelux-base);
+}
+
+.thm-btn--border:hover {
+  background-color: var(--hotelux-base);
+  color: #ffffff;
+}
+
+/* ═══ Taglines / etiquetas de sección ══════════════════════ */
+.section-title__tagline {
+  color: var(--hotelux-base);
+}
+
+.section-title__tagline::before {
+  background-color: var(--hotelux-base);
+}
+
+.section-title__tagline::after {
+  background-color: var(--hotelux-base);
+}
+
+/* ═══ Hero / banner principal ═══════════════════════════════ */
+.main-slider__title,
+.banner-one__title {
+  text-shadow: 0 2px 12px rgba(28, 46, 37, 0.55);
+}
+
+/* ═══ Secciones oscuras ═════════════════════════════════════ */
+.cta-one,
+.cta-two,
+[class*="__inner--dark"],
+.room-price__wrapper {
+  background-color: var(--hotelux-black);
+}
+
+/* ═══ Footer ════════════════════════════════════════════════ */
+.site-footer {
+  background-color: var(--hotelux-black);
+}
+
+.site-footer__upper {
+  background-color: var(--biosfera-olive-dark);
+}
+
+.footer-widget__title {
+  color: var(--biosfera-teal-light);
+}
+
+.footer-widget__links li a:hover,
+.footer-widget__about-text a:hover {
+  color: var(--biosfera-teal-light);
+}
+
+.site-footer__bottom {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+/* ═══ Secciones con fondo arena ════════════════════════════ */
+.about-one,
+.testimonial-one,
+.room-list-one {
+  background-color: var(--hotelux-primary);
+}
+
+/* ═══ Room / Experience cards ══════════════════════════════ */
+.room-card-one__content,
+.room-list-one__content {
+  border-top: 3px solid var(--hotelux-base);
+}
+
+.room-price {
+  color: var(--hotelux-base);
+}
+
+/* ═══ Preloader ════════════════════════════════════════════ */
+.preloader {
+  background-color: var(--hotelux-black);
+}
+
+.preloader__circle {
+  border-color: rgba(90, 143, 123, 0.2);
+  border-top-color: var(--hotelux-base);
+}
+
+/* ═══ Mobile nav ═══════════════════════════════════════════ */
+.mobile-nav__container {
+  background-color: var(--hotelux-black);
+}
+
+.mobile-nav__container .main-menu__list > li > a,
+.mobile-nav__container .main-menu__list > li > ul > li > a {
+  color: #d6e8e2;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav__toggler span {
+  background-color: var(--biosfera-teal-light);
+}
+
+/* ═══ Breadcrumb ════════════════════════════════════════════ */
+.page-header {
+  background-color: var(--hotelux-black);
+}
+
+.thm-breadcrumb li a:hover {
+  color: var(--biosfera-teal-light);
+}
+
+/* ═══ Links genéricos ═══════════════════════════════════════ */
+a {
+  transition: color 0.25s ease;
+}
+
+a:hover {
+  color: var(--hotelux-base);
+}
+
+/* ═══ Inputs / Forms ════════════════════════════════════════ */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--hotelux-base) !important;
+  box-shadow: 0 0 0 3px rgba(90, 143, 123, 0.18) !important;
+}
+
+/* ═══ Scroll-to-top button ══════════════════════════════════ */
+.scroll-to-top {
+  background-color: var(--hotelux-base);
+}
+
+.scroll-to-top:hover {
+  background-color: var(--biosfera-olive);
+}
+
+/* ═══ Overrides para colores inline en HTML custom ═════════ */
+/* Botones de reserva en rooms.html, ocean-safari.html */
+.btn-reservar,
+.btn-abrir-calendario,
+button[style*="#5a8a5a"],
+button[style*="#4a7a6a"] {
+  background: linear-gradient(135deg, var(--hotelux-base), var(--biosfera-olive)) !important;
+}
+
+/* ═══ Custom biosfera section backgrounds ═══════════════════ */
+/* Sección de disponibilidad */
+.availability-section,
+[class*="biosfera-section"] {
+  background-color: var(--hotelux-primary);
+}
+
+/* Headers de sección custom */
+.biosfera-section-header {
+  background: linear-gradient(135deg, var(--hotelux-black), var(--biosfera-olive-dark));
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BIOSFERA LOGO — tamaño y ajuste en todos los contextos
+   ═══════════════════════════════════════════════════════════ */
+
+/* Nav principal (logo-1) */
+.main-menu-three__logo img,
+.main-menu__logo img,
+.main-menu-two__logo img {
+    height: 64px !important;
+    width: auto !important;
+    max-width: none !important;
+}
+
+/* Sticky header */
+.stricky-header .main-menu__logo img,
+.stricky-header .main-menu-two__logo img,
+.stricky-header .main-menu-three__logo img {
+    height: 52px !important;
+    width: auto !important;
+}
+
+/* Sidebar / mobile (logo-3) */
+.logo a img,
+.logo img,
+.logo-box img {
+    height: 60px !important;
+    width: auto !important;
+    max-width: none !important;
+}
+
+/* Footer (footer-logo) */
+.footer-widget__logo img {
+    height: 72px !important;
+    width: auto !important;
+    max-width: none !important;
+}
+
+/* ── Ícono del carrito en el nav ─────────────────────────── */
+.biosfera-cart-nav {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 6px;
+    text-decoration: none;
+}
+.biosfera-cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -4px;
+    background: #e74c3c;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    line-height: 1;
+}

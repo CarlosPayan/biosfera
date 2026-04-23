@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eco | Biosfera Bahía Turquesa</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+    <meta name="description" content="Biosfera Bahía Turquesa — Eco glamping con energía solar, baños secos y cero impacto. Conoce nuestro compromiso real con el medio ambiente." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <link rel="stylesheet" href="assets/css/custom-animate.css" />
+    <link rel="stylesheet" href="assets/css/swiper.min.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome-all.css" />
+    <link rel="stylesheet" href="assets/css/jarallax.css" />
+    <link rel="stylesheet" href="assets/css/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="assets/css/nice-select.css" />
+    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+    <link rel="stylesheet" href="assets/css/aos.css" />
+    <link rel="stylesheet" href="assets/css/odometer.min.css" />
+    <link rel="stylesheet" href="assets/css/vegas.min.css" />
+
+    <!-- Template + Biosfera styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/biosfera-colors.css" />
+
+    <style>
+        /* ═══════════════════════════════════════════════
+           ECO PAGE — Biosfera Bahía Turquesa
+        ═══════════════════════════════════════════════ */
+
+        /* ── Eco intro — fondo blanco ─────────────────── */
+        .eco-intro {
+            background: #ffffff;
+            padding: 90px 0 70px;
+        }
+
+        /* Encabezado */
+        .eco-intro__label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #5a7a4a;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .eco-intro__label::before,
+        .eco-intro__label::after {
+            content: '';
+            display: inline-block;
+            width: 32px;
+            height: 1.5px;
+            background: #5a7a4a;
+            opacity: .5;
+        }
+        .eco-intro__title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 4.5vw, 56px);
+            font-weight: 700;
+            color: #1c2e25;
+            line-height: 1.18;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+        .eco-intro__title span {
+            color: #5a7a4a;
+            font-style: italic;
+        }
+        .eco-intro__sub {
+            font-size: 16px;
+            color: #5a6a58;
+            max-width: 640px;
+            margin: 0 auto 60px;
+            line-height: 1.85;
+            text-align: center;
+        }
+
+        /* Grid de prácticas eco */
+        .eco-practices {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 991px) { .eco-practices { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .eco-practices { grid-template-columns: 1fr; } }
+
+        .eco-practice-card {
+            background: #f8faf6;
+            border: 1.5px solid #ddebd4;
+            border-radius: 16px;
+            padding: 30px 26px;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+        }
+        .eco-practice-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 32px rgba(90,122,74,.12);
+            border-color: #b0d0a0;
+        }
+        .eco-practice-card__icon {
+            width: 52px; height: 52px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        /* colores por práctica */
+        .eco-practice-card:nth-child(1) .eco-practice-card__icon { background: #fff8e0; color: #c8810a; }
+        .eco-practice-card:nth-child(2) .eco-practice-card__icon { background: #fff0e8; color: #c26a3a; }
+        .eco-practice-card:nth-child(3) .eco-practice-card__icon { background: #e0f0fa; color: #2a7da8; }
+        .eco-practice-card:nth-child(4) .eco-practice-card__icon { background: #e8f5e1; color: #3d6e30; }
+        .eco-practice-card:nth-child(5) .eco-practice-card__icon { background: #f0ede8; color: #7a5a3a; }
+        .eco-practice-card:nth-child(6) .eco-practice-card__icon { background: #eaf0f8; color: #3a5a8a; }
+
+        .eco-practice-card__body h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1c2e25;
+            margin-bottom: 6px;
+        }
+        .eco-practice-card__body p {
+            font-size: 13px;
+            color: #6a7a68;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* ── Two-column counters wrapper ──────────────── */
+        .eco-counters-section {
+            display: flex;
+            align-items: stretch;
+            border-top: 1px solid #e8ede4;
+            border-bottom: 1px solid #e8ede4;
+        }
+        .eco-col-energy {
+            flex: 1;
+            background: #fff;
+            padding: 70px 44px 70px;
+            position: relative;
+            overflow: hidden;
+            border-right: 1px solid #f0ede4;
+        }
+        .eco-col-water {
+            flex: 1;
+            background: #fff;
+            padding: 70px 44px 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Accent strips at top of each column */
+        .eco-col-energy::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 5px;
+            background: linear-gradient(90deg, #e8a020, #f5c842);
+        }
+        .eco-col-water::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 5px;
+            background: linear-gradient(90deg, #2a7da8, #5bc8f5);
+        }
+        @media (max-width: 900px) {
+            .eco-counters-section { flex-direction: column; }
+            .eco-col-energy,
+            .eco-col-water { padding: 60px 24px; border-right: none; }
+        }
+
+        /* ── Electricity counter ──────────────────────── */
+        .srv-energy__bg-glow {
+            display: none; /* hidden on white background */
+        }
+        .srv-energy__header { text-align: center; margin-bottom: 32px; position: relative; z-index: 2; }
+        .srv-energy__sun-icon {
+            width: 64px; height: 64px;
+            background: linear-gradient(135deg, #fff8e0, #ffedb0);
+            border: 1.5px solid rgba(232,160,32,.5);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; color: #c8810a;
+            margin: 0 auto 20px;
+            animation: sun-glow 3s ease-in-out infinite;
+        }
+        @keyframes sun-glow {
+            0%,100% { box-shadow: 0 0 12px rgba(232,160,32,.2); }
+            50%      { box-shadow: 0 0 24px rgba(232,160,32,.45); }
+        }
+        .srv-energy__label { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#c8810a; margin-bottom:12px; }
+        .srv-energy__title { font-family:'Playfair Display',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#1c2e25; line-height:1.2; margin-bottom:16px; }
+        .srv-energy__title span { color: #c8810a; }
+        .srv-energy__subtitle { font-size:15px; color:#6a5a3a; max-width:600px; margin:0 auto; line-height:1.8; min-height:90px; }
+        .srv-energy__subtitle strong { color: #c8810a; }
+
+        .srv-energy__counter-wrap { display:flex; justify-content:center; margin-bottom:28px; position:relative; z-index:2; }
+        .srv-energy__counter-box {
+            background: linear-gradient(135deg, #fffbef 0%, #fff8e0 100%);
+            border: 1.5px solid rgba(232,160,32,.35);
+            border-radius: 20px;
+            padding: 28px 24px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            box-shadow: 0 4px 24px rgba(232,160,32,.12);
+        }
+        .srv-energy__counter-glow { position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%, rgba(245,200,66,.10) 0%, transparent 70%); pointer-events:none; }
+        .srv-energy__counter-label-top { font-size:12px; font-weight:600; letter-spacing:1px; color:#c8810a; margin-bottom:16px; opacity:.9; }
+        .srv-energy__counter-number { font-family:'Roboto',monospace; font-size:clamp(44px,8vw,80px); font-weight:900; color:#1c2e25; letter-spacing:-2px; line-height:1; margin-bottom:14px; }
+        .srv-energy__unit { font-size:clamp(18px,3vw,32px); color:#c8810a; margin-left:6px; }
+        .srv-energy__counter-live { display:inline-flex; align-items:center; gap:8px; font-size:12px; color:#8a7040; font-weight:500; }
+        .srv-energy__live-dot { width:8px; height:8px; border-radius:50%; background:#e8a020; box-shadow:0 0 8px rgba(232,160,32,.6); animation:pulse 1.5s ease-in-out infinite; flex-shrink:0; }
+
+        .srv-energy__co2-row { display:flex; justify-content:center; margin-bottom:36px; position:relative; z-index:2; }
+        .srv-energy__co2-box { display:flex; align-items:center; gap:18px; background:#f0faf4; border:1px solid rgba(46,160,80,.25); border-radius:14px; padding:18px 30px; width:100%; }
+        .srv-energy__co2-icon { font-size:32px; color:#27ae60; opacity:.9; }
+        .srv-energy__co2-label { font-size:12px; color:#4a6a4a; margin-bottom:4px; }
+        .srv-energy__co2-num { font-size:28px; font-weight:900; color:#27ae60; line-height:1; margin-bottom:4px; }
+        .srv-energy__co2-note { font-size:11px; color:#5a7a5a; }
+
+        .srv-energy__math { display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:40px; position:relative; z-index:2; }
+        .srv-energy__math-item { background:#faf8f2; border:1px solid rgba(232,160,32,.2); border-radius:12px; padding:16px 20px; text-align:center; min-width:120px; }
+        .srv-energy__math-item--result { background:#fff8e0; border-color:rgba(232,160,32,.5); }
+        .srv-energy__math-num { display:block; font-size:20px; font-weight:900; color:#1c2e25; line-height:1; margin-bottom:6px; }
+        .srv-energy__math-item--result .srv-energy__math-num { color:#c8810a; }
+        .srv-energy__math-desc { font-size:11px; color:#7a6a40; line-height:1.5; }
+        .srv-energy__math-op { font-size:26px; font-weight:900; color:rgba(200,129,10,.4); }
+
+        .srv-energy__equivs { position:relative; z-index:2; text-align:center; }
+        .srv-energy__equivs-title { font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#8a7040; margin-bottom:20px; }
+        .srv-energy__equivs-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+        .srv-energy__equiv-card { background:#fdf9f0; border:1px solid rgba(232,160,32,.18); border-radius:14px; padding:16px 14px; transition:background .2s, box-shadow .2s; }
+        .srv-energy__equiv-card:hover { background:#fff8e0; box-shadow:0 4px 16px rgba(232,160,32,.12); }
+        .srv-energy__equiv-icon { font-size:28px; margin-bottom:10px; }
+        .srv-energy__equiv-num { font-size:24px; font-weight:900; color:#c8810a; line-height:1; margin-bottom:8px; }
+        .srv-energy__equiv-label { font-size:12px; color:#6a5a3a; line-height:1.5; }
+        .srv-energy__equiv-label small { opacity:.7; }
+
+        /* ── Spacer to align water math row with energy math row ── */
+        .srv-water__co2-spacer {
+            /* Same height as .srv-energy__co2-row: box ~78px + margin-bottom 36px */
+            height: 114px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 900px) { .srv-water__co2-spacer { display: none; } }
+
+        /* ── Water savings counter ────────────────────── */
+        .srv-water__bg-glow {
+            display: none; /* hidden on white background */
+        }
+        .srv-water__header { text-align:center; margin-bottom:32px; position:relative; z-index:2; }
+        .srv-water__drop-icon { width:64px; height:64px; background:linear-gradient(135deg,rgba(42,125,168,.15),rgba(91,200,245,.1)); border:1.5px solid rgba(42,125,168,.35); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; color:#2a7da8; margin:0 auto 20px; }
+        .srv-water__label { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#2a7da8; margin-bottom:12px; }
+        .srv-water__title { font-family:'Playfair Display',serif; font-size:clamp(28px,4vw,48px); font-weight:700; color:#0a2030; line-height:1.2; margin-bottom:16px; }
+        .srv-water__title span { color:#2a7da8; }
+        .srv-water__subtitle { font-size:15px; color:#4a6a78; max-width:580px; margin:0 auto; line-height:1.8; min-height:90px; }
+        .srv-water__subtitle strong { color:#2a7da8; }
+
+        .srv-water__counter-wrap { display:flex; justify-content:center; margin-bottom:28px; position:relative; z-index:2; }
+        .srv-water__counter-box { background:linear-gradient(135deg,#eef7ff 0%,#e0f0fb 100%); border:1.5px solid rgba(42,125,168,.3); border-radius:20px; padding:28px 24px 24px; text-align:center; position:relative; overflow:hidden; width:100%; box-shadow:0 4px 24px rgba(42,125,168,.10); }
+        .srv-water__counter-glow { position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%,rgba(91,200,245,.10) 0%,transparent 70%); pointer-events:none; }
+        .srv-water__counter-label-top { font-size:12px; font-weight:600; letter-spacing:1px; color:#2a7da8; margin-bottom:16px; opacity:.9; }
+        .srv-water__counter-number { font-family:'Roboto',monospace; font-size:clamp(44px,8vw,80px); font-weight:900; color:#0a2030; letter-spacing:-2px; line-height:1; margin-bottom:14px; }
+        .srv-water__unit { font-size:clamp(24px,4vw,42px); color:#2a7da8; margin-left:6px; }
+        .srv-water__counter-live { display:inline-flex; align-items:center; gap:8px; font-size:12px; color:#4a7a8a; font-weight:500; }
+        .srv-water__live-dot { width:8px; height:8px; border-radius:50%; background:#27ae60; box-shadow:0 0 8px rgba(39,174,96,.6); animation:pulse 1.5s ease-in-out infinite; flex-shrink:0; }
+
+        @keyframes pulse {
+            0%,100% { opacity:1; transform:scale(1); }
+            50%      { opacity:.5; transform:scale(.7); }
+        }
+
+        .srv-water__math { display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:40px; position:relative; z-index:2; }
+        .srv-water__math-item { background:#f2f8fd; border:1px solid rgba(42,125,168,.18); border-radius:12px; padding:16px 20px; text-align:center; min-width:120px; }
+        .srv-water__math-item--result { background:#e0f0fb; border-color:rgba(42,125,168,.45); }
+        .srv-water__math-num { display:block; font-size:22px; font-weight:900; color:#0a2030; line-height:1; margin-bottom:6px; }
+        .srv-water__math-item--result .srv-water__math-num { color:#2a7da8; }
+        .srv-water__math-desc { font-size:11px; color:#5a7a8a; line-height:1.5; }
+        .srv-water__math-op { font-size:26px; font-weight:900; color:rgba(42,125,168,.45); }
+
+        .srv-water__equivs { position:relative; z-index:2; text-align:center; }
+        .srv-water__equivs-title { font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#4a7a8a; margin-bottom:20px; }
+        .srv-water__equivs-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+        .srv-water__equiv-card { background:#f0f8ff; border:1px solid rgba(42,125,168,.16); border-radius:14px; padding:16px 14px; transition:background .2s, box-shadow .2s; }
+        .srv-water__equiv-card:hover { background:#e0f0fb; box-shadow:0 4px 16px rgba(42,125,168,.10); }
+        .srv-water__equiv-icon { font-size:28px; margin-bottom:10px; }
+        .srv-water__equiv-num { font-size:24px; font-weight:900; color:#2a7da8; line-height:1; margin-bottom:8px; }
+        .srv-water__equiv-label { font-size:12px; color:#5a7a8a; line-height:1.5; }
+        .srv-water__equiv-label small { opacity:.7; }
+
+        /* ── CTA ──────────────────────────────────────── */
+        .eco-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #edf5e5 0%, #dce8f0 100%);
+            text-align: center;
+        }
+        .eco-cta__title { font-family:'Playfair Display',serif; font-size:clamp(26px,3.5vw,40px); font-weight:700; color:#1c2e25; margin-bottom:16px; }
+        .eco-cta__text { font-size:15px; color:#4d5e53; max-width:520px; margin:0 auto 32px; line-height:1.75; }
+        .eco-cta__btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+        .eco-cta__btn-primary { display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#5a7a4a,#3d5c30); color:#fff; font-size:14px; font-weight:700; letter-spacing:1px; padding:14px 32px; border-radius:40px; text-decoration:none; transition:opacity .2s,transform .2s; }
+        .eco-cta__btn-primary:hover { opacity:.88; transform:translateY(-2px); color:#fff; text-decoration:none; }
+        .eco-cta__btn-outline { display:inline-flex; align-items:center; gap:8px; background:transparent; color:#1c2e25; font-size:14px; font-weight:700; padding:13px 30px; border-radius:40px; border:2px solid #a0b890; text-decoration:none; transition:background .2s,color .2s; }
+        .eco-cta__btn-outline:hover { background:#1c2e25; color:#fff; text-decoration:none; }
+    </style>
+</head>
+
+<body class="custom-cursor">
+
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+    <div id="preloader"><div class="preloader"><span></span><span></span></div></div>
+
+    <div class="chat-icon"><button type="button" class="chat-toggler"><i class="fa fa-comment"></i></button></div>
+    <div id="chat-popup" class="chat-popup">
+        <div class="popup-inner">
+            <div class="close-chat"><i class="fa fa-times"></i></div>
+            <div class="chat-form">
+                <p>¿Tienes alguna pregunta? Escríbenos.</p>
+                <form action="assets/inc/sendemail.php" method="POST" class="contact-form-validated">
+                    <div class="form-group"><input type="text" name="name" placeholder="Tu nombre" required></div>
+                    <div class="form-group"><input type="email" name="email" placeholder="Tu correo" required></div>
+                    <div class="form-group"><textarea name="message" placeholder="Tu mensaje" required></textarea></div>
+                    <div class="form-group message-btn"><button type="submit" class="thm-btn">Enviar</button></div>
+                    <div class="result"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="xs-sidebar-group info-group info-sidebar">
+        <div class="xs-overlay xs-bg-black"></div>
+        <div class="xs-sidebar-widget">
+            <div class="sidebar-widget-container">
+                <div class="widget-heading"><a href="#" class="close-side-widget">X</a></div>
+                <div class="sidebar-textwidget">
+                    <div class="sidebar-info-contents">
+                        <div class="content-inner">
+                            <div class="logo"><a href="index.html"><img src="assets/images/resources/logo-3.png" alt="Biosfera" /></a></div>
+                            <div class="content-box">
+                                <h4>Sobre Nosotros</h4>
+                                <div class="inner-text"><p>Biosfera Bahía Turquesa es un espacio eco-consciente frente al mar, donde la naturaleza y la comodidad coexisten en armonía.</p></div>
+                            </div>
+                            <div class="sidebar-contact-info">
+                                <h4>Contacto</h4>
+                                <ul class="list-unstyled">
+                                    <li><span class="icon-pin"></span> Bahía Turquesa, México</li>
+                                    <li><span class="icon-call"></span><a href="tel:+526121020266">+52 612 102 0266</a></li>
+                                    <li><span class="icon-mail"></span><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></li>
+                                </ul>
+                            </div>
+                            <div class="thm-social-link1">
+                                <ul class="social-box list-unstyled">
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+
+        <!-- NAV -->
+        <header class="main-header-three">
+            <div class="main-menu-three__top">
+                <div class="container">
+                    <div class="main-menu-three__top-inner">
+                        <ul class="list-unstyled main-menu-three__contact-list">
+                            <li>
+                                <div class="icon"><i class="icon-call"></i></div>
+                                <div class="text"><p><a href="tel:+526121020266">+52 612 102 0266</a></p></div>
+                            </li>
+                            <li>
+                                <div class="icon"><i class="icon-mail"></i></div>
+                                <div class="text"><p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p></div>
+                            </li>
+                        </ul>
+                        <div class="main-menu-three__top-right">
+                            <div class="main-menu-three__social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="main-menu main-menu-three">
+                <div class="main-menu-three__wrapper">
+                    <div class="container">
+                        <div class="main-menu-three__wrapper-inner">
+                            <div class="main-menu-three__left">
+                                <div class="main-menu-three__logo">
+                                    <a href="index.html"><img src="assets/images/resources/logo-1.png" alt="Biosfera"></a>
+                                </div>
+                            </div>
+                            <div class="main-menu-three__main-menu-box">
+                                <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                                <ul class="main-menu__list">
+                                    <li><a href="index.html">Inicio</a></li>
+                                    <li class="dropdown">
+                                        <a href="#">Experiencias</a>
+                                        <ul class="shadow-box">
+                                            <li><a href="rooms.html">Glamping</a></li>
+                                            <li><a href="ocean-safari-nocturno.html">Ocean Safari Nocturno</a></li>
+                                            <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                            <li><a href="snorkel-bt.html">Snorkel BT</a></li>
+                                            <li><a href="sierra-laguna.html">Sierra Laguna</a></li>
+                                            <li><a href="places.html">Tours</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="services.html">Servicios</a></li>
+                                    <li><a href="events.html">Eventos</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li><a href="about.html">Nosotros</a></li>
+                                    <li class="current"><a href="eco.html">Eco</a></li>
+                                    <li><a href="coming-soon.html">Expansión</a></li>
+                                    <li><a href="contact.html">Contacto</a></li>
+                                    <li>
+                                        <a href="cart.html" class="biosfera-cart-nav" title="Mi carrito">
+                                            <i class="fa fa-shopping-cart" style="font-size:17px;color:#d6e8e2;"></i>
+                                            <span class="biosfera-cart-badge">0</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="main-menu-three__right">
+                                <div class="main-menu-three__right-content">
+                                    <div class="main-menu-three__search-cart-box">
+                                        <div class="main-menu-three__search-box">
+                                            <a href="#" class="main-menu-three__search searcher-toggler-box icon-search-interface-symbol"></a>
+                                        </div>
+                                    </div>
+                                    <div class="main-menu-three__btn-box" id="nav-auth-box">
+                                        <a href="login.html" class="thm-btn">Iniciar sesión</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="stricky-header stricked-menu main-menu main-menu-three">
+            <div class="sticky-header__content"></div>
+        </div>
+
+        <!-- PAGE HEADER -->
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg);"></div>
+            <div class="container">
+                <div class="page-header__inner">
+                    <h3>Eco · Compromiso con el Planeta</h3>
+                    <div class="thm-breadcrumb__inner">
+                        <ul class="thm-breadcrumb list-unstyled">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><span class="fas fa-angle-right"></span></li>
+                            <li>Eco</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ECO INTRO -->
+        <section class="eco-intro">
+            <div class="container">
+
+                <p class="eco-intro__label">Por qué somos Eco</p>
+                <h2 class="eco-intro__title">
+                    No tomamos más<br>de lo que <span>necesitamos.</span>
+                </h2>
+                <p class="eco-intro__sub">
+                    En Biosfera la sostenibilidad no es un certificado ni un eslogan de marketing — es la forma en que operamos cada día desde que abrimos. Cada decisión de infraestructura, cada práctica diaria y cada experiencia que ofrecemos está pensada para dejar una huella positiva, no negativa, en este lugar que nos da tanto.
+                </p>
+
+                <div class="eco-practices">
+
+                    <div class="eco-practice-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="eco-practice-card__icon"><i class="fa fa-solar-panel"></i></div>
+                        <div class="eco-practice-card__body">
+                            <h4>Energía 100% Solar</h4>
+                            <p>Generamos toda nuestra electricidad con paneles solares propios. Sin depender de la red convencional, sin quemar combustibles, sin emitir CO₂ para encender una sola lámpara.</p>
+                        </div>
+                    </div>
+
+                    <div class="eco-practice-card" data-aos="fade-up" data-aos-delay="60">
+                        <div class="eco-practice-card__icon"><i class="fa fa-recycle"></i></div>
+                        <div class="eco-practice-card__body">
+                            <h4>Baños Secos Ecológicos</h4>
+                            <p>Nuestros sanitarios secos eliminan por completo el uso de agua para el baño. No contaminan el suelo, no afectan el manto freático y no generan aguas negras.</p>
+                        </div>
+                    </div>
+
+                    <div class="eco-practice-card" data-aos="fade-up" data-aos-delay="120">
+                        <div class="eco-practice-card__icon"><i class="fa fa-tint"></i></div>
+                        <div class="eco-practice-card__body">
+                            <h4>Agua Consciente</h4>
+                            <p>Captamos agua de lluvia, reutilizamos aguas grises y calentamos el agua de las regaderas con energía solar. Cada litro cuenta y lo tratamos como el recurso valioso que es.</p>
+                        </div>
+                    </div>
+
+                    <div class="eco-practice-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="eco-practice-card__icon"><i class="fa fa-seedling"></i></div>
+                        <div class="eco-practice-card__body">
+                            <h4>Cero Residuos al Mar</h4>
+                            <p>Separamos todos los residuos en origen, compostamos los orgánicos y nos aseguramos de que nada llegue al océano. El ecosistema marino que visitamos en nuestras experiencias merece esa protección.</p>
+                        </div>
+                    </div>
+
+                    <div class="eco-practice-card" data-aos="fade-up" data-aos-delay="60">
+                        <div class="eco-practice-card__icon"><i class="fa fa-users"></i></div>
+                        <div class="eco-practice-card__body">
+                            <h4>Comunidad Local</h4>
+                            <p>Trabajamos con guías naturalistas locales, compramos insumos a productores de la región y preferimos materiales de origen cercano. El desarrollo sostenible empieza por las personas de aquí.</p>
+                        </div>
+                    </div>
+
+                    <div class="eco-practice-card" data-aos="fade-up" data-aos-delay="120">
+                        <div class="eco-practice-card__icon"><i class="fa fa-trash-restore"></i></div>
+                        <div class="eco-practice-card__body">
+                            <h4>Reciclaje y Composta</h4>
+                            <p>Separamos los residuos en seco, húmedo y reciclable. Los desechos orgánicos van directo a nuestra composta activa, que regresa nutrientes al suelo en lugar de generar basura.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- COUNTERS — DOS COLUMNAS -->
+        <div class="eco-counters-section">
+
+            <!-- COLUMNA IZQUIERDA: Electricidad -->
+            <div class="eco-col-energy">
+                <div class="srv-energy__bg-glow"></div>
+
+                <div class="srv-energy__header" data-aos="fade-up">
+                    <div class="srv-energy__sun-icon"><i class="fa fa-sun"></i></div>
+                    <p class="srv-energy__label">Impacto Medible · Energía Solar</p>
+                    <h2 class="srv-energy__title">Electricidad limpia<br><span>generada por el sol</span></h2>
+                    <p class="srv-energy__subtitle">
+                        Cada día nuestros paneles solares generan aproximadamente <strong>25 kWh</strong> — sin conectarnos a la red y sin emitir CO₂. Esto es lo que hemos generado desde que abrimos:
+                    </p>
+                </div>
+
+                <div class="srv-energy__counter-wrap" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="srv-energy__counter-box">
+                        <div class="srv-energy__counter-glow"></div>
+                        <div class="srv-energy__counter-label-top"><i class="fa fa-solar-panel"></i> kWh generados desde diciembre 2025</div>
+                        <div class="srv-energy__counter-number">
+                            <span id="energy-digits">0</span>
+                            <span class="srv-energy__unit">kWh</span>
+                        </div>
+                        <div class="srv-energy__counter-live">
+                            <span class="srv-energy__live-dot"></span>
+                            actualizándose en tiempo real
+                        </div>
+                    </div>
+                </div>
+
+                <div class="srv-energy__co2-row" data-aos="fade-up" data-aos-delay="120">
+                    <div class="srv-energy__co2-box">
+                        <i class="fa fa-smog srv-energy__co2-icon"></i>
+                        <div>
+                            <div class="srv-energy__co2-label">CO₂ evitado a la atmósfera</div>
+                            <div class="srv-energy__co2-num"><span id="co2-kg">0</span> kg</div>
+                            <div class="srv-energy__co2-note">Factor CFE México: 0.454 kg CO₂/kWh</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="srv-energy__math" data-aos="fade-up" data-aos-delay="140">
+                    <div class="srv-energy__math-item">
+                        <span class="srv-energy__math-num">25 kWh</span>
+                        <span class="srv-energy__math-desc">generados por<br>paneles al día</span>
+                    </div>
+                    <div class="srv-energy__math-op">×</div>
+                    <div class="srv-energy__math-item">
+                        <span class="srv-energy__math-num">0.454</span>
+                        <span class="srv-energy__math-desc">kg CO₂/kWh<br>que NO emitimos</span>
+                    </div>
+                    <div class="srv-energy__math-op">=</div>
+                    <div class="srv-energy__math-item srv-energy__math-item--result">
+                        <span class="srv-energy__math-num">11.35 kg</span>
+                        <span class="srv-energy__math-desc">CO₂ evitado<br>cada día</span>
+                    </div>
+                </div>
+
+                <div class="srv-energy__equivs" data-aos="fade-up" data-aos-delay="160">
+                    <p class="srv-energy__equivs-title">Eso equivale a…</p>
+                    <div class="srv-energy__equivs-grid">
+                        <div class="srv-energy__equiv-card">
+                            <div class="srv-energy__equiv-icon">🌳</div>
+                            <div class="srv-energy__equiv-num" id="eq-trees">—</div>
+                            <div class="srv-energy__equiv-label">árboles adultos<br><small>(21 kg CO₂/árbol/año)</small></div>
+                        </div>
+                        <div class="srv-energy__equiv-card">
+                            <div class="srv-energy__equiv-icon">📱</div>
+                            <div class="srv-energy__equiv-num" id="eq-phones">—</div>
+                            <div class="srv-energy__equiv-label">cargas de celular<br><small>(0.01 kWh c/u)</small></div>
+                        </div>
+                        <div class="srv-energy__equiv-card">
+                            <div class="srv-energy__equiv-icon">💡</div>
+                            <div class="srv-energy__equiv-num" id="eq-bulbs">—</div>
+                            <div class="srv-energy__equiv-label">horas de luz LED<br><small>(foco 10W)</small></div>
+                        </div>
+                        <div class="srv-energy__equiv-card">
+                            <div class="srv-energy__equiv-icon">🚗</div>
+                            <div class="srv-energy__equiv-num" id="eq-km">—</div>
+                            <div class="srv-energy__equiv-label">km en auto eléctrico<br><small>(6 km por kWh)</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: Agua -->
+            <div class="eco-col-water">
+                <div class="srv-water__bg-glow"></div>
+
+                <div class="srv-water__header" data-aos="fade-up">
+                    <div class="srv-water__drop-icon"><i class="fa fa-tint-slash"></i></div>
+                    <p class="srv-water__label">Impacto Medible · Baños Secos</p>
+                    <h2 class="srv-water__title">Agua que no<br><span>se desperdicia</span></h2>
+                    <p class="srv-water__subtitle">
+                        En glamping, una persona usa en promedio <strong>18 litros</strong> al día en el baño. Nuestros baños secos eliminan ese gasto por completo. Esto es lo que hemos ahorrado desde que abrimos:
+                    </p>
+                </div>
+
+                <div class="srv-water__counter-wrap" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="srv-water__counter-box">
+                        <div class="srv-water__counter-glow"></div>
+                        <div class="srv-water__counter-label-top"><i class="fa fa-tint"></i> Litros de agua ahorrados desde diciembre 2025</div>
+                        <div class="srv-water__counter-number" id="water-counter">
+                            <span id="water-digits">0</span>
+                            <span class="srv-water__unit">L</span>
+                        </div>
+                        <div class="srv-water__counter-live">
+                            <span class="srv-water__live-dot"></span>
+                            actualizándose en tiempo real
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spacer to align math rows with energy column (matches CO2 row height) -->
+                <div class="srv-water__co2-spacer"></div>
+
+                <div class="srv-water__math" data-aos="fade-up" data-aos-delay="150">
+                    <div class="srv-water__math-item">
+                        <span class="srv-water__math-num">18 L</span>
+                        <span class="srv-water__math-desc">por persona al día<br>(3 usos × 6 L)</span>
+                    </div>
+                    <div class="srv-water__math-op">×</div>
+                    <div class="srv-water__math-item">
+                        <span class="srv-water__math-num">~5</span>
+                        <span class="srv-water__math-desc">personas/día<br>(36 por semana)</span>
+                    </div>
+                    <div class="srv-water__math-op">=</div>
+                    <div class="srv-water__math-item srv-water__math-item--result">
+                        <span class="srv-water__math-num">90 L</span>
+                        <span class="srv-water__math-desc">ahorrados<br>cada día</span>
+                    </div>
+                </div>
+
+                <div class="srv-water__equivs" data-aos="fade-up" data-aos-delay="200">
+                    <p class="srv-water__equivs-title">Eso equivale a…</p>
+                    <div class="srv-water__equivs-grid">
+                        <div class="srv-water__equiv-card">
+                            <div class="srv-water__equiv-icon">🛁</div>
+                            <div class="srv-water__equiv-num" id="eq-bathtubs">—</div>
+                            <div class="srv-water__equiv-label">tinas de baño<br><small>(200 L c/u)</small></div>
+                        </div>
+                        <div class="srv-water__equiv-card">
+                            <div class="srv-water__equiv-icon">🫙</div>
+                            <div class="srv-water__equiv-num" id="eq-garrfones">—</div>
+                            <div class="srv-water__equiv-label">garrafones de agua<br><small>(20 L c/u)</small></div>
+                        </div>
+                        <div class="srv-water__equiv-card">
+                            <div class="srv-water__equiv-icon">🚿</div>
+                            <div class="srv-water__equiv-num" id="eq-showers">—</div>
+                            <div class="srv-water__equiv-label">duchas de 5 min<br><small>(60 L c/u)</small></div>
+                        </div>
+                        <div class="srv-water__equiv-card">
+                            <div class="srv-water__equiv-icon">👨‍👩‍👧‍👦</div>
+                            <div class="srv-water__equiv-num" id="eq-families">—</div>
+                            <div class="srv-water__equiv-label">familias con agua<br>potable por un mes<br><small>(2 L/día × 4 pers.)</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.eco-counters-section -->
+
+        <!-- CTA -->
+        <section class="eco-cta">
+            <div class="container">
+                <h2 class="eco-cta__title">Hospédate y sé parte del cambio</h2>
+                <p class="eco-cta__text">Cada noche que pasas en Biosfera es una noche en la que el planeta respira un poco mejor. Ven y compruébalo.</p>
+                <div class="eco-cta__btns">
+                    <a href="rooms.html" class="eco-cta__btn-primary"><i class="fa fa-leaf"></i> Reservar Glamping</a>
+                    <a href="services.html" class="eco-cta__btn-outline"><i class="fa fa-th-large"></i> Ver Instalaciones</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="site-footer__shape-bg" style="background-image: url(assets/images/shapes/site-footer-bg-shape.png);"></div>
+            <div class="container">
+                <div class="site-footer__top">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="footer-widget__column footer-widget__newsletter">
+                                <h3 class="footer-widget__newsletter-title">Suscríbete para recibir<br>noticias y ofertas exclusivas</h3>
+                                <form class="footer-widget__newsletter-form contact-form-validated" action="assets/inc/sendemail.php" method="POST">
+                                    <div class="footer-widget__newsletter-form-input-box">
+                                        <input type="email" placeholder="Tu correo electrónico" name="email">
+                                    </div>
+                                    <button type="submit" class="footer-widget__newsletter-btn thm-btn">Suscribirme</button>
+                                    <div class="result"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-footer__middle">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                            <div class="footer-widget__column footer-widget__about">
+                                <div class="footer-widget__logo">
+                                    <a href="index.html"><img src="assets/images/resources/footer-logo.png" alt="Biosfera"></a>
+                                </div>
+                                <p class="footer-widget__about-text">Eco glamping y experiencias en la naturaleza en Bahía Turquesa. Mar, sierra y selva — todo en un solo destino.</p>
+                                <div class="site-footer__social">
+                                    <a href="#"><i class="icon-facebook-app-symbol"></i></a>
+                                    <a href="#"><i class="icon-twitter"></i></a>
+                                    <a href="#"><i class="icon-instagram"></i></a>
+                                    <a href="#"><i class="icon-pinterest"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                            <div class="footer-widget__column footer-widget__usefull-link">
+                                <div class="footer-widget__title-box"><h3 class="footer-widget__title">Explorar</h3></div>
+                                <div class="footer-widget__link-box">
+                                    <ul class="footer-widget__link list-unstyled">
+                                        <li><a href="about.html">Nosotros</a></li>
+                                        <li><a href="eco.html">Eco</a></li>
+                                        <li><a href="rooms.html">Glamping</a></li>
+                                        <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                        <li><a href="sierra-laguna.html">Sierra Laguna</a></li>
+                                        <li><a href="contact.html">Contacto</a></li>
+                                    <li>
+                                        <a href="cart.html" class="biosfera-cart-nav" title="Mi carrito">
+                                            <i class="fa fa-shopping-cart" style="font-size:17px;color:#d6e8e2;"></i>
+                                            <span class="biosfera-cart-badge">0</span>
+                                        </a>
+                                    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                            <div class="footer-widget__column footer-widget__services">
+                                <div class="footer-widget__title-box"><h3 class="footer-widget__title">Experiencias</h3></div>
+                                <ul class="footer-widget__link list-unstyled">
+                                    <li><a href="rooms.html">Eco Glamping</a></li>
+                                    <li><a href="ocean-safari-nocturno.html">🌙 Safari Nocturno</a></li>
+                                    <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                    <li><a href="snorkel-bt.html">Snorkel BT</a></li>
+                                    <li><a href="sierra-laguna.html">🏔 Sierra Laguna</a></li>
+                                    <li><a href="places.html">Tours Locales</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                            <div class="footer-widget__contact-box">
+                                <div class="footer-widget__title-box"><h3 class="footer-widget__title">Contáctanos</h3></div>
+                                <ul class="footer-widget__contact list-unstyled">
+                                    <li>
+                                        <div class="icon"><span class="icon-call"></span></div>
+                                        <div class="content"><p><a href="tel:+526121020266">+52 612 102 0266</a></p></div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><span class="icon-mail"></span></div>
+                                        <div class="content"><p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p></div>
+                                    </li>
+                                    <li>
+                                        <div class="icon"><span class="icon-pin"></span></div>
+                                        <div class="content"><p>Bahía Turquesa, México</p></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="site-footer__bottom">
+                <div class="container">
+                    <div class="site-footer__bottom-inner">
+                        <p class="site-footer__bottom-text">© 2026 <a href="index.html">Biosfera Bahía Turquesa</a>. Todos los derechos reservados.</p>
+                        <ul class="list-unstyled site-footer__bottom-menu">
+                            <li><a href="contact.html">Soporte</a></li>
+                            <li><a href="about.html">Términos y Condiciones</a></li>
+                            <li><a href="about.html">Privacidad</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div><!-- /.page-wrapper -->
+
+    <!-- Mobile nav -->
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+            <div class="logo-box"><a href="index.html"><img src="assets/images/resources/logo-3.png" width="140" alt="Biosfera" /></a></div>
+            <div class="mobile-nav__container"></div>
+            <ul class="mobile-nav__contact list-unstyled">
+                <li><i class="fa fa-envelope"></i><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></li>
+                <li><i class="fas fa-phone"></i><a href="tel:+526121020266">+52 612 102 0266</a></li>
+            </ul>
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__social">
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-facebook-square"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-popup">
+        <div class="color-layer"></div>
+        <button class="close-search"><span class="far fa-times fa-fw"></span></button>
+        <form method="post" action="blog.html">
+            <div class="form-group">
+                <input type="search" name="search-field" value="" placeholder="Buscar..." required="">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+        <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
+        <span class="scroll-to-top__text">Ir arriba</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery-latest.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jarallax.min.js"></script>
+    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/wNumb.min.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/marquee.min.js"></script>
+    <script src="assets/js/countdown.min.js"></script>
+    <script src="assets/js/jquery-sidebar-content.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/vegas.min.js"></script>
+    <script src="assets/js/gsap/gsap.js"></script>
+    <script src="assets/js/gsap/ScrollTrigger.js"></script>
+    <script src="assets/js/gsap/SplitText.js"></script>
+    <script src="assets/js/script.js"></script>
+
+    <script>
+        if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true, offset: 60 });
+
+        // ELECTRICITY COUNTER — 25 kWh/día desde 4 dic 2025
+        (function () {
+            const START      = new Date('2025-12-04T00:00:00');
+            const KWH_PER_S  = 25 / 86400;
+            const CO2_FACTOR = 0.454;
+
+            const elDigits = document.getElementById('energy-digits');
+            const elCo2    = document.getElementById('co2-kg');
+            const elTrees  = document.getElementById('eq-trees');
+            const elPhones = document.getElementById('eq-phones');
+            const elBulbs  = document.getElementById('eq-bulbs');
+            const elKm     = document.getElementById('eq-km');
+
+            function fmt(n)  { return Math.floor(n).toLocaleString('es-MX'); }
+            function fmtD(n) { return n.toLocaleString('es-MX', { maximumFractionDigits: 1 }); }
+
+            function tick() {
+                const kwh = (new Date() - START) / 1000 * KWH_PER_S;
+                const co2 = kwh * CO2_FACTOR;
+                if (elDigits) elDigits.textContent = fmtD(kwh);
+                if (elCo2)    elCo2.textContent    = fmt(co2);
+                if (elTrees)  elTrees.textContent  = fmt(co2 / 21);
+                if (elPhones) elPhones.textContent = fmt(kwh / 0.01);
+                if (elBulbs)  elBulbs.textContent  = fmt(kwh / 0.01);
+                if (elKm)     elKm.textContent     = fmt(kwh * 6);
+            }
+            tick();
+            setInterval(tick, 1000);
+        })();
+
+        // WATER COUNTER — 90 L/día desde 4 dic 2025
+        (function () {
+            const START     = new Date('2025-12-04T00:00:00');
+            const L_PER_S   = 90 / 86400;
+
+            const elDigits   = document.getElementById('water-digits');
+            const elBathtubs = document.getElementById('eq-bathtubs');
+            const elGarr     = document.getElementById('eq-garrfones');
+            const elShowers  = document.getElementById('eq-showers');
+            const elFamilies = document.getElementById('eq-families');
+
+            function fmt(n) { return Math.floor(n).toLocaleString('es-MX'); }
+
+            function tick() {
+                const liters = (new Date() - START) / 1000 * L_PER_S;
+                if (elDigits)   elDigits.textContent   = fmt(liters);
+                if (elBathtubs) elBathtubs.textContent = fmt(liters / 200);
+                if (elGarr)     elGarr.textContent     = fmt(liters / 20);
+                if (elShowers)  elShowers.textContent  = fmt(liters / 60);
+                if (elFamilies) elFamilies.textContent = fmt(liters / 240);
+            }
+            tick();
+            setInterval(tick, 1000);
+        })();
+
+        // Auth state
+        (function () {
+            const token = localStorage.getItem('biosfera_token');
+            const name  = localStorage.getItem('biosfera_name');
+            const box   = document.getElementById('nav-auth-box');
+            if (!box || !token || !name) return;
+            box.innerHTML = `
+                <span style="color:#fff;font-size:13px;margin-right:10px;">Hola, ${name.split(' ')[0]}</span>
+                <a href="mis-reservas.html" class="thm-btn" style="margin-right:8px;">Mis Reservas</a>
+                <a href="#" class="thm-btn" style="background:#c26a3a;" id="nav-logout-btn">Salir</a>`;
+            document.getElementById('nav-logout-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('biosfera_token');
+                localStorage.removeItem('biosfera_name');
+                location.reload();
+            });
+        })();
+    </script>
+
+    <script src="assets/js/biosfera-cart.js"></script>
+</body>
+</html>

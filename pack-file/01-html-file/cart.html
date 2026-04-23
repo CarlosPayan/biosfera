@@ -1,171 +1,294 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Cart || Hotelux || Hotelux HTML 5 Template </title>
-    <!-- favicons Icons -->
+    <title>Mi Carrito | Biosfera Bahía Turquesa</title>
+
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
     <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
-    <meta name="description" content="Hotelux HTML 5 Template " />
 
-    <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/animate.min.css" />
-    <link rel="stylesheet" href="assets/css/custom-animate.css" />
-    <link rel="stylesheet" href="assets/css/swiper.min.css" />
     <link rel="stylesheet" href="assets/css/font-awesome-all.css" />
-    <link rel="stylesheet" href="assets/css/jarallax.css" />
-    <link rel="stylesheet" href="assets/css/jquery.magnific-popup.css" />
     <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="assets/css/nice-select.css" />
-    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
     <link rel="stylesheet" href="assets/css/aos.css" />
-    <link rel="stylesheet" href="assets/css/odometer.min.css" />
-    <link rel="stylesheet" href="assets/css/vegas.min.css" />
-
-    <!-- template styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/biosfera-colors.css" />
+
+    <style>
+        /* ══════════════════════════════════════════════
+           CART PAGE — Biosfera
+        ══════════════════════════════════════════════ */
+        .cart-page {
+            background: #f8faf6;
+            min-height: 70vh;
+            padding: 80px 0 100px;
+        }
+
+        /* ── Header ─────────────────────────────────── */
+        .cart-header {
+            text-align: center;
+            margin-bottom: 52px;
+        }
+        .cart-header__label {
+            font-size: 11px; font-weight: 700; letter-spacing: 3px;
+            text-transform: uppercase; color: #5a8f7b; margin-bottom: 12px;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .cart-header__label::before, .cart-header__label::after {
+            content:''; display: inline-block; width: 28px; height: 1.5px;
+            background: #5a8f7b; opacity: .4;
+        }
+        .cart-header__title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(26px, 4vw, 42px); font-weight: 700;
+            color: #1c2e25; line-height: 1.2; margin-bottom: 8px;
+        }
+        .cart-header__title span { color: #5a8f7b; font-style: italic; }
+
+        /* ── Layout ─────────────────────────────────── */
+        .cart-layout {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 32px;
+            align-items: start;
+        }
+        @media (max-width: 900px) { .cart-layout { grid-template-columns: 1fr; } }
+
+        /* ── Empty state ────────────────────────────── */
+        .cart-empty {
+            background: #fff;
+            border: 1.5px dashed #d0ddc8;
+            border-radius: 20px;
+            padding: 64px 32px;
+            text-align: center;
+            display: none;
+        }
+        .cart-empty.visible { display: block; }
+        .cart-empty__icon { font-size: 56px; margin-bottom: 20px; }
+        .cart-empty__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px; font-weight: 700; color: #1c2e25; margin-bottom: 10px;
+        }
+        .cart-empty__sub { font-size: 14px; color: #7a8a78; margin-bottom: 28px; }
+        .cart-empty__btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #1c2e25; color: #fff;
+            font-size: 14px; font-weight: 700; padding: 13px 28px;
+            border-radius: 40px; text-decoration: none; transition: background .2s;
+        }
+        .cart-empty__btn:hover { background: #5a8f7b; color: #fff; text-decoration: none; }
+
+        /* ── Items list ─────────────────────────────── */
+        .cart-items { display: flex; flex-direction: column; gap: 16px; }
+
+        .cart-item {
+            background: #fff;
+            border: 1.5px solid #e4edd8;
+            border-radius: 18px;
+            padding: 24px 26px;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            transition: box-shadow .2s;
+        }
+        .cart-item:hover { box-shadow: 0 4px 20px rgba(28,46,37,.08); }
+
+        .cart-item__emoji {
+            width: 56px; height: 56px;
+            border-radius: 14px;
+            background: #f0f7f3;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+        .cart-item__body { flex: 1; min-width: 0; }
+        .cart-item__name {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px; font-weight: 700; color: #1c2e25; margin: 0 0 4px;
+        }
+        .cart-item__sub { font-size: 12px; color: #9aaa90; margin: 0 0 12px; }
+
+        .cart-item__details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            background: #f8faf6;
+            border-radius: 10px;
+            padding: 12px 16px;
+        }
+        @media (max-width: 540px) { .cart-item__details { grid-template-columns: 1fr 1fr; } }
+
+        .cart-item__detail label {
+            display: block; font-size: 10px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px; color: #9aaa90; margin-bottom: 3px;
+        }
+        .cart-item__detail span { font-size: 14px; font-weight: 700; color: #1c2e25; }
+        .cart-item__total-val { color: #5a8f7b !important; font-size: 16px !important; }
+
+        .cart-item__remove {
+            background: none; border: none; cursor: pointer;
+            color: #c0c8b8; font-size: 16px; padding: 4px;
+            border-radius: 6px; transition: color .2s, background .2s;
+            flex-shrink: 0; margin-top: 2px;
+        }
+        .cart-item__remove:hover { color: #e74c3c; background: #fef0f0; }
+
+        /* ── Resumen / Sidebar ──────────────────────── */
+        .cart-summary-box {
+            background: #fff;
+            border: 1.5px solid #e4edd8;
+            border-radius: 18px;
+            padding: 28px 26px;
+            position: sticky;
+            top: 100px;
+        }
+        .cart-summary-box__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px; font-weight: 700; color: #1c2e25; margin-bottom: 20px;
+        }
+        .cart-sum-row {
+            display: flex; justify-content: space-between;
+            font-size: 14px; color: #6a7a68; padding: 8px 0;
+            border-bottom: 1px solid #edf5e5;
+        }
+        .cart-sum-row:last-of-type { border-bottom: none; }
+        .cart-sum-row strong { color: #1c2e25; }
+        .cart-sum-total {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 16px; padding-top: 16px;
+            border-top: 2px solid #ddebd0;
+        }
+        .cart-sum-total__label { font-size: 13px; font-weight: 700; color: #4a6a3a; text-transform: uppercase; letter-spacing: 1px; }
+        .cart-sum-total__amount { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: #1c2e25; }
+
+        .cart-checkout-btn {
+            width: 100%; margin-top: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #5a8f7b, #6b7c4a);
+            color: #fff; font-size: 15px; font-weight: 700;
+            border: none; border-radius: 12px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            transition: opacity .2s, transform .2s;
+        }
+        .cart-checkout-btn:hover { opacity: .88; transform: translateY(-1px); }
+        .cart-checkout-btn:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+
+        .cart-add-more {
+            display: flex; align-items: center; justify-content: center; gap: 7px;
+            width: 100%; margin-top: 12px;
+            background: none; border: 1.5px solid #c8ddb8;
+            color: #5a8f7b; font-size: 13px; font-weight: 700;
+            padding: 11px; border-radius: 12px; cursor: pointer;
+            transition: background .2s, color .2s;
+            text-decoration: none;
+        }
+        .cart-add-more:hover { background: #5a8f7b; color: #fff; text-decoration: none; }
+
+        .cart-note {
+            font-size: 11px; color: #9aaa90; text-align: center;
+            margin-top: 14px; line-height: 1.6;
+        }
+        .cart-note i { color: #5a8f7b; }
+
+        /* ── Customer form ───────────────────────────── */
+        .cart-customer-form {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1.5px solid #edf5e5;
+        }
+        .cart-customer-form__title {
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; color: #5a8f7b; margin-bottom: 14px;
+        }
+        .cart-form-field {
+            margin-bottom: 10px;
+        }
+        .cart-form-field label {
+            display: block; font-size: 11px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: .8px;
+            color: #9aaa90; margin-bottom: 5px;
+        }
+        .cart-form-field input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid #d8e8c8;
+            border-radius: 10px;
+            font-size: 14px; color: #1c2e25;
+            background: #f8faf6;
+            outline: none;
+            transition: border-color .2s;
+        }
+        .cart-form-field input:focus { border-color: #5a8f7b; background: #fff; }
+        .cart-form-field input.error { border-color: #e74c3c; }
+
+        /* ── Spinner on checkout btn ─────────────────── */
+        .cart-checkout-btn .btn-spinner {
+            display: none;
+            width: 16px; height: 16px;
+            border: 2.5px solid rgba(255,255,255,.4);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin .7s linear infinite;
+        }
+        .cart-checkout-btn.loading .btn-spinner { display: inline-block; }
+        .cart-checkout-btn.loading .btn-text { opacity: 0; position: absolute; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Cart nav icon ───────────────────────────── */
+        .biosfera-cart-nav {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            padding: 0 6px;
+        }
+        .biosfera-cart-badge {
+            position: absolute;
+            top: -8px; right: -4px;
+            background: #e74c3c; color: #fff;
+            font-size: 10px; font-weight: 700;
+            min-width: 18px; height: 18px;
+            border-radius: 9px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4px;
+        }
+    </style>
 </head>
 
 <body class="custom-cursor">
-
-
-
     <div class="custom-cursor__cursor"></div>
     <div class="custom-cursor__cursor-two"></div>
+    <div id="preloader"><div class="preloader"><span></span><span></span></div></div>
+    <!-- Forzar cierre del preloader en cart.html -->
+    <script>window.addEventListener('load', function(){ var p=document.getElementById('preloader'); if(p) p.style.display='none'; }); setTimeout(function(){ var p=document.getElementById('preloader'); if(p) p.style.display='none'; }, 800);</script>
 
-
-    <!--Start Preloader-->
-    <div id="preloader">
-        <div class="preloader">
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    <!--End Preloader-->
-
-    <div class="chat-icon"><button type="button" class="chat-toggler"><i class="fa fa-comment"></i></button></div>
-    <!--Chat Popup-->
-    <div id="chat-popup" class="chat-popup">
-        <div class="popup-inner">
-            <div class="close-chat"><i class="fa fa-times"></i></div>
-            <div class="chat-form">
-                <p>Please fill out the form below and we will get back to you as soon as possible.</p>
-                <form action="assets/inc/sendemail.php" method="POST" class="contact-form-validated">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Your Text" required></textarea>
-                    </div>
-                    <div class="form-group message-btn">
-                        <button type="submit" class="thm-btn"> Submit Now</button>
-                    </div>
-                    <div class="result"></div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <!-- Start sidebar widget content -->
+    <!-- Sidebar -->
     <div class="xs-sidebar-group info-group info-sidebar">
         <div class="xs-overlay xs-bg-black"></div>
         <div class="xs-sidebar-widget">
             <div class="sidebar-widget-container">
-                <div class="widget-heading">
-                    <a href="#" class="close-side-widget">X</a>
-                </div>
+                <div class="widget-heading"><a href="#" class="close-side-widget">X</a></div>
                 <div class="sidebar-textwidget">
                     <div class="sidebar-info-contents">
                         <div class="content-inner">
-                            <div class="logo">
-                                <a href="index.html"><img src="assets/images/resources/logo-3.png" alt="" /></a>
-                            </div>
-                            <div class="content-box">
-                                <h4>About Us</h4>
-                                <div class="inner-text">
-                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                        roots in a piece of classical Latin literature from 45 BC, making it over
-                                        2000 years old.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="form-inner">
-                                <h4>Get a free quote</h4>
-                                <form action="assets/inc/sendemail.php" method="POST" class="contact-form-validated">
-                                    <div class="form-group">
-                                        <input type="text" name="name" placeholder="Name" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" name="email" placeholder="Email" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea name="message" placeholder="Message..." required=""></textarea>
-                                    </div>
-                                    <div class="form-group message-btn">
-                                        <button class="thm-btn" data-text="Submit Now" type="submit"
-                                            data-loading-text="Please wait...">Submit Now
-                                        </button>
-                                    </div>
-                                    <div class="result"></div>
-                                </form>
-
-
-                            </div>
-
+                            <div class="logo"><a href="index.html"><img src="assets/images/resources/logo-3.png" alt="Biosfera" /></a></div>
                             <div class="sidebar-contact-info">
-                                <h4>Contact Info</h4>
+                                <h4>Contacto</h4>
                                 <ul class="list-unstyled">
-                                    <li>
-                                        <span class="icon-pin"></span> 88 broklyn street, New York
-                                    </li>
-                                    <li>
-                                        <span class="icon-call"></span>
-                                        <a href="tel:123456789">+1 555-9990-153</a>
-                                    </li>
-                                    <li>
-                                        <span class="icon-mail"></span>
-                                        <a href="mailto:info@example.com">info@example.com</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="thm-social-link1">
-                                <ul class="social-box list-unstyled">
-                                    <li>
-                                        <a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                                    </li>
+                                    <li><span class="icon-pin"></span> Bahía Turquesa, México</li>
+                                    <li><span class="icon-call"></span><a href="tel:+526121020266">+52 612 102 0266</a></li>
+                                    <li><span class="icon-mail"></span><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -174,325 +297,71 @@
             </div>
         </div>
     </div>
-    <!-- End sidebar widget content -->
-
-
-
 
     <div class="page-wrapper">
-        <header class="main-header">
-            <div class="main-menu__top">
-                <div class="main-menu__top-inner">
-                    <ul class="list-unstyled main-menu__contact-list">
-                        <li>
-                            <div class="icon">
-                                <i class="icon-call"></i>
-                            </div>
-                            <div class="text">
-                                <p><a href="tel:15502505260">+1 (550) 250 5260</a></p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="icon-mail"></i>
-                            </div>
-                            <div class="text">
-                                <p><a href="mailto:info@Hotelux24.com">info@Hotelux24.com</a>
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="icon">
-                                <i class="icon-pin"></i>
-                            </div>
-                            <div class="text">
-                                <p>4124 Cimmaron Road, CA 92806</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <p class="main-menu__top-welcome-text">Welcome to Our Hotel Booking Company</p>
-                    <div class="main-menu__top-right">
-                        <div class="main-menu__top-time">
-                            <div class="main-menu__top-time-icon">
-                                <span class="fas fa-clock"></span>
-                            </div>
-                            <p class="main-menu__top-text">Mon - Fri: 09:00 - 05:00</p>
-                        </div>
-                        <div class="main-menu__social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
+
+        <!-- NAV -->
+        <header class="main-header-three">
+            <div class="main-menu-three__top">
+                <div class="container">
+                    <div class="main-menu-three__top-inner">
+                        <ul class="list-unstyled main-menu-three__contact-list">
+                            <li>
+                                <div class="icon"><i class="icon-call"></i></div>
+                                <div class="text"><p><a href="tel:+526121020266">+52 612 102 0266</a></p></div>
+                            </li>
+                            <li>
+                                <div class="icon"><i class="icon-mail"></i></div>
+                                <div class="text"><p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p></div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <nav class="main-menu">
-                <div class="main-menu__wrapper">
-                    <div class="main-menu__wrapper-inner">
-                        <div class="main-menu__left">
-                            <div class="main-menu__logo">
-                                <a href="index.html"><img src="assets/images/resources/logo-1.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="main-menu__main-menu-box">
-                            <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
-                            <ul class="main-menu__list">
-                                <li class="dropdown megamenu">
-                                    <a href="#">Home </a>
-                                    <ul>
-                                        <li>
-                                            <section class="home-showcase">
-                                                <div class="container">
-                                                    <div class="home-showcase__inner">
-                                                        <div class="row">
-                                                            <div class="col-lg-3">
-                                                                <div class="home-showcase__item">
-                                                                    <div class="home-showcase__image">
-                                                                        <img src="assets/images/home-showcase/home-showcase-1-1.jpg"
-                                                                            alt="">
-                                                                        <div class="home-showcase__buttons">
-                                                                            <a href="index.html"
-                                                                                class="thm-btn home-showcase__buttons__item">Multi
-                                                                                Page
-                                                                            </a>
-                                                                            <a href="index-one-page.html"
-                                                                                class="thm-btn home-showcase__buttons__item">One
-                                                                                Page
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.home-showcase__buttons -->
-                                                                    </div><!-- /.home-showcase__image -->
-                                                                    <h3 class="home-showcase__title">Home
-                                                                        Page
-                                                                        01</h3>
-                                                                    <!-- /.home-showcase__title -->
-                                                                </div><!-- /.home-showcase__item -->
-                                                            </div><!-- /.col-lg-3 -->
-                                                            <div class="col-lg-3">
-                                                                <div class="home-showcase__item">
-                                                                    <div class="home-showcase__image">
-                                                                        <img src="assets/images/home-showcase/home-showcase-1-2.jpg"
-                                                                            alt="">
-                                                                        <div class="home-showcase__buttons">
-                                                                            <a href="index2.html"
-                                                                                class="thm-btn home-showcase__buttons__item">
-                                                                                Multi
-                                                                                Page
-                                                                            </a>
-                                                                            <a href="index2-one-page.html"
-                                                                                class="thm-btn home-showcase__buttons__item">
-                                                                                One
-                                                                                Page
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.home-showcase__buttons -->
-                                                                    </div><!-- /.home-showcase__image -->
-                                                                    <h3 class="home-showcase__title">Home
-                                                                        Page
-                                                                        02
-                                                                    </h3><!-- /.home-showcase__title -->
-                                                                </div><!-- /.home-showcase__item -->
-                                                            </div><!-- /.col-lg-3 -->
-                                                            <div class="col-lg-3">
-                                                                <div class="home-showcase__item">
-                                                                    <div class="home-showcase__image">
-                                                                        <img src="assets/images/home-showcase/home-showcase-1-3.jpg"
-                                                                            alt="">
-                                                                        <div class="home-showcase__buttons">
-                                                                            <a href="index3.html"
-                                                                                class="thm-btn home-showcase__buttons__item">
-                                                                                Multi
-                                                                                Page
-                                                                            </a>
-                                                                            <a href="index3-one-page.html"
-                                                                                class="thm-btn home-showcase__buttons__item">
-                                                                                One
-                                                                                Page
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.home-showcase__buttons -->
-                                                                    </div><!-- /.home-showcase__image -->
-                                                                    <h3 class="home-showcase__title">Home
-                                                                        Page
-                                                                        03
-                                                                    </h3><!-- /.home-showcase__title -->
-                                                                </div><!-- /.home-showcase__item -->
-                                                            </div><!-- /.col-lg-3 -->
-                                                            <div class="col-lg-3">
-                                                                <div class="home-showcase__item">
-                                                                    <div class="home-showcase__image">
-                                                                        <img src="assets/images/home-showcase/home-showcase-1-4.jpg"
-                                                                            alt="">
-                                                                        <div class="home-showcase__buttons">
-                                                                            <a href="index-dark.html"
-                                                                                class="thm-btn home-showcase__buttons__item">
-                                                                                View
-                                                                                Page
-                                                                            </a>
-                                                                        </div>
-                                                                        <!-- /.home-showcase__buttons -->
-                                                                    </div><!-- /.home-showcase__image -->
-                                                                    <h3 class="home-showcase__title">Dark Page
-                                                                    </h3><!-- /.home-showcase__title -->
-                                                                </div><!-- /.home-showcase__item -->
-                                                            </div><!-- /.col-lg-3 -->
-                                                        </div><!-- /.row -->
-                                                    </div><!-- /.home-showcase__inner -->
-
-                                                </div><!-- /.container -->
-                                            </section>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#">Pages</a>
-                                    <ul class="shadow-box">
-                                        <li class="dropdown"><a href="#">About</a>
-                                            <ul>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="history.html">History</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Staff</a>
-                                            <ul>
-                                                <li><a href="staff-v1.html">Staff V1</a></li>
-                                                <li><a href="staff-v2.html">Staff V2</a></li>
-                                                <li><a href="staff-v3.html">Staff V3</a></li>
-                                                <li><a href="staff-details.html">Staff Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Testimonials</a>
-                                            <ul>
-                                                <li><a href="testimonials-v1.html">Testimonials V1</a></li>
-                                                <li><a href="testimonials-v2.html">Testimonials V2</a></li>
-                                                <li><a href="testimonials-v3.html">Testimonials V3</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Events</a>
-                                            <ul>
-                                                <li><a href="events.html">Events</a></li>
-                                                <li><a href="event-details.html">Event Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Places</a>
-                                            <ul>
-                                                <li><a href="places.html">Places</a></li>
-                                                <li><a href="place-details.html">Place Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="gallery.html">Gallery</a></li>
-                                        <li><a href="offers.html">Offers</a></li>
-                                        <li><a href="pricing.html">Pricing</a></li>
-                                        <li><a href="spa.html">Spa</a></li>
-                                        <li><a href="restaurant.html">Restaurant</a></li>
-                                        <li><a href="faq.html">FAQs</a></li>
-                                        <li><a href="404.html">404 Error</a></li>
-                                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#">Services</a>
-                                    <ul class="shadow-box">
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="conference-room.html">Conference Room</a></li>
-                                        <li><a href="cleaning-everyday.html">Cleaning Everyday</a></li>
-                                        <li><a href="swimming-pool.html">Swimming Pool</a></li>
-                                        <li><a href="smart-key.html">Smart Key</a></li>
-                                        <li><a href="fitness-center.html">Fitness Center</a></li>
-                                        <li><a href="free-wi-fi-available.html">Free Wi-Fi Available</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#">Room</a>
-                                    <ul class="shadow-box">
-                                        <li><a href="rooms.html">Rooms</a></li>
-                                        <li><a href="room-list.html">Room List</a></li>
-                                        <li><a href="room-details.html">Room Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="#">Shop</a>
-                                    <ul class="shadow-box">
-                                        <li><a href="products.html">Products</a></li>
-                                        <li><a href="product-details.html">Product Details</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                        <li><a href="sign-up.html">Sign Up</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown menu-list-apper-right">
-                                    <a href="#">Blog</a>
-                                    <ul class="shadow-box">
-                                        <li class="dropdown"><a href="#">Blog</a>
-                                            <ul>
-                                                <li><a href="blog-1.html">Blog V1</a></li>
-                                                <li><a href="blog-2.html">Blog V2</a></li>
-                                                <li><a href="blog-3.html">Blog V3</a></li>
-                                                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                                <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Blog List</a>
-                                            <ul>
-                                                <li><a href="blog-list-left.html">Blog List Left</a></li>
-                                                <li><a href="blog-list-right.html">Blog List Right</a></li>
-                                                <li><a href="blog-list.html">Blog List No Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Blog Details</a>
-                                            <ul>
-                                                <li><a href="blog-details-left.html">Blog Details Left</a></li>
-                                                <li><a href="blog-details-right.html">Blog Details Right</a></li>
-                                                <li><a href="blog-details.html">Blog Details No Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">Contact</a>
-                                    <ul class="shadow-box">
-                                        <li><a href="our-location.html">Location</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="main-menu__right">
-                            <div class="main-menu__call">
-                                <div class="main-menu__call-icon">
-                                    <i class="icon-call"></i>
-                                </div>
-                                <div class="main-menu__call-content">
-                                    <p class="main-menu__call-sub-title">Call Anytime</p>
-                                    <h5 class="main-menu__call-number"><a href="tel:9288006780">+92 ( 8800 ) -
-                                            6780</a></h5>
+            <nav class="main-menu main-menu-three">
+                <div class="main-menu-three__wrapper">
+                    <div class="container">
+                        <div class="main-menu-three__wrapper-inner">
+                            <div class="main-menu-three__left">
+                                <div class="main-menu-three__logo">
+                                    <a href="index.html"><img src="assets/images/resources/logo-1.png" alt="Biosfera"></a>
                                 </div>
                             </div>
-                            <div class="main-menu__search-cart-box">
-                                <div class="main-menu__search-cart-box">
-                                    <div class="main-menu__search-box">
-                                        <a href="#"
-                                            class="main-menu__search searcher-toggler-box icon-search-interface-symbol"></a>
-                                    </div>
-                                    <div class="main-menu__cart-box">
-                                        <a href="cart.html" class="main-menu__cart">
-                                            <span class="far fa-shopping-cart"></span>
-                                            <span class="main-menu__cart-count">02</span>
+                            <div class="main-menu-three__main-menu-box">
+                                <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                                <ul class="main-menu__list">
+                                    <li><a href="index.html">Inicio</a></li>
+                                    <li class="dropdown">
+                                        <a href="#">Experiencias</a>
+                                        <ul class="shadow-box">
+                                            <li><a href="rooms.html">Glamping</a></li>
+                                            <li><a href="ocean-safari-nocturno.html">Ocean Safari Nocturno</a></li>
+                                            <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                            <li><a href="snorkel-bt.html">Snorkel BT</a></li>
+                                            <li><a href="sierra-laguna.html">Sierra Laguna</a></li>
+                                            <li><a href="places.html">Tours</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="services.html">Servicios</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li><a href="about.html">Nosotros</a></li>
+                                    <li><a href="eco.html">Eco</a></li>
+                                    <li><a href="coming-soon.html">Expansión</a></li>
+                                    <li><a href="contact.html">Contacto</a></li>
+                                    <li>
+                                        <a href="cart.html" class="biosfera-cart-nav" title="Mi carrito">
+                                            <i class="fa fa-shopping-cart" style="font-size:17px;color:#d6e8e2;"></i>
+                                            <span class="biosfera-cart-badge">0</span>
                                         </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="main-menu-three__right">
+                                <div class="main-menu-three__right-content">
+                                    <div class="main-menu-three__btn-box" id="nav-auth-box">
+                                        <a href="login.html" class="thm-btn">Iniciar sesión</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="main-menu__nav-sidebar-icon">
-                                <a class="navSidebar-button" href="#">
-                                    <span class="icon-dots-menu-one"></span>
-                                    <span class="icon-dots-menu-two"></span>
-                                    <span class="icon-dots-menu-three"></span>
-                                </a>
-                            </div>
-                            <div class="main-menu__btn-box">
-                                <a href="contact.html" class="thm-btn">Booking Online</a>
                             </div>
                         </div>
                     </div>
@@ -500,475 +369,135 @@
             </nav>
         </header>
 
-        <div class="stricky-header stricked-menu main-menu">
-            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-        </div><!-- /.stricky-header -->
+        <div class="stricky-header stricked-menu main-menu main-menu-three">
+            <div class="sticky-header__content"></div>
+        </div>
 
-
-
-        <!--Page Header Start-->
+        <!-- PAGE HEADER -->
         <section class="page-header">
-            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg);">
-            </div>
+            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg);"></div>
             <div class="container">
                 <div class="page-header__inner">
-                    <h3>Cart</h3>
+                    <h3>Mi Carrito</h3>
                     <div class="thm-breadcrumb__inner">
                         <ul class="thm-breadcrumb list-unstyled">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html">Inicio</a></li>
                             <li><span class="fas fa-angle-right"></span></li>
-                            <li>Cart</li>
+                            <li>Carrito</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
-        <!--Page Header End-->
 
-        <!--Start Cart Page-->
+        <!-- CART CONTENT -->
         <section class="cart-page">
             <div class="container">
-                <div class="row">
-                    <div class="col-xl-8 col-lg-7">
-                        <div class="cart-page__left">
-                            <div class="table-responsive">
-                                <table class="table cart-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Item</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Total</th>
-                                            <th>Remove</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
 
-                                        <tr>
-                                            <td>
-                                                <div class="product-box">
-                                                    <div class="img-box">
-                                                        <img src="assets/images/shop/cart-page-img-1.jpg" alt="">
-                                                    </div>
-                                                    <h3><a href="product-details.html">Gree Air Conditioner</a></h3>
-                                                </div>
-                                            </td>
-                                            <td>$10.99</td>
-                                            <td>
-                                                <div class="quantity-box">
-                                                    <button type="button" class="sub"><i
-                                                            class="fa fa-minus"></i></button>
-                                                    <input type="number" id="product-1" value="1" />
-                                                    <button type="button" class="add"><i
-                                                            class="fa fa-plus"></i></button>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                $10.99
-                                            </td>
-                                            <td>
-                                                <div class="cross-icon">
-                                                    <i class="fas fa-times"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div class="product-box">
-                                                    <div class="img-box">
-                                                        <img src="assets/images/shop/cart-page-img-2.jpg" alt="">
-                                                    </div>
-                                                    <h3><a href="product-details.html">Pliers | Cutting, Gripping</a>
-                                                    </h3>
-                                                </div>
-                                            </td>
-                                            <td>$10.99</td>
-                                            <td>
-                                                <div class="quantity-box">
-                                                    <button type="button" class="sub"><i
-                                                            class="fa fa-minus"></i></button>
-                                                    <input type="number" id="product-2" value="1" />
-                                                    <button type="button" class="add"><i
-                                                            class="fa fa-plus"></i></button>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                $10.99
-                                            </td>
-                                            <td>
-                                                <div class="cross-icon">
-                                                    <i class="fas fa-times"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div class="product-box">
-                                                    <div class="img-box">
-                                                        <img src="assets/images/shop/cart-page-img-3.jpg" alt="">
-                                                    </div>
-                                                    <h3><a href="product-details.html">Gear and wrench</a></h3>
-                                                </div>
-                                            </td>
-                                            <td>$10.99</td>
-                                            <td>
-                                                <div class="quantity-box">
-                                                    <button type="button" class="sub"><i
-                                                            class="fa fa-minus"></i></button>
-                                                    <input type="number" id="product-3" value="1" />
-                                                    <button type="button" class="add"><i
-                                                            class="fa fa-plus"></i></button>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                $10.99
-                                            </td>
-                                            <td>
-                                                <div class="cross-icon">
-                                                    <i class="fas fa-times"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>
-                                                <div class="product-box">
-                                                    <div class="img-box">
-                                                        <img src="assets/images/shop/cart-page-img-4.jpg" alt="">
-                                                    </div>
-                                                    <h3><a href="product-details.html">Nut Driver</a></h3>
-                                                </div>
-                                            </td>
-                                            <td>$10.99</td>
-                                            <td>
-                                                <div class="quantity-box">
-                                                    <button type="button" class="sub"><i
-                                                            class="fa fa-minus"></i></button>
-                                                    <input type="number" id="product-4" value="1" />
-                                                    <button type="button" class="add"><i
-                                                            class="fa fa-plus"></i></button>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                $10.99
-                                            </td>
-                                            <td>
-                                                <div class="cross-icon">
-                                                    <i class="fas fa-times"></i>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-5">
-                        <div class="cart-page__right">
-                            <div class="cart-page__sidebar">
-                                <div class="cart-page__shipping">
-                                    <h3 class="cart-page__shipping-title">Calculated Shipping</h3>
-                                    <form action="#" class="cart-page__shipping-form">
-                                        <div class="row">
-                                            <div class="col-xl-12">
-                                                <div class="cart-page__shipping-input-box">
-                                                    <div class="select-box">
-                                                        <select class="wide">
-                                                            <option data-display="Country">Country</option>
-                                                            <option value="1">Ban</option>
-                                                            <option value="2">Ind</option>
-                                                            <option value="3">Pak</option>
-                                                            <option value="3">USA</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                                <div class="cart-page__shipping-input-box">
-                                                    <div class="select-box">
-                                                        <select class="wide">
-                                                            <option data-display="State/City">State/City</option>
-                                                            <option value="1">Ban</option>
-                                                            <option value="2">Ind</option>
-                                                            <option value="3">Pak</option>
-                                                            <option value="3">USA</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6">
-                                                <div class="cart-page__shipping-input-box">
-                                                    <input type="text" placeholder="Zip Code">
-                                                </div>
-                                            </div>
-                                            <div class="cart-page__btn-box">
-                                                <button type="submit" class="thm-btn">
-                                                    Update
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="cart-page__coupon-code">
-                                    <h3 class="cart-page__coupon-code-title">Coupon Code</h3>
-                                    <p class="cart-page__coupon-code-text">I must explain to you how all this mistaken
-                                        idea of denouncing pleasure and praising pain was born</p>
-                                    <form action="#" class="default-form cart-page__coupon-code-form">
-                                        <input type="text" placeholder="Enter Coupon Code">
-                                        <button class="thm-btn" type="submit">
-                                            Apply Coupon
-                                        </button>
-                                    </form>
-                                </div>
-                                <div class="cart-page__cart-total">
-                                    <ul class="cart-total list-unstyled">
-                                        <li>
-                                            <span>Cart Subtotal</span>
-                                            <span>$20.98 USD </span>
-                                        </li>
-                                        <li>
-                                            <span>Shipping Cost</span>
-                                            <span>-$40.00 USD</span>
-                                        </li>
-                                        <li>
-                                            <span>Discount</span>
-                                            <span>$0.00 USD</span>
-                                        </li>
-                                        <li>
-                                            <span>Cart Total</span>
-                                            <span class="cart-total-amount">$20.98 USD</span>
-                                        </li>
-                                    </ul>
-                                    <div class="cart-page__buttons">
-                                        <div class="cart-page__buttons-1">
-                                            <a class="thm-btn" href="checkout.html">Update</a>
-                                        </div>
-                                        <div class="cart-page__buttons-2">
-                                            <a href="checkout.html" class="thm-btn">
-                                                Checkout
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="cart-header" data-aos="fade-up">
+                    <p class="cart-header__label">Tu selección</p>
+                    <h2 class="cart-header__title">Revisa tu <span>carrito.</span></h2>
                 </div>
+
+
+                <!-- Carrito vacío -->
+                <div class="cart-empty" id="cart-empty">
+                    <div class="cart-empty__icon">🛒</div>
+                    <h3 class="cart-empty__title">Tu carrito está vacío</h3>
+                    <p class="cart-empty__sub">Explora nuestras experiencias y añade las que quieras a tu carrito.</p>
+                    <a href="index.html#experiencias" class="cart-empty__btn">
+                        <i class="fa fa-compass"></i> Ver experiencias
+                    </a>
+                </div>
+
+                <!-- Layout carrito con items -->
+                <div class="cart-layout" id="cart-layout" style="display:none;">
+
+                    <!-- Columna items -->
+                    <div>
+                        <div class="cart-items" id="cart-items-list"></div>
+                    </div>
+
+                    <!-- Columna resumen -->
+                    <div class="cart-summary-box">
+                        <h3 class="cart-summary-box__title">Resumen</h3>
+                        <div id="cart-sum-rows"></div>
+                        <div class="cart-sum-total">
+                            <span class="cart-sum-total__label">Total</span>
+                            <span class="cart-sum-total__amount" id="cart-grand-total">$0 MXN</span>
+                        </div>
+                        <!-- Datos del cliente -->
+                        <div class="cart-customer-form" id="cart-customer-form">
+                            <p class="cart-customer-form__title">Tus datos de contacto</p>
+                            <div class="cart-form-field">
+                                <label>Nombre completo *</label>
+                                <input type="text" id="cf-name" placeholder="Juan García" autocomplete="name" />
+                            </div>
+                            <div class="cart-form-field">
+                                <label>Correo electrónico *</label>
+                                <input type="email" id="cf-email" placeholder="juan@ejemplo.com" autocomplete="email" />
+                            </div>
+                            <div class="cart-form-field">
+                                <label>Teléfono (opcional)</label>
+                                <input type="tel" id="cf-phone" placeholder="+52 612 000 0000" autocomplete="tel" />
+                            </div>
+                        </div>
+
+                        <button class="cart-checkout-btn" id="cart-checkout-btn">
+                            <span class="btn-spinner"></span>
+                            <span class="btn-text"><i class="fa fa-lock"></i> Ir a pagar</span>
+                        </button>
+                        <a href="index.html#experiencias" class="cart-add-more">
+                            <i class="fa fa-plus"></i> Añadir otra experiencia
+                        </a>
+                        <p class="cart-note">
+                            <i class="fa fa-info-circle"></i>
+                            Al continuar aceptas nuestras políticas de reservación. Cancelación gratuita hasta 7 días antes.
+                        </p>
+                    </div>
+
+                </div>
+
             </div>
         </section>
-        <!--End Cart Page-->
 
-        <!--Gallery One Start -->
-        <section class="gallery-one">
-            <div class="gallery-one__carousel swiper-container">
-                <div class="swiper-wrapper">
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-1.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-2.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-3.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-4.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-5.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-6.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-7.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-8.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                    <!--Gallery One Single Start-->
-                    <div class="swiper-slide">
-                        <div class="gallery-one__single">
-                            <div class="gallery-one__img">
-                                <img src="assets/images/gallery/gallery-1-9.jpg" alt="">
-                                <a href="gallery.html"><span class="fab fa-instagram"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gallery One Single End-->
-                </div>
-            </div>
-        </section>
-        <!--Gallery One End -->
-
-        <!--Site Footer Start-->
+        <!-- FOOTER -->
         <footer class="site-footer">
-            <div class="site-footer__shape-bg"
-                style="background-image: url(assets/images/shapes/site-footer-bg-shape.png);"></div>
+            <div class="site-footer__shape-bg" style="background-image: url(assets/images/shapes/site-footer-bg-shape.png);"></div>
             <div class="container">
-                <div class="site-footer__top">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="footer-widget__column footer-widget__newsletter">
-                                <h3 class="footer-widget__newsletter-title">Subscribe To Our Newsletter To<br>
-                                    Get
-                                    Latest Update</h3>
-                                <form class="footer-widget__newsletter-form contact-form-validated"
-                                    action="assets/inc/sendemail.php" method="POST">
-                                    <div class="footer-widget__newsletter-form-input-box">
-                                        <input type="email" placeholder="Enter email" name="email">
-                                    </div>
-                                    <button type="submit"
-                                        class="footer-widget__newsletter-btn thm-btn">Subscribe</button>
-                                    <div class="result"></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="site-footer__middle">
                     <div class="row">
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="col-xl-3 col-lg-6 col-md-6">
                             <div class="footer-widget__column footer-widget__about">
                                 <div class="footer-widget__logo">
-                                    <a href="index.html"><img src="assets/images/resources/footer-logo.png" alt=""></a>
+                                    <a href="index.html"><img src="assets/images/resources/footer-logo.png" alt="Biosfera"></a>
                                 </div>
-                                <p class="footer-widget__about-text">Secure other greater pleasures, or else he
-                                    endures
-                                    pains to avoid worse pains selection </p>
-                                <div class="site-footer__social">
-                                    <a href="#"><i class="icon-facebook-app-symbol"></i></a>
-                                    <a href="#"><i class="icon-twitter"></i></a>
-                                    <a href="#"><i class="icon-instagram"></i></a>
-                                    <a href="#"><i class="icon-pinterest"></i></a>
-                                </div>
+                                <p class="footer-widget__about-text">Eco glamping y experiencias en la naturaleza en Bahía Turquesa.</p>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="col-xl-3 col-lg-6 col-md-6">
                             <div class="footer-widget__column footer-widget__usefull-link">
-                                <div class="footer-widget__title-box">
-                                    <h3 class="footer-widget__title">Quick Links</h3>
-                                </div>
-                                <div class="footer-widget__link-box">
-                                    <ul class="footer-widget__link list-unstyled">
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="gallery.html">Our Gallery</a></li>
-                                        <li><a href="faq.html">Help & FAQs</a></li>
-                                        <li><a href="blog-1.html">Blog</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
-                            <div class="footer-widget__column footer-widget__services">
-                                <div class="footer-widget__title-box">
-                                    <h3 class="footer-widget__title">Our Services</h3>
-                                </div>
+                                <div class="footer-widget__title-box"><h3 class="footer-widget__title">Experiencias</h3></div>
                                 <ul class="footer-widget__link list-unstyled">
-                                    <li><a href="contact.html">24/7 Front Desk</a>
-                                    </li>
-                                    <li><a href="about.html">Parking</a>
-                                    </li>
-                                    <li><a href="conference-room.html">Room Service</a></li>
-                                    <li><a href="spa.html">Spa & Wellness</a></li>
-                                    <li><a href="spa.html">Concierge Service</a>
-                                    </li>
+                                    <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                    <li><a href="snorkel-bt.html">Snorkel BT</a></li>
+                                    <li><a href="ocean-safari-nocturno.html">Safari Nocturno</a></li>
+                                    <li><a href="sierra-laguna.html">Sierra Laguna</a></li>
+                                    <li><a href="rooms.html">Eco Glamping</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                        <div class="col-xl-3 col-lg-6 col-md-6">
                             <div class="footer-widget__contact-box">
-                                <div class="footer-widget__title-box">
-                                    <h3 class="footer-widget__title">Official info</h3>
-                                </div>
+                                <div class="footer-widget__title-box"><h3 class="footer-widget__title">Contacto</h3></div>
                                 <ul class="footer-widget__contact list-unstyled">
                                     <li>
-                                        <div class="icon">
-                                            <span class="icon-call"></span>
-                                        </div>
-                                        <div class="content">
-                                            <p><a href="tel:885747546027">(88) 574 7546 027</a></p>
-                                            <p><a href="tel:885747546027">(88) 574 7546 027</a></p>
-                                        </div>
+                                        <div class="icon"><span class="icon-call"></span></div>
+                                        <div class="content"><p><a href="tel:+526121020266">+52 612 102 0266</a></p></div>
                                     </li>
                                     <li>
-                                        <div class="icon">
-                                            <span class="icon-mail"></span>
-                                        </div>
-                                        <div class="content">
-                                            <p><a href="mailto:example@gmail.com">example@gmail.com</a>
-                                            </p>
-                                            <p><a href="mailto:example@gmail.com">example@gmail.com</a>
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <span class="icon-pin"></span>
-                                        </div>
-                                        <div class="content">
-                                            <p>4517 Washington Ave. Manchester, 95</p>
-                                        </div>
+                                        <div class="icon"><span class="icon-mail"></span></div>
+                                        <div class="content"><p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p></div>
                                     </li>
                                 </ul>
                             </div>
@@ -979,118 +508,237 @@
             <div class="site-footer__bottom">
                 <div class="container">
                     <div class="site-footer__bottom-inner">
-                        <p class="site-footer__bottom-text">© Copywright 2025 by <a
-                                href="https://themeforest.net/user/dreamlayout"> Dreamlayout.</a> All Rights
-                            Reserved.</p>
-                        <ul class="list-unstyled site-footer__bottom-menu">
-                            <li><a href="contact.html">Support</a></li>
-                            <li><a href="about.html">Terms and Condition</a></li>
-                            <li><a href="about.html">Privacy and Policy</a></li>
-                        </ul>
+                        <p class="site-footer__bottom-text">© 2026 <a href="index.html">Biosfera Bahía Turquesa</a>. Todos los derechos reservados.</p>
                     </div>
                 </div>
             </div>
         </footer>
-        <!--Site Footer End-->
-
-
-
-
 
     </div><!-- /.page-wrapper -->
 
-
+    <!-- Mobile nav -->
     <div class="mobile-nav__wrapper">
         <div class="mobile-nav__overlay mobile-nav__toggler"></div>
-        <!-- /.mobile-nav__overlay -->
         <div class="mobile-nav__content">
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
-            <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="assets/images/resources/logo-3.png" width="140"
-                        alt="" /></a>
-            </div>
-            <!-- /.logo-box -->
+            <div class="logo-box"><a href="index.html"><img src="assets/images/resources/logo-3.png" width="140" alt="Biosfera" /></a></div>
             <div class="mobile-nav__container"></div>
-            <!-- /.mobile-nav__container -->
-
-            <ul class="mobile-nav__contact list-unstyled">
-                <li>
-                    <i class="fa fa-envelope"></i>
-                    <a href="mailto:needhelp@packageName__.com">needhelp@Hotelux.com</a>
-                </li>
-                <li>
-                    <i class="fas fa-phone"></i>
-                    <a href="tel:666-888-0000">666 888 0000</a>
-                </li>
-            </ul><!-- /.mobile-nav__contact -->
-            <div class="mobile-nav__top">
-                <div class="mobile-nav__social">
-                    <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-facebook-square"></a>
-                    <a href="#" class="fab fa-pinterest-p"></a>
-                    <a href="#" class="fab fa-instagram"></a>
-                </div><!-- /.mobile-nav__social -->
-            </div><!-- /.mobile-nav__top -->
-
         </div>
-        <!-- /.mobile-nav__content -->
     </div>
-    <!-- /.mobile-nav__wrapper -->
-
-
-
-    <!-- Search Popup -->
-    <div class="search-popup">
-        <div class="color-layer"></div>
-        <button class="close-search"><span class="far fa-times fa-fw"></span></button>
-        <form method="post" action="blog.html">
-            <div class="form-group">
-                <input type="search" name="search-field" value="" placeholder="Search Here" required="">
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </div>
-        </form>
-    </div>
-    <!-- End Search Popup -->
-
-
 
     <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
         <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
-        <span class="scroll-to-top__text"> Go Back Top</span>
+        <span class="scroll-to-top__text">Ir arriba</span>
     </a>
 
-
+    <!-- Scripts -->
     <script src="assets/js/jquery-latest.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/jarallax.min.js"></script>
-    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
-    <script src="assets/js/jquery.appear.min.js"></script>
-    <script src="assets/js/swiper.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/jquery.validate.min.js"></script>
-    <script src="assets/js/wNumb.min.js"></script>
     <script src="assets/js/wow.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery-ui.js"></script>
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    <script src="assets/js/marquee.min.js"></script>
-    <script src="assets/js/countdown.min.js"></script>
     <script src="assets/js/jquery-sidebar-content.js"></script>
     <script src="assets/js/aos.js"></script>
-    <script src="assets/js/odometer.min.js"></script>
-    <script src="assets/js/vegas.min.js"></script>
-
-
-    <script src="assets/js/gsap/gsap.js"></script>
-    <script src="assets/js/gsap/ScrollTrigger.js"></script>
-    <script src="assets/js/gsap/SplitText.js"></script>
-
-
-
-
-    <!-- template js -->
     <script src="assets/js/script.js"></script>
-</body>
+    <script src="assets/js/biosfera-cart.js"></script>
 
+    <script>
+    /* ─────────────────────────────────────────────────────────────────────
+       CARRITO — El DOM ya está completamente listo aquí (bottom of body)
+    ───────────────────────────────────────────────────────────────────── */
+    (function () {
+        var CART_KEY = 'biosfera_cart';
+        var API_BASE = 'http://localhost:8080';
+
+        /* helpers */
+        function getItems() {
+            try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+            catch (e) { return []; }
+        }
+        function fmt(n) {
+            return Number(n || 0).toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+        function sumAll(items) {
+            return items.reduce(function (s, i) { return s + (Number(i.total) || 0); }, 0);
+        }
+
+        /* remove */
+        function removeItem(cartId) {
+            var items = getItems().filter(function (i) { return i.cartId !== cartId; });
+            localStorage.setItem(CART_KEY, JSON.stringify(items));
+            if (typeof BiosferaCart !== 'undefined') BiosferaCart.updateBadges();
+            render();
+        }
+        window.__cartRemove = function (cartId) { removeItem(cartId); };
+
+        /* render */
+        function render() {
+            var items     = getItems();
+            var emptyEl   = document.getElementById('cart-empty');
+            var layoutEl  = document.getElementById('cart-layout');
+            var listEl    = document.getElementById('cart-items-list');
+            var sumRowsEl = document.getElementById('cart-sum-rows');
+            var totalEl   = document.getElementById('cart-grand-total');
+
+            if (!emptyEl || !layoutEl || !listEl) {
+                setTimeout(render, 50);
+                return;
+            }
+
+            if (items.length === 0) {
+                emptyEl.style.display  = 'block';
+                layoutEl.style.display = 'none';
+                return;
+            }
+
+            emptyEl.style.display  = 'none';
+            layoutEl.style.display = 'grid';
+
+            listEl.innerHTML = items.map(function (it) {
+                var g = it.guests || 1;
+                var name = it.name || it.type || 'Experiencia';
+                var fecha = it.dateFormatted || it.date || '—';
+                return [
+                    '<div class="cart-item">',
+                      '<div class="cart-item__emoji">' + (it.icon || '🎫') + '</div>',
+                      '<div class="cart-item__body">',
+                        '<p class="cart-item__name">' + name + '</p>',
+                        '<p class="cart-item__sub">' + (it.subtitle || '') + '</p>',
+                        '<div class="cart-item__details">',
+                          '<div class="cart-item__detail"><label>Fecha</label><span>' + fecha + '</span></div>',
+                          '<div class="cart-item__detail"><label>Personas</label><span>' + g + ' persona' + (g !== 1 ? 's' : '') + '</span></div>',
+                          '<div class="cart-item__detail"><label>Precio&nbsp;c/u</label><span>$' + fmt(it.pricePerSession) + '&nbsp;MXN</span></div>',
+                          '<div class="cart-item__detail"><label>Total</label><span class="cart-item__total-val">$' + fmt(it.total) + '&nbsp;MXN</span></div>',
+                        '</div>',
+                      '</div>',
+                      '<button class="cart-item__remove" onclick="window.__cartRemove(\'' + it.cartId + '\')" title="Eliminar">',
+                        '<i class="fa fa-trash"></i>',
+                      '</button>',
+                    '</div>'
+                ].join('');
+            }).join('');
+
+            sumRowsEl.innerHTML = items.map(function (it) {
+                var fecha = it.dateFormatted || it.date || '';
+                return '<div class="cart-sum-row">' +
+                    '<span>' + (it.icon || '') + ' ' + (it.name || it.type || '') +
+                    ' <small style="color:#c0c8b8">(' + fecha + ')</small></span>' +
+                    '<strong>$' + fmt(it.total) + '</strong>' +
+                    '</div>';
+            }).join('');
+
+            if (totalEl) totalEl.textContent = '$' + fmt(sumAll(items)) + ' MXN';
+        }
+
+        /* checkout button */
+        var btn = document.getElementById('cart-checkout-btn');
+        if (btn) {
+            btn.addEventListener('click', function () {
+                var items   = getItems();
+                if (!items.length) return;
+
+                var nameEl  = document.getElementById('cf-name');
+                var emailEl = document.getElementById('cf-email');
+                var phoneEl = document.getElementById('cf-phone');
+                var valid   = true;
+
+                if (nameEl)  nameEl.classList.remove('error');
+                if (emailEl) emailEl.classList.remove('error');
+
+                if (!nameEl || !nameEl.value.trim()) {
+                    if (nameEl) { nameEl.classList.add('error'); nameEl.focus(); }
+                    valid = false;
+                }
+                if (!emailEl || !emailEl.value.trim() || emailEl.value.indexOf('@') < 0) {
+                    if (emailEl) { emailEl.classList.add('error'); if (valid) emailEl.focus(); }
+                    valid = false;
+                }
+                if (!valid) return;
+
+                btn.classList.add('loading');
+                btn.disabled = true;
+                var btnText = btn.querySelector('.btn-text');
+                if (btnText) btnText.textContent = 'Procesando…';
+
+                var payload = {
+                    customerName:  nameEl.value.trim(),
+                    customerEmail: emailEl.value.trim(),
+                    customerPhone: (phoneEl && phoneEl.value.trim()) || null,
+                    items: items.map(function (i) {
+                        return { experienceId: i.experienceId, date: i.date, guests: i.guests };
+                    })
+                };
+
+                // Helper: lee la respuesta y lanza un error descriptivo si no es OK
+                function checkResponse(r, label) {
+                    if (r.ok) return r.json();
+                    return r.text().then(function (text) {
+                        var msg = 'HTTP ' + r.status;
+                        try { msg = JSON.parse(text).message || JSON.parse(text).error || msg; } catch (e) {}
+                        throw new Error(label + ': ' + msg);
+                    });
+                }
+
+                // Paso 1: crear la orden
+                fetch(API_BASE + '/orders', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                .then(function (r) { return checkResponse(r, 'No se pudo crear la orden'); })
+                // Paso 2: crear preferencia de pago en Mercado Pago
+                .then(function (order) {
+                    localStorage.removeItem(CART_KEY);
+                    if (typeof BiosferaCart !== 'undefined') BiosferaCart.updateBadges();
+                    return fetch(API_BASE + '/orders/' + order.orderId + '/payment', { method: 'POST' })
+                        .then(function (r) { return checkResponse(r, 'No se pudo iniciar el pago'); });
+                })
+                // Paso 3: redirigir directo a Mercado Pago
+                .then(function (data) {
+                    if (!data.initPoint) throw new Error('No se recibió URL de pago de Mercado Pago');
+                    window.location.href = data.initPoint;
+                })
+                .catch(function (err) {
+                    var btnText = btn.querySelector('.btn-text');
+                    if (btnText) { btnText.innerHTML = '<i class="fa fa-lock"></i> Ir a pagar'; }
+                    btn.classList.remove('loading');
+                    btn.disabled = false;
+                    alert('❌ ' + err.message);
+                });
+            });
+        }
+
+        /* primera carga */
+        render();
+
+        /* sincronización entre pestañas */
+        window.addEventListener('storage', function (e) {
+            if (e.key === CART_KEY) render();
+        });
+    })();
+
+    /* ── AOS ─────────────────────────────────────────────────────────── */
+    if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true });
+
+    /* ── Auth navbar ─────────────────────────────────────────────────── */
+    (function () {
+        try {
+            var token = localStorage.getItem('biosfera_token');
+            var name  = localStorage.getItem('biosfera_name');
+            var box   = document.getElementById('nav-auth-box');
+            if (!box || !token || !name) return;
+            box.innerHTML =
+                '<span style="color:#fff;font-size:13px;margin-right:10px;">Hola, ' + name.split(' ')[0] + '</span>' +
+                '<a href="mis-reservas.html" class="thm-btn" style="margin-right:8px;">Mis Reservas</a>' +
+                '<a href="#" class="thm-btn" style="background:#c26a3a;" id="nav-logout-btn">Salir</a>';
+            var lb = document.getElementById('nav-logout-btn');
+            if (lb) lb.addEventListener('click', function (e) {
+                e.preventDefault();
+                localStorage.removeItem('biosfera_token');
+                localStorage.removeItem('biosfera_name');
+                location.reload();
+            });
+        } catch (e) {}
+    })();
+    </script>
+
+</body>
 </html>

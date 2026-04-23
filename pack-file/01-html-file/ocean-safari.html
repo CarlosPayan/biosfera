@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
     <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
-    <meta name="description" content="Ocean Safari — Expedición marina de 3 horas con avistamiento de delfines, mantas rayas y snorkel. Biosfera Bahía Turquesa." />
+    <meta name="description" content="Ocean Safari — Expedición marina de 6 horas con avistamiento de delfines, mantas rayas y snorkel. Biosfera Bahía Turquesa." />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,9 +39,116 @@
     <!-- Template styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/biosfera-colors.css" />
 
     <!-- Ocean Safari page styles -->
     <style>
+        /* ══════════════════════════════════════════════════════
+           VIDEO HERO
+        ══════════════════════════════════════════════════════ */
+        .os-video-hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 560px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .os-video-hero__video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            transition: opacity .8s ease;
+        }
+        .os-video-hero__video.os-video-fade {
+            opacity: 0;
+        }
+        .os-video-hero__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0,10,30,.35) 0%,
+                rgba(0,20,50,.55) 60%,
+                rgba(0,10,30,.75) 100%
+            );
+            z-index: 1;
+        }
+        .os-video-hero__content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+        .os-video-hero__label {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,.75);
+            margin-bottom: 16px;
+        }
+        .os-video-hero__title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(52px, 8vw, 110px);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -1px;
+            color: #fff;
+            margin: 0 0 22px;
+            text-shadow: 0 4px 24px rgba(0,0,0,.4);
+        }
+        .os-video-hero__tagline {
+            font-size: clamp(16px, 2.2vw, 22px);
+            font-weight: 300;
+            line-height: 1.6;
+            color: rgba(255,255,255,.9);
+            max-width: 560px;
+            margin: 0 auto 32px;
+            font-style: italic;
+        }
+        /* Dots indicadores */
+        .os-video-hero__dots {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .os-hero-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.4);
+            cursor: pointer;
+            transition: background .3s, transform .3s;
+        }
+        .os-hero-dot.active {
+            background: #fff;
+            transform: scale(1.35);
+        }
+        /* Scroll arrow */
+        .os-video-hero__scroll {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: rgba(255,255,255,.7);
+            font-size: 22px;
+            animation: os-bounce 1.8s ease-in-out infinite;
+        }
+        @keyframes os-bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50%       { transform: translateX(-50%) translateY(8px); }
+        }
+        @media (max-width: 768px) {
+            .os-video-hero { height: 80vh; }
+        }
+
         /* ── Ocean Safari hero accent ───────────────────────── */
         .os-hero-badge {
             display: inline-block;
@@ -79,7 +186,7 @@
             color: #fff; font-size: 15px;
         }
         .os-feature-text { flex: 1; }
-        .os-feature-text strong { display: block; font-size: 13px; color: #1a1a2e; margin-bottom: 2px; }
+        .os-feature-text strong { display: block; font-size: 13px; color: #1c2e25; margin-bottom: 2px; }
         .os-feature-text span  { font-size: 12px; color: #555; }
 
         .os-departures {
@@ -102,6 +209,42 @@
         }
         .os-departure-slot small { display: block; font-size: 11px; font-weight: 400; opacity: .8; margin-top: 2px; }
 
+        /* ── Safari nature note ──────────────────────────────── */
+        .os-safari-note {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: linear-gradient(135deg, #fdf6e3 0%, #fff8e8 100%);
+            border: 1px solid #e8c96a;
+            border-left: 4px solid #c8962a;
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-top: 20px;
+        }
+        .os-safari-note__icon {
+            flex-shrink: 0;
+            width: 38px; height: 38px;
+            background: #c8962a;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+            font-size: 16px;
+        }
+        .os-safari-note__text { flex: 1; }
+        .os-safari-note__text strong {
+            display: block;
+            font-size: 13px;
+            color: #7a5500;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+        }
+        .os-safari-note__text span {
+            font-size: 13px;
+            color: #6b4e00;
+            line-height: 1.6;
+        }
+
         /* ── Availability form box ───────────────────────────── */
         .os-avail-box {
             background: #fff;
@@ -111,7 +254,7 @@
             box-shadow: 0 8px 32px rgba(0,119,182,.1);
         }
         .os-avail-box h3 {
-            font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px;
+            font-size: 20px; font-weight: 700; color: #1c2e25; margin-bottom: 6px;
         }
         .os-avail-box .os-avail-subtitle {
             font-size: 13px; color: #0077b6; margin-bottom: 22px;
@@ -150,7 +293,7 @@
         }
 
         .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-        .cal-title  { font-size: 20px; font-weight: 700; color: #1a1a2e; margin: 0; }
+        .cal-title  { font-size: 20px; font-weight: 700; color: #1c2e25; margin: 0; }
         .cal-close  { background: none; border: none; font-size: 26px; cursor: pointer; color: #666; line-height: 1; }
         .cal-close:hover { color: #000; }
 
@@ -171,8 +314,8 @@
             width: 32px; height: 32px; cursor: pointer; font-size: 20px; line-height: 1;
             color: #555; transition: all .2s;
         }
-        .cal-nav-btn:hover { background: #b8976a; border-color: #b8976a; color: #fff; }
-        .cal-month-label { font-size: 16px; font-weight: 600; color: #1a1a2e; min-width: 180px; text-align: center; }
+        .cal-nav-btn:hover { background: #5a8f7b; border-color: #5a8f7b; color: #fff; }
+        .cal-month-label { font-size: 16px; font-weight: 600; color: #1c2e25; min-width: 180px; text-align: center; }
 
         .cal-hint { font-size: 12px; color: #999; text-align: center; padding: 8px 0; margin: 0; }
 
@@ -226,11 +369,79 @@
             margin-bottom: 14px;
         }
         .cal-summary-item label { font-size: 11px; color: #888; text-transform: uppercase; display: block; margin-bottom: 2px; }
-        .cal-summary-item span  { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+        .cal-summary-item span  { font-size: 15px; font-weight: 700; color: #1c2e25; }
         .cal-summary-total { font-size: 22px; font-weight: 800; color: #0077b6; }
         .cal-summary-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
         .cal-btn-clear { background: none; border: 1px solid #ccc; border-radius: 5px; padding: 8px 16px; cursor: pointer; font-size: 13px; color: #666; }
         .cal-btn-clear:hover { border-color: #999; color: #333; }
+
+        /* ── Nuevos botones de carrito ──────────────────────── */
+        .cal-btn-cart {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: linear-gradient(135deg, #5a8f7b, #6b7c4a);
+            color: #fff; font-size: 14px; font-weight: 700;
+            padding: 11px 22px; border-radius: 8px; border: none;
+            cursor: pointer; transition: opacity .2s, transform .2s;
+        }
+        .cal-btn-cart:hover { opacity: .88; transform: translateY(-1px); }
+        .cal-btn-go-cart {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: #1c2e25; color: #fff;
+            font-size: 13px; font-weight: 700;
+            padding: 10px 18px; border-radius: 8px; border: none;
+            cursor: pointer; text-decoration: none;
+            transition: background .2s;
+        }
+        .cal-btn-go-cart:hover { background: #2d4a35; color: #fff; text-decoration: none; }
+        .cal-btn-more {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: none; border: 1.5px solid #5a8f7b;
+            color: #5a8f7b; font-size: 13px; font-weight: 700;
+            padding: 9px 16px; border-radius: 8px;
+            cursor: pointer; transition: background .2s, color .2s;
+        }
+        .cal-btn-more:hover { background: #5a8f7b; color: #fff; }
+
+        /* ── Toast confirmación ─────────────────────────────── */
+        #cart-toast {
+            position: fixed; bottom: 28px; right: 28px; z-index: 99999;
+            background: #1c2e25; color: #fff;
+            border-radius: 14px; padding: 16px 22px;
+            display: flex; align-items: center; gap: 14px;
+            box-shadow: 0 8px 32px rgba(0,0,0,.25);
+            transform: translateY(20px); opacity: 0;
+            transition: opacity .3s, transform .3s;
+            pointer-events: none; max-width: 340px;
+        }
+        #cart-toast.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        #cart-toast .toast-icon { font-size: 28px; flex-shrink: 0; }
+        #cart-toast .toast-body p { margin: 0; font-size: 13px; }
+        #cart-toast .toast-body strong { font-size: 14px; }
+        #cart-toast .toast-actions { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+        #cart-toast .toast-btn-cart {
+            font-size: 12px; font-weight: 700; padding: 6px 14px;
+            background: #5a8f7b; color: #fff; border-radius: 20px;
+            border: none; cursor: pointer; text-decoration: none;
+        }
+        #cart-toast .toast-btn-more {
+            font-size: 12px; font-weight: 700; padding: 6px 14px;
+            background: rgba(255,255,255,.1); color: #fff; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,.25); cursor: pointer; text-decoration: none;
+        }
+
+        /* ── Badge carrito en navbar ────────────────────────── */
+        .biosfera-cart-nav {
+            position: relative; display: inline-flex;
+            align-items: center; text-decoration: none;
+        }
+        .biosfera-cart-badge {
+            position: absolute; top: -8px; right: -10px;
+            width: 18px; height: 18px; border-radius: 50%;
+            background: #e74c3c; color: #fff;
+            font-size: 10px; font-weight: 800;
+            display: none; align-items: center; justify-content: center;
+            border: 2px solid #1c2e25;
+        }
 
         /* Auth dropdown */
         .biosfera-user-menu { position: relative; display: inline-block; }
@@ -245,7 +456,7 @@
             display: block; padding: 10px 16px; color: #333;
             font-size: 14px; text-decoration: none; transition: background .15s;
         }
-        .biosfera-user-dropdown li a:hover { background: #f5f5f5; color: #b8976a; }
+        .biosfera-user-dropdown li a:hover { background: #f5f5f5; color: #5a8f7b; }
 
         /* Error/info states */
         .os-api-error {
@@ -333,8 +544,8 @@
                                 <h4>Contacto</h4>
                                 <ul class="list-unstyled">
                                     <li><span class="icon-pin"></span> Bahía Turquesa, México</li>
-                                    <li><span class="icon-call"></span><a href="tel:+521550000000">+52 155 000 0000</a></li>
-                                    <li><span class="icon-mail"></span><a href="mailto:hola@biosfera.mx">hola@biosfera.mx</a></li>
+                                    <li><span class="icon-call"></span><a href="tel:+526121020266">+52 612 102 0266</a></li>
+                                    <li><span class="icon-mail"></span><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></li>
                                 </ul>
                             </div>
                             <div class="thm-social-link1">
@@ -362,11 +573,11 @@
                         <ul class="list-unstyled main-menu-three__contact-list">
                             <li>
                                 <div class="icon"><i class="icon-call"></i></div>
-                                <div class="text"><p><a href="tel:+521550000000">+52 155 000 0000</a></p></div>
+                                <div class="text"><p><a href="tel:+526121020266">+52 612 102 0266</a></p></div>
                             </li>
                             <li>
                                 <div class="icon"><i class="icon-mail"></i></div>
-                                <div class="text"><p><a href="mailto:hola@biosfera.mx">hola@biosfera.mx</a></p></div>
+                                <div class="text"><p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p></div>
                             </li>
                         </ul>
                         <div class="main-menu-three__top-right">
@@ -398,23 +609,26 @@
                                         <a href="#">Experiencias</a>
                                         <ul class="shadow-box">
                                             <li><a href="rooms.html">Glamping</a></li>
+                                            <li><a href="ocean-safari-nocturno.html">Ocean Safari Nocturno</a></li>
                                             <li><a href="ocean-safari.html">Ocean Safari</a></li>
+                                            <li><a href="snorkel-bt.html">Snorkel BT</a></li>
+                                            <li><a href="sierra-laguna.html">Sierra Laguna</a></li>
                                             <li><a href="places.html">Tours</a></li>
-                                            <li><a href="services.html">Snorkel</a></li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown">
-                                        <a href="#">Servicios</a>
-                                        <ul class="shadow-box">
-                                            <li><a href="services.html">Todos los Servicios</a></li>
-                                            <li><a href="restaurant.html">Restaurante</a></li>
-                                            <li><a href="spa.html">Spa</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="services.html">Servicios</a></li>
                                     <li><a href="events.html">Eventos</a></li>
                                     <li><a href="faq.html">FAQ</a></li>
                                     <li><a href="about.html">Nosotros</a></li>
+                                    <li><a href="eco.html">Eco</a></li>
                                     <li><a href="coming-soon.html">Expansión</a></li>
+                                    <li><a href="contact.html">Contacto</a></li>
+                                    <li>
+                                        <a href="cart.html" class="biosfera-cart-nav" title="Mi carrito">
+                                            <i class="fa fa-shopping-cart" style="font-size:17px;color:#d6e8e2;"></i>
+                                            <span class="biosfera-cart-badge">0</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="main-menu-three__right">
@@ -439,23 +653,36 @@
             <div class="sticky-header__content"></div>
         </div>
 
-        <!-- ══════════════ PAGE HEADER ══════════════ -->
-        <section class="page-header">
-            <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg);"></div>
-            <div class="container">
-                <div class="page-header__inner">
-                    <h3>Ocean Safari</h3>
-                    <div class="thm-breadcrumb__inner">
-                        <ul class="thm-breadcrumb list-unstyled">
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><span class="fas fa-angle-right"></span></li>
-                            <li><a href="#">Experiencias</a></li>
-                            <li><span class="fas fa-angle-right"></span></li>
-                            <li>Ocean Safari</li>
-                        </ul>
-                    </div>
+        <!-- ══════════════ VIDEO HERO ══════════════ -->
+        <section class="os-video-hero">
+
+            <!-- Videos (4 clips, reproducción aleatoria vía JS) -->
+            <video class="os-video-hero__video" id="os-hero-video"
+                   autoplay muted playsinline preload="auto">
+                <source src="assets/videos/ocean-safari-1.mp4" type="video/mp4">
+            </video>
+
+            <!-- Overlay oscuro para legibilidad -->
+            <div class="os-video-hero__overlay"></div>
+
+            <!-- Contenido centrado -->
+            <div class="os-video-hero__content">
+                <p class="os-video-hero__label">Biosfera Bahía Turquesa</p>
+                <h1 class="os-video-hero__title">Ocean Safari</h1>
+                <p class="os-video-hero__tagline">Sal al mar y déjate sorprender.<br>El océano siempre tiene algo que regalarte.</p>
+                <div class="os-video-hero__dots" id="os-hero-dots">
+                    <span class="os-hero-dot active" data-index="0"></span>
+                    <span class="os-hero-dot" data-index="1"></span>
+                    <span class="os-hero-dot" data-index="2"></span>
+                    <span class="os-hero-dot" data-index="3"></span>
                 </div>
             </div>
+
+            <!-- Flecha scroll down -->
+            <div class="os-video-hero__scroll">
+                <i class="fa fa-chevron-down"></i>
+            </div>
+
         </section>
 
         <!-- ══════════════ EXPERIENCE INTRO + AVAILABILITY FORM ══════════════ -->
@@ -488,44 +715,53 @@
                                 <div class="os-feature-item">
                                     <div class="os-feature-icon"><i class="fa fa-clock"></i></div>
                                     <div class="os-feature-text">
-                                        <strong>3 Horas de Expedición</strong>
-                                        <span>Recorrido completo por los mejores puntos de la bahía</span>
+                                        <strong>6 Horas de Safari</strong>
+                                        <span>Expedición completa por los mejores puntos de la bahía y mar abierto</span>
                                     </div>
                                 </div>
                                 <div class="os-feature-item">
                                     <div class="os-feature-icon"><i class="fa fa-fish"></i></div>
                                     <div class="os-feature-text">
-                                        <strong>Delfines &amp; Mantas Rayas</strong>
-                                        <span>Avistamiento de vida marina en estado salvaje</span>
+                                        <strong>Vida Marina Silvestre</strong>
+                                        <span>Ballenas, delfines, orcas, mobulas y lobos marinos según temporada</span>
                                     </div>
                                 </div>
                                 <div class="os-feature-item">
                                     <div class="os-feature-icon"><i class="fa fa-water"></i></div>
                                     <div class="os-feature-text">
                                         <strong>Snorkel Incluido</strong>
-                                        <span>Equipo completo para explorar arrecifes coralinos</span>
+                                        <span>Equipo completo de snorkel para explorar el mundo submarino</span>
                                     </div>
                                 </div>
                                 <div class="os-feature-item">
                                     <div class="os-feature-icon"><i class="fa fa-shield-alt"></i></div>
                                     <div class="os-feature-text">
                                         <strong>Guía Certificado</strong>
-                                        <span>Equipo de seguridad y chaleco salvavidas incluidos</span>
+                                        <span>Guía marino experto, chaleco salvavidas y equipo de seguridad</span>
+                                    </div>
+                                </div>
+                                <div class="os-feature-item">
+                                    <div class="os-feature-icon"><i class="fa fa-utensils"></i></div>
+                                    <div class="os-feature-text">
+                                        <strong>Snacks y Comida</strong>
+                                        <span>Alimentación incluida durante toda la expedición</span>
                                     </div>
                                 </div>
                                 <div class="os-feature-item">
                                     <div class="os-feature-icon"><i class="fa fa-users"></i></div>
                                     <div class="os-feature-text">
                                         <strong>Máx. 10 Personas</strong>
-                                        <span>Grupos pequeños para una experiencia íntima y segura</span>
+                                        <span>Grupos pequeños para una experiencia íntima y cercana</span>
                                     </div>
                                 </div>
-                                <div class="os-feature-item">
-                                    <div class="os-feature-icon"><i class="fa fa-leaf"></i></div>
-                                    <div class="os-feature-text">
-                                        <strong>Turismo Responsable</strong>
-                                        <span>Operamos bajo protocolos de conservación marina</span>
-                                    </div>
+                            </div>
+
+                            <!-- Safari nature note -->
+                            <div class="os-safari-note">
+                                <div class="os-safari-note__icon"><i class="fa fa-compass"></i></div>
+                                <div class="os-safari-note__text">
+                                    <strong>Esto es un safari en el mar</strong>
+                                    <span>Salimos a explorar la naturaleza en su estado más puro. Los avistamientos dependen de la temporada y de lo que el mar decida regalarnos ese día. Cada salida es única e irrepetible — venimos a disfrutar, a maravillarnos y a agradecer lo que el océano nos comparta.</span>
                                 </div>
                             </div>
 
@@ -534,12 +770,8 @@
                                 <h4><i class="fa fa-ship" style="margin-right:8px;"></i>Horarios de Salida</h4>
                                 <div class="os-departure-times">
                                     <div class="os-departure-slot">
-                                        8:00 AM
-                                        <small>Salida matutina</small>
-                                    </div>
-                                    <div class="os-departure-slot">
-                                        2:00 PM
-                                        <small>Salida vespertina</small>
+                                        7:00 AM
+                                        <small>Salida única diaria</small>
                                     </div>
                                 </div>
                             </div>
@@ -573,8 +805,8 @@
                                     </div>
                                     <div class="os-exp-card-meta">
                                         <span><i class="fa fa-users"></i> <span id="os-exp-cap">Máx. 10 personas</span></span>
-                                        <span><i class="fa fa-clock"></i> 3 horas</span>
-                                        <span><i class="fa fa-ship"></i> 2 salidas/día</span>
+                                        <span><i class="fa fa-clock"></i> 6 horas</span>
+                                        <span><i class="fa fa-ship"></i> 1 salida/día</span>
                                     </div>
                                 </div>
 
@@ -781,7 +1013,7 @@
                                     <li><a href="rooms.html">Eco Glamping</a></li>
                                     <li><a href="ocean-safari.html">Ocean Safari</a></li>
                                     <li><a href="places.html">Tours Locales</a></li>
-                                    <li><a href="services.html">Snorkel</a></li>
+                                    <li><a href="snorkel-bt.html">Snorkel BT</a></li>
                                     <li><a href="restaurant.html">Restaurante</a></li>
                                 </ul>
                             </div>
@@ -795,13 +1027,13 @@
                                     <li>
                                         <div class="icon"><span class="icon-call"></span></div>
                                         <div class="content">
-                                            <p><a href="tel:+521550000000">+52 155 000 0000</a></p>
+                                            <p><a href="tel:+526121020266">+52 612 102 0266</a></p>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="icon"><span class="icon-mail"></span></div>
                                         <div class="content">
-                                            <p><a href="mailto:hola@biosfera.mx">hola@biosfera.mx</a></p>
+                                            <p><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></p>
                                         </div>
                                     </li>
                                     <li>
@@ -842,8 +1074,8 @@
             </div>
             <div class="mobile-nav__container"></div>
             <ul class="mobile-nav__contact list-unstyled">
-                <li><i class="fa fa-envelope"></i><a href="mailto:hola@biosfera.mx">hola@biosfera.mx</a></li>
-                <li><i class="fas fa-phone"></i><a href="tel:+521550000000">+52 155 000 0000</a></li>
+                <li><i class="fa fa-envelope"></i><a href="mailto:info@biosferamx.com">info@biosferamx.com</a></li>
+                <li><i class="fas fa-phone"></i><a href="tel:+526121020266">+52 612 102 0266</a></li>
             </ul>
             <div class="mobile-nav__top">
                 <div class="mobile-nav__social">
@@ -947,13 +1179,28 @@
                     </div>
                 </div>
                 <div class="cal-summary-actions">
-                    <button class="cal-btn-clear" id="cal-clear-btn">&#10005; Cambiar fecha</button>
-                    <button class="thm-btn" id="cal-checkout-btn" type="button">
-                        Ir al Checkout &rarr;
+                    <button class="cal-btn-cart" id="cal-add-cart-btn" type="button">
+                        <i class="fa fa-shopping-cart"></i> Añadir al carrito
+                    </button>
+                    <button class="cal-btn-more" id="cal-more-exp-btn" type="button">
+                        <i class="fa fa-plus"></i> Añadir otra experiencia
                     </button>
                 </div>
             </div>
 
+        </div>
+    </div>
+
+    <!-- Toast de confirmación carrito -->
+    <div id="cart-toast">
+        <span class="toast-icon">🛒</span>
+        <div class="toast-body">
+            <strong>¡Añadido al carrito!</strong>
+            <p id="toast-desc"></p>
+            <div class="toast-actions">
+                <a href="cart.html" class="toast-btn-cart"><i class="fa fa-arrow-right"></i> Ver carrito</a>
+                <a href="index.html#experiencias" class="toast-btn-more">+ Añadir otra</a>
+            </div>
         </div>
     </div>
 
@@ -982,6 +1229,9 @@
     <script src="assets/js/gsap/ScrollTrigger.js"></script>
     <script src="assets/js/gsap/SplitText.js"></script>
     <script src="assets/js/script.js"></script>
+
+    <!-- Carrito compartido -->
+    <script src="assets/js/biosfera-cart.js"></script>
 
     <!-- ══════════════════════════════════════════════════════════
          OCEAN SAFARI — MAIN JS
@@ -1045,7 +1295,7 @@
                     name: 'Ocean Safari',
                     price: 4500,
                     capacity: 10,
-                    description: 'Expedición marina de 3 horas'
+                    description: 'Expedición marina de 6 horas'
                 };
                 renderExpCard();
             } finally {
@@ -1247,25 +1497,52 @@
             summary.classList.add('visible');
         }
 
-        // ── Clear / Checkout ──────────────────────────────────
-        document.getElementById('cal-clear-btn').addEventListener('click', () => {
-            selectedDate = null;
-            summary.classList.remove('visible');
-            hint.textContent = 'Haz clic en un día disponible para seleccionar tu fecha';
-            hint.style.color = '#999';
-            // Remove selection highlight
-            grid.querySelectorAll('.cal-day--selected').forEach(c => c.classList.remove('cal-day--selected'));
-        });
-
-        document.getElementById('cal-checkout-btn').addEventListener('click', () => {
+        // ── Clear ─────────────────────────────────────────────
+        // ── Añadir al carrito ──────────────────────────────────
+        document.getElementById('cal-add-cart-btn').addEventListener('click', () => {
             if (!selectedDate) {
                 hint.textContent = 'Selecciona una fecha antes de continuar.';
                 hint.style.color = '#e53935';
                 return;
             }
-            showSummary(); // ensure localStorage is fresh
-            window.location.href = 'experience-checkout.html';
+            showSummary(); // refresca localStorage legacy
+
+            const price = experience ? experience.price : 4500;
+            const total = price * guestsCount;
+
+            BiosferaCart.add({
+                type:            'OCEAN_SAFARI',
+                icon:            '🐬',
+                name:            'Ocean Safari',
+                subtitle:        'Mar · 6 hrs · Salida 7:00 AM',
+                experienceId:    experience ? experience.id : null,
+                date:            selectedDate,
+                dateFormatted:   fmtDate(selectedDate),
+                guests:          guestsCount,
+                pricePerSession: price,
+                total:           total,
+                capacity:        experience ? experience.capacity : 10
+            });
+
+            // Mostrar toast
+            document.getElementById('toast-desc').textContent =
+                `${fmtDate(selectedDate)} · ${guestsCount} persona${guestsCount !== 1 ? 's' : ''} · $${fmt(total)} MXN`;
+            showToast();
         });
+
+        // ── Añadir otra experiencia ────────────────────────────
+        document.getElementById('cal-more-exp-btn').addEventListener('click', () => {
+            window.location.href = 'index.html#experiencias';
+        });
+
+        // ── Toast helpers ──────────────────────────────────────
+        let toastTimer = null;
+        function showToast() {
+            const toast = document.getElementById('cart-toast');
+            toast.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 5000);
+        }
 
         // ── Helpers ───────────────────────────────────────────
         function pad(n)    { return String(n).padStart(2, '0'); }
@@ -1339,6 +1616,62 @@
         } else {
             authBox.innerHTML = `<a href="login.html" class="thm-btn">Iniciar sesión</a>`;
         }
+    })();
+    </script>
+
+    <!-- ══════════════ VIDEO HERO — rotación aleatoria ══════════════ -->
+    <script>
+    (function () {
+        const videos = [
+            'assets/videos/ocean-safari-1.mp4',
+            'assets/videos/ocean-safari-2.mp4',
+            'assets/videos/ocean-safari-3.mp4',
+            'assets/videos/ocean-safari-4.mp4'
+        ];
+
+        // Orden aleatorio al cargar la página
+        const shuffled = videos.slice().sort(() => Math.random() - 0.5);
+
+        const videoEl = document.getElementById('os-hero-video');
+        const dots    = document.querySelectorAll('.os-hero-dot');
+        let current   = 0;
+
+        // Mapear posición shuffled → índice dot (mantener dot 0 como primer video mostrado)
+        function setDot(idx) {
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+
+        // Clic en dots → saltar a ese video
+        dots.forEach(dot => {
+            dot.addEventListener('click', function () {
+                const idx = parseInt(this.dataset.index);
+                playVideo(idx);
+            });
+        });
+
+        function playVideo(idx) {
+            current = idx;
+            videoEl.classList.add('os-video-fade');
+            setTimeout(() => {
+                videoEl.querySelector('source').src = shuffled[idx];
+                videoEl.load();
+                videoEl.play().catch(() => {});
+                videoEl.classList.remove('os-video-fade');
+                setDot(idx);
+            }, 400);
+        }
+
+        // Al terminar cada video, pasar al siguiente
+        videoEl.addEventListener('ended', function () {
+            const next = (current + 1) % shuffled.length;
+            playVideo(next);
+        });
+
+        // Arrancar con el primer video del orden aleatorio
+        videoEl.querySelector('source').src = shuffled[0];
+        videoEl.load();
+        videoEl.play().catch(() => {});
+        setDot(0);
     })();
     </script>
 
